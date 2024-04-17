@@ -1,0 +1,7 @@
+site_name: Hylé Developer Hub
+theme:
+  name: material
+  palette:
+    primary: custom
+extra_css:
+  - stylesheets/extra.css
