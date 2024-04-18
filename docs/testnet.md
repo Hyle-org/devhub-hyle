@@ -1,0 +1,3 @@
+# Wen testnet ?
+
+Soon&trade;.

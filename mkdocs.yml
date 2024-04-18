@@ -1,7 +1,19 @@
 site_name: Hylé Developer Hub
 theme:
   name: material
+  logo: assets/logo.png
   palette:
     primary: custom
 extra_css:
   - stylesheets/extra.css
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+copyright: Copyright &copy; 2024 Hylé
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: http://github.com/hyle-org/hyle
+    - icon: fontawesome/brands/twitter
+      link: http://twitter.com/hyle_org
