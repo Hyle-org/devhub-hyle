@@ -7,4 +7,4 @@ build:
 	python3 -m mkdocs build
 
 deploy:
-	python3 -m mkdocs gh-deploy
+	python3 -m mkdocs gh-deploy --force
