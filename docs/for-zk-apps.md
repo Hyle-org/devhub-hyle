@@ -8,10 +8,6 @@ TODO: schema of the different actors in a ZK game ecosystem.
 
 See [Your First Smart Contract](your-first-smart-contract.md) for details.
 
-### Interacting with Hylé
-
-TODO: anatomy of a transaction, ABI of a state diff
-
 ### Bring your own accounts
 
 See [Hylé for Identity Providers](for-identity-providers.md)

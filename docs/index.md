@@ -11,7 +11,7 @@ X [@hyle_org](http://twitter.com/hyle_org) // Farcaster [@hyle-org](https://warp
 ## Starting point
 
 - [Hylé for ZKApps](for-zk-apps.md) 
-- Hylé for coprocessors
+- Hylé for RAAS & ZK Coprocessors
 - [Hylé for identity providers & wallets](for-identity-providers.md)
 
 ## Useful links
