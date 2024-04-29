@@ -18,4 +18,3 @@ make build # or make install
 You can then get a list of commands with `hyled help`.
 
 TODO: write some additional useful commands here
-
