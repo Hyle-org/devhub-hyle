@@ -19,6 +19,25 @@ TODO: specify transaction format, ABI, etc.
 The simplest way to interact with Hylé is using `hyled`, the cosmos-SDK powered CLI.
 Simply follow the [installation instructions](hyled-install-instructions.md).
 
+### Configure your environment:
+```bash
+./scripts/configure.sh # to setup connection with nodes
+./hyled keys add my-key # to create your key
+```
+### Claim some HYLE token on the faucet with your newly created address:
+```bash
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"denom":"hyle","address":"<your_public_address>"}' \
+  https://faucet.testnet.hyle.eu/credit
+```
+### Check your balance:
+```bash
+./hyled query bank balance <your_public_address> hyle
+```
+You can also visit `https://explorer.hyle.eu/hyle/account/<your_public_address>`
+
+
 ### Registering your smart contract
 
 Hylé smart contracts are made of:
@@ -33,6 +52,9 @@ To register a contract on-chain, simply run the following command:
 hyled tx zktx register [owner] [contract_name] [verifier] [program_id] [state_digest]
 ```
 
+
+You can check on Hyle's explorer to see your transaction:
+`https://explorer.hyle.eu/hyle/tx/hash_of_your_tx`
 ### Interacting with Hylé
 
 Once your contract has been registered, you can send valid proofs of state transition to permissionlessly update the contract.
