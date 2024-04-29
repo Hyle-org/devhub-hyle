@@ -376,6 +376,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Interacting with Hylé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-transitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      State transitions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification only
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -446,6 +470,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Interacting with Hylé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#state-transitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      State transitions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verification only
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -464,36 +512,49 @@
 
 
 <h1 id="your-first-smart-contract">Your first smart contract</h1>
-<p>Hylé is not currently in <a href="../testnet/">testnet</a>, but we'll be soon !</p>
+<p>Our initial experimental <a href="../testnet/">testnet</a> is now live !</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Hylé API is very much a POC for now, and everything here will change and improve
-In particular, requiring signers will soon be changed.</p>
+<p>The Hylé API is very much a POC for now, and everything here will change and improve.</p>
 </div>
 <h3 id="coding-your-smart-contract">Coding your smart contract</h3>
-<p>You can use any zkVM or proving scheme supported by Hylé, which are currently:
-- groth16
-- risc0</p>
+<p>You can use any zkVM or proving scheme supported by Hylé, which are currently:</p>
+<ul>
+<li>groth16 (using gnark and BN254)</li>
+<li>risc0</li>
+</ul>
 <p>TODO: specify transaction format, ABI, etc.</p>
 <h3 id="installing-the-hyle-cli-tool">Installing the Hylé CLI tool</h3>
 <p>The simplest way to interact with Hylé is using <code>hyled</code>, the cosmos-SDK powered CLI.
 Simply follow the <a href="../hyled-install-instructions/">installation instructions</a>.</p>
 <h3 id="registering-your-smart-contract">Registering your smart contract</h3>
-<p>Hylé smart contracts are made of:
-- a Name, which must be unique
-- a tuple of (verifier, program_id) which identifies the smart contract. The <code>verifier</code> is the proof system (currently either "risczero" or "groth16-twistededwards-BN254"), and the <code>program_id</code> is the unique identifier of the program in that proof system, either the image ID in risczero of the verifying key in groth16 circuits.
-- a state digest, holding the current state commitment of the contract. This can be any type of state commitment you want, and can currently be any size you want (this will have fee implications in the future)</p>
+<p>Hylé smart contracts are made of:</p>
+<ul>
+<li>a Name, which must be unique</li>
+<li>a tuple of (verifier, program_id) which identifies the smart contract. The <code>verifier</code> is the proof system (currently either "risczero" or "gnark-groth16-te-BN254"), and the <code>program_id</code> is the unique identifier of the program in that proof system, either the image ID in risczero of the verifying key in groth16 circuits.</li>
+<li>a state digest, holding the current state commitment of the contract. This can be any type of state commitment you want, and can currently be any size you want (this will have fee implications in the future)</li>
+</ul>
 <p>To register a contract on-chain, simply run the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Owner is the address of the contract owner, which must match the transaction signer for now.</span>
 hyled<span class="w"> </span>tx<span class="w"> </span>zktx<span class="w"> </span>register<span class="w"> </span><span class="o">[</span>owner<span class="o">]</span><span class="w"> </span><span class="o">[</span>contract_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>verifier<span class="o">]</span><span class="w"> </span><span class="o">[</span>program_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>state_digest<span class="o">]</span>
 </code></pre></div>
+<p>You can check on Hyle's explorer to see your transaction:<br />
+<code>https://explorer.hyle.eu/hyle/tx/$TXHASH</code><br />
+Your contract state is visible at:<br />
+<code>https://explorer.hyle.eu/hyle/cosmwasm/0/transactions?contract=$CONTRACT_NAME</code></p>
 <h3 id="interacting-with-hyle">Interacting with Hylé</h3>
+<h4 id="state-transitions">State transitions</h4>
 <p>Once your contract has been registered, you can send valid proofs of state transition to permissionlessly update the contract.</p>
 <p>Note that the proofs must be "full", i.e. including the output of the computation.
 This allows contracts to specify if the full state diff must be provided, which enables DA on the Hylé chain.
 For private computations, you can simply provide a proof of state commitment transitions.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Signer is the address of the transaction signer.</span>
 hyled<span class="w"> </span>tx<span class="w"> </span>zktx<span class="w"> </span>execute<span class="w"> </span><span class="o">[</span>contract_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>receipt<span class="o">]</span><span class="w"> </span><span class="o">[</span>initial_state<span class="o">]</span><span class="w"> </span><span class="o">[</span>final_state<span class="o">]</span><span class="w"> </span><span class="o">[</span>signer<span class="o">]</span>
+</code></pre></div>
+<h4 id="verification-only">Verification only</h4>
+<p>Hyle also supports verification-only transactions, which can be used to verify a proof without updating the state.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Signer is the address of the transaction signer.</span>
+hyled<span class="w"> </span>tx<span class="w"> </span>zktx<span class="w"> </span>verify<span class="w"> </span><span class="o">[</span>contract_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>receipt<span class="o">]</span><span class="w"> </span><span class="o">[</span>signer<span class="o">]</span>
 </code></pre></div>
 
 
