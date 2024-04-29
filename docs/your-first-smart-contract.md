@@ -28,14 +28,14 @@ Simply follow the [installation instructions](hyled-install-instructions.md).
 ```bash
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"denom":"hyle","address":"<your_public_address>"}' \
+  --data '{"denom":"hyle","address":"$ADDRESS"}' \
   https://faucet.testnet.hyle.eu/credit
 ```
 ### Check your balance:
 ```bash
-./hyled query bank balance <your_public_address> hyle
+./hyled query bank balance $ADDRESS hyle
 ```
-You can also visit `https://explorer.hyle.eu/hyle/account/<your_public_address>`
+You can also visit `https://explorer.hyle.eu/hyle/account/$ADDRESS`
 
 
 ### Registering your smart contract
@@ -54,7 +54,7 @@ hyled tx zktx register [owner] [contract_name] [verifier] [program_id] [state_di
 
 
 You can check on Hyle's explorer to see your transaction:
-`https://explorer.hyle.eu/hyle/tx/hash_of_your_tx`
+`https://explorer.hyle.eu/hyle/tx/$TXHASH`
 ### Interacting with Hylé
 
 Once your contract has been registered, you can send valid proofs of state transition to permissionlessly update the contract.
