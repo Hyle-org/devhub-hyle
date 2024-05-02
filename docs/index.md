@@ -10,9 +10,14 @@ X [@hyle_org](http://twitter.com/hyle_org) // Farcaster [@hyle-org](https://warp
 
 ## Starting point
 
-- [Hylé for ZKApps](for-zk-apps.md) 
-- Hylé for RAAS & ZK Coprocessors
-- [Hylé for identity providers & wallets](for-identity-providers.md)
+1. Check out how to [install the CLI](getting-started/hyled-install-instructions.md)
+2. Learn how to [create your first smart contract](getting-started/your-first-smart-contract.md)
+
+## Read about our use cases
+- [Hylé for ZKApps](use-cases/for-zk-apps.md) 
+- [Hylé for identity providers & wallets](use-cases/for-identity-providers.md)
+- Hylé for RAAS & ZK Coprocessors (coming soon)
+- ...
 
 ## Useful links
 

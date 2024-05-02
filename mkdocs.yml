@@ -2,8 +2,12 @@ site_name: Hylé Developer Hub
 theme:
   name: material
   logo: assets/logo.png
+  favicon: assets/logo.png
   palette:
     primary: custom
+  features:
+    - navigation.indexes
+    - navigation.expand
 extra_css:
   - stylesheets/extra.css
 markdown_extensions:
@@ -17,3 +21,6 @@ extra:
       link: http://github.com/hyle-org/hyle
     - icon: fontawesome/brands/twitter
       link: http://twitter.com/hyle_org
+plugins:
+    - search
+    - awesome-pages

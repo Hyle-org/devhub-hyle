@@ -6,7 +6,7 @@ TODO: schema of the different actors in a ZK game ecosystem.
 
 ### Registering your smart contract
 
-See [Your First Smart Contract](your-first-smart-contract.md) for details.
+See [Your First Smart Contract](../getting-started/your-first-smart-contract.md) for details.
 
 ### Bring your own accounts
 

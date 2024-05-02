@@ -5,5 +5,20 @@ This repository contain the source of the Hylé Developer Hub.
 Current status: extreme WIP.
 
 ### Installation
-To run, you need [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). Follow their installation guide.
-You can also use the makefile commands `make serve`, `make build` and `make deploy`.
+To run, you need [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).  
+Follow their installation guide, then install the [page](https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin) plugin:
+```sh
+pip3 install mkdocs-awesome-pages-plugin
+```
+
+#### Dev mode
+This will watch and serve the docs at http://localhost:8000:
+```sh
+mkdocs serve
+```
+
+#### Build & Deployment
+```sh
+make build
+make deploy # You need github write access
+```
