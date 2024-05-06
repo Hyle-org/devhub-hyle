@@ -1,5 +1,5 @@
 ---
-title: Welcome to the Hylé developer docs
+title: Home
 description: Hylé is your minimal layer one, focused only on verifying zero-knowledge proofs. This is your developer documentation.
 ---
 
@@ -21,7 +21,7 @@ With Hylé, you can build permissionless zk-applications and still decide if you
 
 Hylé comes with identity abstraction, making it easy and seamless to manage all account types: EOA, smart wallets, and more. Better yet, our native Name System is much more human-friendly than the usual raw hexadecimal addresses. Hylé addresses can be made of multiple parts, enabling bridgeless cross-chain composability down the line.
 
-![](../assets/general-diagrams/Hylé_main_diagram_-_large.svg)
+![Diagram of the different steps coming before Hylé settlement.](./assets/img/main-diagram-large-detailed.svg)
 
 For more information, [check out our website](https://hyle.eu).
 
