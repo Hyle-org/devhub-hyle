@@ -1,8 +1,8 @@
 # Hylé developer hub
 
-This repository contain the source of the Hylé Developer Hub.
+This repository contain the source of the [Hylé Developer Hub](https://docs.hyle.eu/).
 
-Current status: extreme WIP.
+**Current status**: stub.
 
 ### Installation
 To run, you need [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).  
