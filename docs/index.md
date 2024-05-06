@@ -1,4 +1,9 @@
-# Welcome to Hylé
+---
+title: Welcome to the Hylé developer docs
+description: Homepage for developers. Hylé is your minimal layer one, focused only on verifying zero-knowledge proofs.
+---
+
+# Welcome to the Hylé developer docs
 
 !!! note
     This developer portal and the project itself are still in early development. See below on how to reach out to us if you need anything that isn't here.
