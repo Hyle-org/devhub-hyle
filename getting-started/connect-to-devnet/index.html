@@ -249,6 +249,8 @@
       
         
       
+        
+      
     
     
     
@@ -322,6 +324,27 @@
   
   <span class="md-ellipsis">
     Data Availability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/supported-proving-schemes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supported proving schemes
   </span>
   
 
@@ -471,28 +494,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-your-wallet-on-our-public-devnet" class="md-nav__link">
+  <a href="#create-your-wallet-on-our-public-devnet" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating your wallet on our public devnet
+      Create your wallet on our public devnet
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Creating your wallet on our public devnet">
+    <nav class="md-nav" aria-label="Create your wallet on our public devnet">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#configure-your-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure your environment:
+      Configure your environment
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#claim-some-hyle-token-on-the-faucet-with-your-newly-created-address" class="md-nav__link">
+  <a href="#claim-hyle-tokens-on-the-faucet-with-your-newly-created-address" class="md-nav__link">
     <span class="md-ellipsis">
-      Claim some HYLE token on the faucet with your newly created address:
+      Claim HYLE tokens on the faucet with your newly created address
     </span>
   </a>
   
@@ -501,7 +524,7 @@
           <li class="md-nav__item">
   <a href="#check-your-balance" class="md-nav__link">
     <span class="md-ellipsis">
-      Check your balance:
+      Check your balance
     </span>
   </a>
   
@@ -691,28 +714,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-your-wallet-on-our-public-devnet" class="md-nav__link">
+  <a href="#create-your-wallet-on-our-public-devnet" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating your wallet on our public devnet
+      Create your wallet on our public devnet
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Creating your wallet on our public devnet">
+    <nav class="md-nav" aria-label="Create your wallet on our public devnet">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#configure-your-environment" class="md-nav__link">
     <span class="md-ellipsis">
-      Configure your environment:
+      Configure your environment
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#claim-some-hyle-token-on-the-faucet-with-your-newly-created-address" class="md-nav__link">
+  <a href="#claim-hyle-tokens-on-the-faucet-with-your-newly-created-address" class="md-nav__link">
     <span class="md-ellipsis">
-      Claim some HYLE token on the faucet with your newly created address:
+      Claim HYLE tokens on the faucet with your newly created address
     </span>
   </a>
   
@@ -721,7 +744,7 @@
           <li class="md-nav__item">
   <a href="#check-your-balance" class="md-nav__link">
     <span class="md-ellipsis">
-      Check your balance:
+      Check your balance
     </span>
   </a>
   
@@ -757,36 +780,38 @@
 
 
 <h1 id="connect-to-the-public-devnet">Connect to the public devnet</h1>
-<p>Hylé provides a public devnet for developers to test their applications.</p>
+<p>Hylé provides a public devnet where you can test your applications.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We currently make no guarantees on the public devnet stability. It can be reset at any time.
 We will keep this page updated with the latest information.</p>
 </div>
-<h2 id="creating-your-wallet-on-our-public-devnet">Creating your wallet on our public devnet</h2>
-<h4 id="configure-your-environment">Configure your environment:</h4>
+<h2 id="create-your-wallet-on-our-public-devnet">Create your wallet on our public devnet</h2>
+<h4 id="configure-your-environment">Configure your environment</h4>
 <div class="highlight"><pre><span></span><code><span class="c1"># This script automatically sets up the devnet configuration</span>
 ./scripts/configure.sh
 <span class="c1"># Create yourprivate key, you can name it however you want</span>
 ./hyled<span class="w"> </span>keys<span class="w"> </span>add<span class="w"> </span>my-key
 <span class="nb">export</span><span class="w"> </span><span class="nv">ADDRESS</span><span class="o">=</span><span class="k">$(</span>./hyled<span class="w"> </span>keys<span class="w"> </span>show<span class="w"> </span>my-key<span class="w"> </span>-a<span class="k">)</span><span class="w"> </span><span class="c1"># for convenience</span>
 </code></pre></div>
-<h4 id="claim-some-hyle-token-on-the-faucet-with-your-newly-created-address">Claim some HYLE token on the faucet with your newly created address:</h4>
+<h4 id="claim-hyle-tokens-on-the-faucet-with-your-newly-created-address">Claim HYLE tokens on the faucet with your newly created address</h4>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>--header<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--request<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--data<span class="w"> </span><span class="s2">&quot;{\&quot;denom\&quot;:\&quot;hyle\&quot;,\&quot;address\&quot;:\&quot;</span><span class="nv">$ADDRESS</span><span class="s2">\&quot;}&quot;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>https://faucet.devnet.hyle.eu/credit
 </code></pre></div>
-<h4 id="check-your-balance">Check your balance:</h4>
+<h4 id="check-your-balance">Check your balance</h4>
 <p><div class="highlight"><pre><span></span><code>./hyled<span class="w"> </span>query<span class="w"> </span>bank<span class="w"> </span>balance<span class="w"> </span><span class="nv">$ADDRESS</span><span class="w"> </span>hyle
 </code></pre></div>
 You can also visit <code>https://explorer.hyle.eu/hyle/account/$ADDRESS</code></p>
 <h2 id="urls">URLs</h2>
-<p>Explorer: <a href="https://explorer.hyle.eu/">https://explorer.hyle.eu/</a><br />
-Faucet: <a href="https://faucet.devnet.hyle.eu/">https://faucet.devnet.hyle.eu/</a><br />
-REST: <a href="https://api.devnet.hyle.eu/">https://api.devnet.hyle.eu/</a><br />
-RPC: <a href="https://rpc.devnet.hyle.eu/">https://rpc.devnet.hyle.eu/</a><br />
-CometBFT: <a href="https://cometbft.devnet.hyle.eu/">https://cometbft.devnet.hyle.eu/</a>  </p>
+<ul>
+<li>Explorer: <a href="https://explorer.hyle.eu/">https://explorer.hyle.eu/</a>  </li>
+<li>Faucet: <a href="https://faucet.devnet.hyle.eu/">https://faucet.devnet.hyle.eu/</a>  </li>
+<li>REST: <a href="https://api.devnet.hyle.eu/">https://api.devnet.hyle.eu/</a>  </li>
+<li>RPC: <a href="https://rpc.devnet.hyle.eu/">https://rpc.devnet.hyle.eu/</a>  </li>
+<li>CometBFT: <a href="https://cometbft.devnet.hyle.eu/">https://cometbft.devnet.hyle.eu/</a>  </li>
+</ul>
 
 
 
