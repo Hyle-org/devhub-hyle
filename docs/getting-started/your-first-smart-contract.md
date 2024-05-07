@@ -7,7 +7,7 @@ Our public [devnet](connect-to-devnet.md) is now live!
 
 ### Coding your smart contract
 
-You can use [any zkVM or proving scheme supported by Hylé](/about/supported-proving-schemes.md).
+You can use [any zkVM or proving scheme supported by Hylé](../about/supported-proving-schemes.md).
 
 <!--TODO: specify transaction format, ABI, etc.-->
 
