@@ -3,3 +3,4 @@ nav:
     - hyled-install-instructions.md
     - connect-to-devnet.md
     - your-first-smart-contract.md
+    - collatz-example-in-depth.md

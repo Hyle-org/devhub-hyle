@@ -17,6 +17,6 @@ Supported:
 Upcoming:
 
 - Cairo
-  - Starknet
+  - Starknet OS
 - SP1
 - PlonK
