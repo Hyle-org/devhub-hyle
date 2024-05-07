@@ -245,6 +245,10 @@
           
         
       
+        
+      
+        
+      
     
     
     
@@ -269,6 +273,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
@@ -278,6 +287,48 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/anatomy-smart-contracts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Anatomy of a smart contract
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/data-availability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Availability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -655,20 +706,21 @@
 <p>The simplest way to interact with Hylé is using <code>hyled</code>, the cosmos-SDK powered CLI.</p>
 <p>Simply clone the <a href="https://github.com/Hyle-org/hyle">Hylé repository</a> and install it.</p>
 <h2 id="mac-linux-windows-with-wsl">Mac, Linux, Windows with WSL</h2>
-<p>You will need to have installed <code>make</code> and <code>go</code>, v1.20 and above, on your system</p>
+<p>You will need to have installed <code>make</code> and <code>go</code>, v1.20 and above, on your system.</p>
 <p>Here are the commands:
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Hyle-org/hyle.git
 <span class="nb">cd</span><span class="w"> </span>hyle
 make<span class="w"> </span>build<span class="w"> </span><span class="c1"># or make install</span>
 </code></pre></div></p>
 <p>You can then get a list of commands with <code>hyled help</code>.</p>
-<p>TODO: write some additional useful commands here</p>
+<!--TODO: write some additional useful commands here-->
+
 <h3 id="running-a-devnet">Running a devnet</h3>
-<p>Simply run
+<p>Run:</p>
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>init<span class="w"> </span><span class="c1"># This resets the blockchain data</span>
 ./hyled<span class="w"> </span>start
 </code></pre></div>
-Your node should start from block 0. Note that it persists data in a folder named <code>hyled-data</code> in the current working directory by default.</p>
+<p>Your node should start from block 0. Note that it persists data in a folder named <code>hyled-data</code> in the current working directory by default.</p>
 
 
 
