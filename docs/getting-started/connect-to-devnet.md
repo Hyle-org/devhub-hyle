@@ -1,13 +1,14 @@
 # Connect to the public devnet
 
-Hylé provides a public devnet for developers to test their applications.
+Hylé provides a public devnet where you can test your applications.
 
 !!!note
     We currently make no guarantees on the public devnet stability. It can be reset at any time.
     We will keep this page updated with the latest information.
 
-## Creating your wallet on our public devnet
-#### Configure your environment:
+## Create your wallet on our public devnet
+
+#### Configure your environment
 ```bash
 # This script automatically sets up the devnet configuration
 ./scripts/configure.sh
@@ -16,14 +17,14 @@ Hylé provides a public devnet for developers to test their applications.
 export ADDRESS=$(./hyled keys show my-key -a) # for convenience
 ```
 
-#### Claim some HYLE token on the faucet with your newly created address:
+#### Claim HYLE tokens on the faucet with your newly created address
 ```bash
 curl --header "Content-Type: application/json" \
   --request POST \
   --data "{\"denom\":\"hyle\",\"address\":\"$ADDRESS\"}" \
   https://faucet.devnet.hyle.eu/credit
 ```
-#### Check your balance:
+#### Check your balance
 ```bash
 ./hyled query bank balance $ADDRESS hyle
 ```
@@ -31,8 +32,8 @@ You can also visit `https://explorer.hyle.eu/hyle/account/$ADDRESS`
 
 ## URLs
 
-Explorer: [https://explorer.hyle.eu/](https://explorer.hyle.eu/)  
-Faucet: [https://faucet.devnet.hyle.eu/](https://faucet.devnet.hyle.eu/)  
-REST: [https://api.devnet.hyle.eu/](https://api.devnet.hyle.eu/)  
-RPC: [https://rpc.devnet.hyle.eu/](https://rpc.devnet.hyle.eu/)  
-CometBFT: [https://cometbft.devnet.hyle.eu/](https://cometbft.devnet.hyle.eu/)  
+- Explorer: [https://explorer.hyle.eu/](https://explorer.hyle.eu/)  
+- Faucet: [https://faucet.devnet.hyle.eu/](https://faucet.devnet.hyle.eu/)  
+- REST: [https://api.devnet.hyle.eu/](https://api.devnet.hyle.eu/)  
+- RPC: [https://rpc.devnet.hyle.eu/](https://rpc.devnet.hyle.eu/)  
+- CometBFT: [https://cometbft.devnet.hyle.eu/](https://cometbft.devnet.hyle.eu/)  

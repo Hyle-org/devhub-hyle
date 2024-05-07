@@ -22,6 +22,7 @@ You can then get a list of commands with `hyled help`.
 ### Running a devnet
 
 Run:
+
 ```bash
 make init # This resets the blockchain data
 ./hyled start
