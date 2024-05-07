@@ -10,9 +10,7 @@ description: Hylé is your minimal layer one, focused only on verifying zero-kno
 
 [Hylé](https://www.hyle.eu/) is your minimal layer one, focused only on verifying zero-knowledge proofs.
 
-By combining **zero-knowledge proof** and **blockchain**, you only need to verify the proof and update the state diffs on-chain. Execution and storage happen anywhere you like.
-
-You only need a fast and trustworthy verifier: that’s **Hylé**.
+By sending a simple proof to be verified on Hylé, you can build a fully off-chain application powered by ZKPs that still has the security guarantees of the blockchain.
 
 - Hylé only verifies zero-knowledge proofs: settlement is all you need.
 - Hylé uses minimal storage: we only store the source of truth and our nodes are very light.
