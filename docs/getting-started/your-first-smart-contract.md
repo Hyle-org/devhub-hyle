@@ -1,6 +1,6 @@
 # Your first smart contract
 
-Our public [devnet](connect-to-devnet.md) is now live !
+Our public [devnet](connect-to-devnet.md) is now live!
 
 !!! warning
     The Hylé API is currently a basic proof of concept. Everything here will change and improve.

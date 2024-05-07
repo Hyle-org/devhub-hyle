@@ -2,7 +2,7 @@
 
 The simplest way to interact with Hylé is using `hyled`, the cosmos-SDK powered CLI.
 
-Simply clone the [Hylé repository](https://github.com/Hyle-org/hyle) and install it.
+Clone the [Hylé repository](https://github.com/Hyle-org/hyle) and install it.
 
 ## Mac, Linux, Windows with WSL
 
