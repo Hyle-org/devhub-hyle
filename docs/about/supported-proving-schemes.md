@@ -9,9 +9,12 @@ This is the list of zero-knowledge proving schemes currently supported by Hylé.
 
 We plan to support all major proving schemes.
 
- - [x] Risc Zero
- - [x] Groth16 (using gnark and BN254)
- - [ ] Cairo
-   - [ ] Starknet
- - [ ] SP1
- - [ ] PlonK
+Supported:
+- Risc Zero
+- Groth16 (using gnark and BN254)
+
+Upcoming:
+- Cairo
+  - Starknet
+- SP1
+- PlonK
