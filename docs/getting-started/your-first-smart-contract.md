@@ -33,14 +33,14 @@ To register a contract on-chain, run the following command:
 hyled tx zktx register [owner] [contract_name] [verifier] [program_id] [state_digest]
 ```
 
-In the case of the Collatz Conjecture program, as RISC Zero programs are identified by their image ID, without a prefix, we use the number `8d1e2161eeac263044fdb880de8fd26dbc436065c689a41a1bf2125af30d6f80`. This will change every time the contract logic is modified.  
+In the case of the Collatz Conjecture program, as RISC Zero programs are identified by their image ID, without a prefix, we use the number `0xb48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b`. This will change every time the contract logic is modified.  
 The initial state is set to "1", so that it can be reset to any number. This is encoded in base 64 as `AAAAAQ==` (because of the rust library used to decode the state).
 
 _NB: this might fail on the public devnet, as the contract name might already exist - try a different name in that case._
 
 ```bash
 # Replace $OWNER with your address
-hyled tx zktx register $OWNER collatz risczero 8d1e2161eeac263044fdb880de8fd26dbc436065c689a41a1bf2125af30d6f80 AAAAAQ==
+hyled tx zktx register $OWNER collatz risczero b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b AAAAAQ==
 ```
 
 You can check on Hylé's explorer to see your transaction:  
