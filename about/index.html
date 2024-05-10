@@ -380,6 +380,8 @@
       
         
       
+        
+      
     
     
     
@@ -474,6 +476,27 @@
   
   <span class="md-ellipsis">
     Your first smart contract
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/collatz-example-in-depth/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Collatz example in depth
   </span>
   
 
@@ -616,6 +639,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-hyle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Hylé?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-it-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does it work?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -630,7 +679,33 @@
 
 
 <h1 id="about-hyle">About Hylé</h1>
-<p>Coming soon.</p>
+<p><a href="https://www.hyle.eu/">Hylé</a> is your minimal layer one, focused only on verifying zero-knowledge proofs.</p>
+<p>By sending a simple proof to be verified on Hylé, you can build a fully off-chain application powered by ZKPs that still has the security guarantees of the blockchain.</p>
+<p><img alt="diagram of a zero knowledge proof, hyle does settlement and consensus but not execution and storage" src="https://assets-global.website-files.com/6602f1114b957961e0b12dc7/660c9ce163593772242cf9a0_diagram_zero-knowledge-proofs.svg" /></p>
+<h2 id="why-hyle">Why Hylé?</h2>
+<ul>
+<li>Leverage the power of zero-knowledge proofs for maximum trustlessness and privacy</li>
+<li>Run complex logic in your smart contracts thanks to off-chain execution</li>
+<li>Lower your storage costs with efficient and trustless storage proofs</li>
+<li>Enjoy better readability with our native on-chain Name System</li>
+<li>Freely create transactions composing private and public inputs</li>
+</ul>
+<p>You can <strong>execute your smart contracts off-chain</strong> anywhere you like, on a rollup, on-premise or even client-side.</p>
+<p>You can <strong>store your data</strong> securely in your backend, IPFS, Arweave or any other long-term solution: Hylé provides the verifiable source of truth for your end user.</p>
+<p>You can choose your proving scheme, your language, your prover, and still get instant finality and enhanced security.</p>
+<h2 id="how-does-it-work">How does it work?</h2>
+<p><img alt="Diagram of the different steps coming before Hylé settlement." src="../assets/img/main-diagram-large-detailed.svg" /></p>
+<p>Using Hylé’s sovereign verification-focused Layer 1, here’s what happens:</p>
+<ol>
+<li>No need for a <strong>verifier contract</strong>: just call the native function.</li>
+<li><strong>Proof generation</strong>: This doesn’t change. Off-chain, the prover generates a zero-knowledge proof of a specific computation.</li>
+<li><strong>Proof submission</strong>: the prover sends the proof and the results of the computation to Hylé’s Layer 1 as part of a transaction.</li>
+<li><strong>Verification</strong>: Hylé validators receive the transaction. They use the native verification programs to check the validity of the proof as fast as possible, without being limited by the bulky virtual machine.</li>
+<li><strong>Consensus and block inclusion</strong>: if the proof is valid, the block producer puts the results of the computation on the Hylé blockchain.</li>
+</ol>
+<p>And that’s it.</p>
+<p>With this system, execution and storage happen anywhere you like, without cost barriers. You only need a fast and trustworthy verifier: that’s Hylé.</p>
+<p>For more information, <a href="https://hyle.eu">check out our website</a>.</p>
 
 
 
