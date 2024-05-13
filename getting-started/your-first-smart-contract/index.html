@@ -845,11 +845,11 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># Owner is the address of the contract owner, which must match the transaction signer for now.</span>
 hyled<span class="w"> </span>tx<span class="w"> </span>zktx<span class="w"> </span>register<span class="w"> </span><span class="o">[</span>owner<span class="o">]</span><span class="w"> </span><span class="o">[</span>contract_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>verifier<span class="o">]</span><span class="w"> </span><span class="o">[</span>program_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>state_digest<span class="o">]</span>
 </code></pre></div>
-<p>In the case of the Collatz Conjecture program, as RISC Zero programs are identified by their image ID, without a prefix, we use the number <code>8d1e2161eeac263044fdb880de8fd26dbc436065c689a41a1bf2125af30d6f80</code>. This will change every time the contract logic is modified.<br />
+<p>In the case of the Collatz Conjecture program, as RISC Zero programs are identified by their image ID, without a prefix, we use the number <code>0xb48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b</code>. This will change every time the contract logic is modified.<br />
 The initial state is set to "1", so that it can be reset to any number. This is encoded in base 64 as <code>AAAAAQ==</code> (because of the rust library used to decode the state).</p>
 <p><em>NB: this might fail on the public devnet, as the contract name might already exist - try a different name in that case.</em></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Replace $OWNER with your address</span>
-hyled<span class="w"> </span>tx<span class="w"> </span>zktx<span class="w"> </span>register<span class="w"> </span><span class="nv">$OWNER</span><span class="w"> </span>collatz<span class="w"> </span>risczero<span class="w"> </span>8d1e2161eeac263044fdb880de8fd26dbc436065c689a41a1bf2125af30d6f80<span class="w"> </span><span class="nv">AAAAAQ</span><span class="o">==</span>
+hyled<span class="w"> </span>tx<span class="w"> </span>zktx<span class="w"> </span>register<span class="w"> </span><span class="nv">$OWNER</span><span class="w"> </span>collatz<span class="w"> </span>risczero<span class="w"> </span>b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b<span class="w"> </span><span class="nv">AAAAAQ</span><span class="o">==</span>
 </code></pre></div>
 <p>You can check on Hylé's explorer to see your transaction:<br />
 <code>https://explorer.Hylé.eu/Hylé/tx/$TXHASH</code> </p>
