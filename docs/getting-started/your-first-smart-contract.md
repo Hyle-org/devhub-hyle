@@ -44,10 +44,10 @@ hyled tx zktx register $OWNER collatz risczero b48e70c79688b41fc8f0daf8370d1ddb3
 ```
 
 You can check on Hylé's explorer to see your transaction:  
-`https://explorer.Hylé.eu/Hylé/tx/$TXHASH` 
+`https://explorer.hyle.eu/Hylé/tx/$TXHASH` 
 
 Your contract state is visible at:  
-`https://explorer.Hylé.eu/Hylé/cosmwasm/0/transactions?contract=$CONTRACT_NAME`
+`https://explorer.hyle.eu/Hylé/cosmwasm/0/transactions?contract=$CONTRACT_NAME`
 
 ### Interacting with Hylé
 
