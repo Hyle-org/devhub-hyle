@@ -18,6 +18,12 @@ For this example, we'll assume you're using the RISC Zero Collatz Conjecture pro
 The simplest way to interact with Hylé is using `hyled`, the cosmos-SDK powered CLI.
 [Follow the installation instructions](hyled-install-instructions.md).
 
+Make sure you have a cosmos Address setup. We recommend also setting it as a variable for convenience.
+Rename `my-key` to whatever you used when creating your key.
+```bash
+export ADDRESS=$(./hyled keys show my-key -a)
+```
+
 ### Registering your smart contract
 
 Hylé smart contracts are made of:
@@ -29,8 +35,8 @@ Hylé smart contracts are made of:
 To register a contract on-chain, run the following command:
 
 ```bash
-# Owner is the address of the contract owner, which must match the transaction signer for now.
-hyled tx zktx register [owner] [contract_name] [verifier] [program_id] [state_digest]
+# Owner is currently unused, but could be used in the future to manage contract permissions
+hyled tx zktx register [owner] [contract_name] [verifier] [program_id] [state_digest] $ADDRESS
 ```
 
 In the case of the Collatz Conjecture program, as RISC Zero programs are identified by their image ID, without a prefix, we use the number `0xb48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b`. This will change every time the contract logic is modified.  
@@ -39,8 +45,7 @@ The initial state is set to "1", so that it can be reset to any number. This is 
 _NB: this might fail on the public devnet, as the contract name might already exist - try a different name in that case._
 
 ```bash
-# Replace $OWNER with your address
-hyled tx zktx register $OWNER collatz risczero b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b AAAAAQ==
+hyled tx zktx register $ADDRESS collatz risczero b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b AAAAAQ== $ADDRESS
 ```
 
 You can check on Hylé's explorer to see your transaction:  
@@ -53,19 +58,19 @@ Your contract state is visible at:
 
 #### Stateful transactions
 Once your contract has been registered, you can send valid proofs of state transition to permissionlessly update the state of the smart contract.
-Hylé requires some specific variables in the output of the proof to process the transaction, namely:
 
-- the initial state
-- the next state
+Hylé requires some specific variables in the output of the proof to process the transaction.  
+Check the [smart contract ABI](./smart-contract-abi.md) for more details.
 
-This will change in the future to include caller address, block timestamp, etc.  
-Other components can also be added, those will not be used by the Hylé protocol but will be provided as part of our [DA](../about/data-availability.md).  
-For private computations, you can simply provide a proof of state commitment transitions.
+Each transaction can include multiple state transitions on multiple contracts. The first such payload is used as the Origin.
+Using the CLI, this is done as follows:
 
 ```bash
-# Signer is the address of the transaction signer.
-hyled tx zktx execute [contract_name] [receipt] [initial_state] [final_state] [signer]
+# cosmos_signer is the address of the transaction signer in the Cosmos SDK
+hyled tx zktx execute [[contract_name] [proof/receipt]] --from [cosmos_signer]
 ```
+
+You can repeat the part between double-brackets as many times as you like, to send multiple state changes.
 
 In the case of the Collatz Conjecture program, we can for example generate a proof of state transition from 1 to 24, and send it to the contract.
 
@@ -75,7 +80,7 @@ cargo run reset 24
 cd ../hyle
 
 # Make sure the name matches the contract you registered
-hyled tx zktx execute collatz ../collatz-contract/proof.json AAAAAQ== AAAAGA== $OWNER
+hyled tx zktx execute collatz ../collatz-contract/proof.json --from $OWNER
 ```
 
 You can then check that the contract was updated onchain by running the command below or checking in the explorer directly.
@@ -89,6 +94,6 @@ hyled query zktx contract collatz
 Hylé supports verification of transactions without state changes. This can be used either to aggregate proofs, or to do other coputations out-of-band or off-chain using the Hylé DA.
 The format is similar to stateful transactions, and you still need a registered contract, but there is no need to provide the initial and final state.
 ```bash
-# Signer is the address of the transaction signer.
-hyled tx zktx verify [contract_name] [receipt] [signer]
+# sender is the Cosmos SDK address of the transaction signer.
+hyled tx zktx verify [contract_name] [receipt] [sender]
 ```

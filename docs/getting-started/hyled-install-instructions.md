@@ -19,6 +19,15 @@ You can then get a list of commands with `hyled help`.
 
 <!--TODO: write some additional useful commands here-->
 
+### Creating an account
+
+Hylé currently still requires Cosmos SDK accounts to sign transactions. You can create one with the following command:
+
+```bash
+hyled keys add name-of-the-key
+hyled keys show name-of-the-key # To see the actual cosmos SDK address
+```
+
 ### Running a devnet
 
 Run:
