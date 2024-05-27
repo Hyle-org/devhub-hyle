@@ -36,7 +36,7 @@ For more information, [check out our website](https://hyle.eu).
 ## Useful links
 
 - [Main repository](http://github.com/hyle-org/hyle) (cosmos SDK app)
-- [Hylé.eu](https://hyle.eu)
+- [Hyle.eu](https://hyle.eu)
 - [Hylé blog](https://blog.hyle.eu)
 
 ## Contact us
