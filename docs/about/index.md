@@ -22,7 +22,7 @@ You can choose your proving scheme, your language, your prover, and still get in
 
 ## How does it work?
 
-![Diagram of the different steps coming before Hylé settlement.](../assets/img/main-diagram-large-detailed.svg)
+![Diagram of the different steps coming before Hylé settlement. The diagram is in three parts. The first part, titled Application, includes the use cases (zkRollup, zkApp, zkCoprocessor, zkGaming, zkML, zkDID, and so on). Then it shows execution (via Kakarot, MidenVM, CairoVM, Polygon zkEVM) and data availability (Celestia, Avail, Ethereum). The second part of the diagram is the Prover, with the proof system (groth16, SP1, Cairo, Risc0, Gnark, Valida) and the proving service (Gevulot, client-side, Taralli, Succinct Labs). The third part is the Verifier, Hylé, which only stocks the name of the contract, the proof system and the state commitment.](../assets/img/main-diagram-large-detailed.svg)
 
 Using Hylé’s sovereign verification-focused Layer 1, here’s what happens:
 
