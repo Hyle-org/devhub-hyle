@@ -33,6 +33,12 @@ For more information, [check out our website](https://hyle.eu).
 - Hylé for RAAS & ZK Coprocessors (coming soon)
 - ...
 
+## Useful links
+
+- [Main repository](http://github.com/hyle-org/hyle) (cosmos SDK app)
+- [Hylé.eu](https://hyle.eu)
+- [Hylé blog](https://blog.hyle.eu)
+
 ## Contact us
 
 Feel free to reach out to the team for more information:  
@@ -41,8 +47,3 @@ Feel free to reach out to the team for more information:
 - Farcaster [@hyle-org](https://warpcast.com/hyle-org)
 - Telegram [@hyle_org](https://t.me/hyle_org)
 - Mail [contact@hyle.eu](mailto:contact@hyle.eu)
-
-## Useful links
-
-- [Main repository](http://github.com/hyle-org/hyle) (cosmos SDK app)
-- [Hylé.eu](https://hyle.eu)
