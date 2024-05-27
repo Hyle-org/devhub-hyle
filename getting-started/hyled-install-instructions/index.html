@@ -384,6 +384,8 @@
       
         
       
+        
+      
     
     
     
@@ -485,6 +487,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#creating-an-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating an account
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#running-a-devnet" class="md-nav__link">
     <span class="md-ellipsis">
       Running a devnet
@@ -561,6 +572,27 @@
   
   <span class="md-ellipsis">
     Collatz example in depth
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smart-contract-abi/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Smart Contract ABI
   </span>
   
 
@@ -720,6 +752,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#creating-an-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating an account
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#running-a-devnet" class="md-nav__link">
     <span class="md-ellipsis">
       Running a devnet
@@ -761,6 +802,11 @@ make<span class="w"> </span>build<span class="w"> </span><span class="c1"># or m
 <p>You can then get a list of commands with <code>hyled help</code>.</p>
 <!--TODO: write some additional useful commands here-->
 
+<h3 id="creating-an-account">Creating an account</h3>
+<p>Hylé currently still requires Cosmos SDK accounts to sign transactions. You can create one with the following command:</p>
+<div class="highlight"><pre><span></span><code>hyled<span class="w"> </span>keys<span class="w"> </span>add<span class="w"> </span>name-of-the-key
+hyled<span class="w"> </span>keys<span class="w"> </span>show<span class="w"> </span>name-of-the-key<span class="w"> </span><span class="c1"># To see the actual cosmos SDK address</span>
+</code></pre></div>
 <h3 id="running-a-devnet">Running a devnet</h3>
 <p>Run:</p>
 <div class="highlight"><pre><span></span><code>make<span class="w"> </span>init<span class="w"> </span><span class="c1"># This resets the blockchain data</span>
