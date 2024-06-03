@@ -86,7 +86,7 @@ The field is currently completely unspecified and isn't validated by the protoco
 
 Smart contracts can provide other outputs as part of the proof they generate. 
 
-This can be used for a variety of purposes, but mostly serves to provide Data Availability. See [Data Availability](/data-availability.md) for more information.
+This can be used for a variety of purposes, but mostly serves to provide Data Availability. See [Data Availability](./data-availability.md) for more information.
 
 ## Events
 
