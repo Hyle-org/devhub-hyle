@@ -7,9 +7,9 @@ Our public [devnet](connect-to-devnet.md) is now live!
 
 ### Coding your smart contract
 
-You can use [any zkVM or proving scheme supported by Hylé](../about/supported-proving-schemes.md).
+You can use [any zkVM or proving scheme supported by Hylé](../../roadmap/supported-proving-schemes.md).
 
-For this example, we'll assume you're using the RISC Zero Collatz Conjecture program, which can be found [here](https://github.com/Hyle-org/collatz-conjecture). See the [Collatz example in depth](collatz-example-in-depth.md) page for more details.
+For this example, we'll assume you're using the RISC Zero Collatz Conjecture program, which can be found [here](https://github.com/Hyle-org/collatz-conjecture). See the [Collatz example in depth](../examples/collatz-example-in-depth.md) page for more details.
 
 <!--TODO: specify transaction format, ABI, etc.-->
 
@@ -60,7 +60,7 @@ Your contract state is visible at:
 Once your contract has been registered, you can send valid proofs of state transition to permissionlessly update the state of the smart contract.
 
 Hylé requires some specific variables in the output of the proof to process the transaction.  
-Check the [smart contract ABI](./smart-contract-abi.md) for more details.
+Check the [smart contract ABI](../general-doc/smart-contract-abi.md) for more details.
 
 Each transaction can include multiple state transitions on multiple contracts. The first such payload is used as the Origin.
 Using the CLI, this is done as follows:

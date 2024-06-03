@@ -1,7 +1,7 @@
 nav:
-	- overview
-	- roadmap
-	- developers
-	- use-cases
-	- resources
-	-...
+    - about
+    - roadmap
+    - developers
+    - use-cases
+    - resources
+    - ...

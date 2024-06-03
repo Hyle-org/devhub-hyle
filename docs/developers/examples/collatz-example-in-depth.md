@@ -1,6 +1,6 @@
 # Collatz example in depth
 
-Hylé smart contracts can be written in any language that targets one of our [supported proving schemes](../about/supported-proving-schemes.md).
+Hylé smart contracts can be written in any language that targets one of our [supported proving schemes](../../roadmap/supported-proving-schemes.md).
 To provide a simple example, we'll use the RISC Zero Collatz Conjecture program, which can be found [here](https://github.com/Hyle-org/collatz-conjecture).
 
 The Collatz Conjecture is a simple mathematical problem that can be expressed as a program.  
@@ -35,7 +35,7 @@ cargo run next 17
 cargo run reset 31
 ```
 
-Every time, a `proof.json` file containing the receipt will be generated. You can use this proof, along with the inputs, to trigger state transitions on Hylé (see [Your first smart contract](your-first-smart-contract.md) for more details).
+Every time, a `proof.json` file containing the receipt will be generated. You can use this proof, along with the inputs, to trigger state transitions on Hylé (see [Your first smart contract](../getting-started/your-first-smart-contract.md) for more details).
 
 ## Invalid transitions
 
