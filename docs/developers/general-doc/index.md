@@ -1,3 +1,7 @@
+---
+title: General documentation
+---
+
 # General documentation
 
 Welcome to the developer documentation for Hylé.
