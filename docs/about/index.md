@@ -1,3 +1,7 @@
+---
+title: Hylé overview
+---
+
 # About Hylé
 
 [Hylé](https://www.hyle.eu/) is your minimal layer one, focused only on verifying zero-knowledge proofs.
