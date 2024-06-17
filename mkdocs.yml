@@ -8,6 +8,10 @@ theme:
   features:
     - navigation.indexes
     - navigation.expand
+    - navigation.path
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
 extra_css:
   - stylesheets/extra.css
 markdown_extensions:
@@ -24,3 +28,4 @@ extra:
 plugins:
     - search
     - awesome-pages
+repo_url: https://github.com/Hyle-org/hyle
