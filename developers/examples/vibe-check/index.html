@@ -1037,9 +1037,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#watch-it-live" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
-      Watch it live!
+      How it works
     </span>
   </a>
   
@@ -1289,25 +1289,19 @@
 
 
 <h1 id="vibe-check">Vibe Check</h1>
-<p>✨ Coming soon ✨</p>
 <h2 id="context">Context</h2>
 <p>The general idea is to give people « good vibes » NFTs for smiling.</p>
 <p>The step-by-step process:</p>
 <ol>
-<li>
-<p>a person takes a photo of them smiling to generate a proof of their shiny, bubbly personality.</p>
-</li>
-<li>
-<p>Giza uses a machine-learning model that checks whether they are smiling. If they are, then Giza generates proof of that. This is currently done through Giza’s servers, which requires the user to send out the picture to Giza. We’re hoping that technological advances will soon allow for direct client-side proving.</p>
-</li>
-<li>
-<p>Hylé verifies the proof, and a smart contract awards an NFT to the user to congratulate them for sharing good vibes. Since Hylé’s state is checkpointed on different networks, you could get an NFT on any bridged network, like Hylé itself, Starknet, or even Ethereum.</p>
-</li>
+<li>I take a selfie where I’m smiling to generate a proof of my shiny, bubbly personality.</li>
+<li>Vibe Check has trained a machine-learning model with some Python libraries. The Hylé team has transformed this model into a Cairo program.</li>
+<li>I send my selfie to this Cairo program, which is ran in a virtual machine in-browser (Cairo VM compiled in WASM) or remotely (compiled as a binary), for better performance.</li>
+<li>The machine-learning model checks that I am smiling. If I am, it generates a Cairo proof. </li>
+<li>Hylé verifies the proof, and a smart contract awards me an NFT to congratulate me for my good vibes. Since Hylé’s state is checkpointed on different networks, I could get an NFT on any bridged network, like Hylé itself, Starknet, or even Ethereum.</li>
 </ol>
-<p><img alt="" src="../../../assets/img/proof-of-smile-workflow.png" /></p>
-<h2 id="watch-it-live">Watch it live!</h2>
-<p><em>Clean video to come.</em></p>
-<p>In the meantime, watch <a href="https://ethcc.io/archive/The-rise-of-truthful-applications">Sylve's demo at ETHCC[7]</a>.</p>
+<p>Watch <a href="https://ethcc.io/archive/The-rise-of-truthful-applications">Sylve's demo at ETHCC[7]</a>!</p>
+<h2 id="how-it-works">How it works</h2>
+<p>✨ Coming soon ✨</p>
 
 
 
