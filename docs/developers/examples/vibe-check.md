@@ -13,10 +13,10 @@ The step-by-step process:
     2. Vibe Check runs the Noir prover in-browser.
     3. The prover generates a Noir proof that the webauthn-signature is correct.
 2. **I take a selfie where I’m smiling to generate a proof of my shiny, bubbly personality.**
-    1. Vibe Check uses a machine-learning model that the Hylé team has transformed into a Cairo program.
+    1. Vibe Check uses a machine-learning model that the Hylé team has transformed into a Cairo program using [Giza](https://www.gizatech.xyz/)'s transpiler.
     2. I send my selfie to this Cairo program, which runs on a virtual machine.
     3. The machine-learning model checks that I am smiling.
-    4. If I am smiling, the model generates a Cairo-proof. 
+    4. If I am smiling, the Cairo-prover generates a proof.
 3. **Vibe Check gives me a SmileToken.**
     1. Vibe Check locally updates the state of the SmileToken.
     2. Vibe Check generates a Cairo proof that the state transition was done correctly.
@@ -48,9 +48,7 @@ The proof generators generate three proofs:
 2. Proof of smile: running the machine-learning model in Cairo
 3. Token (ERC-20) transfer: initiated in Cairo if the first two proofs are valid.
 
-The **proof generators** send the three proofs to the **app** through one single transaction**.**
-
-The **app** sends that transaction to the **Hylé node**.
+The **app** sends the three proofs through one single transaction to the **Hylé node**.
 
 The **Hylé node:**
 
