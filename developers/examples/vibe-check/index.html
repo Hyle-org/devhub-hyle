@@ -1043,6 +1043,48 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="How it works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-the-components-of-the-demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the components of the demo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-proving-schemes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple proving schemes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-giza-for-zkml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Giza for zkML
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-actual-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      The actual code
+    </span>
+  </a>
+  
 </li>
       
     </ul>
@@ -1289,19 +1331,86 @@
 
 
 <h1 id="vibe-check">Vibe Check</h1>
+<p>The general idea of the Vibe Check app is to give people a SmileToken to reward them for smiling. </p>
+<p>Watch <a href="https://ethcc.io/archive/The-rise-of-truthful-applications">Sylve's demo at ETHCC[7]</a>!</p>
 <h2 id="context">Context</h2>
-<p>The general idea is to give people « good vibes » NFTs for smiling.</p>
 <p>The step-by-step process:</p>
 <ol>
-<li>I take a selfie where I’m smiling to generate a proof of my shiny, bubbly personality.</li>
-<li>Vibe Check has trained a machine-learning model with some Python libraries. The Hylé team has transformed this model into a Cairo program.</li>
-<li>I send my selfie to this Cairo program, which is ran in a virtual machine in-browser (Cairo VM compiled in WASM) or remotely (compiled as a binary), for better performance.</li>
-<li>The machine-learning model checks that I am smiling. If I am, it generates a Cairo proof. </li>
-<li>Hylé verifies the proof, and a smart contract awards me an NFT to congratulate me for my good vibes. Since Hylé’s state is checkpointed on different networks, I could get an NFT on any bridged network, like Hylé itself, Starknet, or even Ethereum.</li>
+<li><strong>I identify myself.</strong><ol>
+<li>I use WebAuthn, with a Yubikey on a computer, a fingerprint on a phone, or any other accepted device.</li>
+<li>Vibe Check runs the Noir prover in-browser.</li>
+<li>The prover generates a Noir proof that the webauthn-signature is correct.</li>
 </ol>
-<p>Watch <a href="https://ethcc.io/archive/The-rise-of-truthful-applications">Sylve's demo at ETHCC[7]</a>!</p>
+</li>
+<li><strong>I take a selfie where I’m smiling to generate a proof of my shiny, bubbly personality.</strong><ol>
+<li>Vibe Check uses a machine-learning model that the Hylé team has transformed into a Cairo program.</li>
+<li>I send my selfie to this Cairo program, which runs on a virtual machine.</li>
+<li>The machine-learning model checks that I am smiling.</li>
+<li>If I am smiling, the model generates a Cairo-proof. </li>
+</ol>
+</li>
+<li><strong>Vibe Check gives me a SmileToken.</strong><ol>
+<li>Vibe Check locally updates the state of the SmileToken.</li>
+<li>Vibe Check generates a Cairo proof that the state transition was done correctly.</li>
+</ol>
+</li>
+<li><strong>Hylé verifies the proofs.</strong><ol>
+<li>Hylé updates the SmileToken state if everything is correct. If so, I am rewarded with that SmileToken to congratulate me for my good vibes.</li>
+<li>Since Hylé’s state is checkpointed on different networks, I could get that token on any bridged network like Starknet or even Ethereum.</li>
+</ol>
+</li>
+</ol>
 <h2 id="how-it-works">How it works</h2>
-<p>✨ Coming soon ✨</p>
+<h3 id="understanding-the-components-of-the-demo">Understanding the components of the demo</h3>
+<p>The Vibe Check demo consists of three components: the <strong>app</strong>, the <strong>proof generators</strong>, and the <strong>Hylé node</strong>.</p>
+<p>The <strong>app</strong> (see <a href="https://github.com/Hyle-org/vibe-check-frontend">GitHub repository</a>) helps the user craft a transaction through 2 interactions:</p>
+<ul>
+<li>Identification with <a href="https://vivs.wiki/WebAuthn">WebAuthn</a> for a proof of ID</li>
+<li>Photo of the user smiling for a proof of smile</li>
+</ul>
+<p>The <strong>app</strong> sends these inputs to the <strong>proof generators.</strong></p>
+<p>The <strong>proof generators</strong> execute programs and generate proofs.</p>
+<p>They can be run locally in the browser or remotely to maximize performance. Local proof generation is possible by compiling the Cairo VM/Cairo Prover/Noir Prover into WASM, but it is inefficient. Proving is a memory-consuming activity, and browsers usually have a low limit.</p>
+<p>The proof generators generate three proofs:</p>
+<ol>
+<li>Proof of ID: verification of the WebAuthn ECDSA signature in Noir</li>
+<li>Proof of smile: running the machine-learning model in Cairo</li>
+<li>Token (ERC-20) transfer: initiated in Cairo if the first two proofs are valid.</li>
+</ol>
+<p>The <strong>proof generators</strong> send the three proofs to the <strong>app</strong> through one single transaction<strong>.</strong></p>
+<p>The <strong>app</strong> sends that transaction to the <strong>Hylé node</strong>.</p>
+<p>The <strong>Hylé node:</strong></p>
+<ol>
+<li>Unpacks the three proofs.</li>
+<li>Verifies each proof with the correct verifier: Noir for WebAuthn and Cairo for the two others.</li>
+<li>Ensures consistency by checking the public data contained in the proofs to ensure they all relate to the same transaction.</li>
+</ol>
+<p><img alt="A flowchart with three main sections as explained above." src="../../../assets/img/proof-of-smile-workflow.png" /></p>
+<h3 id="multiple-proving-schemes">Multiple proving schemes</h3>
+<p>A <strong>proving scheme</strong> is a protocol or framework for generating proofs and verifying them.</p>
+<p>In Vibe Check, we use Noir and Cairo.</p>
+<p>We use <strong>Noir</strong> to generate ECDSA proofs. Its Typescript SDK makes it easy to integrate into an app.</p>
+<p>We use <strong>Cairo</strong> for two proofs:</p>
+<ul>
+<li>That there is a smile on the screenshot</li>
+<li>The coin transfer, with an ERC-20 specification.</li>
+</ul>
+<p>We used the LambdaClass CairoVM. Because of the current dependency mismatches between the prover and the runner, the Cairo prover and the Cairo runner had to be compiled separately.</p>
+<p>See the <a href="https://github.com/Hyle-org/cairo-erc20-runner">Cairo ERC20 runner source code</a>.</p>
+<h3 id="using-giza-for-zkml">Using Giza for zkML</h3>
+<p>ZkML is one of ZK's many use cases. It helps you assert that a prediction's result was obtained with the right model, trained on the right dataset, and fed with the right input.</p>
+<p><strong>Giza</strong> focuses on helping developers create a provable machine-learning model.</p>
+<p>Here is the flow we followed:</p>
+<ol>
+<li>We used a <strong>simple classifier from the <a href="https://xgboost.readthedocs.io/en/stable/">XGBoost library</a> in Python</strong>, which Giza fully supports. </li>
+<li>We serialized our model in json thanks to the Giza SDK.</li>
+<li>We used the Giza API to turn our model into a Cairo program.</li>
+<li>We compiled the Cairo ML into Sierra using <code>scarb</code></li>
+<li>We executed our model in the Cairo VM we were using.</li>
+</ol>
+<p>Deep learning models, especially CNNs, would typically be more appropriate for image recognition, but some primitives used by those are not yet supported. Larger models are also extremely hard to run in a Cairo VM because of their high memory requirements.</p>
+<h2 id="the-actual-code">The actual code</h2>
+<p>Coming soon!</p>
 
 
 
