@@ -1343,10 +1343,10 @@
 </ol>
 </li>
 <li><strong>I take a selfie where I’m smiling to generate a proof of my shiny, bubbly personality.</strong><ol>
-<li>Vibe Check uses a machine-learning model that the Hylé team has transformed into a Cairo program.</li>
+<li>Vibe Check uses a machine-learning model that the Hylé team has transformed into a Cairo program using <a href="https://www.gizatech.xyz/">Giza</a>'s transpiler.</li>
 <li>I send my selfie to this Cairo program, which runs on a virtual machine.</li>
 <li>The machine-learning model checks that I am smiling.</li>
-<li>If I am smiling, the model generates a Cairo-proof. </li>
+<li>If I am smiling, the Cairo-prover generates a proof.</li>
 </ol>
 </li>
 <li><strong>Vibe Check gives me a SmileToken.</strong><ol>
@@ -1377,8 +1377,7 @@
 <li>Proof of smile: running the machine-learning model in Cairo</li>
 <li>Token (ERC-20) transfer: initiated in Cairo if the first two proofs are valid.</li>
 </ol>
-<p>The <strong>proof generators</strong> send the three proofs to the <strong>app</strong> through one single transaction<strong>.</strong></p>
-<p>The <strong>app</strong> sends that transaction to the <strong>Hylé node</strong>.</p>
+<p>The <strong>app</strong> sends the three proofs through one single transaction to the <strong>Hylé node</strong>.</p>
 <p>The <strong>Hylé node:</strong></p>
 <ol>
 <li>Unpacks the three proofs.</li>
