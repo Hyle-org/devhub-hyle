@@ -2,7 +2,9 @@
 
 The general idea of the Vibe Check app is to give people a SmileToken to reward them for smiling. 
 
-Watch [Sylve's demo at ETHCC[7]](https://ethcc.io/archive/The-rise-of-truthful-applications)!
+Watch [Sylve's demo at ETHCC[7]](https://ethcc.io/archive/The-rise-of-truthful-applications).
+
+Find the code [in the dedicated GitHub repository](https://github.com/Hyle-org/vibe-check).
 
 ## Context
 
@@ -31,7 +33,7 @@ The step-by-step process:
 
 The Vibe Check demo consists of three components: the **app**, the **proof generators**, and the **Hylé node**.
 
-The **app** (see [GitHub repository](https://github.com/Hyle-org/vibe-check-frontend)) helps the user craft a transaction through 2 interactions:
+The **app** helps the user craft a transaction through 2 interactions:
 
 - Identification with [WebAuthn](https://vivs.wiki/WebAuthn) for a proof of ID
 - Photo of the user smiling for a proof of smile
@@ -72,8 +74,6 @@ We use **Cairo** for two proofs:
 - The coin transfer, with an ERC-20 specification.
 
 We used the LambdaClass CairoVM. Because of the current dependency mismatches between the prover and the runner, the Cairo prover and the Cairo runner had to be compiled separately.
-
-See the [Cairo ERC20 runner source code](https://github.com/Hyle-org/cairo-erc20-runner).
 
 ### Using Giza for zkML
 
