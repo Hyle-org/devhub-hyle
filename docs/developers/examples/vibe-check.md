@@ -93,4 +93,4 @@ Deep learning models, especially CNNs, would typically be more appropriate for i
 
 ## The actual code
 
-Coming soon!
+Find the code [in the dedicated GitHub repository](https://github.com/Hyle-org/vibe-check)!
