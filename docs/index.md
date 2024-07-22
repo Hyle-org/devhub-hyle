@@ -23,9 +23,9 @@ For more information, [check out our website](https://hyle.eu).
 
 ## Getting started
 
-1. Check out how to [install the CLI](developers/getting-started/hyled-install-instructions.md)
-1. Connect to [our public devnet](developers/getting-started/connect-to-devnet.md)
-1. Learn how to [create your first smart contract](developers/getting-started/your-first-smart-contract.md)
+1. Check out how to [install the CLI](developers/using-the-cli/hyled-install-instructions.md)
+1. Connect to [our public devnet](developers/using-the-cli/connect-to-devnet.md)
+1. Learn how to [create your first smart contract](developers/using-the-cli/your-first-smart-contract.md)
 
 ## Our use cases
 

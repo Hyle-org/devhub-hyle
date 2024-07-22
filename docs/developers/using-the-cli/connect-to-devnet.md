@@ -32,7 +32,7 @@ You can also visit `https://explorer.hyle.eu/hyle/account/$ADDRESS`
 
 ## URLs
 
-- Explorer: [https://explorer.hyle.eu/](https://explorer.hyle.eu/)  
+- Explorer: [https://hyleou.hyle.eu/](https://hyleou.hyle.eu/)  
 - Faucet: [https://faucet.devnet.hyle.eu/](https://faucet.devnet.hyle.eu/)  
 - REST: [https://api.devnet.hyle.eu/](https://api.devnet.hyle.eu/)  
 - RPC: [https://rpc.devnet.hyle.eu/](https://rpc.devnet.hyle.eu/)  

@@ -1,6 +1,6 @@
 # CLI Installation instructions
 
-The simplest way to interact with Hylé is using `hyled`, the cosmos-SDK powered CLI.
+Hylé is currently using the Cosmos SDK as a base, and the CLI provides both a way to interact with the chain, and a way to start the devnet.
 
 Clone the [Hylé repository](https://github.com/Hyle-org/hyle) and install it.
 
@@ -17,15 +17,12 @@ make build # or make install
 
 You can then get a list of commands with `hyled help`.
 
-<!--TODO: write some additional useful commands here-->
+### Setting up the CLI
 
-### Creating an account
-
-Hylé currently still requires Cosmos SDK accounts to sign transactions. You can create one with the following command:
+Running the following command will setup your CLI and reset the local blockchain data if any.
 
 ```bash
-hyled keys add name-of-the-key
-hyled keys show name-of-the-key # To see the actual cosmos SDK address
+make init
 ```
 
 ### Running a devnet
@@ -33,7 +30,6 @@ hyled keys show name-of-the-key # To see the actual cosmos SDK address
 Run:
 
 ```bash
-make init # This resets the blockchain data
 ./hyled start
 ```
 

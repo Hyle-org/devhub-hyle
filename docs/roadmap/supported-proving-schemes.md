@@ -11,12 +11,13 @@ We plan to support all major proving schemes.
 
 Supported:
 
-- Risc Zero
-- Groth16 (using gnark and BN254)
+- RISC Zero
+- Groth16 (over BN254, others can easily be implemented)
+- Cairo via Stark Platinum (partial support)
+- Noir over Barretenberg
 
 Upcoming:
 
-- Cairo
-  - Starknet OS
+- Cairo via Stwo / full Cairo support
 - SP1
 - PlonK

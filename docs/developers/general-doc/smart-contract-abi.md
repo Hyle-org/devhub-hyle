@@ -20,10 +20,7 @@ pub struct HyleOutput<T> {
     pub version: u32,
     pub initial_state: Vec<u8>,
     pub next_state: Vec<u8>,
-    pub origin: String,
-    pub caller: String,
-    pub block_number: u64,
-    pub block_time: u64,
+    pub identity: String,
     pub tx_hash: Vec<u8>,
     pub program_outputs: T
 }
@@ -49,32 +46,19 @@ The `next_state` field represents the new onchain `state_digest` after the trans
 
 Smart contracts can adapt the actual structure of this field. In the future, fees will depend on the size of the `state_digest` (among other criteria), so we encourage you to keep it small.
 
-### Origin
+### Identity
 
-The `origin` field is the identifier of the person who initiated the transaction.  
+The `identity` field is the identifier of the person who initiated the transaction.
 
-Unlike other blockchains, Hylé does not have a native signature type. Instead, Hylé uses the `origin` field of the first proof to determine origin.
+Unlike other blockchains, Hylé does not have a native signature type. Instead, Hylé uses the `identity` field of the first proof to identify the TX sender.
 To ensure security, the field is composite and ends with the name of the contract that the proof was generated for.
 
-Hylé could for example support Ethereum EOAs, if a smart contract is registered onchain to verify them. The `origin` would then look something like `0x1234...5678.eth_eoa`, where `eth_eoa` is the name of the contract, and the first part matches a regular Ethereum address.
+Hylé could for example support Ethereum EOAs, if a smart contract is registered onchain to verify them. The `identity` would then look something like `0x1234...5678.eth_eoa`, where `eth_eoa` is the name of the contract, and the first part matches a regular Ethereum address.
 
 This gives us massive flexibility in the future to support any kind of identity verification, including WebAuthn, social media accounts, etc.
 
 !!! note
-    For now, any subsequent proof in a TX must declare the same `origin` or an empty one, or the transaction will be rejected.
-
-### Caller
-
-The `caller` field is the identifier of the contract that called the current contract; in other words, it finds the proof that precedes the current one in the same transaction.
-
-You can use this for Ethereum-style contract calls.
-
-### Block Number and Time
-
-Smart contracts that do not depend on the block number or time can still be written and deployed safely by outputting 0.
-
-These fields are currently not enforced. Because they must be known at proof generation time, you would need to predict when the proof will be included in a block. We are working on a way to support block number and time in the future.
-
+    For now, any subsequent proof in a TX must declare the same `identity` or an empty one, or the transaction will be rejected.
 
 ### TX Hash
 
