@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
     
     
       
@@ -255,7 +255,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../getting-started/" class="md-tabs__link">
+        <a href="../../using-the-cli/" class="md-tabs__link">
           
   
     
@@ -569,6 +569,8 @@
           
         
       
+        
+      
     
     
       
@@ -654,11 +656,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../getting-started/" class="md-nav__link ">
+            <a href="../../using-the-cli/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Getting started
+    Using the cli
   </span>
   
 
@@ -674,7 +676,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_1">
             <span class="md-nav__icon md-icon"></span>
-            Getting started
+            Using the cli
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -687,7 +689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/hyled-install-instructions/" class="md-nav__link">
+      <a href="../../using-the-cli/hyled-install-instructions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -708,7 +710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/connect-to-devnet/" class="md-nav__link">
+      <a href="../../using-the-cli/connect-to-devnet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -729,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/your-first-smart-contract/" class="md-nav__link">
+      <a href="../../using-the-cli/your-first-smart-contract/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -932,27 +934,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#origin" class="md-nav__link">
+  <a href="#identity" class="md-nav__link">
     <span class="md-ellipsis">
-      Origin
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#caller" class="md-nav__link">
-    <span class="md-ellipsis">
-      Caller
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#block-number-and-time" class="md-nav__link">
-    <span class="md-ellipsis">
-      Block Number and Time
+      Identity
     </span>
   </a>
   
@@ -1122,6 +1106,70 @@
 
               
             
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../hyleou/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Hyleou
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Hyleou
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
               
             
           </ul>
@@ -1359,16 +1407,13 @@
 </ul>
 <h2 id="overview">Overview</h2>
 <p>Here is the rust struct specifying the output of a Hylé smart contract:</p>
-<div class="highlight"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HyleOutput</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">version</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">initial_state</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">next_state</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">origin</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">caller</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">block_number</span><span class="p">:</span><span class="w"> </span><span class="kt">u64</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">block_time</span><span class="p">:</span><span class="w"> </span><span class="kt">u64</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">tx_hash</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">program_outputs</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span>
+<div class="highlight"><pre><span></span><code><span class="k">pub</span><span class="w"> </span><span class="k">struct</span> <span class="nc">HyleOutput</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">version</span>: <span class="kt">u32</span><span class="p">,</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">initial_state</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">next_state</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">identity</span>: <span class="nb">String</span><span class="p">,</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">tx_hash</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">program_outputs</span>: <span class="nc">T</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>The <code>version</code> field should currently be set to 1.</p>
@@ -1385,22 +1430,16 @@
 <p>The protocol enforces that this <code>initial_state</code> matches the onchain <code>state_digest</code> it knows. Otherwise, the state transition is invalid.</p>
 <p>The <code>next_state</code> field represents the new onchain <code>state_digest</code> after the transaction.</p>
 <p>Smart contracts can adapt the actual structure of this field. In the future, fees will depend on the size of the <code>state_digest</code> (among other criteria), so we encourage you to keep it small.</p>
-<h3 id="origin">Origin</h3>
-<p>The <code>origin</code> field is the identifier of the person who initiated the transaction.  </p>
-<p>Unlike other blockchains, Hylé does not have a native signature type. Instead, Hylé uses the <code>origin</code> field of the first proof to determine origin.
+<h3 id="identity">Identity</h3>
+<p>The <code>identity</code> field is the identifier of the person who initiated the transaction.</p>
+<p>Unlike other blockchains, Hylé does not have a native signature type. Instead, Hylé uses the <code>identity</code> field of the first proof to identify the TX sender.
 To ensure security, the field is composite and ends with the name of the contract that the proof was generated for.</p>
-<p>Hylé could for example support Ethereum EOAs, if a smart contract is registered onchain to verify them. The <code>origin</code> would then look something like <code>0x1234...5678.eth_eoa</code>, where <code>eth_eoa</code> is the name of the contract, and the first part matches a regular Ethereum address.</p>
+<p>Hylé could for example support Ethereum EOAs, if a smart contract is registered onchain to verify them. The <code>identity</code> would then look something like <code>0x1234...5678.eth_eoa</code>, where <code>eth_eoa</code> is the name of the contract, and the first part matches a regular Ethereum address.</p>
 <p>This gives us massive flexibility in the future to support any kind of identity verification, including WebAuthn, social media accounts, etc.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For now, any subsequent proof in a TX must declare the same <code>origin</code> or an empty one, or the transaction will be rejected.</p>
+<p>For now, any subsequent proof in a TX must declare the same <code>identity</code> or an empty one, or the transaction will be rejected.</p>
 </div>
-<h3 id="caller">Caller</h3>
-<p>The <code>caller</code> field is the identifier of the contract that called the current contract; in other words, it finds the proof that precedes the current one in the same transaction.</p>
-<p>You can use this for Ethereum-style contract calls.</p>
-<h3 id="block-number-and-time">Block Number and Time</h3>
-<p>Smart contracts that do not depend on the block number or time can still be written and deployed safely by outputting 0.</p>
-<p>These fields are currently not enforced. Because they must be known at proof generation time, you would need to predict when the proof will be included in a block. We are working on a way to support block number and time in the future.</p>
 <h3 id="tx-hash">TX Hash</h3>
 <p>The <code>tx_hash</code> field is intended to hash transaction data, preventing replay attacks and providing a means for contracts to access this information.</p>
 <p>The field is currently completely unspecified and isn't validated by the protocol.</p>
@@ -1488,7 +1527,7 @@ To ensure security, the field is composite and ends with the name of the contrac
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.expand", "navigation.path", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
       
     
   </body>
