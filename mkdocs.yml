@@ -26,6 +26,12 @@ extra:
       link: http://github.com/hyle-org/hyle
     - icon: fontawesome/brands/twitter
       link: http://twitter.com/hyle_org
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/hyl-/
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/hyle_org
+    - icon: fontawesome/solid/archway
+      link: https://warpcast.com/hyle-org
 plugins:
     - search
     - awesome-pages
