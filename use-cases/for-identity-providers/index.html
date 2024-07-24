@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
     
     
       
@@ -1350,11 +1350,13 @@
 
 
 <h1 id="hyle-for-identity-providers">Hylé for Identity Providers</h1>
-<p>Hylé does not specify what an "account" is, or even what identity particularly means. This gives it unprecedented flexibility in handling identity, including:
-- EOAs like Ethereum native wallets
-- Smart accounts of any kind
-- Regular web2 identity
-- Passports &amp; other national identity documents.</p>
+<p>Hylé does not specify what an "account" is, or even what identity particularly means. This gives it unprecedented flexibility in handling identity, including:</p>
+<ul>
+<li>EOAs like Ethereum native wallets</li>
+<li>Smart accounts of any kind</li>
+<li>Regular web2 identity</li>
+<li>Passports &amp; other national identity documents.</li>
+</ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>You are entering TODO area, none of this is currently implemented.</p>
@@ -1363,9 +1365,11 @@
 <p>When a user crafts a transaction, their first call should be a proof-of-identity, for example a call to the native <code>/eth</code> smart contract, which validates Ethereum-like EOA signatures.</p>
 <p>Any subsequent call will see that the user is indeed the owner of an <code>/eth</code> address, e.g. <code>0xfoobar/eth</code> and will be able to use that address name trustlessly.</p>
 <h3 id="registering-your-own-stateless-identity-provider">Registering your own stateless identity provider</h3>
-<p>A stateless identity provider such as the Ethereum EOA smart contract has two components:
-- A smart contract registered on Hylé, <strong>authenticating proofs</strong>
-- A client-side library that can <strong>craft proofs</strong></p>
+<p>A stateless identity provider such as the Ethereum EOA smart contract has two components:</p>
+<ul>
+<li>A smart contract registered on Hylé, <strong>authenticating proofs</strong></li>
+<li>A client-side library that can <strong>craft proofs</strong></li>
+</ul>
 <p>See the <em>Ethereum EOA smart contract</em><!--TODO: link--> for an example of such a provider.</p>
 <h3 id="adding-support-for-your-smart-wallet">Adding support for your smart wallet</h3>
 <!--TODO: the general idea here is that we need access to some state where smart contracts are registered (e.g. the starknet state), and can craft proofs in a similar way. The data is public, so this remains permissionless.-->
@@ -1452,7 +1456,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.expand", "navigation.path", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
       
     
   </body>
