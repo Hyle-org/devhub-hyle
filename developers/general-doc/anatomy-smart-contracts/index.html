@@ -879,54 +879,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Program Identifier">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cairo" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cairo
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#noir" class="md-nav__link">
-    <span class="md-ellipsis">
-      Noir
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Noir">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#risc-zero" class="md-nav__link">
-    <span class="md-ellipsis">
-      Risc Zero
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#groth16" class="md-nav__link">
-    <span class="md-ellipsis">
-      Groth16
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1407,14 +1359,12 @@
 Hylé smart contracts are made of a name, a program identifier and a state commitment.</p>
 <h2 id="program-identifier">Program Identifier</h2>
 <p>Smart Contracts in Hylé are identified by a zero knowledge proof scheme and a matching identifier. This tuple is required to verify proofs.</p>
-<h3 id="cairo">Cairo</h3>
-<p>Cairo smart contracts will be identified by their Class Hash in the future</p>
-<h3 id="noir">Noir</h3>
-<p>Noir smart contracts are identified by they verifying key.</p>
-<h4 id="risc-zero">Risc Zero</h4>
-<p>Risc Zero smart contracts are identified by their <code>image ID</code>. Two identical programs will have identical image IDs.</p>
-<h4 id="groth16">Groth16</h4>
-<p>Groth16 programs require a trusted ceremony. As such, their identifier is the verifying key corresponding to the matching private key, which will be unique for each program &amp; ceremony.</p>
+<ul>
+<li><strong>Cairo</strong>: Cairo smart contracts will be identified by their Class Hash in the future.</li>
+<li><strong>Noir</strong>: Noir smart contracts are identified by they verifying key.</li>
+<li><strong>Risc Zero</strong>: Risc Zero smart contracts are identified by their <code>image ID</code>. Two identical programs will have identical image IDs.</li>
+<li><strong>Groth16</strong>: Groth16 programs require a trusted ceremony. As such, their identifier is the verifying key corresponding to the matching private key, which will be unique for each program &amp; ceremony.</li>
+</ul>
 <h2 id="state-commitment">State Commitment</h2>
 <p>The state commitment is intended to be the minimal amount of data required to attest to the full state of the smart contract.<br />
 Some example of such structures include:</p>
