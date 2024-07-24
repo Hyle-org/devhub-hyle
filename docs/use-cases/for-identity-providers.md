@@ -1,6 +1,7 @@
 # Hylé for Identity Providers
 
 Hylé does not specify what an "account" is, or even what identity particularly means. This gives it unprecedented flexibility in handling identity, including:
+
 - EOAs like Ethereum native wallets
 - Smart accounts of any kind
 - Regular web2 identity
@@ -17,6 +18,7 @@ Any subsequent call will see that the user is indeed the owner of an `/eth` addr
 
 ### Registering your own stateless identity provider
 A stateless identity provider such as the Ethereum EOA smart contract has two components:
+
 - A smart contract registered on Hylé, **authenticating proofs**
 - A client-side library that can **craft proofs**
 
