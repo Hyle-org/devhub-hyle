@@ -44,7 +44,9 @@ For more information, [check out our website](https://hyle.eu).
 
 Feel free to reach out to the team for more information:  
 
-- X [@hyle_org](http://twitter.com/hyle_org)
-- Farcaster [@hyle-org](https://warpcast.com/hyle-org)
-- Telegram [@hyle_org](https://t.me/hyle_org)
-- Mail [contact@hyle.eu](mailto:contact@hyle.eu)
+- :fontawesome-brands-github: Github: [@hyle_org](http://twitter.com/hyle_org)
+- :fontawesome-brands-twitter: Twitter: [@hyle_org](https://x.com/hyle_org)
+- :fontawesome-solid-archway: Farcaster: [@hyle-org](https://warpcast.com/hyle-org)
+- :fontawesome-brands-linkedin: LinkedIn: [Hylé](https://www.linkedin.com/company/hyl-/)
+- :fontawesome-brands-youtube: Youtube: [@Hylé](https://www.youtube.com/@Hyl%C3%A9-org)
+- :fontawesome-brands-telegram: Telegram: [@hyle_org](https://t.me/hyle_org)
