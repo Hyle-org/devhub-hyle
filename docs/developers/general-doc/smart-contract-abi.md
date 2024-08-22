@@ -9,7 +9,7 @@ The Hylé protocol enforces several invariants on transactions to maximize secur
 This page uses the Rust structures to demonstrate, but you can use the following repos for other languages:
 
 - Rust example: https://github.com/Hyle-org/collatz-conjecture
-- Gnark / Groth16 example: https://github.com/Hyle-org/groth16-example
+- Gnark / Groth16 example (currently outdated): https://github.com/Hyle-org/groth16-example
 
 ## Overview
 
@@ -22,6 +22,8 @@ pub struct HyleOutput<T> {
     pub next_state: Vec<u8>,
     pub identity: String,
     pub tx_hash: Vec<u8>,
+    pub payload_hash: Vec<u8>,
+    pub success: bool,
     pub program_outputs: T
 }
 ```
@@ -32,7 +34,7 @@ The `version` field should currently be set to 1.
 
 ### Initial State and Next State
 
-Blockchains transactions are fundamentally **state transitions**. These fields handle the state transitions securely in the protocol.  
+Blockchains transactions are fundamentally **state transitions**. These fields handle the state transitions securely in the protocol.
 
 The `initial_state` field should match the state digest of the contract before the transaction. This could consist of several things, such as:
 
@@ -58,7 +60,7 @@ Hylé could for example support Ethereum EOAs, if a smart contract is registered
 This gives us massive flexibility in the future to support any kind of identity verification, including WebAuthn, social media accounts, etc.
 
 !!! note
-    For now, any subsequent proof in a TX must declare the same `identity` or an empty one, or the transaction will be rejected.
+For now, any subsequent proof in a TX must declare the same `identity` or an empty one, or the transaction will be rejected.
 
 ### TX Hash
 
@@ -66,9 +68,18 @@ The `tx_hash` field is intended to hash transaction data, preventing replay atta
 
 The field is currently completely unspecified and isn't validated by the protocol.
 
+### Payload Hash
+
+This should match the hash of the payload that was sent to the network initially. Currently we use pedersen hashing for Cairo, no hashing for Risc0. Others are unimplemented.
+This is very WIP (as of August 2024) and will change soon.
+
+### Success
+
+This is a boolean - whether the proof is for a succesful proof or a failure case. It can be useful to prove that a transaction is invalid. See our example in [Vibe Check](https://github.com/Hyle-org/vibe-check/blob/main/cairo-reco-smile/src/lib.cairo#L297).
+
 ### Other program-specific outputs
 
-Smart contracts can provide other outputs as part of the proof they generate. 
+Smart contracts can provide other outputs as part of the proof they generate.
 
 This can be used for a variety of purposes, but mostly serves to provide Data Availability. See [Data Availability](./data-availability.md) for more information.
 

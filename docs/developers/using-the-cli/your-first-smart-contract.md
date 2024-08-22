@@ -3,7 +3,7 @@
 Our public [devnet](connect-to-devnet.md) is now live!
 
 !!! warning
-    The Hylé API is currently a basic proof of concept. Everything here will change and improve.
+The Hylé API is currently a basic proof of concept. Everything here will change and improve.
 
 ### Coding your smart contract
 
@@ -53,41 +53,42 @@ Your contract state is visible at:
 
 ### Interacting with Hylé
 
-#### Stateful transactions
-Once your contract has been registered, you can send valid proofs of state transition to permissionlessly update the state of the smart contract.
+#### Publishing payloads
+
+Hylé transactions are settled in two steps. First - you send the payloads of your transaction to the network. These are application-specific data and will depend on how the contract is implemented. In the case of the Collatz Conjecture program, this is a number encoded as a big-endian 32-bit integer.
+
+```bash
+# Generate the proof in 'collatz-contract' - this will output the "payload hash" you must use.
+cargo run reset 5
+
+hyled tx zktx publish "" collatz AAAABQ== # the "" is a placeholder for identity - Collatz doesn't handle identity so this is empty.
+```
+
+You should then be able to check your transaction on Hyléou.
+At this point, your transaction has been sequenced, but not settled.
+
+#### Posting proofs of your payload to settle it.
 
 Hylé requires some specific variables in the output of the proof to process the transaction.  
 Check the [smart contract ABI](../general-doc/smart-contract-abi.md) for more details.
 
-Each transaction can include multiple state transitions on multiple contracts. The first such payload is used as the Identity.
-Using the CLI, this is done as follows:
+Once your program conforms to the ABI, you can simply generate proofs and send them to Hylé.
+Each payload of a transaction must be proven separately (for now), so you need to specify the index of the payload you're proving.
 
 ```bash
-hyled tx zktx execute [[contract_name] [proof/receipt]]
+hyled tx zktx prove [tx_hash] [payload_index] [contract_name] [proof]
 ```
-You can repeat the part between double-brackets as many times as you like, to send multiple state changes.
 
-In the case of the Collatz Conjecture program, we can for example generate a proof of state transition from 1 to 24, and send it to the contract.
+In the case of the Collatz Conjecture program, we can now prove our state transition from 1 to 5.
 
 ```bash
-# Generate the proof in 'collatz-contract'
-cargo run reset 24
-cd ../hyle
-
 # Make sure the name matches the contract you registered
-hyled tx zktx execute collatz ../collatz-contract/proof.json
+hyled tx zktx prove [tx_hash] 0 collatz [path_to_proof]
 ```
 
+At this point, your transaction is settled and the state of the contract has been updated.
 You can then check that the contract was updated onchain by running the command below or checking in the explorer directly.
-    
+
 ```bash
 hyled query zktx contract collatz
-```
-
-#### Stateless transactions / Verification only
-
-Hylé supports verification of transactions without state changes. This can be used either to aggregate proofs, or to do other coputations out-of-band or off-chain using the Hylé DA.
-The format is similar to stateful transactions, and you still need a registered contract, but there is no need to provide the initial and final state.
-```bash
-hyled tx zktx verify [contract_name] [receipt]
 ```
