@@ -2,15 +2,16 @@
 
 Hylé is currently using the Cosmos SDK as a base, and the CLI provides both a way to interact with the chain, and a way to start the devnet.
 
-Clone the [Hylé repository](https://github.com/Hyle-org/hyle) and install it.
+Clone the [Hylé Cosmos repository](https://github.com/Hyle-org/hyle-cosmos) and install it.
 
 ## Mac, Linux, Windows with WSL
 
 You will need to have installed `make` and `go`, v1.20 and above, on your system.
 
 Here are the commands:
+
 ```bash
-git clone https://github.com/Hyle-org/hyle.git
+git clone https://github.com/Hyle-org/hyle-cosmos.git
 cd hyle
 make build # or make install
 ```

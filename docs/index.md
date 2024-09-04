@@ -6,7 +6,7 @@ description: Hylé is your minimal layer one, focused only on verifying zero-kno
 # Welcome to the Hylé developer docs
 
 !!! note
-    This developer portal and the project itself are still in early development. See below on how to reach out to us if you need anything that isn't here.
+This developer portal and the project itself are still in early development. See below on how to reach out to us if you need anything that isn't here.
 
 [Hylé](https://www.hyle.eu/) is your minimal layer one, focused only on verifying zero-knowledge proofs.
 
@@ -29,20 +29,21 @@ For more information, [check out our website](https://hyle.eu).
 
 ## Our use cases
 
-- [Hylé for ZKApps](use-cases/for-zk-apps.md) 
+- [Hylé for ZKApps](use-cases/for-zk-apps.md)
 - [Hylé for identity providers & wallets](use-cases/for-identity-providers.md)
 - Hylé for RAAS & ZK Coprocessors (coming soon)
 - ...
 
 ## Useful links
 
-- [Main repository](http://github.com/hyle-org/hyle) (cosmos SDK app)
+- [Cosmos SDK PoC repository](http://github.com/hyle-org/hyle-cosmos)
+- [Rust WIP node](http://github.com/hyle-org/hyle)
 - [Hyle.eu](https://hyle.eu)
 - [Hylé blog](https://blog.hyle.eu)
 
 ## Contact us
 
-Feel free to reach out to the team for more information:  
+Feel free to reach out to the team for more information:
 
 - :fontawesome-brands-github: Github: [@hyle_org](http://twitter.com/hyle_org)
 - :fontawesome-brands-twitter: Twitter: [@hyle_org](https://x.com/hyle_org)

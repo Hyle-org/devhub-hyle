@@ -1,16 +1,17 @@
 ---
-title: Find us 
+title: Find us
 ---
 
 # Useful links
 
-- [Main repository](http://github.com/hyle-org/hyle) (cosmos SDK app)
+- [Cosmos SDK PoC repository](http://github.com/hyle-org/hyle-cosmos)
+- [Rust WIP node](http://github.com/hyle-org/hyle)
 - [Hyle.eu](https://hyle.eu)
 - [Hylé blog](https://blog.hyle.eu)
 
 # Contact us
 
-Feel free to reach out to the team for more information:  
+Feel free to reach out to the team for more information:
 
 - X [@hyle_org](http://twitter.com/hyle_org)
 - Farcaster [@hyle-org](https://warpcast.com/hyle-org)

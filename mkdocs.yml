@@ -23,7 +23,7 @@ copyright: Copyright &copy; 2024 Hylé
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: http://github.com/hyle-org/hyle
+      link: http://github.com/hyle-org/
     - icon: fontawesome/brands/twitter
       link: http://twitter.com/hyle_org
     - icon: fontawesome/brands/linkedin
@@ -42,4 +42,4 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-repo_url: https://github.com/Hyle-org/hyle
+repo_url: https://github.com/Hyle-org/hyle-cosmos
