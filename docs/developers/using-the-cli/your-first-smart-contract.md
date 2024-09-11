@@ -55,13 +55,13 @@ Your contract state is visible at:
 
 #### Publishing payloads
 
-Hylé transactions are settled in two steps. First - you send the payloads of your transaction to the network. These are application-specific data and will depend on how the contract is implemented. In the case of the Collatz Conjecture program, this is a number encoded as a big-endian 32-bit integer.
+Hylé transactions are settled in two steps. First - you send the payloads of your transaction to the network. These are application-specific data and will depend on how the contract is implemented.  In the case of the Collatz Conjecture program, this is a number encoded as a big-endian 32-bit integer.  Hence, the payloads correspond to the input of our program.
 
 ```bash
-# Generate the proof in 'collatz-contract' - this will output the "payload hash" you must use.
-cargo run reset 5
-
-hyled tx zktx publish "" collatz AAAABQ== # the "" is a placeholder for identity - Collatz doesn't handle identity so this is empty.
+payload='\x00\x00\x00\x05'
+# Generate the proof in 'collatz-contract'
+cargo run reset $payload
+hyled tx zktx publish "" collatz $(echo $payload | base64) # the "" is a placeholder for identity - Collatz doesn't handle identity so this is empty.
 ```
 
 You should then be able to check your transaction on Hyléou.
