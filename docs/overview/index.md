@@ -4,9 +4,7 @@ title: Hylé overview
 
 # About Hylé
 
-[Hylé](https://www.hyle.eu/) is your minimal layer one, focused only on verifying zero-knowledge proofs.
-
-By sending a simple proof to be verified on Hylé, you can build a fully off-chain application powered by ZKPs that still has the security guarantees of the blockchain.
+[Hylé](https://www.hyle.eu/) is a lean blockchain that helps you build provable applications that are minimally, yet sufficiently, onchain.
 
 ![diagram of a zero knowledge proof, hyle does settlement and consensus but not execution and storage](https://assets-global.website-files.com/6602f1114b957961e0b12dc7/660c9ce163593772242cf9a0_diagram_zero-knowledge-proofs.svg)
 

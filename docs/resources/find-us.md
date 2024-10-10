@@ -4,7 +4,6 @@ title: Find us
 
 # Useful links
 
-- [Cosmos SDK PoC repository](http://github.com/hyle-org/hyle-cosmos)
 - [Rust WIP node](http://github.com/hyle-org/hyle)
 - [Hyle.eu](https://hyle.eu)
 - [Hylé blog](https://blog.hyle.eu)

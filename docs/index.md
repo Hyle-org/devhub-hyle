@@ -1,6 +1,6 @@
 ---
 title: Home
-description: Hylé is your minimal layer one, focused only on verifying zero-knowledge proofs. This is your developer documentation.
+description: Hylé is the lean blockchain that makes building provable apps easy. This is your developer documentation.
 ---
 
 # Welcome to the Hylé developer docs
@@ -8,14 +8,13 @@ description: Hylé is your minimal layer one, focused only on verifying zero-kno
 !!! note
 This developer portal and the project itself are still in early development. See below on how to reach out to us if you need anything that isn't here.
 
-[Hylé](https://www.hyle.eu/) is your minimal layer one, focused only on verifying zero-knowledge proofs.
+[Hylé](https://hyle.eu/)  is a lean blockchain that helps you build provable applications that are minimally, yet sufficiently, onchain.
 
-By sending a simple proof to be verified on Hylé, you can build a fully off-chain application powered by ZKPs that still has the security guarantees of the blockchain.
-
-- Hylé only verifies zero-knowledge proofs: settlement is all you need.
+- Hylé only verifies zero-knowledge proofs: sequencing settlement is all you need.
 - Hylé uses minimal storage: we only store the source of truth and our nodes are very light.
 - Hylé is modular by design, for full flexibility.
 - Hylé does not reinvent the wheel: we leverage existing tech stacks (Cairo, Risc0, SP1, etc.)
+- Hylé uses delayed proving: we remove the proof from your app's critical path and let you build without constraints.
 
 ![Diagram of the different steps coming before Hylé settlement. The diagram is in three parts. The first part, titled Application, includes the use cases (zkRollup, zkApp, zkCoprocessor, zkGaming, zkML, zkDID, and so on). Then it shows execution (via Kakarot, MidenVM, CairoVM, Polygon zkEVM) and data availability (Celestia, Avail, Ethereum). The second part of the diagram is the Prover, with the proof system (groth16, SP1, Cairo, Risc0, Gnark, Valida) and the proving service (Gevulot, client-side, Taralli, Succinct Labs). The third part is the Verifier, Hylé, which only stocks the name of the contract, the proof system and the state commitment.](./assets/img/main-diagram-large-detailed.png)
 
@@ -36,7 +35,6 @@ For more information, [check out our website](https://hyle.eu).
 
 ## Useful links
 
-- [Cosmos SDK PoC repository](http://github.com/hyle-org/hyle-cosmos)
 - [Rust WIP node](http://github.com/hyle-org/hyle)
 - [Hyle.eu](https://hyle.eu)
 - [Hylé blog](https://blog.hyle.eu)
