@@ -5,16 +5,14 @@ description: Hylé is the lean blockchain that makes building provable apps easy
 
 # Welcome to the Hylé developer docs
 
-!!! note
-This developer portal and the project itself are still in early development. See below on how to reach out to us if you need anything that isn't here.
+**This developer portal and the project itself are still in early development. [Reach out to us on Telegram](https://t.me/hyle_org) if you need anything that isn't here.**
 
 [Hylé](https://hyle.eu/)  is a lean blockchain that helps you build provable applications that are minimally, yet sufficiently, onchain.
 
-- Hylé only verifies zero-knowledge proofs: sequencing settlement is all you need.
-- Hylé uses minimal storage: we only store the source of truth and our nodes are very light.
-- Hylé is modular by design, for full flexibility.
-- Hylé does not reinvent the wheel: we leverage existing tech stacks (Cairo, Risc0, SP1, etc.)
-- Hylé uses delayed proving: we remove the proof from your app's critical path and let you build without constraints.
+- Hylé separates transaction sequencing from settlement, moving proof generation out of the latency-critical path. [Delayed proving](https://blog.hyle.eu/an-introduction-to-delayed-proving/) solves ZK's current slowness problem and allows you to offload proof generation.
+- Hylé has no on-chain execution or virtual machine, relying only on efficient native verification of zero-knowledge proofs.
+- Hylé [verifies all zero-knowledge proofs natively](https://blog.hyle.eu/proof-verification-needs-to-change/): choose your proving scheme and your language.
+- Hylé enables composability for provable applications, reaching abstraction levels comparable to shared execution. No more foreign field arithmetic or recursive proving; just batch your proofs as part of the same transaction and Hylé will match them.
 
 ![Diagram of the different steps coming before Hylé settlement. The diagram is in three parts. The first part, titled Application, includes the use cases (zkRollup, zkApp, zkCoprocessor, zkGaming, zkML, zkDID, and so on). Then it shows execution (via Kakarot, MidenVM, CairoVM, Polygon zkEVM) and data availability (Celestia, Avail, Ethereum). The second part of the diagram is the Prover, with the proof system (groth16, SP1, Cairo, Risc0, Gnark, Valida) and the proving service (Gevulot, client-side, Taralli, Succinct Labs). The third part is the Verifier, Hylé, which only stocks the name of the contract, the proof system and the state commitment.](./assets/img/main-diagram-large-detailed.png)
 
@@ -28,9 +26,10 @@ For more information, [check out our website](https://hyle.eu).
 
 ## Our use cases
 
-- [Hylé for ZKApps](use-cases/for-zk-apps.md)
-- [Hylé for identity providers & wallets](use-cases/for-identity-providers.md)
-- Hylé for RAAS & ZK Coprocessors (coming soon)
+- [Vibe Check](https://blog.hyle.eu/introducing-vibe-check/), our zkML & WebAuthn-powered demo
+- [Hylé for provable apps](use-cases/for-zk-apps.md) (read: [what is a provable app?](https://blog.hyle.eu/what-is-a-provable-app/))
+- [Hylé for identity providers & wallets](https://blog.hyle.eu/smart-wallets-must-be-provable/)
+- [Hylé for a provable play-by-email game engine](https://github.com/MatteoMer/provable-email-game-engine)
 - ...
 
 ## Useful links
@@ -43,7 +42,7 @@ For more information, [check out our website](https://hyle.eu).
 
 Feel free to reach out to the team for more information:
 
-- :fontawesome-brands-github: Github: [@hyle_org](http://twitter.com/hyle_org)
+- :fontawesome-brands-github: Github: [Hylé](https://github.com/Hyle-org)
 - :fontawesome-brands-twitter: Twitter: [@hyle_org](https://x.com/hyle_org)
 - :fontawesome-solid-archway: Farcaster: [@hyle-org](https://warpcast.com/hyle-org)
 - :fontawesome-brands-linkedin: LinkedIn: [Hylé](https://www.linkedin.com/company/hyl-/)
