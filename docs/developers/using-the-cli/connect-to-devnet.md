@@ -2,9 +2,7 @@
 
 Hylé provides a public devnet where you can test your applications.
 
-!!!note
-We currently make no guarantees on the public devnet stability. It can be reset at any time.
-We will keep this page updated with the latest information.
+**We currently make no guarantees on the public devnet stability. It can be reset at any time.**
 
 ## Create your wallet on our public devnet
 

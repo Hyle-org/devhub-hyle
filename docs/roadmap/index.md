@@ -4,7 +4,7 @@ title: Roadmap
 
 # Roadmap
 
-This page is under construction. In the meantime, you can check out:
+We do not have a public roadmap at this time. Stay tuned!
 
-- [info on our testnet](./testnet.md)
+- [Wen testnet?](./testnet.md)
 - [currently supported proving schemes](./supported-proving-schemes.md)

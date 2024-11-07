@@ -1,12 +1,20 @@
 # Anatomy of a smart contract
 
-Hylé is a fully programmable blockchain. However, we only store the minimal amount of data required to validate smart contract proofs.  
-Hylé smart contracts are made of a name, a program identifier and a state commitment.
+Hylé is a fully programmable blockchain. We only store the minimal amount of data required to validate smart contract proofs, so our smart contracts have very little information.
 
+Hylé smart contracts include:
+
+- a name
+- a program identifier
+- a state commitment.
+
+## Name
+
+The name of your contract.
 
 ## Program Identifier
 
-Smart Contracts in Hylé are identified by a zero knowledge proof scheme and a matching identifier. This tuple is required to verify proofs.
+Smart contracts in Hylé are identified by a zero-knowledge proof scheme and a matching identifier. This tuple is required to verify proofs.
 
 - **Cairo**: Cairo smart contracts will be identified by their Class Hash in the future.
 - **Noir**: Noir smart contracts are identified by they verifying key.
@@ -16,6 +24,7 @@ Smart Contracts in Hylé are identified by a zero knowledge proof scheme and a m
 ## State Commitment
 
 The state commitment is intended to be the minimal amount of data required to attest to the full state of the smart contract.  
+
 Some example of such structures include:
 
 - The full state, for a sufficiently small program (e.g. a fibonacci counter, or a smart-contract with a nonce)

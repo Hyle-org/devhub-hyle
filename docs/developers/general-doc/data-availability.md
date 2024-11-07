@@ -1,6 +1,6 @@
 # Data Availability
 
-Hylé will provide self-sufficient permissionless data availability, but not necessarily data retrievability.
+Hylé provides self-sufficient permissionless data availability, but not necessarily data retrievability.
 
 ## How Hylé avoids the data availability problem
 
@@ -8,11 +8,11 @@ Hylé is a layer one blockchain, and will be decentralised in the future. As suc
 
 They must however access the full proofs inside each block. Thankfully, because our proofs are proofs of state commitment transitions, they are rather lightweight by themselves.
 
-### Light nodes
+<!--### Light nodes
 
 There are currently no light nodes in Hylé. In the mid- to long-term, blocks generation will become provable: light nodes will be able to rely on the block headers and proof of block, in the same way that full nodes do. There will be essentially no difference between light and full nodes.
 
-Note however that the design of the chain is intended to make full nodes as lightweight as possible, so the need for light nodes is not as pressing as it is for other chains.
+Note however that the design of the chain is intended to make full nodes as lightweight as possible, so the need for light nodes is not as pressing as it is for other chains.-->
 
 ## Permissionless DA for smart contracts
 
@@ -24,7 +24,7 @@ If the proof contains the full state-diff, valid transactions sent to Hylé cont
 
 This solves the data availability problem, assuming that transaction data is available long enough for any honest indexer to reconstruct the full state. 
 
-This is a rather weak assumption <!-- can we rephase this so that « weak assumption » is clearer--> and our plan is to provide between 7 and 28 days of guaranteed DA, like Ethereum blobs. <!-- TODO LINK https://ethereum.org/en/roadmap/danksharding/ --> 
+Our plan is to provide between 7 and 28 days of guaranteed DA, [like Ethereum blobs](https://ethereum.org/en/roadmap/danksharding/).
 
 ## Data retrievability
 

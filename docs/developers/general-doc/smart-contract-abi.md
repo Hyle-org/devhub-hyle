@@ -9,7 +9,7 @@ The Hylé protocol enforces several invariants on transactions to maximize secur
 This page uses the Rust structures to demonstrate, but you can use the following repos for other languages:
 
 - Rust example: https://github.com/Hyle-org/collatz-conjecture
-- Gnark / Groth16 example (currently outdated): https://github.com/Hyle-org/groth16-example
+- Gnark / Groth16 example (outdated): https://github.com/Hyle-org/groth16-example
 
 ## Overview
 
@@ -59,8 +59,7 @@ Hylé could for example support Ethereum EOAs, if a smart contract is registered
 
 This gives us massive flexibility in the future to support any kind of identity verification, including WebAuthn, social media accounts, etc.
 
-!!! note
-For now, any subsequent proof in a TX must declare the same `identity` or an empty one, or the transaction will be rejected.
+**For now, any subsequent proof in a TX must declare the same `identity` or an empty one, or the transaction will be rejected.**
 
 ### TX Hash
 

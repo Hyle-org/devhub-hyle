@@ -1,6 +1,6 @@
 # Your first smart contract
 
-Our public [devnet](connect-to-devnet.md) is now live!
+Our [public devnet](connect-to-devnet.md) is now live!
 
 **The Hylé API is currently a basic proof of concept. Everything here will change and improve.**
 
@@ -8,7 +8,7 @@ Our public [devnet](connect-to-devnet.md) is now live!
 
 You can use [any zkVM or proving scheme supported by Hylé](../../roadmap/supported-proving-schemes.md).
 
-For this example, we'll assume you're using the RISC Zero Collatz Conjecture program, which can be found [here](https://github.com/Hyle-org/collatz-conjecture). See the [Collatz example in depth](../examples/collatz-example-in-depth.md) page for more details.
+For this example, we'll assume you're using the [RISC Zero Collatz Conjecture program](https://github.com/Hyle-org/collatz-conjecture). See the [Collatz example in depth](../examples/collatz-example-in-depth.md) page for more details.
 
 <!--TODO: specify transaction format, ABI, etc.-->
 
@@ -23,9 +23,11 @@ To begin, [follow the CLI installation instructions](hyled-install-instructions.
 
 Hylé smart contracts are made of:
 
-- a **Name**, which must be unique
+- a **name**, which must be unique
 - a **tuple of (verifier, program_id)** which identifies the smart contract. The `verifier` is the proof system (e.g. "risczero" or "gnark-groth16-te-BN254"), and the `program_id` is the unique identifier of the program in that proof system, either the image ID in risczero of the verifying key in groth16 circuits.
 - a **state digest**, holding the current state commitment of the contract. This can be any type of state commitment you want, and can currently be any size you want (this will have fee implications in the future).
+
+Read more about [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contracts.md)
 
 To register a contract on-chain, run the following command:
 

@@ -2,4 +2,4 @@
 title: Resources
 ---
 
-Coming soon!
+- [Find us](./find-us.md)
