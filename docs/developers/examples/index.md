@@ -4,6 +4,8 @@ Here, we show a few detailed examples of Hylé applications.
 
 * [Vibe Check](vibe-check.md)
 
-Soon, you'll also be able to follow [our blog](https://blog.hyle.eu) for more use cases!
+Our [grantees](https://github.com/Hyle-org/hyle/blob/main/GRANTS.md) also have projects to talk about:
+
+* [Provable play-by-email games engine & zkChess](https://github.com/MatteoMer/provable-email-game-engine)
 
 You should also [check out our partners](https://blog.hyle.eu/tag/partnership/).
