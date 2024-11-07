@@ -2,8 +2,7 @@
 
 Our public [devnet](connect-to-devnet.md) is now live!
 
-!!! warning
-The Hylé API is currently a basic proof of concept. Everything here will change and improve.
+**The Hylé API is currently a basic proof of concept. Everything here will change and improve.**
 
 ### Coding your smart contract
 
