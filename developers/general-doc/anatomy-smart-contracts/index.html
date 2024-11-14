@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0253249f.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -156,7 +156,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Hyle-org/hyle-cosmos" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/Hyle-org/hyle" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -344,7 +344,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Hyle-org/hyle-cosmos" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/Hyle-org/hyle" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
@@ -873,6 +873,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Name
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#program-identifier" class="md-nav__link">
     <span class="md-ellipsis">
       Program Identifier
@@ -1101,11 +1110,11 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../hyleou/" class="md-nav__link ">
+            <a href="../../explorer/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
-    Hyleou
+    Explorer
   </span>
   
 
@@ -1116,7 +1125,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
-            Hyleou
+            Explorer
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1355,10 +1364,17 @@
 
 
 <h1 id="anatomy-of-a-smart-contract">Anatomy of a smart contract</h1>
-<p>Hylé is a fully programmable blockchain. However, we only store the minimal amount of data required to validate smart contract proofs.<br />
-Hylé smart contracts are made of a name, a program identifier and a state commitment.</p>
+<p>Hylé is a fully programmable blockchain. We only store the minimal amount of data required to validate smart contract proofs, so our smart contracts have very little information.</p>
+<p>Hylé smart contracts include:</p>
+<ul>
+<li>a name</li>
+<li>a program identifier</li>
+<li>a state commitment.</li>
+</ul>
+<h2 id="name">Name</h2>
+<p>The name of your contract.</p>
 <h2 id="program-identifier">Program Identifier</h2>
-<p>Smart Contracts in Hylé are identified by a zero knowledge proof scheme and a matching identifier. This tuple is required to verify proofs.</p>
+<p>Smart contracts in Hylé are identified by a zero-knowledge proof scheme and a matching identifier. This tuple is required to verify proofs.</p>
 <ul>
 <li><strong>Cairo</strong>: Cairo smart contracts will be identified by their Class Hash in the future.</li>
 <li><strong>Noir</strong>: Noir smart contracts are identified by they verifying key.</li>
@@ -1366,8 +1382,8 @@ Hylé smart contracts are made of a name, a program identifier and a state commi
 <li><strong>Groth16</strong>: Groth16 programs require a trusted ceremony. As such, their identifier is the verifying key corresponding to the matching private key, which will be unique for each program &amp; ceremony.</li>
 </ul>
 <h2 id="state-commitment">State Commitment</h2>
-<p>The state commitment is intended to be the minimal amount of data required to attest to the full state of the smart contract.<br />
-Some example of such structures include:</p>
+<p>The state commitment is intended to be the minimal amount of data required to attest to the full state of the smart contract.  </p>
+<p>Some example of such structures include:</p>
 <ul>
 <li>The full state, for a sufficiently small program (e.g. a fibonacci counter, or a smart-contract with a nonce)</li>
 <li>A merkle root of the state, for larger programs</li>
@@ -1493,10 +1509,10 @@ Some example of such structures include:</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.expand", "navigation.path", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.indexes", "navigation.expand", "navigation.path", "navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
