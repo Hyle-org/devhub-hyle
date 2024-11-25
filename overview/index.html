@@ -1303,7 +1303,7 @@
 <li>No need for a <strong>verifier contract</strong>: just call the native function.</li>
 <li><strong>Proof generation</strong>: off-chain, the prover generates a zero-knowledge proof of a specific computation.</li>
 <li><strong>Proof submission</strong>: the prover sends the proof(s) and the results of the computation to Hylé's Layer 1 as part of a transaction. If there are several proofs, that's not a problem: we offer proof composability.</li>
-<li><strong>Delayed proving</strong>: the state is updated temporarily to remove proving time from your app's critical path. <a href="https://blog.hyle.eu/an-introduction-to-delayed-proving/">Read more on our blog</a>.</li>
+<li><strong>Pipelined proving</strong>: the state is updated temporarily to remove proving time from your app's critical path. <a href="https://blog.hyle.eu/an-introduction-to-delayed-proving/">Read more on our blog</a>.</li>
 <li><strong>Verification</strong>: Hylé validators receive the transaction. They use the native verification programs to check the validity of the proof as fast as possible, without being limited by the bulky virtual machine.</li>
 <li><strong>Consensus and block inclusion</strong>: if the proof is valid, the block producer puts the results of the computation on the Hylé blockchain and the state is updated onchain.</li>
 </ol>
