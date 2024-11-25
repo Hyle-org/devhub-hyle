@@ -9,7 +9,7 @@ description: Hylé is the lean blockchain that makes building provable apps easy
 
 [Hylé](https://hyle.eu/)  is a lean blockchain that helps you build provable applications that are minimally, yet sufficiently, onchain.
 
-- Hylé separates transaction sequencing from settlement, moving proof generation out of the latency-critical path. [Delayed proving](https://blog.hyle.eu/an-introduction-to-delayed-proving/) solves ZK's current slowness problem and allows you to offload proof generation.
+- Hylé separates transaction sequencing from settlement, moving proof generation out of the latency-critical path. [Pipelined proving](https://blog.hyle.eu/an-introduction-to-delayed-proving/) solves ZK's current slowness problem and allows you to offload proof generation.
 - Hylé has no on-chain execution or virtual machine, relying only on efficient native verification of zero-knowledge proofs.
 - Hylé [verifies all zero-knowledge proofs natively](https://blog.hyle.eu/proof-verification-needs-to-change/): choose your proving scheme and your language.
 - Hylé enables composability for provable applications, reaching abstraction levels comparable to shared execution. No more foreign field arithmetic or recursive proving; just batch your proofs as part of the same transaction and Hylé will match them.
