@@ -6,7 +6,7 @@ Our [public devnet](connect-to-devnet.md) is now live!
 
 ### Coding your smart contract
 
-You can use [any zkVM or proving scheme supported by Hylé](../../roadmap/supported-proving-schemes.md).
+You can use [any zkVM or proving scheme supported by Hylé](../../overview/supported-proving-schemes.md).
 
 For this example, we'll assume you're using the [RISC Zero Collatz Conjecture program](https://github.com/Hyle-org/collatz-conjecture). See the [Collatz example in depth](../examples/collatz-example-in-depth.md) page for more details.
 

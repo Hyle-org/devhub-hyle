@@ -1,6 +1,6 @@
 # Collatz example in depth
 
-Hylé smart contracts can be written in any language that targets one of our [supported proving schemes](../../roadmap/supported-proving-schemes.md).
+Hylé smart contracts can be written in any language that targets one of our [supported proving schemes](../../overview/supported-proving-schemes.md).
 To provide a simple example, we'll use the RISC Zero Collatz Conjecture program, which can be found [here](https://github.com/Hyle-org/collatz-conjecture).
 
 The Collatz Conjecture is a simple mathematical problem that can be expressed as a program.  
