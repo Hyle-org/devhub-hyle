@@ -12,7 +12,7 @@
         <link rel="prev" href="..">
       
       
-        <link rel="next" href="../roadmap/">
+        <link rel="next" href="supported-proving-schemes/">
       
       
       <link rel="icon" href="../assets/logo.png">
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#about-hyle" class="md-skip">
+        <a href="#how-does-hyle-work" class="md-skip">
           Skip to content
         </a>
       
@@ -390,6 +390,8 @@
           
         
       
+        
+      
     
     
       
@@ -420,6 +422,11 @@
 
             </a>
             
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
@@ -429,6 +436,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="supported-proving-schemes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supported proving schemes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -449,10 +477,6 @@
       
         
           
-        
-      
-        
-      
         
       
     
@@ -484,11 +508,6 @@
 
             </a>
             
-              
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
           </div>
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
@@ -498,48 +517,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../roadmap/supported-proving-schemes/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Supported proving schemes
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../roadmap/testnet/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Wen testnet ?
-  </span>
-  
-
-      </a>
-    </li>
-  
-
               
             
           </ul>
@@ -1282,23 +1259,8 @@
   
 
 
-<h1 id="about-hyle">About Hylé</h1>
-<p><a href="https://www.hyle.eu/">Hylé</a> is a lean blockchain that helps you build provable applications that are minimally, yet sufficiently, onchain.</p>
-<p><img alt="diagram of a zero knowledge proof, hyle does settlement and consensus but not execution and storage" src="..\assets\img\hyle-main-diagram.jpg" /></p>
-<h2 id="why-hyle">Why Hylé?</h2>
-<ul>
-<li>Leverage the power of zero-knowledge proofs for maximum trustlessness and privacy</li>
-<li>Run complex logic in your smart contracts thanks to off-chain execution</li>
-<li>Lower your storage costs with efficient and trustless storage proofs</li>
-<li>Enjoy better readability with our native on-chain Name System</li>
-<li>Freely create transactions composing private and public inputs</li>
-</ul>
-<p>You can <strong>execute your smart contracts off-chain</strong> anywhere you like, on a rollup, on-premise or even client-side.</p>
-<p>You can <strong>store your data</strong> securely in your backend, IPFS, Arweave or any other long-term solution: Hylé provides the verifiable source of truth for your end user.</p>
-<p>You can choose your proving scheme, your language, your prover, and still get instant finality and enhanced security.</p>
-<h2 id="how-does-it-work">How does it work?</h2>
-<p><img alt="Diagram of the different steps coming before Hylé settlement. The diagram is in three parts. The first part, titled Application, includes the use cases (zkRollup, zkApp, zkCoprocessor, zkGaming, zkML, zkDID, and so on). Then it shows execution (via Kakarot, MidenVM, CairoVM, Polygon zkEVM) and data availability (Celestia, Avail, Ethereum). The second part of the diagram is the Prover, with the proof system (groth16, SP1, Cairo, Risc0, Gnark, Valida) and the proving service (Gevulot, client-side, Taralli, Succinct Labs). The third part is the Verifier, Hylé, which only stocks the name of the contract, the proof system and the state commitment." src="../assets/img/main-diagram-large-detailed.png" /></p>
-<p>Using Hylé’s sovereign verification-focused Layer 1, here’s what happens:</p>
+<h1 id="how-does-hyle-work">How does Hylé work?</h1>
+<p>Here’s what happens when you use Hylé’s sovereign verification-focused Layer 1:</p>
 <ol>
 <li>No need for a <strong>verifier contract</strong>: just call the native function.</li>
 <li><strong>Proof generation</strong>: off-chain, the prover generates a zero-knowledge proof of a specific computation.</li>
@@ -1308,8 +1270,8 @@
 <li><strong>Consensus and block inclusion</strong>: if the proof is valid, the block producer puts the results of the computation on the Hylé blockchain and the state is updated onchain.</li>
 </ol>
 <p>And that’s it.</p>
+<p><img alt="Diagram of the different steps coming before Hylé settlement. The diagram is in three parts. The first part, titled Application, includes the use cases (zkRollup, zkApp, zkCoprocessor, zkGaming, zkML, zkDID, and so on). Then it shows execution (via Kakarot, MidenVM, CairoVM, Polygon zkEVM) and data availability (Celestia, Avail, Ethereum). The second part of the diagram is the Prover, with the proof system (groth16, SP1, Cairo, Risc0, Gnark, Valida) and the proving service (Gevulot, client-side, Taralli, Succinct Labs). The third part is the Verifier, Hylé, which only stocks the name of the contract, the proof system and the state commitment." src="../assets/img/main-diagram-large-detailed.png" /></p>
 <p>With this system, execution and storage happen anywhere you like, without cost barriers. You only need a fast and trustworthy verifier: that’s Hylé.</p>
-<p>For more information, <a href="https://hyle.eu">check out our website</a>.</p>
 
 
 
