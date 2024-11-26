@@ -9,14 +9,16 @@ description: Hylé is the lean blockchain that makes building provable apps easy
 
 [Hylé](https://hyle.eu/)  is a lean blockchain that helps you build provable applications that are minimally, yet sufficiently, onchain.
 
-- Hylé separates transaction sequencing from settlement, moving proof generation out of the latency-critical path. [Pipelined proving](https://blog.hyle.eu/an-introduction-to-delayed-proving/) solves ZK's current slowness problem and allows you to offload proof generation.
-- Hylé has no on-chain execution or virtual machine, relying only on efficient native verification of zero-knowledge proofs.
-- Hylé [verifies all zero-knowledge proofs natively](https://blog.hyle.eu/proof-verification-needs-to-change/): choose your proving scheme and your language.
-- Hylé enables composability for provable applications, reaching abstraction levels comparable to shared execution. No more foreign field arithmetic or recursive proving; just batch your proofs as part of the same transaction and Hylé will match them.
+We focus on native verification of zero-knowledge proofs.
+
+- Native zero-knowledge proof verification on our sovereign L1.
+- No onchain execution or virtual machine: only efficient proof verification.
+- Run complex logic in your smart contracts thanks to off-chain execution.
+- Leverage pipelined proving and bring proof generation outside of your app's critical path.
+- Choose your proving scheme and your language: we verify all proofs.
+- Composable cross-contract calls, reaching abstraction levels comparable to shared execution. You'll never need to recursively verify a proof again!
 
 ![Diagram of the different steps coming before Hylé settlement. The diagram is in three parts. The first part, titled Application, includes the use cases (zkRollup, zkApp, zkCoprocessor, zkGaming, zkML, zkDID, and so on). Then it shows execution (via Kakarot, MidenVM, CairoVM, Polygon zkEVM) and data availability (Celestia, Avail, Ethereum). The second part of the diagram is the Prover, with the proof system (groth16, SP1, Cairo, Risc0, Gnark, Valida) and the proving service (Gevulot, client-side, Taralli, Succinct Labs). The third part is the Verifier, Hylé, which only stocks the name of the contract, the proof system and the state commitment.](./assets/img/main-diagram-large-detailed.png)
-
-For more information, [check out our website](https://hyle.eu).
 
 ## Getting started
 
