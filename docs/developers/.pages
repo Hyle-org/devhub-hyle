@@ -1,5 +1,5 @@
 nav:
-    - using-the-cli
     - general-doc
+    - using-the-cli
     - examples
     - ...
