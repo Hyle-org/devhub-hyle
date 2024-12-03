@@ -1,6 +1,4 @@
-# CLI Installation instructions
-
-The CLI provides both a way to interact with the chain, and a way to start the devnet.
+# Run your own devnet
 
 ## Getting Started with Cargo
 
