@@ -1,37 +1,60 @@
 # CLI Installation instructions
 
-Hylé is currently using the Cosmos SDK as a base, and the CLI provides both a way to interact with the chain, and a way to start the devnet.
+The CLI provides both a way to interact with the chain, and a way to start the devnet.
 
-Clone the [Hylé Cosmos repository](https://github.com/Hyle-org/hyle-cosmos) and install it.
+## Getting Started with Cargo
 
-## Mac, Linux, Windows with WSL
-
-You will need to have installed `make` and `go`, v1.20 and above, on your system.
-
-Here are the commands:
+To start a single-node devnet (with consensus disabled), which is useful to build & debug smart contracts, run:
 
 ```bash
-git clone https://github.com/Hyle-org/hyle-cosmos.git
-cd hyle
-make build # or make install
+cargo build
+HYLE_RUN_INDEXER=false cargo run --bin node
 ```
 
-You can then get a list of commands with `hyled help`.
+If you want to run with an indexer, you will need a running PostgreSQL server. You can set it up with Docker:
+```bash
+# For default conf:
+docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
+```
 
-### Setting up the CLI
+### Configuration 
 
-Running the following command will setup your CLI and reset the local blockchain data if any.
+You can configure your setup using environment variables or by editing a configuration file.
+
+#### Using a configuration file
+
+To use a configuration file, copy the default settings where you run the node. If a file named config.ron is present, it will be automatically loaded by the node at startup.
 
 ```bash
-make init
+# Copy default config where you run the node. If file named "config.ron" is present, it will be loaded by node at startup.
+cp ./src/utils/conf_defaults.ron config.ron
 ```
 
-### Running a devnet
+#### Using a configuration file
 
-Run:
+Here's an example of how you can configure your setup using environment variables:
 
 ```bash
-./hyled start
+HYLE_RUN_INDEXER=false 
+HYLE_CONSENSUS__SLOT_DURATION=100
 ```
 
-Your node should start from block 0. Note that it persists data in a folder named `hyled-data` in the current working directory by default.
+## Getting Started with Docker
+
+### Build the Docker image locally
+
+To build the Docker image locally, use:
+
+```bash
+  docker build . -t hyle
+```
+
+### Run locally with Docker
+
+To run the Hylé node with Docker, use the following command:
+
+```bash
+  docker run -v ./db:/hyle/data -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 hyle
+```
+
+If you encounter permission errors when accessing the /hyle/data volume, try adding the "--privileged" cli flag to the Docker command.
