@@ -1,7 +1,5 @@
 # Your first smart contract
 
-Our [public devnet](connect-to-devnet.md) is now live!
-
 **The Hylé API is currently a basic proof of concept. Everything here will change and improve.**
 
 ### Coding your smart contract
@@ -17,7 +15,7 @@ For this example, we'll assume you're using the [RISC Zero Collatz Conjecture pr
 In this example, we'll show you how to use the CLI to register and interact with your smart contract.
 It's likely easier and faster to use our explorer, [Hyléou](https://hyleou.hyle.eu).
 
-To begin, [follow the CLI installation instructions](hyled-install-instructions.md).
+To begin, [follow the CLI installation instructions](install-cli.md).
 
 ### Registering your smart contract
 
