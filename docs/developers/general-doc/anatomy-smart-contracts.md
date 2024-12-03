@@ -1,4 +1,4 @@
-# Anatomy of a smart contract
+# What does a smart contract look like?
 
 Hylé is a fully programmable blockchain. We only store the minimal amount of data required to validate smart contract proofs, so our smart contracts have very little information.
 
