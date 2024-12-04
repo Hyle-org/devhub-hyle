@@ -6,7 +6,7 @@ title: Roadmap
 
 We do not have a public roadmap at this time. Stay tuned!
 
-- [currently supported proving schemes](../overview/supported-proving-schemes.md)
+- [currently supported proving schemes](../developers/general-doc/supported-proving-schemes.md)
 
 # Wen testnet ?
 
