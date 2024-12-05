@@ -2,14 +2,18 @@
 title: Roadmap
 ---
 
-# Roadmap
+## Roadmap
 
-We do not have a public roadmap at this time. Stay tuned!
+We do not have a public roadmap at this time. Stay tuned for updates or ask specific questions [in our Telegram group](https://t.me/hyle_org).
 
-- [currently supported proving schemes](../developers/general-doc/supported-proving-schemes.md)
+### Currently Supported Proving Schemes
 
-# Wen testnet ?
+Check the detailed [list of the proving schemes](../developers/general-doc/supported-proving-schemes.md) we currently support and the ones we'll work on next.
 
-Soon&trade;
+### Testnet
 
-In the meantime, we have a [public devnet](../developers/using-the-cli/connect-to-devnet.md) live, and you can also [run your own](../developers/using-the-cli/run-devnet.md)!
+We will release our testnet in early 2025.
+
+While we’re working towards launching the testnet, you can get hands-on right now:  
+- [Explore our public devnet](../developers/using-the-cli/connect-to-devnet.md), which is live and ready for use.  
+- Or, [spin up your own instance](../developers/using-the-cli/run-devnet.md) to start building today!
