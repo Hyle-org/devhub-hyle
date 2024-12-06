@@ -1,17 +1,26 @@
 ---
-title: Hyléou - blockchain explorer for Hylé
+title: Hyléou - Blockchain Explorer for Hylé
 ---
 
-Hyléou (a French pun for "Il est où" or "where are they?") is a blockchain explorer for Hylé. It is a web application that allows users to explore the blockchain, view transactions, and interact with the network.
+**Hyléou** (a French pun for "Il est où" or "Where is it?") is the blockchain explorer for the Hylé ecosystem.
 
 The explorer is live at [hyleou.hyle.eu](https://hyleou.hyle.eu/).  
-The repository can be found on [github](https://github.com/hyle-org/hyleou). We are open to PRs and issues !
+
+The source code is available on [GitHub](https://github.com/hyle-org/hyleou). We welcome PRs and issues!
 
 ## Features
 
-All features are curently very WIP.
+_All features are in active development._  
 
-- View the latest blocks and transactions
-- View detailed information about blocks and transactions
-- Register new contracts
-- Send transactions by uploading ZK proofs to specific contracts (multicall not yet supported)
+### Live features 
+Currently, you can:
+
+- View the latest blocks
+- View the latest transactions.
+
+### Upcoming features
+Planned features include:
+
+- View detailed information about specific blocks and transactions.
+- Register new contracts.
+- Send transactions by uploading ZK proofs to specific contracts (multicall not yet supported).
