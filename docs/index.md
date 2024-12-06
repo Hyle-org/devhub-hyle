@@ -37,8 +37,8 @@ With this system, execution and storage happen anywhere you like, without cost b
 
 ## Getting started
 
-1. [Run your own devnet](./developers/using-the-cli/run-devnet.md) or [Connect to the public devnet](./developers/using-the-cli/connect-to-devnet.md)
-1. Learn how to [create your first smart contract](developers/using-the-cli/your-first-smart-contract.md)
+1. [Run your own devnet](./developers/getting-started/run-devnet.md) or [Connect to the public devnet](./developers/getting-started/connect-to-devnet.md)
+1. Learn how to [create your first smart contract](developers/getting-started/your-first-smart-contract.md)
 
 ## Useful links
 
