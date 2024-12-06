@@ -6,7 +6,7 @@ Hylé is a full featured settlement layer, providing fast finality and cheap TX 
 
 ### Registering your smart contract
 
-See [Your First Smart Contract](../developers/using-the-cli/your-first-smart-contract.md) for details.
+See [Your First Smart Contract](../developers/getting-started/your-first-smart-contract.md) for details.
 
 ### Bring your own accounts
 

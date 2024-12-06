@@ -35,7 +35,7 @@ cargo run next 17
 cargo run reset 31
 ```
 
-Every time, a `proof.json` file containing the receipt will be generated. You can use this proof, along with the inputs, to trigger state transitions on Hylé (see [Your first smart contract](../using-the-cli/your-first-smart-contract.md) for more details).
+Every time, a `proof.json` file containing the receipt will be generated. You can use this proof, along with the inputs, to trigger state transitions on Hylé (see [Your first smart contract](../getting-started/your-first-smart-contract.md) for more details).
 
 ## Invalid transitions
 
