@@ -1,9 +1,15 @@
-Here, we show a few detailed examples of Hylé applications.
+Detailed examples of Hylé-based applications.
 
-* [Vibe Check](vibe-check.md)
+## Demos
 
-Our [grantees](https://github.com/Hyle-org/hyle/blob/main/GRANTS.md) also have projects to talk about:
+* [Vibe Check](vibe-check.md): a zkML app.
 
-* [Provable play-by-email games engine & zkChess](https://github.com/MatteoMer/provable-email-game-engine)
+## Code examples
 
-You should also [check out our partners](https://blog.hyle.eu/tag/partnership/).
+* [Collatz example on Hylé](collatz-example-in-depth.md)
+
+## Provable apps
+
+[Our grantees](../../resources/grants.md) have worked on a few projects that don't yet leverage Hylé. They can provide you with inspiration on provable apps.
+
+- [Provable play-by-email games engine](https://github.com/MatteoMer/provable-email-game-engine): A framework for building provable turn-based games, including zkChess.
