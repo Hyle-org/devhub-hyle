@@ -1,5 +1,3 @@
-# Detailed examples
-
 Here, we show a few detailed examples of Hylé applications.
 
 * [Vibe Check](vibe-check.md)

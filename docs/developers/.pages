@@ -1,5 +1,6 @@
 nav:
-    - getting started
+    - getting-started
     - general-doc
+    - explorer
     - examples
     - ...
