@@ -1,4 +1,4 @@
-# Use cases
+# 💡 Use cases
 
 The **Use cases** section of the Hylé documentation shows how to use Hylé in different scenarios.
 
