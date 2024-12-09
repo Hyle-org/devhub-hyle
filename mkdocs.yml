@@ -18,6 +18,13 @@ extra_css:
 markdown_extensions:
   - admonition
   - pymdownx.details
+  # For code highlightning
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.superfences
 copyright: Copyright &copy; 2024 Hylé
 extra:
