@@ -2,6 +2,8 @@
 title: Getting started
 ---
 
+# Getting started 
+
 Welcome to the **Getting Started** guide for Hylé.
 
 This page will help you configure your environment and start using Hylé.
