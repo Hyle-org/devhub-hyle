@@ -10,7 +10,7 @@ title: Find us
 
 # Contact us
 
-Feel free to reach out to the team for more information:
+Reach out to the team for more information:
 
 | :fontawesome-brands-github: Github | :fontawesome-brands-twitter: Twitter | :fontawesome-solid-archway: Farcaster | :fontawesome-brands-linkedin: LinkedIn | :fontawesome-brands-youtube: Youtube |:fontawesome-brands-telegram: Telegram|
 |-------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
