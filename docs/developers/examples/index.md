@@ -1,3 +1,5 @@
+# Examples
+
 Detailed examples of Hylé-based applications.
 
 ## Demos
@@ -6,7 +8,10 @@ Detailed examples of Hylé-based applications.
 
 ## Code examples
 
-* [Collatz example on Hylé](collatz-example-in-depth.md)
+Hylé does not have a native execution environment. Smart contracts do not execute code on Hylé, they describe a verification logic for a particular program.
+
+* [Collatz example on Hylé](https://github.com/Hyle-org/examples/blob/main/README.md), using SP1, Noir, or Groth16
+* [Hyleoof](./amm.md): an Automated Market Maker (AMM) based on Hylé.
 
 ## Provable apps
 
