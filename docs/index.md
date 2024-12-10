@@ -5,54 +5,51 @@ description: Hylé is the lean blockchain that makes building provable apps easy
 
 # Welcome to the Hylé developer docs
 
-**This developer portal and the project itself are still in early development. [Reach out to us on Telegram](https://t.me/hyle_org) if you need anything that isn't here or find outdated information.**
+[Hylé](https://hyle.eu/) is a lean blockchain that helps you build provable applications that are minimally, yet sufficiently, onchain.
 
-[Hylé](https://hyle.eu/)  is a lean blockchain that helps you build provable applications that are minimally, yet sufficiently, onchain.
+**Note:** This developer portal and the project itself are still evolving. [Join us on Telegram](https://t.me/hyle_org) if you need assistance or wish to provide feedback. Issues and PRs on [this documentation's GitHub repository](https://github.com/Hyle-org/devhub-hyle) are also very welcome!
 
-We focus on native verification of zero-knowledge proofs.
+## Why Hylé?
 
-- Native zero-knowledge proof verification on our sovereign L1.
+- Native zero-knowledge proof verification on our sovereign L1: we're fast and lean.
 - No onchain execution or virtual machine: only efficient proof verification.
-- Run complex logic in your smart contracts thanks to off-chain execution.
-- Leverage pipelined proving and bring proof generation outside of your app's critical path.
+- Run complex logic offchain and only submit proofs onchain for maximum scalability.
+- Proof composability: seamlessly combine multiple proofs into single, verifiable transactions.
+- Pipelined proving: send provable blobs, don't worry about proving times.
 - Choose your proving scheme and your language: we verify all proofs.
-- Composable cross-contract calls, reaching abstraction levels comparable to shared execution. You'll never need to recursively verify a proof again!
 
-## How does Hylé work?
+## How Hylé works
 
 Here’s what happens when you use Hylé’s sovereign verification-focused Layer 1:
 
-1. No need for a **verifier contract**: just call the native function.
-1. **Proof generation**: off-chain, the prover generates a zero-knowledge proof of a specific computation.
-1. **Proof submission**: the prover sends the proof(s) and the results of the computation to Hylé's Layer 1 as part of a transaction. If there are several proofs, that's not a problem: we offer proof composability.
-1. **Pipelined proving**: the state is updated temporarily to remove proving time from your app's critical path. [Read more on our blog](https://blog.hyle.eu/an-introduction-to-delayed-proving/).
-1. **Verification**: Hylé validators receive the transaction. They use the native verification programs to check the validity of the proof as fast as possible, without being limited by the bulky virtual machine.
-1. **Consensus and block inclusion**: if the proof is valid, the block producer puts the results of the computation on the Hylé blockchain and the state is updated onchain.
-
-And that’s it.
+1. **Sequencing**: Send a provable blob to Hylé: say what information you expect to prove later. We'll sequence the transaction immediately. [Read more about pipelined proving](https://blog.hyle.eu/an-introduction-to-delayed-proving/).
+1. **Proof generation**: generate a zero-knowledge proof of a specific computation, or several if they depend on each other. [Read more about proof composability](https://blog.hyle.eu/proof-composability-on-hyle/).
+1. **Proof submission**: when the proofs for your transaction are ready, send them to Hylé.
+1. **Verification**: Hylé validators receive the transaction. They verify the proofs natively, without the limitations of a bulky virtual machine.
+1. **Consensus**: if the proofs are valid, Hylé settles your transaction's state onchain. You're good to go!
 
 ![Diagram of the different steps coming before Hylé settlement. The diagram is in three parts. The first part, titled Application, includes the use cases (zkRollup, zkApp, zkCoprocessor, zkGaming, zkML, zkDID, and so on). Then it shows execution (via Kakarot, MidenVM, CairoVM, Polygon zkEVM) and data availability (Celestia, Avail, Ethereum). The second part of the diagram is the Prover, with the proof system (groth16, SP1, Cairo, Risc0, Gnark, Valida) and the proving service (Gevulot, client-side, Taralli, Succinct Labs). The third part is the Verifier, Hylé, which only stocks the name of the contract, the proof system and the state commitment.](../assets/img/main-diagram-large-detailed.png)
 
 With this system, execution and storage happen anywhere you like, without cost barriers. You only need a fast and trustworthy verifier: that’s Hylé.
 
-## Getting started
+## Documentation
 
-1. [Run your own devnet](./developers/getting-started/run-devnet.md) or [Connect to the public devnet](./developers/getting-started/connect-to-devnet.md)
-1. Learn how to [create your first smart contract](developers/getting-started/your-first-smart-contract.md)
+- [Get started now](developers/getting-started/index.md)
+- [Learn more about Hylé](developers/general-doc/index.md)
+- [Check out examples](developers/examples/index.md)
 
-## Useful links
+## Links
 
 - [Rust WIP node](http://github.com/hyle-org/hyle)
 - [Hyle.eu](https://hyle.eu)
 - [Hylé blog](https://blog.hyle.eu)
 
-## Contact us
-
 Feel free to reach out to the team for more information:
 
-- :fontawesome-brands-github: Github: [Hylé](https://github.com/Hyle-org)
-- :fontawesome-brands-twitter: Twitter: [@hyle_org](https://x.com/hyle_org)
-- :fontawesome-solid-archway: Farcaster: [@hyle-org](https://warpcast.com/hyle-org)
-- :fontawesome-brands-linkedin: LinkedIn: [Hylé](https://www.linkedin.com/company/hyl-/)
-- :fontawesome-brands-youtube: Youtube: [@Hylé](https://www.youtube.com/@Hyl%C3%A9-org)
-- :fontawesome-brands-telegram: Telegram: [@hyle_org](https://t.me/hyle_org)
+## Stay connected
+
+Have questions, feedback, or just want to say hi? Reach out to us through your favorite platform. We’d love to hear from you!
+
+| :fontawesome-brands-github: Github | :fontawesome-brands-twitter: Twitter | :fontawesome-solid-archway: Farcaster | :fontawesome-brands-linkedin: LinkedIn | :fontawesome-brands-youtube: Youtube |:fontawesome-brands-telegram: Telegram|
+|-------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| [Hylé](https://github.com/Hyle-org) | [@hyle_org](https://x.com/hyle_org)  | [@hyle-org](https://warpcast.com/hyle-org) | [Hylé](https://www.linkedin.com/company/hyl-/) | [@Hylé](https://www.youtube.com/@Hyl%C3%A9-org) | [@hyle_org](https://t.me/hyle_org)|
