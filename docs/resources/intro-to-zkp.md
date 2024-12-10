@@ -23,6 +23,8 @@ Find the documentation for the proof systems we currently support:
 - [Risc0](https://risc0.com/docs/)
 - [SP1](https://docs.succinct.xyz/)
 
+You can benchmark your Rust code with [the any-zkvm template](https://github.com/MatteoMer/any-zkvm).
+
 ## Read more
 
 - [awesome-zk](https://github.com/ventali/awesome-zk?tab=readme-ov-file) link repository on GitHub
