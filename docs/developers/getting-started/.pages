@@ -1,6 +1,5 @@
 nav:
-    - run-devnet.md
-    - public-devnet.md
+    - devnet.md
     - install-cli.md
     - your-first-smart-contract.md
     - ...

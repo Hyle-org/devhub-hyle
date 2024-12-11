@@ -8,7 +8,7 @@ This page will help you configure your environment and start using Hylé.
 
 Use the sidebar to navigate through the guide, or click on the links below to jump to a specific section:
 
-1. [Run your own devnet](run-devnet.md) or [use the public devnet](public-devnet.md)
+1. [Run your own devnet or connect to the public devnet](devnet.md)
 1. [Interact with a node](install-cli.md)
 1. [Create your first smart contract](your-first-smart-contract.md)
 	1. Get inspiration from [our in-depth Collatz example](../examples/collatz-example-in-depth.md)
