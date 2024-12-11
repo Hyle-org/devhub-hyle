@@ -10,7 +10,7 @@ We have three Hylé-made Risc0 smart contracts :
 * [`hyllar`](https://github.com/Hyle-org/hyle/tree/main/contracts/hyllar): Simple ERC20-like contract
 * [`amm`](amm.md): Simple AMM contract
 
-There is also a tool called `[hyrun](https://github.com/Hyle-org/hyle/tree/main/crates/hyrun)` to execute those contracts, generate proofs, etc.
+There is also a tool called [`hyrun`](https://github.com/Hyle-org/hyle/tree/main/crates/hyrun) to execute those contracts, generate proofs, etc.
 
 ## Code examples
 
