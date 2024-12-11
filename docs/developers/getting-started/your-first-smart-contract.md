@@ -4,7 +4,7 @@ You can use [any zkVM or proving scheme supported by Hylé](../general-doc/suppo
 
 We'll use [the Collatz example](https://github.com/Hyle-org/collatz-conjecture) as an example throughout this tutorial. See the [Collatz page](../examples/collatz-example-in-depth.md) page for more information.
 
-<!--TODO: specify transaction format, ABI, etc.-->
+Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-contracts.md).
 
 ## Prerequisites
 

@@ -46,10 +46,9 @@ With this system, execution and storage happen anywhere you like, without cost b
 
 Feel free to reach out to the team for more information:
 
-## Stay connected
-
-Have questions, feedback, or just want to say hi? Reach out to us through your favorite platform. We’d love to hear from you!
-
-| :fontawesome-brands-github: Github | :fontawesome-brands-twitter: Twitter | :fontawesome-solid-archway: Farcaster | :fontawesome-brands-linkedin: LinkedIn | :fontawesome-brands-youtube: Youtube |:fontawesome-brands-telegram: Telegram|
-|-------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| [Hylé](https://github.com/Hyle-org) | [@hyle_org](https://x.com/hyle_org)  | [@hyle-org](https://warpcast.com/hyle-org) | [Hylé](https://www.linkedin.com/company/hyl-/) | [@Hylé](https://www.youtube.com/@Hyl%C3%A9-org) | [@hyle_org](https://t.me/hyle_org)|
+- :fontawesome-brands-github: Github: [Hylé](https://github.com/Hyle-org)
+- :fontawesome-brands-twitter: Twitter: [@hyle_org](https://x.com/hyle_org)
+- :fontawesome-solid-archway: Farcaster: [@hyle-org](https://warpcast.com/hyle-org)
+- :fontawesome-brands-linkedin: LinkedIn: [Hylé](https://www.linkedin.com/company/hyl-/)
+- :fontawesome-brands-youtube: Youtube: [@Hylé](https://www.youtube.com/@Hyl%C3%A9-org)
+- :fontawesome-brands-telegram: Telegram: [@hyle_org](https://t.me/hyle_org)
