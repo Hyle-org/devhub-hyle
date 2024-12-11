@@ -1,6 +1,6 @@
 # Vibe Check
 
-The general idea of the Vibe Check app is to give people a SmileToken to reward them for smiling. 
+The general idea of the Vibe Check app is to give people a SmileToken to reward them for smiling.
 
 Watch [Sylve's demo at ETHCC[7]](https://ethcc.io/archive/The-rise-of-truthful-applications).
 
@@ -25,7 +25,6 @@ The step-by-step process:
 4. **Hylé verifies the proofs.**
     1. Hylé updates the SmileToken state if everything is correct. If so, I am rewarded with that SmileToken to congratulate me for my good vibes.
     2. Since Hylé’s state is checkpointed on different networks, I could get that token on any bridged network like Starknet or even Ethereum.
-
 
 ## How it works
 
