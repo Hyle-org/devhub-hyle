@@ -2,25 +2,30 @@
 
 You can use [any zkVM or proving scheme supported by Hylé](../general-doc/supported-proving-schemes.md).
 
-We'll use [the Collatz example](https://github.com/Hyle-org/collatz-conjecture) as an example throughout this tutorial. See the [Collatz page](../examples/collatz-example-in-depth.md) page for more information. This contract, based on Risc0, facilitates token swaps between two assets.
+We'll use [the Collatz example](https://github.com/Hyle-org/collatz-conjecture) as an example throughout this tutorial. See the [Collatz page](../examples/collatz-example-in-depth.md) page for more information.
 
 <!--TODO: specify transaction format, ABI, etc.-->
 
 ## Prerequisites
 
 - A working knowledge of zkVM basics.
-- For this example, [Rust](https://www.rust-lang.org/tools/install). We assume a typical Rust installation which contains both `rustup` and Cargo.
+- We assume a typical [Rust](https://www.rust-lang.org/tools/install) installation which contains both `rustup` and Cargo.
 - [Follow the CLI installation instructions](install-cli.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer/index.md).
 
 ## Registering your smart contract
 
+### Content of a smart contract
+
 Hylé smart contracts include:
 
-- **Name**: a unique identifier for your contract
-- **Tuple of (verifier, program_id)**: identifies the smart contract. The `verifier` is the proof system (e.g. "risczero" or "gnark-groth16-te-BN254"), and the `program_id` is the unique identifier of the program in that proof system. With Risc0, this is the image ID.
+- **Name**: the unique identifier for your contract
+- **Verifier**: the proof system (e.g. "risczero" or "gnark-groth16-te-BN254")
+- **Program ID**: the unique identifier for your program in that proof system. With Risc0, this is the image ID.
 - **State digest**: current state commitment of the contract.
 
 Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contracts.md).
+
+### Register your contract
 
 To register a contract on Hylé, run the following command:
 
@@ -31,11 +36,15 @@ hyled tx zktx register [owner] [verifier] [program_id] [contract_name] [state_di
 
 Replace `[owner], [verifier], [program_id], [contract_name]`, and `[state_digest]` with your specific details.
 
+#### For Collatz
+
 In the case of the Collatz Conjecture example, as RISC Zero programs are identified by their image ID, without a prefix, we use the number `0xb48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b`. This will change every time the contract logic is modified.  
 
-The initial state is set to "1", so that it can be reset to any number. This is encoded in base 64 as `AAAAAQ==` (because of the Rust library used to decode the state).
+The initial state is set to "1", so that it can be reset to any number. This is encoded in base 64 as `AAAAAQ==` because of the Rust library used to decode the state.
 
-For our example, the bash command would look like this:
+Note that you need a unique [contract_name]. If you try to test this example on the public devnet, we recommend putting a name that's not « collatz ».
+
+For our example, the bash command looks like this:
 
 ```bash
 hyled tx zktx register default risczero b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b collatz AAAAAQ==
@@ -43,8 +52,24 @@ hyled tx zktx register default risczero b48e70c79688b41fc8f0daf8370d1ddb3f44ada9
 
 (We put « default » as the `owner`, but you can put anything you like. This field is currently not leveraged; it will be in future versions.)
 
-!!! note
-    You need a unique [contract_name]. If you encounter a failure on the public devnet, try another name.
+#### Checking your contract
+
+In the explorer, this will look like this:
+
+```rust
+{
+    "tx_hash": "ebecbf7458370d656772369df4a76c343b050e3fdbe4c1ceb7d54175ce290b60",
+    "owner": "default",
+    "verifier": "risc0",
+    "program_id": [
+        b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b
+    ],
+    "state_digest": [
+        AAAAAQ==
+    ],
+    "contract_name": "collatz"
+}
+```
 
 ## Interacting with Hylé
 
@@ -92,7 +117,9 @@ hyled tx zktx prove [tx_hash] 0 collatz [path_to_proof]
 
 Hylé will now verify your proof. After verification, your transaction is settled, updating the state of the contract.
 
-Your contract state is visible at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`
+### Verifying your contract's state
+
+Your contract's state digest is visible at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`
 
 You can choose to run the command below instead:
 
