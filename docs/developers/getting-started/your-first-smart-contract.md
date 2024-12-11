@@ -2,14 +2,6 @@
 
 **The Hylé API is currently a basic proof of concept. Everything here will change and improve.**
 
-## Built-in contracts
-
-Default nodes include the [following contracts](https://github.com/Hyle-org/hyle/tree/main/contracts):
-- `hydentity`: Basic identity provider
-- `hyllar`: Simple ERC20-like contract
-- `amm`: Simple AMM contract
-
-
 ## Coding your smart contract
 
 You can use [any zkVM or proving scheme supported by Hylé](../general-doc/supported-proving-schemes.md).
@@ -21,11 +13,10 @@ Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-cont
 ## Installing the Hylé CLI tool
 
 In this example, we'll show you how to use the CLI to register and interact with your smart contract.
-It's likely easier and faster to use our explorer, [Hyléou](https://hyleou.hyle.eu).
+
+It will likely be easier and faster to use our explorer, [Hyléou](https://hyleou.hyle.eu), when the explorer will support this usage. (This will come soon.)
 
 To begin, [follow the CLI installation instructions](install-cli.md).
-
-## Understanding the built-in contracts
 
 ## Registering your smart contract
 
