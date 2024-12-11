@@ -69,7 +69,7 @@ cargo run -- -r reset X
 Here is one concrete example:
 
 ```sh
-# Compute a proof where the state of the contract is assumed to be 1, and the state should be reset to 31
+# Reset the state from 1 to 31
 cargo run reset 31
 ```
 
