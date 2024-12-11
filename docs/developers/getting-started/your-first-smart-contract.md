@@ -2,22 +2,32 @@
 
 **The Hylé API is currently a basic proof of concept. Everything here will change and improve.**
 
-### Coding your smart contract
+## Built-in contracts
+
+Default nodes include the [following contracts](https://github.com/Hyle-org/hyle/tree/main/contracts):
+- `hydentity`: Basic identity provider
+- `hyllar`: Simple ERC20-like contract
+- `amm`: Simple AMM contract
+
+
+## Coding your smart contract
 
 You can use [any zkVM or proving scheme supported by Hylé](../general-doc/supported-proving-schemes.md).
 
 For this example, we'll assume you're using the [RISC Zero Collatz Conjecture program](https://github.com/Hyle-org/collatz-conjecture). See the [Collatz example in depth](../examples/collatz-example-in-depth.md) page for more details.
 
-<!--TODO: specify transaction format, ABI, etc.-->
+Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-contracts.md).
 
-### Installing the Hylé CLI tool
+## Installing the Hylé CLI tool
 
 In this example, we'll show you how to use the CLI to register and interact with your smart contract.
 It's likely easier and faster to use our explorer, [Hyléou](https://hyleou.hyle.eu).
 
 To begin, [follow the CLI installation instructions](install-cli.md).
 
-### Registering your smart contract
+## Understanding the built-in contracts
+
+## Registering your smart contract
 
 Hylé smart contracts are made of:
 
@@ -50,9 +60,9 @@ You can check on Hylé's explorer to see your transaction:
 Your contract state is visible at:  
 `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`
 
-### Interacting with Hylé
+## Interacting with Hylé
 
-#### Publishing payloads
+### Publishing payloads
 
 Hylé transactions are settled in two steps. First - you send the payloads of your transaction to the network. These are application-specific data and will depend on how the contract is implemented.  In the case of the Collatz Conjecture program, this is a number encoded as a big-endian 32-bit integer.  Hence, the payloads correspond to the input of our program.
 
@@ -66,7 +76,7 @@ hyled tx zktx publish "" collatz $(echo $payload | base64) # the "" is a placeho
 You should then be able to check your transaction on Hyléou.
 At this point, your transaction has been sequenced, but not settled.
 
-#### Posting proofs of your payload to settle it.
+### Posting proofs of your payload to settle it.
 
 Hylé requires some specific variables in the output of the proof to process the transaction.  
 Check the [smart contract ABI](../general-doc/smart-contract-abi.md) for more details.
