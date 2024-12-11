@@ -19,7 +19,7 @@ We'll use [the Collatz example](https://github.com/Hyle-org/collatz-conjecture) 
 Hylé smart contracts include:
 
 - **Name**: the unique identifier for your contract
-- **Verifier**: the proof system (e.g. "risczero" or "gnark-groth16-te-BN254")
+- **Verifier**: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254")
 - **Program ID**: the unique identifier for your program in that proof system. With Risc0, this is the image ID.
 - **State digest**: current state commitment of the contract.
 
@@ -47,7 +47,7 @@ Note that you need a unique [contract_name]. If you try to test this example on 
 For our example, the bash command looks like this:
 
 ```bash
-hyled tx zktx register default risczero b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b collatz AAAAAQ==
+hyled tx zktx register default risc0 b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b collatz AAAAAQ==
 ```
 
 (We put « default » as the `owner`, but you can put anything you like. This field is currently not leveraged; it will be in future versions.)
