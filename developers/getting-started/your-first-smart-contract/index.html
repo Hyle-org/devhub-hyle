@@ -521,7 +521,7 @@
         
   
   <span class="md-ellipsis">
-    Install cli
+    CLI instructions
   </span>
   
 
@@ -584,36 +584,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#built-in-contracts" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Built-in contracts
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#coding-your-smart-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Coding your smart contract
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installing-the-hyle-cli-tool" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing the Hylé CLI tool
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#understanding-the-built-in-contracts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Understanding the built-in contracts
+      Prerequisites
     </span>
   </a>
   
@@ -625,6 +598,54 @@
       Registering your smart contract
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Registering your smart contract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#content-of-a-smart-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content of a smart contract
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#register-your-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register your contract
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Register your contract">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-collatz" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Collatz
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-your-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking your contract
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -650,7 +671,16 @@
           <li class="md-nav__item">
   <a href="#posting-proofs-of-your-payload-to-settle-it" class="md-nav__link">
     <span class="md-ellipsis">
-      Posting proofs of your payload to settle it.
+      Posting proofs of your payload to settle it
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-your-contracts-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifying your contract's state
     </span>
   </a>
   
@@ -823,7 +853,7 @@
         
   
   <span class="md-ellipsis">
-    Supported proving schemes
+    Proving schemes
   </span>
   
 
@@ -922,6 +952,8 @@
       
         
       
+        
+      
     
     
       
@@ -968,6 +1000,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/amm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AMM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1330,68 +1383,86 @@
 
 
 <h1 id="your-first-smart-contract">Your first smart contract</h1>
-<p><strong>The Hylé API is currently a basic proof of concept. Everything here will change and improve.</strong></p>
-<h2 id="built-in-contracts">Built-in contracts</h2>
-<p>Default nodes include the <a href="https://github.com/Hyle-org/hyle/tree/main/contracts">following contracts</a>:
-- <code>hydentity</code>: Basic identity provider
-- <code>hyllar</code>: Simple ERC20-like contract
-- <code>amm</code>: Simple AMM contract</p>
-<p>You can reuse them or use them as inspiration.</p>
-<h2 id="coding-your-smart-contract">Coding your smart contract</h2>
 <p>You can use <a href="../../general-doc/supported-proving-schemes/">any zkVM or proving scheme supported by Hylé</a>.</p>
+<p>We'll use <a href="https://github.com/Hyle-org/examples/tree/main/collatz-conjecture-rust">the Collatz example</a> as an example throughout this tutorial. See the <a href="../../examples/collatz-example-in-depth/">Collatz page</a> page for more information.</p>
 <p>Read more in our <a href="../../general-doc/anatomy-smart-contracts/">anatomy of a smart contract</a>.</p>
-<p>For this example, we'll follow the example of the AMM contract on Hylé.</p>
-<h2 id="installing-the-hyle-cli-tool">Installing the Hylé CLI tool</h2>
-<p>In this example, we'll show you how to use the CLI to register and interact with your smart contract.
-It's likely easier and faster to use our explorer, <a href="https://hyleou.hyle.eu">Hyléou</a>.</p>
-<p>To begin, <a href="../install-cli/">follow the CLI installation instructions</a>.</p>
-<h2 id="understanding-the-built-in-contracts">Understanding the built-in contracts</h2>
-<h2 id="registering-your-smart-contract">Registering your smart contract</h2>
-<p>Hylé smart contracts are made of:</p>
+<h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>a <strong>name</strong>, which must be unique</li>
-<li>a <strong>tuple of (verifier, program_id)</strong> which identifies the smart contract. The <code>verifier</code> is the proof system (e.g. "risczero" or "gnark-groth16-te-BN254"), and the <code>program_id</code> is the unique identifier of the program in that proof system, either the image ID in risczero of the verifying key in groth16 circuits.</li>
-<li>a <strong>state digest</strong>, holding the current state commitment of the contract. This can be any type of state commitment you want, and can currently be any size you want (this will have fee implications in the future).</li>
+<li>A working knowledge of zkVM basics.</li>
+<li>We assume a typical <a href="https://www.rust-lang.org/tools/install">Rust</a> installation which contains both <code>rustup</code> and Cargo.</li>
+<li><a href="../install-cli/">Follow the CLI installation instructions</a>. We are currently building utilities that will make it easier and faster to use our explorer, <a href="../../explorer/">Hyléou</a>.</li>
 </ul>
-<p>Read more about <a href="../../general-doc/anatomy-smart-contracts/">anatomy of smart contracts on Hylé</a></p>
-<p>To register a contract on-chain, run the following command:</p>
+<h2 id="registering-your-smart-contract">Registering your smart contract</h2>
+<h3 id="content-of-a-smart-contract">Content of a smart contract</h3>
+<p>Hylé smart contracts include:</p>
+<ul>
+<li><strong>Name</strong>: the unique identifier for your contract</li>
+<li><strong>Verifier</strong>: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254")</li>
+<li><strong>Program ID</strong>: the unique identifier for your program in that proof system. With Risc0, this is the image ID.</li>
+<li><strong>State digest</strong>: current state commitment of the contract.</li>
+</ul>
+<p>Read more about the <a href="../../general-doc/anatomy-smart-contracts/">anatomy of smart contracts on Hylé</a>.</p>
+<h3 id="register-your-contract">Register your contract</h3>
+<p>To register a contract on Hylé, run the following command:</p>
 <pre><code class="language-bash"># Owner is currently unused, but could be used in the future to manage contract permissions
-hyled tx zktx register [owner] [verifier] [program_id] [contract_name] [state_digest]
+hyled contract [owner] [verifier] [program_id] [contract_name] [state_digest]
 </code></pre>
-<p>In the case of the Collatz Conjecture program, as RISC Zero programs are identified by their image ID, without a prefix, we use the number <code>0xb48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b</code>. This will change every time the contract logic is modified.<br />
-The initial state is set to "1", so that it can be reset to any number. This is encoded in base 64 as <code>AAAAAQ==</code> (because of the rust library used to decode the state).</p>
-<p><em>NB: this might fail on the public devnet, as the contract name might already exist - try a different name in that case.</em></p>
-<pre><code class="language-bash"># Using &quot;default&quot; as an owner for now, but you cna put anything you like
-hyled tx zktx register default risczero b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b collatz AAAAAQ==
+<p>Replace <code>[owner], [verifier], [program_id], [contract_name]</code>, and <code>[state_digest]</code> with your specific details.</p>
+<h4 id="for-collatz">For Collatz</h4>
+<p>In the case of the Collatz Conjecture example, as RISC Zero programs are identified by their image ID, without a prefix, we use the number <code>0xb48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b</code>. This will change every time the contract logic is modified.  </p>
+<p>The initial state is set to "1", so that it can be reset to any number. This is encoded in base 64 as <code>AAAAAQ==</code> because of the Rust library used to decode the state.</p>
+<p>Note that you need a unique [contract_name]. If you try to test this example on the public devnet, we recommend putting a name that's not « collatz ».</p>
+<p>For our example, the bash command looks like this:</p>
+<pre><code class="language-bash">hyled contract default risc0 b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b collatz AAAAAQ==
 </code></pre>
-<p>You can check on Hylé's explorer to see your transaction:<br />
-<code>https://hyleou.hyle.eu/transaction/$TX_HASH</code></p>
-<p>Your contract state is visible at:<br />
-<code>https://hyleou.hyle.eu/contract/$CONTRACT_NAME</code></p>
+<p>(We put « default » as the <code>owner</code>, but you can put anything you like. This field is currently not leveraged; it will be in future versions.)</p>
+<h4 id="checking-your-contract">Checking your contract</h4>
+<p>In the explorer, this will look like this:</p>
+<pre><code class="language-rust">{
+    &quot;tx_hash&quot;: &quot;ebecbf7458370d656772369df4a76c343b050e3fdbe4c1ceb7d54175ce290b60&quot;,
+    &quot;owner&quot;: &quot;default&quot;,
+    &quot;verifier&quot;: &quot;risc0&quot;,
+    &quot;program_id&quot;: [
+        b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b
+    ],
+    &quot;state_digest&quot;: [
+        AAAAAQ==
+    ],
+    &quot;contract_name&quot;: &quot;collatz&quot;
+}
+</code></pre>
 <h2 id="interacting-with-hyle">Interacting with Hylé</h2>
+<p>Hylé transactions are settled in two steps, following <a href="https://blog.hyle.eu/an-introduction-to-delayed-proving/">pipelined proving principles</a>.</p>
+<ol>
+<li><strong>Publishing payloads</strong>: send the input of your program to the network. </li>
+<li><strong>Posting proof of your payload</strong>: generate and submit proofs validating your payload so Hylé will settle your transaction.</li>
+</ol>
 <h3 id="publishing-payloads">Publishing payloads</h3>
-<p>Hylé transactions are settled in two steps. First - you send the payloads of your transaction to the network. These are application-specific data and will depend on how the contract is implemented.  In the case of the Collatz Conjecture program, this is a number encoded as a big-endian 32-bit integer.  Hence, the payloads correspond to the input of our program.</p>
+<p>The content of the payload is app-specific: it's the input of your program.</p>
+<p>For the Collatz conjecture, this is a number encoded as a big-endian 32-bit integer.</p>
 <pre><code class="language-bash">payload='\x00\x00\x00\x05'
 # Generate the proof in 'collatz-contract'
 cargo run reset $payload
-hyled tx zktx publish &quot;&quot; collatz $(echo $payload | base64) # the &quot;&quot; is a placeholder for identity - Collatz doesn't handle identity so this is empty.
+hyled blobs &quot;&quot; collatz $(echo $payload | base64)
+# the &quot;&quot; is a placeholder for identity: it's empty, as Collatz doesn't handle identity
 </code></pre>
-<p>You should then be able to check your transaction on Hyléou.
-At this point, your transaction has been sequenced, but not settled.</p>
-<h3 id="posting-proofs-of-your-payload-to-settle-it">Posting proofs of your payload to settle it.</h3>
-<p>Hylé requires some specific variables in the output of the proof to process the transaction.<br />
-Check the <a href="../../general-doc/smart-contract-abi/">smart contract ABI</a> for more details.</p>
-<p>Once your program conforms to the ABI, you can simply generate proofs and send them to Hylé.
-Each payload of a transaction must be proven separately (for now), so you need to specify the index of the payload you're proving.</p>
-<pre><code class="language-bash">hyled tx zktx prove [tx_hash] [payload_index] [contract_name] [proof]
+<p>You can see your transaction on Hylé's explorer: <code>https://hyleou.hyle.eu/transaction/$TX_HASH</code></p>
+<p>At this point, your transaction has been sequenced, but not settled.</p>
+<h3 id="posting-proofs-of-your-payload-to-settle-it">Posting proofs of your payload to settle it</h3>
+<p>Hylé requires specific variables in the output of the proof to process the transaction. Check the <a href="../../general-doc/smart-contract-abi/">smart contract ABI</a> for more details.</p>
+<p>Once your program conforms to the ABI, you can generate proofs and send them to Hylé.</p>
+<p>Each payload of a transaction must be proven separately for now, so you need to specify the index of the payload you're proving.</p>
+<pre><code class="language-bash">hyled proof [tx_hash] [contract_name] [proof]
 </code></pre>
 <p>In the case of the Collatz Conjecture program, we can now prove our state transition from 1 to 5.</p>
 <pre><code class="language-bash"># Make sure the name matches the contract you registered
-hyled tx zktx prove [tx_hash] 0 collatz [path_to_proof]
+hyled proof [tx_hash] collatz [path_to_proof]
 </code></pre>
-<p>At this point, your transaction is settled and the state of the contract has been updated.
-You can then check that the contract was updated onchain by running the command below or checking in the explorer directly.</p>
-<pre><code class="language-bash">hyled query zktx contract collatz
+<p>Hylé will now verify your proof. After verification, your transaction is settled, updating the state of the contract.</p>
+<h3 id="verifying-your-contracts-state">Verifying your contract's state</h3>
+<p>Your contract's state digest is visible at: <code>https://hyleou.hyle.eu/contract/$CONTRACT_NAME</code></p>
+<p>You can choose to run the command below instead:</p>
+<pre><code class="language-bash">hyled state collatz
 </code></pre>
 
 

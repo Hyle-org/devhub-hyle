@@ -20,7 +20,7 @@
     
     
       
-        <title>Install cli - Hylé Developer Hub</title>
+        <title>CLI instructions - Hylé Developer Hub</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#interact-with-node" class="md-skip">
+        <a href="#cli-instructions" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Install cli
+              CLI instructions
             
           </span>
         </div>
@@ -523,12 +523,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    Install cli
+    CLI instructions
   </span>
   
 
@@ -539,7 +541,7 @@
         
   
   <span class="md-ellipsis">
-    Install cli
+    CLI instructions
   </span>
   
 
@@ -551,6 +553,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -559,9 +563,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#interact-with-node" class="md-nav__link">
+  <a href="#clone-the-hyle-repository" class="md-nav__link">
     <span class="md-ellipsis">
-      Interact with node
+      Clone the Hylé repository
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use the CLI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-install-the-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      (Optional) Install the CLI
     </span>
   </a>
   
@@ -750,7 +772,7 @@
         
   
   <span class="md-ellipsis">
-    Supported proving schemes
+    Proving schemes
   </span>
   
 
@@ -849,6 +871,8 @@
       
         
       
+        
+      
     
     
       
@@ -895,6 +919,27 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/amm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AMM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1256,13 +1301,17 @@
   
 
 
-  <h1>Install cli</h1>
-
-<h4 id="interact-with-node">Interact with node</h4>
-<p>To interact with the node, you can use the cli <code>hyled</code>:</p>
+<h1 id="cli-instructions">CLI instructions</h1>
+<h2 id="clone-the-hyle-repository">Clone the Hylé repository</h2>
+<p>Clone the <a href="https://github.com/Hyle-org/hyle">Hylé repository</a>.</p>
+<pre><code>git clone https://github.com/Hyle-org/hyle.git
+</code></pre>
+<h2 id="use-the-cli">Use the CLI</h2>
+<p>To interact with the node, use the cli <code>hyled</code>:</p>
 <pre><code class="language-bash">cargo run --bin hyled -- --help
 </code></pre>
-<p>You can install it for easy access: </p>
+<h2 id="optional-install-the-cli">(Optional) Install the CLI</h2>
+<p>You can install the CLI for easier access.</p>
 <pre><code class="language-bash">cargo install --path . --bin hyled
 hyled --help
 </code></pre>
