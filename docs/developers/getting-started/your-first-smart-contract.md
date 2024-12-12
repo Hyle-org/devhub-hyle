@@ -2,7 +2,7 @@
 
 You can use [any zkVM or proving scheme supported by Hylé](../general-doc/supported-proving-schemes.md).
 
-We'll use [the Collatz example](https://github.com/Hyle-org/collatz-conjecture) as an example throughout this tutorial. See the [Collatz page](../examples/collatz-example-in-depth.md) page for more information.
+We'll use [the Collatz example](https://github.com/Hyle-org/examples/tree/main/collatz-conjecture-rust) as an example throughout this tutorial. See the [Collatz page](../examples/collatz-example-in-depth.md) page for more information.
 
 Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-contracts.md).
 
@@ -31,7 +31,7 @@ To register a contract on Hylé, run the following command:
 
 ```bash
 # Owner is currently unused, but could be used in the future to manage contract permissions
-hyled tx zktx register [owner] [verifier] [program_id] [contract_name] [state_digest]
+hyled contract [owner] [verifier] [program_id] [contract_name] [state_digest]
 ```
 
 Replace `[owner], [verifier], [program_id], [contract_name]`, and `[state_digest]` with your specific details.
@@ -47,7 +47,7 @@ Note that you need a unique [contract_name]. If you try to test this example on 
 For our example, the bash command looks like this:
 
 ```bash
-hyled tx zktx register default risc0 b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b collatz AAAAAQ==
+hyled contract default risc0 b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b collatz AAAAAQ==
 ```
 
 (We put « default » as the `owner`, but you can put anything you like. This field is currently not leveraged; it will be in future versions.)
@@ -88,7 +88,7 @@ For the Collatz conjecture, this is a number encoded as a big-endian 32-bit inte
 payload='\x00\x00\x00\x05'
 # Generate the proof in 'collatz-contract'
 cargo run reset $payload
-hyled tx zktx publish "" collatz $(echo $payload | base64)
+hyled blobs "" collatz $(echo $payload | base64)
 # the "" is a placeholder for identity: it's empty, as Collatz doesn't handle identity
 ```
 
@@ -105,14 +105,14 @@ Once your program conforms to the ABI, you can generate proofs and send them to 
 Each payload of a transaction must be proven separately for now, so you need to specify the index of the payload you're proving.
 
 ```bash
-hyled tx zktx prove [tx_hash] [payload_index] [contract_name] [proof]
+hyled proof [tx_hash] [contract_name] [proof]
 ```
 
 In the case of the Collatz Conjecture program, we can now prove our state transition from 1 to 5.
 
 ```bash
 # Make sure the name matches the contract you registered
-hyled tx zktx prove [tx_hash] 0 collatz [path_to_proof]
+hyled proof [tx_hash] collatz [path_to_proof]
 ```
 
 Hylé will now verify your proof. After verification, your transaction is settled, updating the state of the contract.
@@ -124,5 +124,5 @@ Your contract's state digest is visible at: `https://hyleou.hyle.eu/contract/$CO
 You can choose to run the command below instead:
 
 ```bash
-hyled query zktx contract collatz
+hyled state collatz
 ```
