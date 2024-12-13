@@ -1,6 +1,6 @@
 # Vibe Check
 
-The general idea of the Vibe Check app is to give people a SmileToken to reward them for smiling. 
+The general idea of the Vibe Check app is to give people a SmileToken to reward them for smiling.
 
 Watch [Sylve's demo at ETHCC[7]](https://ethcc.io/archive/The-rise-of-truthful-applications).
 
@@ -25,7 +25,6 @@ The step-by-step process:
 4. **Hylé verifies the proofs.**
     1. Hylé updates the SmileToken state if everything is correct. If so, I am rewarded with that SmileToken to congratulate me for my good vibes.
     2. Since Hylé’s state is checkpointed on different networks, I could get that token on any bridged network like Starknet or even Ethereum.
-
 
 ## How it works
 
@@ -83,7 +82,7 @@ ZkML is one of ZK's many use cases. It helps you assert that a prediction's resu
 
 Here is the flow we followed:
 
-1. We used a **simple classifier from the [XGBoost library](https://xgboost.readthedocs.io/en/stable/) in Python**, which Giza fully supports. 
+1. We used a **simple classifier from the [XGBoost library](https://xgboost.readthedocs.io/en/stable/) in Python**, which Giza fully supports.
 2. We serialized our model in json thanks to the Giza SDK.
 3. We used the Giza API to turn our model into a Cairo program.
 4. We compiled the Cairo ML into Sierra using `scarb`
