@@ -82,7 +82,7 @@ ZkML is one of ZK's many use cases. It helps you assert that a prediction's resu
 
 Here is the flow we followed:
 
-1. We used a **simple classifier from the [XGBoost library](https://xgboost.readthedocs.io/en/stable/) in Python**, which Giza fully supports. 
+1. We used a **simple classifier from the [XGBoost library](https://xgboost.readthedocs.io/en/stable/) in Python**, which Giza fully supports.
 2. We serialized our model in json thanks to the Giza SDK.
 3. We used the Giza API to turn our model into a Cairo program.
 4. We compiled the Cairo ML into Sierra using `scarb`

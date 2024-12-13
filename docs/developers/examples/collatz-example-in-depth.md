@@ -32,7 +32,7 @@ Run `cargo risczero build` to build smart contract.
 
 ## Running the Collatz Conjecture program
 
-Hylé smart contracts can be executed client-side, enabling strong decentralization and permissionlessness. 
+Hylé smart contracts can be executed client-side, enabling strong decentralization and permissionlessness.
 
 To execute the smart contract, run the program with correct inputs.
 

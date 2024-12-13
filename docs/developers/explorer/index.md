@@ -12,7 +12,8 @@ The source code is available on [GitHub](https://github.com/hyle-org/hyleou). We
 
 _All features are in active development._  
 
-### Live features 
+### Live features
+
 Currently, you can:
 
 - View the latest blocks
@@ -20,6 +21,7 @@ Currently, you can:
 - View detailed information about specific blocks and transactions.
 
 ### Upcoming features
+
 Planned features include:
 
 - Register new contracts.

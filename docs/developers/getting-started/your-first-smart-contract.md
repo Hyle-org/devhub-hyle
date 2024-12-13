@@ -67,7 +67,7 @@ hyled tx zktx publish "" collatz $(echo $payload | base64) # the "" is a placeho
 You should then be able to check your transaction on Hyléou.
 At this point, your transaction has been sequenced, but not settled.
 
-### Posting proofs of your payload to settle it.
+### Posting proofs to settle the transaction
 
 Hylé requires some specific variables in the output of the proof to process the transaction.  
 Check the [smart contract ABI](../general-doc/smart-contract-abi.md) for more details.
