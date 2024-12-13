@@ -8,15 +8,15 @@ Here are some resources on zero-knowledge proofs and how to generate them.
 
 There are three moments when ZK is the right tool for you:
 
-- **Computing power imbalance** (which includes improved **scalability**)
-- **Adversarial environment**
-- **Anonymity**
+- **Computing power imbalance** (which includes improved **scalability**): I can verify a result without running the resource-heavy computation.
+- **Adversarial environment**: I can verify a result without knowing trade secrets that attained this result.
+- **Anonymity**: I share only the information I want to share.
 
 ## How to use zero-knowledge proofs
 
 There are [many ZK languages](https://github.com/microbecode/zk-languages). Hylé aims to verify [as many as possible](../developers/general-doc/supported-proving-schemes.md).
 
-With a zkVM, you can prove the correct execution of arbitrary code. This allows you to build ZK applications in languages you already know like Rust and C++, without having to build a circuit.
+With a zkVM, you can prove the correct execution of arbitrary code. This allows you to build ZK applications in a certain language without having to build a circuit around it.
 
 Find the documentation for the proof systems we currently support:
 

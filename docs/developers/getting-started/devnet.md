@@ -39,7 +39,7 @@ If you want to run with an indexer, you will need a running PostgreSQL server. Y
 docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
 ```
 
-#### Configuration 
+#### Configuration
 
 You can configure your setup using environment variables or by editing a configuration file.
 
