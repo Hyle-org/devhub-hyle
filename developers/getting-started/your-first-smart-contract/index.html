@@ -445,6 +445,8 @@
           
         
       
+        
+      
     
     
       
@@ -700,6 +702,27 @@
 
               
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../public-devnet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Public devnet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
               
             
           </ul>
@@ -1034,7 +1057,7 @@
         
   
   <span class="md-ellipsis">
-    Collatz example in depth
+    Collatz example
   </span>
   
 
@@ -1270,6 +1293,8 @@
       
         
       
+        
+      
     
     
       
@@ -1357,6 +1382,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/intro-to-zkp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding zero-knowledge proofs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1411,7 +1457,7 @@ hyled contract [owner] [verifier] [program_id] [contract_name] [state_digest]
 <h4 id="for-collatz">For Collatz</h4>
 <p>In the case of the Collatz Conjecture example, as RISC Zero programs are identified by their image ID, without a prefix, we use the number <code>0xb48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b</code>. This will change every time the contract logic is modified.  </p>
 <p>The initial state is set to "1", so that it can be reset to any number. This is encoded in base 64 as <code>AAAAAQ==</code> because of the Rust library used to decode the state.</p>
-<p>Note that you need a unique [contract_name]. If you try to test this example on the public devnet, we recommend putting a name that's not « collatz ».</p>
+<p>Note that you need a unique <code>contract_name</code>. If you try to test this example on the public devnet, we recommend putting a name that's not « collatz ».</p>
 <p>For our example, the bash command looks like this:</p>
 <pre><code class="language-bash">hyled contract default risc0 b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b collatz AAAAAQ==
 </code></pre>
@@ -1434,7 +1480,7 @@ hyled contract [owner] [verifier] [program_id] [contract_name] [state_digest]
 <h2 id="interacting-with-hyle">Interacting with Hylé</h2>
 <p>Hylé transactions are settled in two steps, following <a href="https://blog.hyle.eu/an-introduction-to-delayed-proving/">pipelined proving principles</a>.</p>
 <ol>
-<li><strong>Publishing payloads</strong>: send the input of your program to the network. </li>
+<li><strong>Publishing payloads</strong>: send the input of your program to the network.</li>
 <li><strong>Posting proof of your payload</strong>: generate and submit proofs validating your payload so Hylé will settle your transaction.</li>
 </ol>
 <h3 id="publishing-payloads">Publishing payloads</h3>
