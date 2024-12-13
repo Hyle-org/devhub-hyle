@@ -42,7 +42,7 @@ In the case of the Collatz Conjecture example, as RISC Zero programs are identif
 
 The initial state is set to "1", so that it can be reset to any number. This is encoded in base 64 as `AAAAAQ==` because of the Rust library used to decode the state.
 
-Note that you need a unique [contract_name]. If you try to test this example on the public devnet, we recommend putting a name that's not « collatz ».
+Note that you need a unique `contract_name`. If you try to test this example on the public devnet, we recommend putting a name that's not « collatz ».
 
 For our example, the bash command looks like this:
 
@@ -75,7 +75,7 @@ In the explorer, this will look like this:
 
 Hylé transactions are settled in two steps, following [pipelined proving principles](https://blog.hyle.eu/an-introduction-to-delayed-proving/).
 
-1. **Publishing payloads**: send the input of your program to the network. 
+1. **Publishing payloads**: send the input of your program to the network.
 2. **Posting proof of your payload**: generate and submit proofs validating your payload so Hylé will settle your transaction.
 
 ### Publishing payloads

@@ -13,5 +13,5 @@ Key highlights include:
 
 ## Links
 
-* [Front-end and back-end](https://github.com/Hyle-org/hyleoof)
-* [Contracts](https://github.com/Hyle-org/hyle/tree/main/contracts/amm)
+- [Front-end and back-end](https://github.com/Hyle-org/hyleoof)
+- [Contracts](https://github.com/Hyle-org/hyle/tree/main/contracts/amm)
