@@ -1,10 +1,10 @@
-# Hyléoof
+# AMM
 
-**Hyléoof** is a decentralized Automated Market Maker (AMM) built on the Hylé protocol. It showcases how Hylé can be used for efficient, scalable, and secure decentralized trading.
+The Hylé **AMM** is a decentralized Automated Market Maker (AMM) built on the Hylé protocol. It showcases how Hylé can be used for efficient, scalable, and secure decentralized trading.
 
 ## Overview
 
-Hyléoof simplifies decentralized trading through a constant function market maker model. Developers can leverage its architecture to integrate trading functionalities within their dApps.
+The AMM simplifies decentralized trading through a constant function market maker model. Developers can leverage its architecture to integrate trading functionalities within their dApps.
 
 Key highlights include:
 
@@ -13,5 +13,5 @@ Key highlights include:
 
 ## Links
 
-- [Front-end and back-end](https://github.com/Hyle-org/hyleoof)
-- [Contracts](https://github.com/Hyle-org/hyle/tree/main/contracts/amm)
+* [Front-end and back-end](https://github.com/Hyle-org/hyleoof)
+* [Contracts](https://github.com/Hyle-org/hyle/tree/main/contracts/amm)
