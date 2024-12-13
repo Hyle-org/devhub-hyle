@@ -16,3 +16,12 @@ We have a grant program supporting developers who want to work on [trust infrast
 To read more, see our grant ideas, and apply, please go to [our Grants page on the main Hylé repository](https://github.com/Hyle-org/hyle/blob/main/GRANTS.md).
 
 For questions that aren't answered on the Grants page, reach out [in our Telegram group](https://t.me/hyle_org).
+
+## Current and past grants
+
+Here are two past grants:
+
+- [Provable play-by-email games library](https://github.com/MatteoMer/provable-email-game-engine)
+- [Proof of residency app](https://github.com/rutefig/proof-of-residency)
+
+Find the full list on [our Grants page on the main Hylé repository](https://github.com/Hyle-org/hyle/blob/main/GRANTS.md).

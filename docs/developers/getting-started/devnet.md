@@ -9,6 +9,7 @@ If you want a more stable version, we encourage you to run your own devnet as ex
 ### Built-in contracts
 
 Default nodes include the [following contracts](https://github.com/Hyle-org/hyle/tree/main/contracts):
+
 - `hydentity`: Basic identity provider
 - `hyllar`: Simple ERC20-like contract
 - `amm`: Simple AMM contract
@@ -16,8 +17,9 @@ Default nodes include the [following contracts](https://github.com/Hyle-org/hyle
 ### Useful links
 
 Here are some useful links:
-- Explorer / Indexer: [Hyléou](https://hyleou.hyle.eu/). Read more [about the explorer](https://docs.hyle.eu/developers/explorer/).
-- [Your first smart contract](./your-first-smart-contract.md).
+
+- Explorer / Indexer: [Hyléou](https://hyleou.hyle.eu/). Read more [about the explorer](https://docs.hyle.eu/developers/explorer/)
+- [Your first smart contract](./your-first-smart-contract.md)
 
 ## Run your own devnet
 
@@ -31,12 +33,13 @@ HYLE_RUN_INDEXER=false cargo run --bin node
 ```
 
 If you want to run with an indexer, you will need a running PostgreSQL server. You can set it up with Docker:
+
 ```bash
 # For default conf:
 docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
 ```
 
-#### Configuration 
+#### Configuration
 
 You can configure your setup using environment variables or by editing a configuration file.
 
@@ -48,8 +51,6 @@ To use a configuration file, copy the default settings where you run the node. I
 # Copy default config where you run the node. If file named "config.ron" is present, it will be loaded by node at startup.
 cp ./src/utils/conf_defaults.ron config.ron
 ```
-
-##### Using a configuration file
 
 Here's an example of how you can configure your setup using environment variables:
 
