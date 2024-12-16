@@ -1,6 +1,6 @@
 # What does a smart contract look like?
 
-Hylé is a fully programmable blockchain. We only store the minimal amount of data required to validate smart contract proofs, so our smart contracts have very little information.
+Hylé is a fully programmable blockchain that optimizes data storage by keeping only the essential information needed to validate smart contract proofs. This design ensures that Hylé smart contracts are lightweight and efficient.
 
 Hylé smart contracts include:
 
@@ -11,11 +11,11 @@ Hylé smart contracts include:
 
 ## Name
 
-The name of your contract, which must be unique.
+The name of your contract must be unique.
 
 ## Verifier and program identifier
 
-Smart contracts in Hylé are identified by a zero-knowledge proof scheme and a matching identifier. This tuple is required to verify proofs.
+Smart contracts on Hylé rely on a pairing of a zero-knowledge proof scheme (verifier) and a program identifier. Together, these components validate contract proofs.
 
 | Proving scheme | Verifier | Program ID                                        |
 |----------------|----------|---------------------------------------------------|
@@ -26,9 +26,9 @@ Smart contracts in Hylé are identified by a zero-knowledge proof scheme and a m
 - **Noir**: Noir smart contracts are identified by they verifying key.
 - **Groth16**: Groth16 programs require a trusted ceremony. As such, their identifier is the verifying key corresponding to the matching private key, which will be unique for each program & ceremony.-->
 
-## State commitment
+## State digest
 
-The state commitment is the minimal amount of data required to attest to the full state of the smart contract.
+The state digest is a minimal yet comprehensive representation of the contract's current state. It serves as the basis for verifying the integrity of the contract's data.
 
 Some examples of valid state commitments:
 
