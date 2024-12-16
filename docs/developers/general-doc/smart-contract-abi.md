@@ -8,8 +8,8 @@ The Hylé protocol enforces several invariants on transactions to maximize secur
 
 This page uses the Rust structures to demonstrate, but you can use the following repos for other languages:
 
-- Rust example: https://github.com/Hyle-org/collatz-conjecture
-- Gnark / Groth16 example (outdated): https://github.com/Hyle-org/groth16-example
+- Rust example: <https://github.com/Hyle-org/collatz-conjecture>
+- Gnark / Groth16 example (outdated): <https://github.com/Hyle-org/groth16-example>
 
 ## Overview
 
