@@ -2,7 +2,7 @@
 description: Hylé is the lean blockchain that makes building provable apps easy. This is your developer documentation.
 ---
 
-# Welcome to the Hylé developer docs
+# Home
 
 [Hylé](https://hyle.eu/) is a lean blockchain that helps you build provable applications that are minimally, yet sufficiently, onchain.
 
