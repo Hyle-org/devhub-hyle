@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - getting-started
     - general-doc
     - explorer
