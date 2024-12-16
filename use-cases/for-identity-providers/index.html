@@ -191,7 +191,7 @@
   
     
   
-  Home
+  Welcome to the Hylé developer docs
 
       </a>
     </li>
@@ -346,7 +346,7 @@
         
   
   <span class="md-ellipsis">
-    Home
+    Welcome to the Hylé developer docs
   </span>
   
 
@@ -598,6 +598,8 @@
       
         
       
+        
+      
     
     
       
@@ -676,6 +678,27 @@
   
   <span class="md-ellipsis">
     Data Availability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developers/general-doc/hyle-vs-ethereum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hylé vs. Ethereum
   </span>
   
 
@@ -1346,17 +1369,17 @@
 <p>Hylé handles identity relying on the caller contract in a multicall.</p>
 <p>When a user crafts a transaction, their first call should be a proof-of-identity, for example a call to the native <code>/eth</code> smart contract, which validates Ethereum-like EOA signatures.</p>
 <p>Any subsequent call will see that the user is indeed the owner of an <code>/eth</code> address, e.g. <code>0xfoobar/eth</code> and will be able to use that address name trustlessly.</p>
-<h3 id="registering-your-own-stateless-identity-provider">Registering your own stateless identity provider</h3>
+<h2 id="registering-your-own-stateless-identity-provider">Registering your own stateless identity provider</h2>
 <p>A stateless identity provider such as the Ethereum EOA smart contract has two components:</p>
 <ul>
 <li>A smart contract registered on Hylé, <strong>authenticating proofs</strong></li>
 <li>A client-side library that can <strong>craft proofs</strong></li>
 </ul>
 <p>See the <em>Ethereum EOA smart contract</em><!--TODO: link--> for an example of such a provider.</p>
-<h3 id="adding-support-for-your-smart-wallet">Adding support for your smart wallet</h3>
+<h2 id="adding-support-for-your-smart-wallet">Adding support for your smart wallet</h2>
 <!--TODO: the general idea here is that we need access to some state where smart contracts are registered (e.g. the starknet state), and can craft proofs in a similar way. The data is public, so this remains permissionless.-->
 
-<h3 id="registering-a-stateful-private-identity-provider">Registering a stateful, private identity provider</h3>
+<h2 id="registering-a-stateful-private-identity-provider">Registering a stateful, private identity provider</h2>
 <p>This can be used by <a href="../for-zk-apps/">games</a>, SSO providers, or any other use-case that needs to handle user identity in a more traditional way.</p>
 <!--TODO: the gist here is to actually use ZK, and create valid proofs that nonetheless do not reveal the inner details of the authentication, merely that a given user is indeed who they claim they are. The on-chain contract needs access to a valid state commitment.-->
 
