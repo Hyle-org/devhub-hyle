@@ -20,8 +20,8 @@ Hylé smart contracts include:
 
 - **Name**: the unique identifier for your contract
 - **Verifier**: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254")
-- **Program ID**: the unique identifier for your program in that proof system. With Risc0, this is the image ID.
-- **State digest**: current state commitment of the contract.
+- **Program ID**: the unique identifier for your program in that proof system
+- **State digest**: current state commitment of the contract
 
 Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contracts.md).
 
