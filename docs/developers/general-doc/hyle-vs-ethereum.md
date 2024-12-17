@@ -16,7 +16,7 @@ The network maintains proofs of state transitions rather than the entire onchain
 
 Transactions on Hylé verify and settle transitions without storing intermediary states onchain.
 
-This architecture reduces storage overhead and promotes scalability while maintaining verifiability.
+This architecture reduces storage overhead and promotes scalability while maintaining trustlessness.
 
 ## Privacy is built-in
 
