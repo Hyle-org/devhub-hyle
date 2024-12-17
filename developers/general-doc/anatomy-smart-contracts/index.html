@@ -20,7 +20,7 @@
     
     
       
-        <title>What does a smart contract look like? - Hylé Developer Hub</title>
+        <title>Smart contracts on Hylé - Hylé Developer Hub</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-does-a-smart-contract-look-like" class="md-skip">
+        <a href="#smart-contracts-on-hyle" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              What does a smart contract look like?
+              Smart contracts on Hylé
             
           </span>
         </div>
@@ -571,6 +571,8 @@
         
       
         
+      
+        
           
         
       
@@ -642,7 +644,7 @@
           
   
   <span class="md-ellipsis">
-    What does a smart contract look like?
+    Smart contracts on Hylé
   </span>
   
 
@@ -653,7 +655,7 @@
         
   
   <span class="md-ellipsis">
-    What does a smart contract look like?
+    Smart contracts on Hylé
   </span>
   
 
@@ -722,6 +724,27 @@
   
   <span class="md-ellipsis">
     Proving schemes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipelined-proving/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pipelined proving
   </span>
   
 
@@ -1336,7 +1359,7 @@
   
 
 
-<h1 id="what-does-a-smart-contract-look-like">What does a smart contract look like?</h1>
+<h1 id="smart-contracts-on-hyle">Smart contracts on Hylé</h1>
 <p>Hylé is a fully programmable blockchain that optimizes data storage by keeping only the essential information needed to validate smart contract proofs. This design ensures that Hylé smart contracts are lightweight and efficient.</p>
 <p>Hylé smart contracts include:</p>
 <ul>
@@ -1344,6 +1367,12 @@
 <li><strong>Verifier</strong>: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254")</li>
 <li><strong>Program ID</strong>: the unique identifier for your program in that proof system</li>
 <li><strong>State digest</strong>: current state commitment of the contract</li>
+</ul>
+<p>Depending on the type of zk-proof circuits you use, there are some superficial differences, but the overall idea is that all inputs are known at proof generation time.</p>
+<p>This page uses the Rust structures to demonstrate, but you can use the following repos for other languages:</p>
+<ul>
+<li>Rust example: https://github.com/Hyle-org/collatz-conjecture</li>
+<li>Gnark / Groth16 example (outdated): https://github.com/Hyle-org/groth16-example</li>
 </ul>
 <h2 id="name">Name</h2>
 <p>The name of your contract must be unique.</p>

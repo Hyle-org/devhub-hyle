@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../supported-proving-schemes/">
+        <link rel="prev" href="../pipelined-proving/">
       
       
         <link rel="next" href="../">
@@ -571,6 +571,8 @@
         
       
         
+      
+        
           
         
       
@@ -633,7 +635,7 @@
         
   
   <span class="md-ellipsis">
-    What does a smart contract look like?
+    Smart contracts on Hylé
   </span>
   
 
@@ -655,6 +657,27 @@
   
   <span class="md-ellipsis">
     Proving schemes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipelined-proving/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pipelined proving
   </span>
   
 
@@ -717,18 +740,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#there-is-no-evm" class="md-nav__link">
+  <a href="#no-evm" class="md-nav__link">
     <span class="md-ellipsis">
-      There is no EVM
+      No EVM
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#there-is-no-onchain-state" class="md-nav__link">
+  <a href="#no-onchain-state" class="md-nav__link">
     <span class="md-ellipsis">
-      There is no onchain state
+      No onchain state
     </span>
   </a>
   
@@ -1338,13 +1361,17 @@
 
 <h1 id="hyle-vs-ethereum">Hylé vs. Ethereum</h1>
 <p>If you're used to Ethereum, you might be surprised by some of these Hylé characteristics.</p>
-<h2 id="there-is-no-evm">There is no EVM</h2>
-<p>The main one is that <strong>Hylé does not ship a Virtual Machine</strong>.</p>
-<p>There is no specific language and more importantly, no execution.</p>
-<h2 id="there-is-no-onchain-state">There is no onchain state</h2>
-<p>There is no onchain state, only proof of state transition.</p>
+<h2 id="no-evm">No EVM</h2>
+<p>Hylé does not include a Virtual Machine.</p>
+<p>There is no dedicated execution engine or specific programming language (like Solidity) you should use.</p>
+<p>Our approach is simple: onchain, we verify zero-knowledge proofs natively. Offchain, you do everything else, the way you prefer.</p>
+<h2 id="no-onchain-state">No onchain state</h2>
+<p>The network maintains proofs of state transitions rather than the entire onchain state.</p>
+<p>Transactions on Hylé verify and settle transitions without storing intermediary states onchain.</p>
+<p>This architecture reduces storage overhead and promotes scalability while maintaining trustlessness.</p>
 <h2 id="privacy-is-built-in">Privacy is built-in</h2>
-<p>Privacy is built-in.</p>
+<p>Unlike Ethereum, where privacy solutions must be implemented on top of the platform, Hylé integrates privacy features natively.</p>
+<p>The proof is public, but your inputs don't need to be, as execution happens offchain.</p>
 
 
 
