@@ -46,8 +46,6 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1410,7 +1408,7 @@
   
 
 
-<h1 id="smart-contract-abi">Smart Contract ABI</h1>
+<div><h1 id="smart-contract-abi">Smart Contract ABI</h1>
 <p>Hylé focuses on verifying zk-proofs. Because of this, writing smart contracts on Hylé has some specificities, with other elements being the same as with most other blockchains.</p>
 <p>Depending on the type of zk-proof circuits you use, there are some superficial differences, but the overall idea is that <strong>all inputs are known at proof generation time</strong>. This includes unusual elements such as the origin of the transaction (<code>tx.origin</code> in Ethereum) and the block number.</p>
 <p>The Hylé protocol enforces several invariants on transactions to maximize security. For this reason, we must specify some of the data within a zero-knowledge proof.</p>
@@ -1421,17 +1419,17 @@
 </ul>
 <h2 id="overview">Overview</h2>
 <p>Here is the rust struct specifying the output of a Hylé smart contract:</p>
-<pre><code class="language-rust">pub struct HyleOutput&lt;T&gt; {
-    pub version: u32,
-    pub initial_state: Vec&lt;u8&gt;,
-    pub next_state: Vec&lt;u8&gt;,
-    pub identity: String,
-    pub tx_hash: Vec&lt;u8&gt;,
-    pub payload_hash: Vec&lt;u8&gt;,
-    pub success: bool,
-    pub program_outputs: T
-}
-</code></pre>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HyleOutput</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">version</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">initial_state</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">next_state</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">identity</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">tx_hash</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">payload_hash</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">success</span><span class="p">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">program_outputs</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
+</span></code></pre></div>
 <p>The <code>version</code> field should currently be set to 1.</p>
 <!-- Inclure diagramme sur le flow d'une preuve ici -->
 
@@ -1465,7 +1463,7 @@ This is very WIP (as of August 2024) and will change soon.</p>
 <p>Smart contracts can provide other outputs as part of the proof they generate.</p>
 <p>This can be used for a variety of purposes, but mostly serves to provide Data Availability. See <a href="../data-availability/">Data Availability</a> for more information.</p>
 <h2 id="events">Events</h2>
-<p>Hylé does not currently ship native events. We are looking into implementing them in the near future.</p>
+<p>Hylé does not currently ship native events. We are looking into implementing them in the near future.</p></div>
 
 
 

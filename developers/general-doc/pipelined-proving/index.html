@@ -46,8 +46,6 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1359,7 +1357,7 @@
   
 
 
-<h1 id="pipelined-proving">Pipelined proving</h1>
+<div><h1 id="pipelined-proving">Pipelined proving</h1>
 <h2 id="the-problem-base-state-conflicts">The problem: base state conflicts</h2>
 <p>Hylé ensures both privacy and scalability by verifying only the state transitions of smart contracts.</p>
 <p>However, provable applications usually run into an issue. Proof generation can be slow, especially on less powerful devices, and an app with a lot of usage will see competing operations, ie. operations that start with the same base state because the previous state change hasn't been settled yet.</p>
@@ -1384,7 +1382,7 @@
 <p>During settlement, proved blob transactions linked to the contract are executed in their sequencing order.</p>
 <h2 id="unprovable-transactions">Unprovable transactions</h2>
 <p>Hylé introduces <strong>timeouts</strong> for blob transactions to ensure timely proof submissions.</p>
-<p>Transactions without proofs within a specific duration, as well as transactions with invalid proofs, are rejected.</p>
+<p>Transactions without proofs within a specific duration, as well as transactions with invalid proofs, are rejected.</p></div>
 
 
 

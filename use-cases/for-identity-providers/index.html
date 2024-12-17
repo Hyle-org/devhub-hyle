@@ -46,8 +46,6 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
-    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1347,7 +1345,7 @@
   
 
 
-<h1 id="hyle-for-identity-providers">Hylé for Identity Providers</h1>
+<div><h1 id="hyle-for-identity-providers">Hylé for Identity Providers</h1>
 <p>Hylé does not specify what an "account" is, or even what identity particularly means. This gives it unprecedented flexibility in handling identity, including:</p>
 <ul>
 <li>EOAs like Ethereum native wallets</li>
@@ -1355,8 +1353,10 @@
 <li>Regular web2 identity</li>
 <li>Passports &amp; other national identity documents.</li>
 </ul>
-<p>!!! warning
-    You are entering TODO area, none of this is currently implemented.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You are entering TODO area, none of this is currently implemented.</p>
+</div>
 <p>Hylé handles identity relying on the caller contract in a multicall.</p>
 <p>When a user crafts a transaction, their first call should be a proof-of-identity, for example a call to the native <code>/eth</code> smart contract, which validates Ethereum-like EOA signatures.</p>
 <p>Any subsequent call will see that the user is indeed the owner of an <code>/eth</code> address, e.g. <code>0xfoobar/eth</code> and will be able to use that address name trustlessly.</p>
@@ -1372,7 +1372,7 @@
 
 <h2 id="registering-a-stateful-private-identity-provider">Registering a stateful, private identity provider</h2>
 <p>This can be used by <a href="../for-zk-apps/">games</a>, SSO providers, or any other use-case that needs to handle user identity in a more traditional way.</p>
-<!--TODO: the gist here is to actually use ZK, and create valid proofs that nonetheless do not reveal the inner details of the authentication, merely that a given user is indeed who they claim they are. The on-chain contract needs access to a valid state commitment.-->
+<!--TODO: the gist here is to actually use ZK, and create valid proofs that nonetheless do not reveal the inner details of the authentication, merely that a given user is indeed who they claim they are. The on-chain contract needs access to a valid state commitment.--></div>
 
 
 

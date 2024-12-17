@@ -46,8 +46,6 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1440,7 +1438,7 @@
   
 
 
-<h1 id="your-first-smart-contract">Your first smart contract</h1>
+<div><h1 id="your-first-smart-contract">Your first smart contract</h1>
 <p>You can use <a href="../../general-doc/supported-proving-schemes/">any zkVM or proving scheme supported by Hylé</a>.</p>
 <p>We'll use <a href="https://github.com/Hyle-org/examples/tree/main/collatz-conjecture-rust">the Collatz example</a> as an example throughout this tutorial. See the <a href="../../examples/collatz-example-in-depth/">Collatz page</a> page for more information.</p>
 <p>Read more in our <a href="../../general-doc/anatomy-smart-contracts/">anatomy of a smart contract</a>.</p>
@@ -1462,33 +1460,33 @@
 <p>Read more about the <a href="../../general-doc/anatomy-smart-contracts/">anatomy of smart contracts on Hylé</a>.</p>
 <h3 id="register-your-contract">Register your contract</h3>
 <p>To register a contract on Hylé, run the following command:</p>
-<pre><code class="language-bash"># Owner is currently unused, but could be used in the future to manage contract permissions
-hyled contract [owner] [verifier] [program_id] [contract_name] [state_digest]
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Owner is currently unused, but could be used in the future to manage contract permissions</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>hyled<span class="w"> </span>contract<span class="w"> </span><span class="o">[</span>owner<span class="o">]</span><span class="w"> </span><span class="o">[</span>verifier<span class="o">]</span><span class="w"> </span><span class="o">[</span>program_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>contract_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>state_digest<span class="o">]</span>
+</span></code></pre></div>
 <p>Replace <code>[owner], [verifier], [program_id], [contract_name]</code>, and <code>[state_digest]</code> with your specific details.</p>
 <h4 id="for-collatz">For Collatz</h4>
 <p>In the case of the Collatz Conjecture example, as RISC Zero programs are identified by their image ID, without a prefix, we use the number <code>0xb48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b</code>. This will change every time the contract logic is modified.  </p>
 <p>The initial state is set to "1", so that it can be reset to any number. This is encoded in base 64 as <code>AAAAAQ==</code> because of the Rust library used to decode the state.</p>
 <p>Note that you need a unique <code>contract_name</code>. If you try to test this example on the public devnet, we recommend putting a name that's not « collatz ».</p>
 <p>For our example, the bash command looks like this:</p>
-<pre><code class="language-bash">hyled contract default risc0 b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b collatz AAAAAQ==
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hyled<span class="w"> </span>contract<span class="w"> </span>default<span class="w"> </span>risc0<span class="w"> </span>b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b<span class="w"> </span>collatz<span class="w"> </span><span class="nv">AAAAAQ</span><span class="o">==</span>
+</span></code></pre></div>
 <p>(We put « default » as the <code>owner</code>, but you can put anything you like. This field is currently not leveraged; it will be in future versions.)</p>
 <h4 id="checking-your-contract">Checking your contract</h4>
 <p>In the explorer, this will look like this:</p>
-<pre><code class="language-rust">{
-    &quot;tx_hash&quot;: &quot;ebecbf7458370d656772369df4a76c343b050e3fdbe4c1ceb7d54175ce290b60&quot;,
-    &quot;owner&quot;: &quot;default&quot;,
-    &quot;verifier&quot;: &quot;risc0&quot;,
-    &quot;program_id&quot;: [
-        b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b
-    ],
-    &quot;state_digest&quot;: [
-        AAAAAQ==
-    ],
-    &quot;contract_name&quot;: &quot;collatz&quot;
-}
-</code></pre>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="s">"tx_hash"</span><span class="p">:</span><span class="w"> </span><span class="s">"ebecbf7458370d656772369df4a76c343b050e3fdbe4c1ceb7d54175ce290b60"</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="s">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s">"default"</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="s">"verifier"</span><span class="p">:</span><span class="w"> </span><span class="s">"risc0"</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="s">"program_id"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="n">b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="s">"state_digest"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="n">AAAAAQ</span><span class="o">==</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p">],</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="s">"contract_name"</span><span class="p">:</span><span class="w"> </span><span class="s">"collatz"</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}</span>
+</span></code></pre></div>
 <h2 id="interacting-with-hyle">Interacting with Hylé</h2>
 <p>Hylé transactions are settled in two steps, following <a href="https://blog.hyle.eu/an-introduction-to-delayed-proving/">pipelined proving principles</a>.</p>
 <ol>
@@ -1498,30 +1496,30 @@ hyled contract [owner] [verifier] [program_id] [contract_name] [state_digest]
 <h3 id="publishing-payloads">Publishing payloads</h3>
 <p>The content of the payload is app-specific: it's the input of your program.</p>
 <p>For the Collatz conjecture, this is a number encoded as a big-endian 32-bit integer.</p>
-<pre><code class="language-bash">payload='\x00\x00\x00\x05'
-# Generate the proof in 'collatz-contract'
-cargo run reset $payload
-hyled blobs &quot;&quot; collatz $(echo $payload | base64)
-# the &quot;&quot; is a placeholder for identity: it's empty, as Collatz doesn't handle identity
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">payload</span><span class="o">=</span><span class="s1">'\x00\x00\x00\x05'</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># Generate the proof in 'collatz-contract'</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>cargo<span class="w"> </span>run<span class="w"> </span>reset<span class="w"> </span><span class="nv">$payload</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>hyled<span class="w"> </span>blobs<span class="w"> </span><span class="s2">""</span><span class="w"> </span>collatz<span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$payload</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="k">)</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># the "" is a placeholder for identity: it's empty, as Collatz doesn't handle identity</span>
+</span></code></pre></div>
 <p>You can see your transaction on Hylé's explorer: <code>https://hyleou.hyle.eu/transaction/$TX_HASH</code></p>
 <p>At this point, your transaction has been sequenced, but not settled.</p>
 <h3 id="posting-proofs-of-your-payload-to-settle-it">Posting proofs of your payload to settle it</h3>
 <p>Hylé requires specific variables in the output of the proof to process the transaction. Check the <a href="../../general-doc/smart-contract-abi/">smart contract ABI</a> for more details.</p>
 <p>Once your program conforms to the ABI, you can generate proofs and send them to Hylé.</p>
 <p>Each payload of a transaction must be proven separately for now, so you need to specify the index of the payload you're proving.</p>
-<pre><code class="language-bash">hyled proof [tx_hash] [contract_name] [proof]
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>hyled<span class="w"> </span>proof<span class="w"> </span><span class="o">[</span>tx_hash<span class="o">]</span><span class="w"> </span><span class="o">[</span>contract_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>proof<span class="o">]</span>
+</span></code></pre></div>
 <p>In the case of the Collatz Conjecture program, we can now prove our state transition from 1 to 5.</p>
-<pre><code class="language-bash"># Make sure the name matches the contract you registered
-hyled proof [tx_hash] collatz [path_to_proof]
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Make sure the name matches the contract you registered</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>hyled<span class="w"> </span>proof<span class="w"> </span><span class="o">[</span>tx_hash<span class="o">]</span><span class="w"> </span>collatz<span class="w"> </span><span class="o">[</span>path_to_proof<span class="o">]</span>
+</span></code></pre></div>
 <p>Hylé will now verify your proof. After verification, your transaction is settled, updating the state of the contract.</p>
 <h3 id="verifying-your-contracts-state">Verifying your contract's state</h3>
 <p>Your contract's state digest is visible at: <code>https://hyleou.hyle.eu/contract/$CONTRACT_NAME</code></p>
 <p>You can choose to run the command below instead:</p>
-<pre><code class="language-bash">hyled state collatz
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>hyled<span class="w"> </span>state<span class="w"> </span>collatz
+</span></code></pre></div></div>
 
 
 

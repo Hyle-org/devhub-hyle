@@ -46,8 +46,6 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1452,7 +1450,7 @@
   
 
 
-<h1 id="devnet">Devnet</h1>
+<div><h1 id="devnet">Devnet</h1>
 <p>Hylé provides a public devnet where you can test your smart contract and help us test our network.</p>
 <p>If you want a more stable version, we encourage you to run your own devnet as explained below.</p>
 <h2 id="public-devnet">Public devnet</h2>
@@ -1472,34 +1470,34 @@
 <h2 id="run-your-own-devnet">Run your own devnet</h2>
 <h3 id="getting-started-with-cargo">Getting Started with Cargo</h3>
 <p>To start a single-node devnet (with consensus disabled), which is useful to build &amp; debug smart contracts, run:</p>
-<pre><code class="language-bash">cargo build
-HYLE_RUN_INDEXER=false cargo run --bin node
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>build
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>cargo<span class="w"> </span>run<span class="w"> </span>--bin<span class="w"> </span>node
+</span></code></pre></div>
 <p>If you want to run with an indexer, you will need a running PostgreSQL server. You can set it up with Docker:</p>
-<pre><code class="language-bash"># For default conf:
-docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># For default conf:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>pg_hyle<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>postgres<span class="w"> </span>postgres
+</span></code></pre></div>
 <h4 id="configuration">Configuration</h4>
 <p>You can configure your setup using environment variables or by editing a configuration file.</p>
 <h5 id="using-a-configuration-file">Using a configuration file</h5>
 <p>To use a configuration file, copy the default settings where you run the node. If a file named config.ron is present, it will be automatically loaded by the node at startup.</p>
-<pre><code class="language-bash"># Copy default config where you run the node. If file named &quot;config.ron&quot; is present, it will be loaded by node at startup.
-cp ./src/utils/conf_defaults.ron config.ron
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Copy default config where you run the node. If file named "config.ron" is present, it will be loaded by node at startup.</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cp<span class="w"> </span>./src/utils/conf_defaults.ron<span class="w"> </span>config.ron
+</span></code></pre></div>
 <p>Here's an example of how you can configure your setup using environment variables:</p>
-<pre><code class="language-bash">HYLE_RUN_INDEXER=false 
-HYLE_CONSENSUS__SLOT_DURATION=100
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">HYLE_CONSENSUS__SLOT_DURATION</span><span class="o">=</span><span class="m">100</span>
+</span></code></pre></div>
 <h3 id="getting-started-with-docker">Getting Started with Docker</h3>
 <h4 id="build-the-docker-image-locally">Build the Docker image locally</h4>
 <p>To build the Docker image locally, use:</p>
-<pre><code class="language-bash">  docker build . -t hyle
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">  </span>docker<span class="w"> </span>build<span class="w"> </span>.<span class="w"> </span>-t<span class="w"> </span>hyle
+</span></code></pre></div>
 <h4 id="run-locally-with-docker">Run locally with Docker</h4>
 <p>To run the Hylé node with Docker, use the following command:</p>
-<pre><code class="language-bash">  docker run -v ./db:/hyle/data -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 hyle
-</code></pre>
-<p>If you encounter permission errors when accessing the /hyle/data volume, try adding the "--privileged" cli flag to the Docker command.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">  </span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./db:/hyle/data<span class="w"> </span>-e<span class="w"> </span><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>-p<span class="w"> </span><span class="m">4321</span>:4321<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>:1234<span class="w"> </span>hyle
+</span></code></pre></div>
+<p>If you encounter permission errors when accessing the /hyle/data volume, try adding the "--privileged" cli flag to the Docker command.</p></div>
 
 
 

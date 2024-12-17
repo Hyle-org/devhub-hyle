@@ -46,8 +46,6 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
-    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1425,7 +1423,7 @@
   
 
 
-<h1 id="collatz-example">Collatz example</h1>
+<div><h1 id="collatz-example">Collatz example</h1>
 <p>Hylé smart contracts can be written in any language that targets one of our <a href="../../general-doc/supported-proving-schemes/">supported proving schemes</a>.</p>
 <p>On this page, we'll use the RISC Zero Collatz Conjecture program, which can be found <a href="https://github.com/Hyle-org/examples/tree/main">in our examples repository</a>.</p>
 <h2 id="what-is-the-collatz-conjecture">What is the Collatz conjecture?</h2>
@@ -1440,8 +1438,8 @@
 <h2 id="compiling-the-program">Compiling the program</h2>
 <p>To compile the program, you will need to have the RISC Zero toolchain installed. Follow the <a href="https://dev.risczero.com/api/zkvm/install">official instructions</a> to get the most up-to-date information.</p>
 <p>To use RISC Zero, you'll need to compile with</p>
-<pre><code class="language-bash">cargo build --features risc0
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>build<span class="w"> </span>--features<span class="w"> </span>risc0
+</span></code></pre></div>
 <p>The matching binary is <code>risc0-runner</code>.</p>
 <p>Run <code>cargo risczero build</code> to build smart contract.</p>
 <h2 id="running-the-collatz-conjecture-program">Running the Collatz Conjecture program</h2>
@@ -1449,28 +1447,28 @@
 <p>To execute the smart contract, run the program with correct inputs.</p>
 <h3 id="generate-a-proof">Generate a proof</h3>
 <h4 id="prove-the-transition-from-x-to-the-next-number">Prove the transition from X to the next number</h4>
-<pre><code class="language-sh"># Generate a proof of the transition from X to the next number in the Collatz conjecture
-cargo run next X
-# Or do it reproducibly
-cargo run -- -r next X
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Generate a proof of the transition from X to the next number in the Collatz conjecture</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cargo<span class="w"> </span>run<span class="w"> </span>next<span class="w"> </span>X
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Or do it reproducibly</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>-r<span class="w"> </span>next<span class="w"> </span>X
+</span></code></pre></div>
 <p>Here are some concrete examples:</p>
-<pre><code class="language-sh"># Compute a proof of a transition between the number 12 and 6
-cargo run next 12
-
-# Compute a proof of a transition between the number 17 and 52
-cargo run next 17
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Compute a proof of a transition between the number 12 and 6</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cargo<span class="w"> </span>run<span class="w"> </span>next<span class="w"> </span><span class="m">12</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Compute a proof of a transition between the number 17 and 52</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>cargo<span class="w"> </span>run<span class="w"> </span>next<span class="w"> </span><span class="m">17</span>
+</span></code></pre></div>
 <h4 id="reset-to-x">Reset to X</h4>
-<pre><code class="language-sh"># Reset to X, assuming the current number is a 1
-cargo run reset X
-# Or do it reproducibly
-cargo run -- -r reset X
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Reset to X, assuming the current number is a 1</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>cargo<span class="w"> </span>run<span class="w"> </span>reset<span class="w"> </span>X
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Or do it reproducibly</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>-r<span class="w"> </span>reset<span class="w"> </span>X
+</span></code></pre></div>
 <p>Here is one concrete example:</p>
-<pre><code class="language-sh"># Reset the state from 1 to 31
-cargo run reset 31
-</code></pre>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Reset the state from 1 to 31</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cargo<span class="w"> </span>run<span class="w"> </span>reset<span class="w"> </span><span class="m">31</span>
+</span></code></pre></div>
 <h4 id="invalid-transitions">Invalid transitions</h4>
 <p>The Collatz smart contract demonstrates how the code of the smart contract enforces constraints on the state:</p>
 <ul>
@@ -1480,7 +1478,7 @@ cargo run reset 31
 <h3 id="use-the-proof">Use the proof</h3>
 <p>Every time, a <code>proof.json</code> file containing the receipt will be generated. You can use this proof, along with the inputs, to trigger state transitions on Hylé. Read more: <a href="../../getting-started/your-first-smart-contract/">Your first smart contract</a>.</p>
 <h3 id="verify-the-proof">Verify the proof</h3>
-<p>Coming next.</p>
+<p>Coming next.</p></div>
 
 
 
