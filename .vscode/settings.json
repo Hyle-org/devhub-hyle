@@ -9,5 +9,6 @@
         "Hyléou",
         "merkle",
         "rustup"
-    ]
+    ],
+    "makefile.configureOnOpen": false
 }
