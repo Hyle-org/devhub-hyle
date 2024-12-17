@@ -4,7 +4,7 @@
 
 Clone the [Hylé repository](https://github.com/Hyle-org/hyle).
 
-```
+```git
 git clone https://github.com/Hyle-org/hyle.git
 ```
 
