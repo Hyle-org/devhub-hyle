@@ -1,4 +1,4 @@
-# What does a smart contract look like?
+# Smart contracts on Hylé
 
 Hylé is a fully programmable blockchain that optimizes data storage by keeping only the essential information needed to validate smart contract proofs. This design ensures that Hylé smart contracts are lightweight and efficient.
 
@@ -8,6 +8,13 @@ Hylé smart contracts include:
 - **Verifier**: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254")
 - **Program ID**: the unique identifier for your program in that proof system
 - **State digest**: current state commitment of the contract
+
+Depending on the type of zk-proof circuits you use, there are some superficial differences, but the overall idea is that all inputs are known at proof generation time.
+
+This page uses the Rust structures to demonstrate, but you can use the following repos for other languages:
+
+- Rust example: https://github.com/Hyle-org/collatz-conjecture
+- Gnark / Groth16 example (outdated): https://github.com/Hyle-org/groth16-example
 
 ## Name
 
