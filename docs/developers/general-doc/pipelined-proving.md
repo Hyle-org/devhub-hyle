@@ -8,7 +8,7 @@ However, provable applications usually run into an issue. Proof generation can b
 
 This is linked to several challenges:
 
-- **Proof generation latency**: proof generation can be slow, especially on less powerful devices.
+- **Proof generation latency**
 - **Timekeeping**: proofs require accurate time information, but users can't predict when their transaction will be sequenced.
 - **Parallelization**: proofs must include valid state transitions, but multiple transactions can accidentally reference the same base state.
 
@@ -26,7 +26,7 @@ From Hylé’s perspective, the blob-transaction's content is irrelevant: it sim
 1. **Sequencing** happens when the blob transaction is received and included in a block. This step establishes a global order and timestamps for transactions.
 1. **Settlement** happens when the corresponding proof transaction is verified and added to the block.
 
-During settlement, unproved blob transactions linked to the contract are executed in their sequencing order.
+During settlement, proved blob transactions linked to the contract are executed in their sequencing order.
 
 ## Unprovable transactions
 
