@@ -6,36 +6,35 @@ theme:
   palette:
     primary: custom
   features:
-  #  - navigation.indexes
-  #  - navigation.expand
-  #  - navigation.path
-  #  - navigation.tabs
-  #  - navigation.sections
-  #  - toc.integrate
-  #  - content.code.copy
+    - navigation.sections # section titles in left-hand menu
+    - navigation.indexes # clickable section titles in left-hand menu
+  #  - navigation.expand # expand sub-menus (re-enable if header tabs)
+  #  - navigation.tabs # to have header tabs
+    - navigation.prune # html minimization
+    - toc.integrate
+    - content.code.copy
 
 extra_css:
   - stylesheets/extra.css
 
 markdown_extensions:
-#  - attr_list
-#  - admonition
-#  - pymdownx.details
-#  - pymdownx.highlight:
-#      anchor_linenums: true
-#      line_spans: __span
-#      pygments_lang_class: true
-#  - pymdownx.inlinehilite
-#  - pymdownx.snippets
-#  - pymdownx.superfences
-#  - pymdownx.emoji:
-#      emoji_index: !!python/name:material.extensions.emoji.twemoji
-#      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 plugins:
-#  - search
-#  - awesome-pages
-#  - mkdocs-video
+  - search
+  - awesome-pages
+  - mkdocs-video
 
 copyright: Copyright &copy; 2024 Hylé
 
