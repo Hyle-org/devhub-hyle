@@ -1,6 +1,6 @@
-# Hylé vs. Ethereum
+# Hylé vs. vintage blockchains
 
-If you're used to Ethereum, you might be surprised by some of these Hylé characteristics.
+If you're used to vintage blockchains such as Ethereum or Solana, you might be surprised by some of these Hylé characteristics.
 
 ## No EVM
 
