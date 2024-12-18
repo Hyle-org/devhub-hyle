@@ -98,7 +98,7 @@ At this point, your transaction has been sequenced, but not settled.
 
 ### Posting proofs of your payload to settle it
 
-Hylé requires specific variables in the output of the proof to process the transaction. Check the [smart contract ABI](../general-doc/smart-contract-abi.md) for more details.
+Hylé requires specific variables in the output of the proof to process the transaction. Check the [smart contract ABI](../general-doc/smart-contracts.md) for more details.
 
 Once your program conforms to the ABI, you can generate proofs and send them to Hylé.
 

@@ -1,6 +1,6 @@
 nav:
     - supported-proving-schemes.md
-    - proof-composition.md
+    # - proof-composition.md
     - pipelined-proving.md
     - smart-contracts.md
     - hyle-vs-ethereum.md
