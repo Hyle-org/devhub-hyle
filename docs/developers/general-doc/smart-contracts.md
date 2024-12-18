@@ -1,4 +1,4 @@
-# Smart contracts on Hylé
+# Smart contracts
 
 Hylé is a fully programmable blockchain that optimizes data storage by keeping only the essential information needed to validate smart contract proofs. This design ensures that Hylé smart contracts are lightweight and efficient.
 
