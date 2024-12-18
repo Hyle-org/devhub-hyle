@@ -24,12 +24,18 @@ Hylé splits operations into two transactions:
 From Hylé’s perspective, the blob-transaction's content is irrelevant: it simply represents incoming information that your contract will process.
 
 1. **Sequencing** happens when the blob transaction is received and included in a block. This step establishes a global order and timestamps for transactions.
-1. **Settlement** happens when the corresponding proof transaction is verified and added to the block.
+1. **Settlement** happens when the corresponding proof transaction is verified and added to a block.
 
-During settlement, proved blob transactions linked to the contract are executed in their sequencing order.
+During settlement, unproven blob transactions linked to the contract are executed in their sequencing order.
 
-## Unprovable transactions
+## Unproven transactions
 
-Hylé introduces **timeouts** for blob transactions to ensure timely proof submissions.
+Even with [pipelined proving](./pipelined-proving.md), the delay in proof generation and submission can delay transaction finality and create uncertainty when determining the initial state of subsequent transactions.
 
-Transactions without proofs within a specific duration, as well as transactions with invalid proofs, are rejected.
+To remove this bottleneck, Hylé enforces **timeouts** for blob transactions.
+
+Each blob transaction is assigned a specific time limit for the associated proof to be submitted and verified. If the proof is not successfully provided within this window, the transaction is rejected: it is ignored for state updates but remains recorded in the block.
+
+The inclusion of the unproven transaction in the block ensures transparency, as the transaction data remains accessible.
+
+Subsequent transactions can proceed without waiting indefinitely.

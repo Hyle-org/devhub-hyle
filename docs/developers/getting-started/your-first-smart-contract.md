@@ -4,7 +4,7 @@ You can use [any zkVM or proving scheme supported by Hylé](../general-doc/suppo
 
 We'll use [the Collatz example](https://github.com/Hyle-org/examples/tree/main/collatz-conjecture-rust) as an example throughout this tutorial. See the [Collatz page](../examples/collatz-example-in-depth.md) page for more information.
 
-Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-contracts.md).
+Read more in our [anatomy of a smart contract](../general-doc/smart-contracts.md).
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Hylé smart contracts include:
 - **Program ID**: the unique identifier for your program in that proof system
 - **State digest**: current state commitment of the contract
 
-Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contracts.md).
+Read more about the [anatomy of smart contracts on Hylé](../general-doc/smart-contracts.md).
 
 ### Register your contract
 
@@ -98,7 +98,7 @@ At this point, your transaction has been sequenced, but not settled.
 
 ### Posting proofs of your payload to settle it
 
-Hylé requires specific variables in the output of the proof to process the transaction. Check the [smart contract ABI](../general-doc/smart-contract-abi.md) for more details.
+Hylé requires specific variables in the output of the proof to process the transaction. Check the [smart contract ABI](../general-doc/smart-contracts.md) for more details.
 
 Once your program conforms to the ABI, you can generate proofs and send them to Hylé.
 
