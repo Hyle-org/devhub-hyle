@@ -453,13 +453,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-your-own-devnet" class="md-nav__link">
+  <a href="#run-your-own-single-node-devnet" class="md-nav__link">
     <span class="md-ellipsis">
-      Run your own devnet
+      Run your own single-node devnet
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Run your own devnet">
+    <nav class="md-nav" aria-label="Run your own single-node devnet">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -531,6 +531,15 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run a node
+    </span>
+  </a>
   
 </li>
         
@@ -619,6 +628,8 @@
       
         
           
+        
+      
         
       
         
@@ -1109,7 +1120,7 @@
 <li>Explorer / Indexer: <a href="https://hyleou.hyle.eu/">Hyléou</a>. Read more <a href="https://docs.hyle.eu/developers/explorer/">about the explorer</a></li>
 <li><a href="../your-first-smart-contract/">Your first smart contract</a></li>
 </ul>
-<h2 id="run-your-own-devnet">Run your own devnet</h2>
+<h2 id="run-your-own-single-node-devnet">Run your own single-node devnet</h2>
 <h3 id="getting-started-with-cargo">Getting Started with Cargo</h3>
 <p>To start a single-node devnet (with consensus disabled), which is useful to build &amp; debug smart contracts, run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>build
@@ -1139,7 +1150,19 @@
 <p>To run the Hylé node with Docker, use the following command:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">  </span>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./db:/hyle/data<span class="w"> </span>-e<span class="w"> </span><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>-p<span class="w"> </span><span class="m">4321</span>:4321<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>:1234<span class="w"> </span>hyle
 </span></code></pre></div>
-<p>If you encounter permission errors when accessing the /hyle/data volume, try adding the "--privileged" cli flag to the Docker command.</p></div>
+<p>If you encounter permission errors when accessing the /hyle/data volume, try adding the "--privileged" cli flag to the Docker command.</p>
+<h3 id="run-a-node">Run a node</h3>
+<p>We currently don't have a deployment file available.</p>
+<p>Follow these instructions to run a node, keeping in mind that this is unstable and can break with upcoming updates.</p>
+<p>Download the Docker image:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
+</span></code></pre></div>
+<p>Then run the image:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span><span class="o">[</span>container_name<span class="o">]</span><span class="w"> </span>-d<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
+</span></code></pre></div>
+<p>And rebuild the node from the source:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>Hyle-org/hyle<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-dit<span class="w"> </span>Hyle-org/hyle
+</span></code></pre></div></div>
 
 
 

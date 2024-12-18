@@ -6,15 +6,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="The list of zero-knowledge proving schemes currently supported by Hylé.">
       
       
       
+        <link rel="prev" href="../data-availability/">
       
-        <link rel="prev" href="../anatomy-smart-contracts/">
       
-      
-        <link rel="next" href="../pipelined-proving/">
+        <link rel="next" href="../smart-contract-abi/">
       
       
       <link rel="icon" href="../../../assets/logo.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>Proving schemes - Hylé Developer Hub</title>
+        <title>Proof composition and cross-contract calls - Hylé Developer Hub</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#supported-proving-schemes" class="md-skip">
+        <a href="#proof-composition-and-cross-contract-calls" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Proving schemes
+              Proof composition and cross-contract calls
             
           </span>
         </div>
@@ -456,28 +454,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Proving schemes
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../supported-proving-schemes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -486,42 +466,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#supported-proving-schemes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Supported proving schemes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#planned-future-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Planned future support
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -596,10 +540,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../proof-composability/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Proof composition and cross-contract calls
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -608,6 +572,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-proof-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is proof composition?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-a-cross-contract-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing a cross-contract call
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-hyle-settles-multiple-proofs" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Hylé settles multiple proofs
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1074,31 +1085,47 @@
   
 
 
-  <h1>Proving schemes</h1>
-
-<div><h2 id="supported-proving-schemes">Supported proving schemes</h2>
-<p>Hylé currently supports the following zero-knowledge proving schemes:</p>
+<div><h1 id="proof-composition-and-cross-contract-calls">Proof composition and cross-contract calls</h1>
+<p>To understand the concept of proof composability on Hylé, we recommend you <a href="https://blog.hyle.eu/proof-composability-on-hyle/">read this blog post</a>. This page focuses on demonstrating how to use proof composition in your code.</p>
+<h2 id="what-is-proof-composition">What is proof composition?</h2>
+<p><strong>Proof composition</strong> happens when two contracts depend on each other. <strong>Proof composability</strong> is the fact that Hylé allows you to manage this while keeping their proofs independent.</p>
+<p>Most zero-knowledge systems deal with cross-contract calls by enforcing recursive proof verification:</p>
 <ul>
-<li><a href="https://risc0.com/docs/">Risc0</a></li>
-<li><a href="https://docs.succinct.xyz/docs/introduction">SP1</a></li>
+<li>Program A verifies proof of correct execution of Program B;</li>
+<li>Program B verifies proof of correct execution of Program A.</li>
 </ul>
-<h2 id="planned-future-support">Planned future support</h2>
-<p>We plan to eventually support all major proving schemes.</p>
-<p>The next proving schemes we're aiming to support are:</p>
+<p>Hylé allows you to assume, in Program A, that Program B has been successfully executed, by verifying that claim. If you batch both blobs in the same operation, we verify both natively outside of the contract; the whole operation fails if one proof fails to verify.</p>
+<p>Read more <a href="https://blog.hyle.eu/proof-composability-on-hyle/">on our blog</a>.</p>
+<h2 id="writing-a-cross-contract-call">Writing a cross-contract call</h2>
+<p>Your program does not need to verify the execution of another program directly. Instead, it uses a representation of the called contracts.</p>
+<p>This representation consists of:</p>
 <ul>
-<li><a href="https://www.cairo-lang.org/docs/">Cairo</a> via Stwo</li>
-<li><a href="https://github.com/arkworks-rs/groth16">Groth16</a></li>
-<li><a href="https://noir-lang.org/docs/">Noir</a></li>
-</ul></div>
+<li>the app</li>
+<li>the function</li>
+<li>the function's parameters</li>
+<li>a claim on the results.</li>
+</ul>
+<p>Claims can look like this: <code>MoneyApp::transfer(10, A, B) == true</code> or <code>TicketApp::get(A) == ticket</code>.</p>
+<p>Follow these steps:</p>
+<ol>
+<li><strong>Inject claims</strong>: add all the claims as inputs to the blob.</li>
+<li><strong>Index claims</strong>: provide an index to tell the contract where to locate its input.</li>
+<li><strong>Assert claims</strong>: use the claim list to validate the required conditions for the blob.</li>
+</ol>
+<h2 id="how-hyle-settles-multiple-proofs">How Hylé settles multiple proofs</h2>
+<p>When you submit multiple proofs to Hylé:</p>
+<ul>
+<li>Proof generation is parallelized: proving times do not compound since proofs do not depend on each other.</li>
+<li>Proof verification is asynchronous thanks to <a href="../pipelined-proving/">pipelined proving</a>. As soon as one proof is ready, it can be verified on Hylé, even if the other proofs aren't ready yet.</li>
+<li>Once all proofs related to the transaction are verified, the transaction is settled on Hylé. If one proof verification fails, then the entire operation fails.</li>
+</ul>
+<p>Read more <a href="https://blog.hyle.eu/proof-composability-on-hyle/">on our blog</a>.</p></div>
 
 
 
 
 
 
-
-  
-  
 
 
 
