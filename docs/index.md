@@ -1,13 +1,13 @@
 ---
-title: Home
 description: Hylé is the lean blockchain that makes building provable apps easy. This is your developer documentation.
 ---
 
-# Welcome to the Hylé developer docs
+# Home
 
 [Hylé](https://hyle.eu/) is a lean blockchain that helps you build provable applications that are minimally, yet sufficiently, onchain.
 
-**Note:** This developer portal and the project itself are still evolving. [Join us on Telegram](https://t.me/hyle_org) if you need assistance or wish to provide feedback. Issues and PRs on [this documentation's GitHub repository](https://github.com/Hyle-org/devhub-hyle) are also very welcome!
+!!! note
+    This developer portal and the project itself are still evolving. [Join us on Telegram](https://t.me/hyle_org) if you need assistance or wish to provide feedback. Issues and PRs on [this documentation's GitHub repository](https://github.com/Hyle-org/devhub-hyle) are also very welcome!
 
 ## Why Hylé?
 
@@ -28,7 +28,7 @@ Here’s what happens when you use Hylé’s sovereign verification-focused Laye
 1. **Verification**: Hylé validators receive the transaction. They verify the proofs natively, without the limitations of a bulky virtual machine.
 1. **Consensus**: if the proofs are valid, Hylé settles your transaction's state onchain. You're good to go!
 
-![Diagram of the different steps coming before Hylé settlement. The diagram is in three parts. The first part, titled Application, includes the use cases (zkRollup, zkApp, zkCoprocessor, zkGaming, zkML, zkDID, and so on). Then it shows execution (via Kakarot, MidenVM, CairoVM, Polygon zkEVM) and data availability (Celestia, Avail, Ethereum). The second part of the diagram is the Prover, with the proof system (groth16, SP1, Cairo, Risc0, Gnark, Valida) and the proving service (Gevulot, client-side, Taralli, Succinct Labs). The third part is the Verifier, Hylé, which only stocks the name of the contract, the proof system and the state commitment.](../assets/img/main-diagram-large-detailed.png)
+![Diagram of the different steps coming before Hylé settlement. The diagram is in three parts. The first part, titled Application, includes the use cases (zkRollup, zkApp, zkCoprocessor, zkGaming, zkML, zkDID, and so on). Then it shows execution (via Kakarot, MidenVM, CairoVM, Polygon zkEVM) and data availability (Celestia, Avail, Ethereum). The second part of the diagram is the Prover, with the proof system (groth16, SP1, Cairo, Risc0, Gnark, Valida) and the proving service (Gevulot, client-side, Taralli, Succinct Labs). The third part is the Verifier, Hylé, which only stocks the name of the contract, the proof system and the state commitment.](./assets/img/main-diagram-large-detailed.png)
 
 With this system, execution and storage happen anywhere you like, without cost barriers. You only need a fast and trustworthy verifier: that’s Hylé.
 
@@ -44,11 +44,8 @@ With this system, execution and storage happen anywhere you like, without cost b
 - [Hyle.eu](https://hyle.eu)
 - [Hylé blog](https://blog.hyle.eu)
 
-Feel free to reach out to the team for more information:
+Reach out to the team for more information:
 
-- :fontawesome-brands-github: Github: [Hylé](https://github.com/Hyle-org)
-- :fontawesome-brands-twitter: Twitter: [@hyle_org](https://x.com/hyle_org)
-- :fontawesome-solid-archway: Farcaster: [@hyle-org](https://warpcast.com/hyle-org)
-- :fontawesome-brands-linkedin: LinkedIn: [Hylé](https://www.linkedin.com/company/hyl-/)
-- :fontawesome-brands-youtube: Youtube: [@Hylé](https://www.youtube.com/@Hyl%C3%A9-org)
-- :fontawesome-brands-telegram: Telegram: [@hyle_org](https://t.me/hyle_org)
+| :fontawesome-brands-github: Github | :fontawesome-brands-twitter: Twitter | :fontawesome-solid-archway: Farcaster | :fontawesome-brands-linkedin: LinkedIn | :fontawesome-brands-youtube: Youtube |:fontawesome-brands-telegram: Telegram|
+|-------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
+| [Hylé](https://github.com/Hyle-org) | [@hyle_org](https://x.com/hyle_org)  | [@hyle-org](https://warpcast.com/hyle-org) | [Hylé](https://www.linkedin.com/company/hyl-/) | [@Hylé](https://www.youtube.com/@Hyl%C3%A9-org) | [@hyle_org](https://t.me/hyle_org)|
