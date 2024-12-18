@@ -44,7 +44,7 @@ Some examples of valid state commitments:
 
 ## Smart contract ABI
 
-All inputs in Hylé smart contracts must be known at proof generation time. This includes elements that wouldn't be known on other blockchains, such as the origin of the transaction (tx.origin) and the block number.
+All inputs in Hylé smart contracts must be known at proof generation time. This includes elements that would be known at execution time on other blockchains, such as the origin of the transaction (tx.origin) and the block number.
 
 Here is the Rust structure specifying the output of a Hylé smart contract:
 
