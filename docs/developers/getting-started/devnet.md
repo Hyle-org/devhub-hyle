@@ -21,7 +21,7 @@ Here are some useful links:
 - Explorer / Indexer: [Hyléou](https://hyleou.hyle.eu/). Read more [about the explorer](https://docs.hyle.eu/developers/explorer/)
 - [Your first smart contract](./your-first-smart-contract.md)
 
-## Run your own devnet
+## Run your own single-node devnet
 
 ### Getting Started with Cargo
 
@@ -78,3 +78,27 @@ To run the Hylé node with Docker, use the following command:
 ```
 
 If you encounter permission errors when accessing the /hyle/data volume, try adding the "--privileged" cli flag to the Docker command.
+
+### Run a node
+
+We currently don't have a deployment file available.
+
+Follow these instructions to run a node, keeping in mind that this is unstable and can break with upcoming updates.
+
+Download the Docker image:
+
+```bash
+docker pull europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
+```
+
+Then run the image:
+
+```bash
+docker run --name [container_name] -d [options] europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
+```
+
+And rebuild the node from the source:
+
+```bash
+docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
+```
