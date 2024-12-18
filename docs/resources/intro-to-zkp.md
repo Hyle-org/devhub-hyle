@@ -22,6 +22,8 @@ There are [many ZK languages](https://github.com/microbecode/zk-languages).
 
 Hylé aims to verify [as many proving schemes as possible](../developers/general-doc/supported-proving-schemes.md) eventually.
 
+<!-- ## Choosing the best proof system for your needs -->
+
 ## Read more
 
 - [awesome-zk](https://github.com/ventali/awesome-zk?tab=readme-ov-file) link repository on GitHub
