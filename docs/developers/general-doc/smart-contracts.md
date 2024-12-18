@@ -101,27 +101,23 @@ The field is not validated by the protocol.
 
 #### Blob index and blobs
 
-<!-- TODO -->
+Since a blob transaction can include several blobs, the design includes:
 
-    pub index: BlobIndex, -> tu peux mettre plusieurs blobs dans la blob-tx donc il faut savoir laquelle c'est
-    pub blobs: Vec<u8>,
+- `pub index: BlobIndex`: uniquely identifies a specific blob within a transaction.
+- `pub blobs: Vec<u8>`: all blobs included in the transaction.
 
 #### Success
 
-<!-- TODO : review -->
+This boolean field indicates whether the proof is for a successful transaction or a failure. It can be useful to prove that a transaction is invalid.
 
-This is a boolean - whether the proof is for a succesful proof or a failure case. It can be useful to prove that a transaction is invalid. See our example in [Vibe Check](https://github.com/Hyle-org/vibe-check/blob/main/cairo-reco-smile/src/lib.cairo#L297).
+Use case example: [Vibe Check](https://github.com/Hyle-org/vibe-check/blob/main/cairo-reco-smile/src/lib.cairo#L297).
 
 #### Other program-specific outputs
 
-<!-- TODO : review -->
+Smart contracts can provide additional outputs as part of the proof they generate.
 
-Smart contracts can provide other outputs as part of the proof they generate.
-
-This can be used for a variety of purposes, but mostly serves to provide Data Availability. See [Data Availability](./data-availability.md) for more information.
+These outputs mostly serve to provide data availability. See [Data Availability](./data-availability.md) for more information.
 
 ## Events
 
-<!-- TODO -->
-
-Hylé does not ship native events: they are replaced by blobs.
+Hylé does not include events. The protocol replaces traditional event systems with blobs, which act as containers for offchain data.

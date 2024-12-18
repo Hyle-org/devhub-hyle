@@ -4,7 +4,7 @@ You can use [any zkVM or proving scheme supported by Hylé](../general-doc/suppo
 
 We'll use [the Collatz example](https://github.com/Hyle-org/examples/tree/main/collatz-conjecture-rust) as an example throughout this tutorial. See the [Collatz page](../examples/collatz-example-in-depth.md) page for more information.
 
-Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-contract.md).
+Read more in our [anatomy of a smart contract](../general-doc/smart-contracts.md).
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ Hylé smart contracts include:
 - **Program ID**: the unique identifier for your program in that proof system
 - **State digest**: current state commitment of the contract
 
-Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contract.md).
+Read more about the [anatomy of smart contracts on Hylé](../general-doc/smart-contracts.md).
 
 ### Register your contract
 
