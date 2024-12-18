@@ -2,5 +2,5 @@ nav:
     - supported-proving-schemes.md
     - pipelined-proving.md
     - smart-contracts.md
-    - hyle-vs-ethereum.md
+    - hyle-vs-vintage-blockchains.md
     - ...
