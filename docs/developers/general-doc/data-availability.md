@@ -22,13 +22,13 @@ For smart contracts that intend to be permissionless, this can lead to DOS. In t
 
 If the proof contains the full state-diff, valid transactions sent to Hylé contain it too and external indexers are able to reconstruct the full state.
 
-This solves the data availability problem, assuming that transaction data is available long enough for any honest indexer to reconstruct the full state. 
+This solves the data availability problem, assuming that transaction data is available long enough for any honest indexer to reconstruct the full state.
 
 Our plan is to provide between 7 and 28 days of guaranteed DA, [like Ethereum blobs](https://ethereum.org/en/roadmap/danksharding/).
 
 ## Data retrievability
 
-Historical data is not provided by the protocol, as it is unnecessary to create new blocks. 
+Historical data is not provided by the protocol, as it is unnecessary to create new blocks.
 
 Starting a new node from scratch or reading past transactions for events may still be useful at times. To that end, Hylé nodes can be archive nodes which store the full state of the blockchain, including transactions, from the genesis block.
 

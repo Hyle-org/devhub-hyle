@@ -2,13 +2,13 @@
 title: Find us
 ---
 
-# Useful links
+## Useful links
 
 - [Rust WIP node](http://github.com/hyle-org/hyle)
 - [Hyle.eu](https://hyle.eu)
 - [Hylé blog](https://blog.hyle.eu)
 
-# Contact us
+## Contact us
 
 Reach out to the team for more information:
 

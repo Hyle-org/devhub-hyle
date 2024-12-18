@@ -16,7 +16,8 @@ When a user crafts a transaction, their first call should be a proof-of-identity
 
 Any subsequent call will see that the user is indeed the owner of an `/eth` address, e.g. `0xfoobar/eth` and will be able to use that address name trustlessly.
 
-### Registering your own stateless identity provider
+## Registering your own stateless identity provider
+
 A stateless identity provider such as the Ethereum EOA smart contract has two components:
 
 - A smart contract registered on Hylé, **authenticating proofs**
@@ -24,11 +25,11 @@ A stateless identity provider such as the Ethereum EOA smart contract has two co
 
 See the _Ethereum EOA smart contract_<!--TODO: link--> for an example of such a provider.
 
-### Adding support for your smart wallet
+## Adding support for your smart wallet
 
 <!--TODO: the general idea here is that we need access to some state where smart contracts are registered (e.g. the starknet state), and can craft proofs in a similar way. The data is public, so this remains permissionless.-->
 
-### Registering a stateful, private identity provider
+## Registering a stateful, private identity provider
 
 This can be used by [games](for-zk-apps.md), SSO providers, or any other use-case that needs to handle user identity in a more traditional way.
 

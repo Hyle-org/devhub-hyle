@@ -2,12 +2,13 @@
 
 The **Use cases** section of the Hylé documentation shows how to use Hylé in different scenarios.
 
-- [Hylé for ZKApps](for-zk-apps.md) 
+- [Hylé for ZKApps](for-zk-apps.md)
 - [Hylé for identity providers & wallets](for-identity-providers.md)
 - Hylé for RAAS & ZK Coprocessors (coming soon)
 - ...
 
 As well as external use cases:
+
 - [Hylé for play-by-email provable games](https://blog.hyle.eu/podcast-1-matteo-zkchess/)
 - [Hylé for account abstraction](https://blog.hyle.eu/smart-wallets-must-be-provable/)
 - [Hylé for age verification](https://blog.hyle.eu/freedom-and-privacy-with-zero-knowledge-proofs/)

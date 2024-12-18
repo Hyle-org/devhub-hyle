@@ -6,25 +6,20 @@ theme:
   palette:
     primary: custom
   features:
-    - navigation.indexes
-    - navigation.expand
-    - navigation.path
-    - navigation.tabs
-    - navigation.sections
+    - navigation.sections # section titles in left-hand menu
+    - navigation.indexes # clickable section titles in left-hand menu
+  #  - navigation.expand # expand sub-menus (re-enable if header tabs)
+  #  - navigation.tabs # to have header tabs
+    - navigation.prune # html minimization
     - toc.integrate
     - content.code.copy
+
 extra_css:
   - stylesheets/extra.css
+
 markdown_extensions:
-  - mkdocs-video
   - attr_list
-  - pymdownx.emoji:
-    emoji_index: !!python/name:material.extensions.emoji.twemoji
-    emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  # For admonition (add pymdownx.superfences)
   - admonition
-  - pymdownx.details
-  # For code highlightning
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -32,7 +27,17 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+  - awesome-pages
+  - mkdocs-video
+
 copyright: Copyright &copy; 2024 Hylé
+
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -47,12 +52,5 @@ extra:
       link: https://www.youtube.com/@Hyl%C3%A9-org
     - icon: fontawesome/brands/telegram
       link: https://t.me/hyle_org
-plugins:
-    - search
-    - awesome-pages
-markdown_extensions:
-  - attr_list
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
 repo_url: https://github.com/Hyle-org/hyle

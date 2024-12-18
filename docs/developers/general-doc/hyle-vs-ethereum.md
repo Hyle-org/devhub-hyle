@@ -2,16 +2,24 @@
 
 If you're used to Ethereum, you might be surprised by some of these Hylé characteristics.
 
-## There is no EVM
+## No EVM
 
-The main one is that **Hylé does not ship a Virtual Machine**.
+Hylé does not include a Virtual Machine.
 
-There is no specific language and more importantly, no execution.
+There is no dedicated execution engine or specific programming language (like Solidity) you should use.
 
-## There is no onchain state
+Our approach is simple: onchain, we verify zero-knowledge proofs natively. Offchain, you do everything else, the way you prefer.
 
-There is no onchain state, only proof of state transition.
+## No onchain state
+
+The network maintains proofs of state transitions rather than the entire onchain state.
+
+Transactions on Hylé verify and settle transitions without storing intermediary states onchain.
+
+This architecture reduces storage overhead and promotes scalability while maintaining trustlessness.
 
 ## Privacy is built-in
 
-Privacy is built-in.
+Unlike Ethereum, where privacy solutions must be implemented on top of the platform, Hylé integrates privacy features natively.
+
+The proof is public, but your inputs don't need to be, as execution happens offchain.
