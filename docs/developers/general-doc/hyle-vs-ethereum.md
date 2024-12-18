@@ -14,7 +14,7 @@ Our approach is simple: onchain, we verify zero-knowledge proofs natively. Offch
 
 The network maintains proofs of state transitions rather than the entire onchain state.
 
-Transactions on Hylé verify and settle transitions without storing intermediary states onchain.
+Transactions on Hylé verify and settle transitions without storing full intermediary states onchain.
 
 This architecture reduces storage overhead and promotes scalability while maintaining trustlessness.
 
