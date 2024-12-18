@@ -90,8 +90,7 @@ The identity is in two parts:
 
 For example, if a smart contract was registered onchain to verify Ethereum EOAs, the `identity` for them would look like `0x1234...5678.eth_eoa` where `eth_eoa` is the name of the contract and the first part matches a regular Ethereum address.
 
-!!! warning
-    All proofs in a transaction must declare the same identity as the first transaction or an empty identity.
+**Note**: All proofs in a transaction must declare the same identity as the first transaction or an empty identity.
 
 #### TX Hash
 
