@@ -9,8 +9,10 @@ We have three Hylé-made Risc0 smart contracts :
 * [`hydentity`](https://github.com/Hyle-org/hyle/tree/main/contracts/hydentity): Basic identity provider
 * [`hyllar`](https://github.com/Hyle-org/hyle/tree/main/contracts/hyllar): Simple ERC20-like contract
 * [`amm`](amm.md): Simple AMM contract
+* [`risc0 recursion`](https://github.com/Hyle-org/hyle/tree/main/contracts/risc0-recursion)
+* WIP: [`staking`](https://github.com/Hyle-org/hyle/tree/main/contracts/staking)
 
-There is also a tool called [`hyrun`](https://github.com/Hyle-org/hyle/tree/main/crates/hyrun) to execute those contracts, generate proofs, etc.
+There is also a CLI called [`hyrun`](https://github.com/Hyle-org/hyle/tree/main/crates/hyrun) to execute those contracts, generate proofs, etc.
 
 ## Code examples
 
@@ -18,7 +20,9 @@ There is also a tool called [`hyrun`](https://github.com/Hyle-org/hyle/tree/main
 
 ## Demos and provable apps
 
-[Our grantees](../../resources/grants.md) have worked on a few projects that don't yet leverage Hylé. Check them out for inspiration on building provable apps!
+Demos:
 
 * [Vibe Check](vibe-check.md): a zkML app.
-* [Provable play-by-email games engine](https://github.com/MatteoMer/provable-email-game-engine): A framework for building provable turn-based games, including zkChess.
+<!--Add AMM?-->
+
+[Our grantees](../../resources/grants.md) have worked on Hylé-based projects. Check them out for inspiration on building provable apps!
