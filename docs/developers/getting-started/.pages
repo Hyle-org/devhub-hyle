@@ -1,5 +1,6 @@
 nav:
     - devnet.md
-    - install-cli.md
-    - your-first-smart-contract.md
+    - your-first-erc20.md
+    - identity-management.md
+    - amm.md
     - ...
