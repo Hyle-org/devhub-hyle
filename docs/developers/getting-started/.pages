@@ -1,6 +1,7 @@
 nav:
     - index.md
     - devnet.md
-    - user-tooling.md
-    - your-first-smart-contract.md
+    - your-first-erc20.md
+    - identity-management.md
+    - amm.md
     - ...
