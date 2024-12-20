@@ -33,31 +33,6 @@ To build the Docker image locally, use:
 !!! tip
   If you encounter permission errors when accessing the /hyle/data volume, try adding the "--privileged" cli flag to the Docker command.
 
-
-### Run a node
-
-We currently don't have a deployment file available.
-
-Follow these instructions to run a node, keeping in mind that this is unstable and can break with upcoming updates.
-
-Download the Docker image:
-
-```bash
-docker pull europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
-```
-
-Then run the image:
-
-```bash
-docker run --name [container_name] -d [options] europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
-```
-
-And rebuild the node from the source:
-
-```bash
-docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
-```
-
 ### Getting started with Cargo
 
 To start a single-node devnet (with consensus disabled), which is useful to build & debug smart contracts, run:
@@ -97,3 +72,12 @@ Here's an example of how you can configure your setup using environment variable
 HYLE_RUN_INDEXER=false 
 HYLE_CONSENSUS__SLOT_DURATION=100
 ```
+
+### Useful tools
+
+<!-- TODO
+
+- CLI
+- Rust client
+- Hyled
+-->
