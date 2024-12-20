@@ -29,7 +29,7 @@ To build the Docker image locally, use:
 ```
 
 !!! tip
-  If you encounter permission errors when accessing the /hyle/data volume, try adding the "--privileged" cli flag to the Docker command.
+    If you encounter permission errors when accessing the `/hyle/data` volume, try adding the `--privileged` CLI flag to the Docker command.
 
 ## Run your local devnet with Cargo
 
