@@ -12,10 +12,11 @@ We'll use [our sample ERC20-like contract `hyllar`](https://github.com/Hyle-org/
 
 Hylé smart contracts include:
 
-- **Name**: the unique identifier for your contract
-- **Verifier**: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254")
-- **Program ID**: the unique identifier for your program in that proof system
-- **State digest**: current state commitment of the contract
+- **Owner**: put anything you like. This field is currently not leveraged but will be in future versions.
+- **Verifier**: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254").
+- **Program ID**: the unique identifier for your program in that proof system.
+- **Contract name**: the unique identifier for your contract.
+- **State digest**: current state commitment of the contract, usually a MerkleRootHash of the contract's state.
 
 Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contracts.md).
 
@@ -34,9 +35,7 @@ Replace `[owner], [verifier], [program_id], [contract_name]`, and `[state_digest
     - You need a unique `contract_name`.
     - The state digest cannot be empty, even if your app is stateless.
 
-### For your token transfer
-
-For your token transfer:
+For our example:
 
 - `owner`: we put « default » as the `owner`, but you can put anything you like. This field is currently not leveraged; it will be in future versions.
 - `verifier`: for this example, the verifier is `risc0`
@@ -67,28 +66,34 @@ In [the explorer](https://hyleou.hyle.eu/), this will look like this:
 
 ## Interact with Hylé
 
-Hylé transactions are settled in two steps, following [pipelined proving principles](https://blog.hyle.eu/an-introduction-to-delayed-proving/).
+Hylé transactions are settled in two steps, following [pipelined proving principles](../general-doc/pipelined-proving.md).
 
 1. **Publishing your blob**: publish the blob of the final state.
 2. **Posting proof of your blob**: publish proof of the state transition.
+
+
 
 ### Publishing blobs
 
 The content of the blob is app-specific: it's the input of your program.
 
-For the Collatz conjecture, this is a number encoded as a big-endian 32-bit integer.
+For Hyllar, this is a binary representation of the `ERC20Action` struct as defined in the contract.
+
+!!! failure
+    Section is currently being re-written, sorry.
+
+<!-- RECOMMENCE CHACAL
 
 ```bash
-blob='\x00\x00\x00\x05'
-# Generate the proof in 'collatz-contract'
+# Create blob
+blob='{binary representation of the ERC20Action struct}'
+# Generate the proof in 'hyllar'
 cargo run reset $blob 
 hyled blobs "" collatz $(echo $blob | base64)
-# the "" is a placeholder for identity: it's empty, as Collatz doesn't handle identity ---> Replace with ERC20
+# the "" is a placeholder for identity: it's empty, as Collatz doesn't handle identity -> Replace with ERC20
 ```
 
-<!-- why reset why $payload and is it $blob now-->
-
-You can see your transaction on Hylé's explorer: `https://hyleou.hyle.eu/transaction/$TX_HASH`
+-->
 
 At this point, your transaction has been sequenced, but not settled.
 
@@ -104,14 +109,16 @@ Each blob of a transaction must be proven separately for now, so you need to spe
 hyled proof [tx_hash] [contract_name] [proof]
 ```
 
-In the case of the Collatz Conjecture program, we can now prove our state transition from 1 to 5.
+In the case of the Hyllar program, we can now prove our state transitio:
 
 ```bash
 # Make sure the name matches the contract you registered
-hyled proof [tx_hash] collatz [path_to_proof]
+hyled proof [tx_hash] hyllar [path_to_proof]
 ```
 
 Hylé will now verify your proof. After verification, your transaction is settled, updating the state of the contract.
+
+You can see your transaction on Hylé's explorer: `https://hyleou.hyle.eu/transaction/$TX_HASH`
 
 ### Verifying your contract's state
 
@@ -120,5 +127,5 @@ Your contract's state digest is visible at: `https://hyleou.hyle.eu/contract/$CO
 You can choose to run the command below instead:
 
 ```bash
-hyled state collatz
+hyled state hyllar
 ```
