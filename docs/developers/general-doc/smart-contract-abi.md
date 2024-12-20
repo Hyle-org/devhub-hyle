@@ -80,7 +80,7 @@ This is a boolean - whether the proof is for a succesful proof or a failure case
 
 Smart contracts can provide other outputs as part of the proof they generate.
 
-This can be used for a variety of purposes, but mostly serves to provide Data Availability. See [Data Availability](./data-availability.md) for more information.
+This can be used for a variety of purposes, but mostly serves to provide Data Availability.
 
 ## Events
 
