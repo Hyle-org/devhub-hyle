@@ -1,8 +1,8 @@
 # Hylé vs. vintage blockchains
 
-If you're used to vintage blockchains such as Ethereum or Solana, you might be surprised by some of these Hylé characteristics.
+If you're used to traditional blockchains such as Ethereum or Solana, keep these Hylé characteristics in mind.
 
-## No EVM
+## No EVM or execution layer
 
 Hylé does not include a Virtual Machine.
 
