@@ -1,16 +1,6 @@
-
-- `hyllar`: Simple ERC20-like contract
-- `amm`: Simple AMM contract
-
-
-
 # Your first smart contract
 
-You can use [any zkVM or proving scheme supported by Hylé](../general-doc/supported-proving-schemes.md).
-
 We'll use [our sample ERC20-like contract `hyllar`](https://github.com/Hyle-org/hyle/tree/main/contracts/hyllar) as the basis for this tutorial.
-
-Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-contracts.md).
 
 ## Prerequisites
 
@@ -18,9 +8,7 @@ Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-cont
 - Install the [Rust toolchain](https://www.rust-lang.org/tools/install).
 - [Follow the CLI installation instructions](install-cli.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer/index.md). <!-- Is this still true?-->
 
-## Registering your smart contract
-
-### Content of a smart contract
+## Content of a smart contract
 
 Hylé smart contracts include:
 
@@ -31,7 +19,7 @@ Hylé smart contracts include:
 
 Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contracts.md).
 
-### Register your contract
+## Register your contract
 
 To register a contract on Hylé, run the following command:
 
@@ -43,46 +31,41 @@ hyled contract [owner] [verifier] [program_id] [contract_name] [state_digest]
 Replace `[owner], [verifier], [program_id], [contract_name]`, and `[state_digest]` with your specific details.
 
 !!! warning
-    The state digest cannot be empty, even if your app is stateless.
+    - You need a unique `contract_name`.
+    - The state digest cannot be empty, even if your app is stateless.
 
-#### For your token transfer
+### For your token transfer
 
-<!-- Replace
-In the case of the Collatz Conjecture example, as RISC Zero programs are identified by their image ID, without a prefix, we use the number `0xb48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b`. This will change every time the contract logic is modified.  
+For your token transfer:
 
-The initial state is set to "1", so that it can be reset to any number. This is encoded in base 64 as `AAAAAQ==` because of the Rust library used to decode the state.
-
-Note that you need a unique `contract_name`. If you try to test this example on the public devnet, we recommend putting a name that's not « collatz ».
+- `owner`: we put « default » as the `owner`, but you can put anything you like. This field is currently not leveraged; it will be in future versions.
+- `verifier`: for this example, the verifier is `risc0`
+- `program_id`: as RISC Zero programs are identified by their image ID, without a prefix, we use the number `0xe085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f`. This will change every time the contract logic is modified.
+- `contract_name`: hyllar
+- `state_digest`: usually a MerkleRootHash of the contract's state. For this example, we'll use `fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000`
 
 For our example, the bash command looks like this:
 
 ```bash
-hyled contract default risc0 b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b collatz AAAAAQ==
+hyled contract default risc0 e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f hyllar fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000
 ```
 
-(We put « default » as the `owner`, but you can put anything you like. This field is currently not leveraged; it will be in future versions.)
- -->
+### Check your contract
 
-#### Checking your contract
-
-In the explorer, this will look like this:
+In [the explorer](https://hyleou.hyle.eu/), this will look like this:
 
 ```rust
 {
-    "tx_hash": "ebecbf7458370d656772369df4a76c343b050e3fdbe4c1ceb7d54175ce290b60",
-    "owner": "default",
+    "tx_hash": "321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097",
+    "owner": "hyle",
     "verifier": "risc0",
-    "program_id": [
-        b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b
-    ],
-    "state_digest": [
-        AAAAAQ==
-    ],
-    "contract_name": "collatz"
+    "program_id": "e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f",
+    "state_digest": "fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000",
+    "contract_name": "hyllar"
 }
 ```
 
-## Interacting with Hylé
+## Interact with Hylé
 
 Hylé transactions are settled in two steps, following [pipelined proving principles](https://blog.hyle.eu/an-introduction-to-delayed-proving/).
 
