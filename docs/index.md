@@ -28,9 +28,7 @@ Here’s what happens when you use Hylé’s sovereign verification-focused Laye
 1. **Verification**: Hylé validators receive the transaction. They verify the proofs natively, without the limitations of a bulky virtual machine.
 1. **Consensus**: if the proofs are valid, Hylé settles your transaction's state onchain. You're good to go!
 
-![Diagram of the different steps coming before Hylé settlement. The diagram is in three parts. The first part, titled Application, includes the use cases (zkRollup, zkApp, zkCoprocessor, zkGaming, zkML, zkDID, and so on). Then it shows execution and data availability. The second part of the diagram is the Prover, with the proof system and the proving service. The third part is the Verifier, Hylé, which only stocks the name of the contract, the proof system and the state commitment.](./assets/img/main-diagram-large-detailed.png)
-
-With this system, execution and storage happen anywhere you like, without cost barriers. You only need a fast and trustworthy verifier: that’s Hylé.
+With this system, execution and storage happen **anywhere you like**. You only need a fast and trustworthy verifier: that’s Hylé.
 
 ## Documentation
 
