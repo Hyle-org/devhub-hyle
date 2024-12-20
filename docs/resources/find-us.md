@@ -4,7 +4,7 @@ title: Find us
 
 ## Useful links
 
-- [Rust WIP node](http://github.com/hyle-org/hyle)
+- [Rust node](http://github.com/hyle-org/hyle)
 - [Hyle.eu](https://hyle.eu)
 - [Hylé blog](https://blog.hyle.eu)
 
