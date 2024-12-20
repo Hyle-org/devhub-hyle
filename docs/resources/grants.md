@@ -6,7 +6,7 @@ We have a grant program supporting developers who want to work on [trust infrast
 
 ## What are our grants like?
 
-- You apply with an original idea or an idea from the list below.
+- You apply with an original idea or an idea from the list on our repo.
 - We fund your project. You get some money upfront, so you can build without financial worries, and the rest upon completion of the project.
 - You meet regularly with our CEO for guidance and to help you refine your ideas.
 - You are in a Telegram group with our other grantees to share ideas and solutions.
