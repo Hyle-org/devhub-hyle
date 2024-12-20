@@ -8,10 +8,10 @@ theme:
   features:
     - navigation.sections # section titles in left-hand menu
     - navigation.indexes # clickable section titles in left-hand menu
-  #  - navigation.expand # expand sub-menus (re-enable if header tabs)
+    - navigation.expand # expand sub-menus (re-enable if header tabs)
   #  - navigation.tabs # to have header tabs
     - navigation.prune # html minimization
-    - toc.integrate
+  #  - toc.integrate # toc in left-hand sidebar
     - content.code.copy
 
 extra_css:
