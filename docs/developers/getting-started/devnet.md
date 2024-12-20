@@ -14,9 +14,7 @@ Here are some useful links:
 - [Your first smart contract](./your-first-smart-contract.md)
 - [Examples](../examples/index.md)
 
-## Run your local devnet
-
-### Getting started with Docker
+## Run your local devnet with Docker
 
 <!-- TODO: Lancelot to make image public -->
 <!-- TODO: Alex S. to test run -->
@@ -33,7 +31,9 @@ To build the Docker image locally, use:
 !!! tip
   If you encounter permission errors when accessing the /hyle/data volume, try adding the "--privileged" cli flag to the Docker command.
 
-### Getting started with Cargo
+## Run your local devnet with Cargo
+
+### Install
 
 To start a single-node devnet (with consensus disabled), which is useful to build & debug smart contracts, run:
 
@@ -42,6 +42,7 @@ cargo build
 HYLE_RUN_INDEXER=false cargo run --bin node
 ```
 
+<!-- TODO Alex : pourquoi on parle de docker dans le getting started sans Docker -->
 If you want to run with an indexer, you will need a running PostgreSQL server. You can set it up with Docker:
 
 ```bash
@@ -49,13 +50,7 @@ If you want to run with an indexer, you will need a running PostgreSQL server. Y
 docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
 ```
 
-#### Configuration
-
-You can configure your setup using environment variables or by editing a configuration file.
-
-<!--TODO Add table of what can be configured-->
-
-##### Using a configuration file
+### Configuration
 
 To use a configuration file, copy the default settings where you run the node. If a file named config.ron is present, it will be automatically loaded by the node at startup.
 
@@ -64,18 +59,17 @@ To use a configuration file, copy the default settings where you run the node. I
 cp ./src/utils/conf_defaults.ron config.ron
 ```
 
-##### Using environment variables
-
-Here's an example of how you can configure your setup using environment variables:
+You can also configure your setup using environment variables:
 
 ```bash
 HYLE_RUN_INDEXER=false 
 HYLE_CONSENSUS__SLOT_DURATION=100
 ```
 
-### Useful tools
+<!--TODO Add table of what can be configured-->
 
 <!-- TODO
+### Useful tools
 
 - CLI
 - Rust client
