@@ -10,7 +10,7 @@ Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-cont
 
 - A working knowledge of zkVM basics.
 - We assume a typical [Rust](https://www.rust-lang.org/tools/install) installation which contains both `rustup` and Cargo.
-- [Follow the CLI installation instructions](install-cli.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer.md).
+- [Follow the CLI installation instructions](user-tooling.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer.md).
 
 ## Registering your smart contract
 
