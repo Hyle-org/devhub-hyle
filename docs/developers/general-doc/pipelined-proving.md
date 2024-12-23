@@ -28,7 +28,7 @@ From Hylé’s perspective, the blob-transaction's content is not an issue: it s
 
 During settlement, proved blob transactions linked to the contract are executed in their sequencing order.
 
-![](../../assets/img/pipelined-proving.jpg)
+![A graph with Alice, Bob, and the token state. On the middle line, there's a starting state. Alice sends her TX A blob, which updates the token's virtual state; a bit later, Bob sends a TX B blob which is sequenced. The updated state will now be used as the start state for the TX B proof, while Alice can prepare to send her TX A proof. This updates the token's state for TX A, then for TX B.](../../assets/img/pipelined-proving.jpg)
 
 ## Unprovable transactions
 
