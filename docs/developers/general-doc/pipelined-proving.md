@@ -28,6 +28,8 @@ From Hylé’s perspective, the blob-transaction's content is not an issue: it s
 
 During settlement, proved blob transactions linked to the contract are executed in their sequencing order.
 
+![](../../assets/img/pipelined-proving.jpg)
+
 ## Unprovable transactions
 
 Hylé introduces **timeouts** for blob transactions to ensure timely proof submissions.
