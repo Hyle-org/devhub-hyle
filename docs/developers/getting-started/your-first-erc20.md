@@ -4,9 +4,10 @@ We'll use [our sample ERC20-like contract `hyllar`](https://github.com/Hyle-org/
 
 ## Prerequisites
 
-- A working knowledge of zkVM basics. <!-- Is this true?-->
-- Install the [Rust toolchain](https://www.rust-lang.org/tools/install).
-- [Follow the CLI installation instructions](install-cli.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer/index.md). <!-- Is this still true?-->
+- A working knowledge of zkVM basics.
+- [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
+- [Follow the CLI installation instructions](user-tooling.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer.md).
+- For our example, you'll need to [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
 
 ## Content of a smart contract
 
