@@ -1,5 +1,5 @@
 ---
-title: 🛤️ Roadmap
+title: Roadmap
 ---
 
 <!-- TODO: Push the team to provide a roadmap. -->
