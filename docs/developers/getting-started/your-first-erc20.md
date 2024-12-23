@@ -2,6 +2,8 @@
 
 We'll use [our sample ERC20-like contract `hyllar`](https://github.com/Hyle-org/hyle/tree/main/contracts/hyllar) as the basis for this tutorial.
 
+Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-contracts.md).
+
 ## Prerequisites
 
 - A working knowledge of zkVM basics.
@@ -59,7 +61,7 @@ In [the explorer](https://hyleou.hyle.eu/), this will look like this:
     "tx_hash": "321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097",
     "owner": "hyle",
     "verifier": "risc0",
-    "program_id": "e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f",
+    "program_id":"e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f",
     "state_digest": "fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000",
     "contract_name": "hyllar"
 }
@@ -70,9 +72,7 @@ In [the explorer](https://hyleou.hyle.eu/), this will look like this:
 Hylé transactions are settled in two steps, following [pipelined proving principles](../general-doc/pipelined-proving.md).
 
 1. **Publishing your blob**: publish the blob of the final state.
-2. **Posting proof of your blob**: publish proof of the state transition.
-
-
+2. **Posting proof of your blob**: publish proof of the final state.
 
 ### Publishing blobs
 
@@ -110,7 +110,7 @@ Each blob of a transaction must be proven separately for now, so you need to spe
 hyled proof [tx_hash] [contract_name] [proof]
 ```
 
-In the case of the Hyllar program, we can now prove our state transitio:
+In the case of the Hyllar program, we can now prove our state transition:
 
 ```bash
 # Make sure the name matches the contract you registered
