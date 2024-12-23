@@ -25,3 +25,7 @@ You can install the CLI for easier access.
 cargo install --path . --bin hyled
 hyled --help
 ```
+
+## Explorer
+
+Explorer / Indexer: [Hyléou](https://hyleou.hyle.eu/). Read more [about the explorer](https://docs.hyle.eu/developers/explorer/).
