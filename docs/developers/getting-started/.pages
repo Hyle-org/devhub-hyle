@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - devnet.md
     - your-first-erc20.md
     - identity-management.md

@@ -1,5 +1,5 @@
 ---
-title: Hyléou - Blockchain Explorer for Hylé
+title: Explorer
 ---
 
 **Hyléou** (a French pun for "Il est où" or "Where is it?") is the blockchain explorer for the Hylé ecosystem.

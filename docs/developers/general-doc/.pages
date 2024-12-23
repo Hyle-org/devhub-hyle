@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - anatomy-smart-contracts.md
     - supported-proving-schemes.md
     - pipelined-proving.md
