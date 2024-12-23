@@ -1,6 +1,6 @@
 nav:
     - index.md
     - devnet.md
-    - install-cli.md
+    - user-tooling.md
     - your-first-smart-contract.md
     - ...
