@@ -4,22 +4,7 @@
 Hylé provides a testnet where you can test your smart contract and help us test our network.
 
 
-You can start building on Hylé by running a local devnet by following the instructions below.
-
-<!-- Testnet 
-## Public devnet
-
-### Built-in contracts
-
-Default nodes include the [`hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/contracts/hydentity), a basic identity provider.
-
-They also include `hyllar`, a simple ERC20-like contract, and `amm`, a simple AMM contract, which you can use as [examples](../examples/index.md)
-
-Here are some useful links:
-
-- [Your first smart contract](./your-first-smart-contract.md)
-- [Examples](../examples/index.md)
--->
+Start building on Hylé by running a local devnet.
 
 ## Run your local devnet
 
