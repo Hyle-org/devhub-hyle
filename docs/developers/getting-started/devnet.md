@@ -99,8 +99,6 @@ HYLE_RUN_INDEXER=false
 HYLE_CONSENSUS__SLOT_DURATION=100
 ```
 
-##### Environment variables
-
 This is the default configuration for a node. All variables can be customized on your single-node instance.
 
 ```ron
