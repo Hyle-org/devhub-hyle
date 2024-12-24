@@ -9,6 +9,7 @@ Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-cont
 - A working knowledge of zkVM basics.
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
 - [Follow the CLI installation instructions](user-tooling.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer.md).
+- [Connect to devnet](./devnet.md) <!-- rephrase -->
 - For our example, you'll need to [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
 
 ## Content of a smart contract
@@ -26,6 +27,10 @@ Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy
 ## Start your devnet and install our CLI
 
 See our instructions on [starting your devnet](./devnet.md) and [downloading our CLI](./user-tooling.md) if not already done.
+
+<!-- Montrer un exemple de repo à clone -> ça te donnera cet output qui te donne le program ID à register.
+Pour ça, il faut que #tech fasse un exemple copier-coller avec un petit tooling à côté.
+On l'a avec hyrun. Note for Alex: hyled risque de sauter. -->
 
 ## Register your contract
 
