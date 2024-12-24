@@ -6,43 +6,9 @@ Hylé provides a testnet where you can test your smart contract and help us test
 
 You can start building on Hylé by running a local devnet by following the instructions below.
 
-<!-- Testnet 
-## Public devnet
-
-### Built-in contracts
-
-Default nodes include the [`hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/contracts/hydentity), a basic identity provider.
-
-They also include `hyllar`, a simple ERC20-like contract, and `amm`, a simple AMM contract, which you can use as [examples](../examples/index.md)
-
-Here are some useful links:
-
-- [Your first smart contract](./your-first-smart-contract.md)
--->
-
 ## Run your own single-node devnet
 
 ### Getting Started with Docker
-
-#### Build the Docker image locally
-
-To build the Docker image locally, use:
-
-```bash
-  docker build . -t hyle
-```
-
-#### Run locally with Docker
-
-To run the Hylé node with Docker, use the following command:
-
-```bash
-  docker run -v ./db:/hyle/data -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 hyle
-```
-
-If you encounter permission errors when accessing the /hyle/data volume, try adding the "--privileged" cli flag to the Docker command.
-
-### Run a node
 
 We currently don't have a deployment file available.
 
@@ -54,13 +20,15 @@ Download the Docker image:
 docker pull europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
 ```
 
-Then run the image:
+Run the image:
 
 ```bash
-docker run --name [container_name] -d [options] europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
+docker run -v ./db:/hyle/data -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
 ```
 
-And rebuild the node from the source:
+### Build the Docker image locally
+
+If you want to, you can rebuild the image locally from source:
 
 ```bash
 docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
