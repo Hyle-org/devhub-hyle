@@ -181,3 +181,34 @@ Here's an example of how you can configure your setup using environment variable
 HYLE_RUN_INDEXER=false 
 HYLE_CONSENSUS__SLOT_DURATION=100
 ```
+
+##### Environment variables
+
+This is the default configuration for a node. All variables can be customized on your single-node instance.
+
+```ron
+Config(
+  id: "node",
+  single_node: true,
+  p2p_listen: true,
+  host: "127.0.0.1:1231",
+  peers: [],
+  storage: Storage(
+    interval: 10
+  ),
+  log_format: "full",
+  rest: "127.0.0.1:4321",
+  data_directory: "data_node",
+  database_url: "postgres://postgres:postgres@localhost:5432/postgres",
+  consensus: Consensus (
+    slot_duration: 1000,
+    // Has to be empty as config is additive
+    genesis_stakers: {}
+  ),
+  p2p: (
+    ping_interval: 10
+  ),
+  run_indexer: true,
+  da_address: "127.0.0.1:4141"
+)
+```
