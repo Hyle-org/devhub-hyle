@@ -11,6 +11,7 @@ Read more in our [anatomy of a smart contract](../general-doc/smart-contracts.md
 - A working knowledge of zkVM basics.
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
 - [Follow the CLI installation instructions](user-tooling.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer.md).
+- For our example, you'll need to [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
 
 ## Registering your smart contract
 
@@ -18,10 +19,11 @@ Read more in our [anatomy of a smart contract](../general-doc/smart-contracts.md
 
 Hylé smart contracts include:
 
-- **Name**: the unique identifier for your contract
-- **Verifier**: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254")
-- **Program ID**: the unique identifier for your program in that proof system
-- **State digest**: current state commitment of the contract
+- **Owner**: put anything you like. This field is currently not leveraged but will be in future versions.
+- **Verifier**: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254").
+- **Program ID**: the unique identifier for your program in that proof system.
+- **Contract name**: the unique identifier for your contract.
+- **State digest**: current state commitment of the contract, usually a MerkleRootHash of the contract's state.
 
 Read more about the [anatomy of smart contracts on Hylé](../general-doc/smart-contracts.md).
 
