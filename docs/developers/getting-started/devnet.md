@@ -54,8 +54,6 @@ docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres pos
 
 You can configure your setup using environment variables or by editing a configuration file.
 
-##### Using a configuration file
-
 To use a configuration file, copy the default settings where you run the node. If a file named config.ron is present, it will be automatically loaded by the node at startup.
 
 ```bash
@@ -63,14 +61,12 @@ To use a configuration file, copy the default settings where you run the node. I
 cp ./src/utils/conf_defaults.ron config.ron
 ```
 
-Here's an example of how you can configure your setup using environment variables:
+As an alternative, you can configure your setup using environment variables:
 
 ```bash
 HYLE_RUN_INDEXER=false 
 HYLE_CONSENSUS__SLOT_DURATION=100
 ```
-
-##### Environment variables
 
 This is the default configuration for a node. All variables can be customized on your single-node instance.
 
