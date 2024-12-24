@@ -27,6 +27,13 @@ To build the Docker image locally, use:
 
 
 ### Run a node
+-->
+
+You can start building on Hylé by running a local devnet by following the instructions below.
+
+## Run your own single-node devnet
+
+### Getting Started with Docker
 
 We currently don't have a deployment file available.
 
@@ -38,13 +45,15 @@ Download the Docker image:
 docker pull europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
 ```
 
-Then run the image:
+Run the image:
 
 ```bash
-docker run --name [container_name] -d [options] europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
+docker run -v ./db:/hyle/data -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
 ```
 
-And rebuild the node from the source:
+### Build the Docker image locally
+
+If you want to, you can rebuild the image locally from source:
 
 ```bash
 docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
