@@ -1,12 +1,11 @@
 # Devnet
 
 <!-- Testnet 
-Hylé provides a testnet where you can test your smart contract and help us test our network.
--->
+Hylé provides a testnet where you can test your smart contract and help us test our network.-->
 
 Follow the instructions below to start building on Hylé by running a local devnet.
 
-## Run your own single-node devnet
+## Run your local devnet
 
 ### Getting Started with Docker
 
@@ -34,7 +33,7 @@ If you want to, you can rebuild the image locally from source:
 docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
 ```
 
-### Getting Started with Cargo
+### Getting started with Cargo
 
 To start a single-node devnet (with consensus disabled), which is useful to build & debug smart contracts, run:
 
@@ -54,6 +53,10 @@ docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres pos
 
 You can configure your setup using environment variables or by editing a configuration file.
 
+<!--TODO Add table of what can be configured-->
+
+##### Using a configuration file
+
 To use a configuration file, copy the default settings where you run the node. If a file named config.ron is present, it will be automatically loaded by the node at startup.
 
 ```bash
@@ -61,7 +64,9 @@ To use a configuration file, copy the default settings where you run the node. I
 cp ./src/utils/conf_defaults.ron config.ron
 ```
 
-As an alternative, you can configure your setup using environment variables:
+##### Using environment variables
+
+Here's an example of how you can configure your setup using environment variables:
 
 ```bash
 HYLE_RUN_INDEXER=false 
