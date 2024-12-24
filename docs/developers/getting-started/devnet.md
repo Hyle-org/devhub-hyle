@@ -31,24 +31,6 @@ To build the Docker image locally, use:
 
 Follow the instructions below to start building on Hylé by running a local devnet.
 
-<!-- Testnet 
-## Public devnet
-
-### Built-in contracts
-
-Default nodes include the [following contracts](https://github.com/Hyle-org/hyle/tree/main/contracts):
-
-- `hydentity`: Basic identity provider
-- `hyllar`: Simple ERC20-like contract
-- `amm`: Simple AMM contract
-
-### Useful links
-
-Here are some useful links:
-
-- [Your first smart contract](./your-first-smart-contract.md)
--->
-
 ## Run your own single-node devnet
 
 ### Getting Started with Docker
