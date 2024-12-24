@@ -1,37 +1,11 @@
 # Devnet
 
 <!-- Testnet 
-Hylé provides a testnet where you can test your smart contract and help us test our network.
-
-
-Start building on Hylé by running a local devnet.
-
-## Run your local devnet
-
-### Getting started with Docker
-
-<!-- TODO: Lancelot to make image public -->
-<!-- TODO: Alex S. to test run -->
-
-To build the Docker image locally, use:
-
-```bash
-  # Pull image
-  docker pull europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
-  # Run
-  docker run -v ./db:/hyle/data -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 hyle
-```
-
-!!! tip
-  If you encounter permission errors when accessing the /hyle/data volume, try adding the "--privileged" cli flag to the Docker command.
-
-
-### Run a node
--->
+Hylé provides a testnet where you can test your smart contract and help us test our network.-->
 
 Follow the instructions below to start building on Hylé by running a local devnet.
 
-## Run your own single-node devnet
+## Run your local devnet
 
 ### Getting Started with Docker
 

@@ -1,4 +1,4 @@
-# Your first smart contract (deprecated)
+# Your first smart contract
 
 You can use [any zkVM or proving scheme supported by Hylé](../general-doc/supported-proving-schemes.md).
 
