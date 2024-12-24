@@ -23,6 +23,10 @@ Hylé smart contracts include:
 
 Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contracts.md).
 
+## Start your devnet and install our CLI
+
+See our instructions on [starting your devnet](./devnet.md) and [downloading our CLI](./user-tooling.md) if not already done.
+
 ## Register your contract
 
 To register a contract on Hylé, run the following command:
@@ -44,7 +48,7 @@ For our example:
 - `verifier`: for this example, the verifier is `risc0`
 - `program_id`: as RISC Zero programs are identified by their image ID, without a prefix, we use the number `0xe085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f`. This will change every time the contract logic is modified.
 - `contract_name`: hyllar
-- `state_digest`: usually a MerkleRootHash of the contract's state. For this example, we'll use `fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000`
+- `state_digest`: usually a MerkleRootHash of the contract's state. For this example, we'll use `fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000`, a hexadecimal representation of the state encoded in binary format.
 
 For our example, the bash command looks like this:
 
@@ -80,21 +84,14 @@ The content of the blob is app-specific: it's the input of your program.
 
 For Hyllar, this is a binary representation of the `ERC20Action` struct as defined in the contract.
 
-!!! failure
-    Section is currently being re-written, sorry.
-
-<!-- RECOMMENCE CHACAL
-
 ```bash
 # Create blob
 blob='{binary representation of the ERC20Action struct}'
+
 # Generate the proof in 'hyllar'
 cargo run reset $blob 
-hyled blobs "" collatz $(echo $blob | base64)
-# the "" is a placeholder for identity: it's empty, as Collatz doesn't handle identity -> Replace with ERC20
+hyled blobs "" hyllar $(echo $blob | base64)
 ```
-
--->
 
 At this point, your transaction has been sequenced, but not settled.
 
