@@ -10,7 +10,8 @@ You can start building on Hylé by running a local devnet by following the instr
 
 ### Getting Started with Docker
 
-We currently don't have a deployment file available.
+!!! failure
+    We currently don't have a deployment file available.
 
 Follow these instructions to run a node, keeping in mind that this is unstable and can break with upcoming updates.
 
