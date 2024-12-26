@@ -55,6 +55,26 @@ Your node will then:
 1. Settle the blob transaction
 1. Update the contract State
 
+On node's logs you should see:
+
+```bash
+INFO hyle::data_availability::node_state::verifiers: ✅ Risc0 proof verified.
+INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Transferred 2 to bob.simple_token
+```
+
+And after a slot:
+
+```bash
+INFO hyle::data_availability::node_state: Settle tx TxHash("[..]")
+```
+
+You can check onchain balance:
+
+```bash
+cargo run -- balance faucet.simple_token
+cargo run -- balance bob.simple_token
+```
+
 This example does not compose with an identity contract, thus no identity verification is made. This is the reason of the suffix `.simple_token` on the "from" & "to" transfer fields. More info on identity management will come in the documentation.
 
 ## Detailed explanation
@@ -70,6 +90,8 @@ The full command to run your project in development mode while getting execution
 ```bash
 RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 ```
+
+### Content of the contract
 
 <!-- 
 
