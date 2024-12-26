@@ -7,9 +7,6 @@ Follow the instructions below to start building on Hylé by running a local devn
 
 ## Recommended: Getting started with Docker
 
-!!! failure
-    We currently don't have a public Docker image available. Please [contact us](https://t.me/hyle_org) if you need it.
-
 Follow these instructions to run a node, keeping in mind that this is unstable and can break with upcoming updates.
 
 Download the Docker image:
