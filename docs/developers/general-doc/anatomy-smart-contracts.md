@@ -11,10 +11,7 @@ Hylé smart contracts include:
 
 Depending on the type of zk-proof circuits you use, there are some superficial differences, but the overall idea is that all inputs are known at proof generation time.
 
-This page uses the Rust structures to demonstrate, but you can use the following repos for other languages:
-
-- Rust example: https://github.com/Hyle-org/collatz-conjecture
-- Gnark / Groth16 example (outdated): https://github.com/Hyle-org/groth16-example
+This page uses the Rust structures to demonstrate.
 
 ## Name
 
@@ -39,6 +36,6 @@ The state digest is a minimal yet comprehensive representation of the contract's
 
 Some examples of valid state commitments:
 
-- The full state, for a sufficiently small program (e.g. the [Collatz example](../examples/collatz-example-in-depth.md), or a smart-contract with a nonce)
+- The full state, for a sufficiently small program (e.g. a smart-contract with a nonce)
 - A merkle root of the state, for larger programs
 - A hash of the full state
