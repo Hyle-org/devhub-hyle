@@ -67,21 +67,21 @@ All variables can be customized on your single-node instance.
 
 | Variable                   | Default value                                          | Description                                                                                                          |
 |----------------------------|--------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| HYLE_ID                    | "node"                                                 | Node identifier in the consensus. Usage subject to change in future releases.                                        |
-| HYLE_SINGLE_NODE           | true                                                   | Whether the network runs as a single node or with a multi-node consensus.                                            |
-| HYLE_P2P_LISTEN            | true                                                   | The node should listen to new peer. Mandatory (true) if multi node consensus.                                        |
-| host                       | "127.0.0.1:1231"                                       | host & port to listen for the P2P protocol                                                                           |
-| peers                      | []                                                     | list of peers to connect to at startup to follow a running consensus                                                 |
-| storage__interval          | 10                                                     | unused                                                                                                               |
-| log_format                 | "full"                                                 | “json” or “full”                                                                                                     |
-| rest                       | "127.0.0.1:4321"                                       | host & port for the rest api endpoint                                                                                |
-| data_directory             | "data_node"                                            | directory name to store node state                                                                                   |
-| database_url               | "postgres://postgres:postgres@localhost:5432/postgres" | PostgreSQL server address (necessary if you want to use an indexer).                                                 |
-| consensus__slot_duration   | 1000                                                   | Duration between 2 blocks                                                                                            |
-| consensus__genesis_stakers | {}                                                     | Map of stakers for the genesis block. Keys are all nodes “id”, and values are the stake amount for each one of them. |
-| p2p__ping_interval         | 10                                                     | Interval the p2p layer does a ping to check aliveness of other peers.                                                |
-| run_indexer                | true                                                   | Whether there should be an indexer.                                                                                  |
-| da_address                 | "127.0.0.1:4141"                                       | host & port of the data availability module, that streams historical & new blocks. It might be used by indexers.     |
+| HYLE_ID                    | "node"                     | Node identifier in the consensus. Usage subject to change in future releases.      |
+| HYLE_SINGLE_NODE           | true                               | Whether the network runs as a single node or with a multi-node consensus.   |
+| HYLE_P2P_LISTEN            | true                      | The node should listen to new peers. Mandatory (true) if multi-node consensus.     |
+| host                       | "127.0.0.1:1231"           | Host & port to listen for the P2P protocol.                                     |
+| peers                      | []                        | List of peers to connect to at startup to follow a running consensus.    |
+| storage__interval          | 10              | unused                                                                   |
+| log_format                 | "full"              | “json” or “full”                                       |
+| rest                       | "127.0.0.1:4321"         | Host & port for the REST API endpoint.                                            |
+| data_directory             | "data_node"               | Directory name to store node state.              |
+| database_url               | "postgres://postgres:postgres@localhost:5432/postgres" | PostgreSQL server address (necessary if you want to use an indexer).   |
+| consensus__slot_duration   | 1000                                                   | Duration between blocks.                                     |
+| consensus__genesis_stakers | {}       | Map of stakers for the genesis block. Keys are all nodes “id”, and values are the stake amount for each one of them. |
+| p2p__ping_interval         | 10      | Interval the p2p layer does a ping to check aliveness of other peers.                                                |
+| run_indexer                | true          | Whether there should be an indexer.                                  |
+| da_address                 | "127.0.0.1:4141"  | Host & port of the data availability module, which streams historical & new blocks. It might be used by indexers.  |
 
 ### Using a configuration file
 
