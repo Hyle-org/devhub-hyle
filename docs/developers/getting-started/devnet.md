@@ -18,7 +18,7 @@ docker pull ghcr.io/hyle-org/hyle:latest
 Run the image:
 
 ```bash
-docker run -v ./db:/hyle/data -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:latest
+docker run -v ./db:/hyle/data -e HYLE_RUN_INDEXER=false -e HYLE_REST=0.0.0.0:4321 -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:latest
 ```
 
 If you run into an error, you may want to add the `--privileged` flag:
