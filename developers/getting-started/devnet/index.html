@@ -420,19 +420,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#run-your-own-single-node-devnet" class="md-nav__link">
+  <a href="#run-your-local-devnet" class="md-nav__link">
     <span class="md-ellipsis">
-      Run your own single-node devnet
+      Run your local devnet
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Run your own single-node devnet">
+    <nav class="md-nav" aria-label="Run your local devnet">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#getting-started-with-docker" class="md-nav__link">
+  <a href="#recommended-getting-started-with-docker" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started with Docker
+      Recommended: Getting started with Docker
     </span>
   </a>
   
@@ -448,14 +448,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#getting-started-with-cargo" class="md-nav__link">
+  <a href="#alternative-getting-started-from-source" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started with Cargo
+      Alternative: Getting started from source
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started with Cargo">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
@@ -468,18 +467,19 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#using-a-configuration-file" class="md-nav__link">
+  <a href="#using-environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      Using a configuration file
+      Using environment variables
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Using environment variables">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#using-a-configuration-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Environment variables
+      Using a configuration file
     </span>
   </a>
   
@@ -570,6 +570,8 @@
       
         
           
+        
+      
         
       
         
@@ -1000,19 +1002,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#run-your-own-single-node-devnet" class="md-nav__link">
+  <a href="#run-your-local-devnet" class="md-nav__link">
     <span class="md-ellipsis">
-      Run your own single-node devnet
+      Run your local devnet
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Run your own single-node devnet">
+    <nav class="md-nav" aria-label="Run your local devnet">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#getting-started-with-docker" class="md-nav__link">
+  <a href="#recommended-getting-started-with-docker" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started with Docker
+      Recommended: Getting started with Docker
     </span>
   </a>
   
@@ -1028,14 +1030,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#getting-started-with-cargo" class="md-nav__link">
+  <a href="#alternative-getting-started-from-source" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started with Cargo
+      Alternative: Getting started from source
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started with Cargo">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#configuration" class="md-nav__link">
@@ -1048,18 +1049,19 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#using-a-configuration-file" class="md-nav__link">
+  <a href="#using-environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      Using a configuration file
+      Using environment variables
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Using environment variables">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#using-a-configuration-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Environment variables
+      Using a configuration file
     </span>
   </a>
   
@@ -1100,45 +1102,50 @@
 
 <div><h1 id="devnet">Devnet</h1>
 <!-- Testnet 
-Hylé provides a testnet where you can test your smart contract and help us test our network.
--->
+Hylé provides a testnet where you can test your smart contract and help us test our network.-->
 
-<p>You can start building on Hylé by running a local devnet by following the instructions below.</p>
-<h2 id="run-your-own-single-node-devnet">Run your own single-node devnet</h2>
-<h3 id="getting-started-with-docker">Getting Started with Docker</h3>
-<p>We currently don't have a deployment file available.</p>
+<p>Follow the instructions below to start building on Hylé by running a local devnet.</p>
+<h2 id="run-your-local-devnet">Run your local devnet</h2>
+<h3 id="recommended-getting-started-with-docker">Recommended: Getting started with Docker</h3>
+<div class="admonition failure">
+<p class="admonition-title">Failure</p>
+<p>We currently don't have a public Docker image available. Please <a href="https://t.me/hyle_org">contact us</a> if you need it.</p>
+</div>
 <p>Follow these instructions to run a node, keeping in mind that this is unstable and can break with upcoming updates.</p>
 <p>Download the Docker image:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/hyle-org/hyle:latest
 </span></code></pre></div>
 <p>Run the image:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./db:/hyle/data<span class="w"> </span>-e<span class="w"> </span><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>-p<span class="w"> </span><span class="m">4321</span>:4321<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>:1234<span class="w"> </span>europe-west3-docker.pkg.dev/hyle-413414/hyle-docker/hyle:main
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./db:/hyle/data<span class="w"> </span>-e<span class="w"> </span><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>-p<span class="w"> </span><span class="m">4321</span>:4321<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>:1234<span class="w"> </span>ghcr.io/hyle-org/hyle:latest
 </span></code></pre></div>
+<p>If you run into an error, you may want to add the <code>--privileged</code> flag:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--privileged<span class="w"> </span>-v<span class="w"> </span>./db:/hyle/data<span class="w"> </span>-e<span class="w"> </span><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>-p<span class="w"> </span><span class="m">4321</span>:4321<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>:1234<span class="w"> </span>ghcr.io/hyle-org/hyle:latest
+</span></code></pre></div>
+<p>If you want to run with an indexer with <code>HYLE_RUN_INDEXER=true</code>, you will need a running PostgreSQL server. You can set it up with Docker:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># For default conf:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>pg_hyle<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>postgres<span class="w"> </span>postgres
+</span></code></pre></div>
+<p>You can customize the db URL with <code>HYLE_DATABASE_URL</code>, with the default value being: <code>postgres://postgres:postgres@localhost:5432/postgres</code>.</p>
 <h3 id="build-the-docker-image-locally">Build the Docker image locally</h3>
 <p>If you want to, you can rebuild the image locally from source:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>Hyle-org/hyle<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-dit<span class="w"> </span>Hyle-org/hyle
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>Hyle-org/hyle<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-dit<span class="w"> </span>Hyle-org/hyle
 </span></code></pre></div>
-<h3 id="getting-started-with-cargo">Getting Started with Cargo</h3>
+<h3 id="alternative-getting-started-from-source">Alternative: Getting started from source</h3>
 <p>To start a single-node devnet (with consensus disabled), which is useful to build &amp; debug smart contracts, run:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cargo<span class="w"> </span>build
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>cargo<span class="w"> </span>run<span class="w"> </span>--bin<span class="w"> </span>node
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cargo<span class="w"> </span>build
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>cargo<span class="w"> </span>run<span class="w"> </span>--bin<span class="w"> </span>node
 </span></code></pre></div>
-<p>If you want to run with an indexer, you will need a running PostgreSQL server. You can set it up with Docker:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># For default conf:</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>pg_hyle<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>postgres<span class="w"> </span>postgres
-</span></code></pre></div>
-<h4 id="configuration">Configuration</h4>
+<h3 id="configuration">Configuration</h3>
 <p>You can configure your setup using environment variables or by editing a configuration file.</p>
-<h5 id="using-a-configuration-file">Using a configuration file</h5>
-<p>To use a configuration file, copy the default settings where you run the node. If a file named config.ron is present, it will be automatically loaded by the node at startup.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Copy default config where you run the node. If file named "config.ron" is present, it will be loaded by node at startup.</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cp<span class="w"> </span>./src/utils/conf_defaults.ron<span class="w"> </span>config.ron
-</span></code></pre></div>
+<!--TODO Add table of what can be configured-->
+
+<h4 id="using-environment-variables">Using environment variables</h4>
+<!-- Corriger / compléter --->
+
 <p>Here's an example of how you can configure your setup using environment variables:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">HYLE_CONSENSUS__SLOT_DURATION</span><span class="o">=</span><span class="m">100</span>
 </span></code></pre></div>
-<h5 id="environment-variables">Environment variables</h5>
 <p>This is the default configuration for a node. All variables can be customized on your single-node instance.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Config(
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  id: "node",
@@ -1164,6 +1171,15 @@ Hylé provides a testnet where you can test your smart contract and help us test
 </span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>  run_indexer: true,
 </span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>  da_address: "127.0.0.1:4141"
 </span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>)
+</span></code></pre></div>
+<h5 id="using-a-configuration-file">Using a configuration file</h5>
+<p>To use a configuration file, copy the default settings where you run the node. If a file named config.ron is present, it will be automatically loaded by the node at startup.</p>
+<p>If you're using Docker:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./db:/hyle/data<span class="w"> </span>-v<span class="w"> </span>./config.run:/hyle/config.ron<span class="w"> </span>-e<span class="w"> </span><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>-p<span class="w"> </span><span class="m">4321</span>:4321<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>:1234<span class="w"> </span>ghcr.io/hyle-org/hyle:latest
+</span></code></pre></div>
+<p>Then, whether you're using Docker or building from source:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Copy default config where you run the node. If file named "config.ron" is present, it will be loaded by node at startup.</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>cp<span class="w"> </span>./src/utils/conf_defaults.ron<span class="w"> </span>config.ron
 </span></code></pre></div></div>
 
 

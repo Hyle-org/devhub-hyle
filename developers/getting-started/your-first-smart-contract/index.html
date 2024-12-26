@@ -611,6 +611,8 @@
       
         
       
+        
+      
     
     
       
@@ -1160,16 +1162,19 @@
 <ul>
 <li>A working knowledge of zkVM basics.</li>
 <li><a href="https://www.rust-lang.org/tools/install">Install Rust</a> (you'll need <code>rustup</code> and Cargo).</li>
+<li><a href="../devnet/">Connect to devnet</a> <!-- rephrase --></li>
 <li><a href="../user-tooling/">Follow the CLI installation instructions</a>. We are currently building utilities that will make it easier and faster to use our explorer, <a href="../../explorer/">Hyléou</a>.</li>
+<li>For our example, you'll need to <a href="https://dev.risczero.com/api/zkvm/install">install RISC Zero</a>.</li>
 </ul>
 <h2 id="registering-your-smart-contract">Registering your smart contract</h2>
 <h3 id="content-of-a-smart-contract">Content of a smart contract</h3>
 <p>Hylé smart contracts include:</p>
 <ul>
-<li><strong>Name</strong>: the unique identifier for your contract</li>
-<li><strong>Verifier</strong>: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254")</li>
-<li><strong>Program ID</strong>: the unique identifier for your program in that proof system</li>
-<li><strong>State digest</strong>: current state commitment of the contract</li>
+<li><strong>Owner</strong>: put anything you like. This field is currently not leveraged but will be in future versions.</li>
+<li><strong>Verifier</strong>: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254").</li>
+<li><strong>Program ID</strong>: the unique identifier for your program in that proof system.</li>
+<li><strong>Contract name</strong>: the unique identifier for your contract.</li>
+<li><strong>State digest</strong>: current state commitment of the contract, usually a MerkleRootHash of the contract's state.</li>
 </ul>
 <p>Read more about the <a href="../../general-doc/anatomy-smart-contracts/">anatomy of smart contracts on Hylé</a>.</p>
 <h3 id="register-your-contract">Register your contract</h3>

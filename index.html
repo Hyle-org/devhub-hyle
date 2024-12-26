@@ -269,9 +269,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-hyle" class="md-nav__link">
+  <a href="#why-choose-hyle" class="md-nav__link">
     <span class="md-ellipsis">
-      Why Hylé?
+      Why choose Hylé
     </span>
   </a>
   
@@ -445,6 +445,8 @@
       
         
           
+        
+      
         
       
         
@@ -875,9 +877,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-hyle" class="md-nav__link">
+  <a href="#why-choose-hyle" class="md-nav__link">
     <span class="md-ellipsis">
-      Why Hylé?
+      Why choose Hylé
     </span>
   </a>
   
@@ -929,15 +931,15 @@
 
 
 <div><h1 id="home">Home</h1>
-<p><a href="https://hyle.eu/">Hylé</a> is a lean blockchain that helps you build provable applications that are minimally, yet sufficiently, onchain.</p>
+<p><a href="https://hyle.eu/">Hylé</a> is a lean blockchain that lets you easily take your provable application onchain.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This developer portal and the project itself are still evolving. <a href="https://t.me/hyle_org">Join us on Telegram</a> if you need assistance or wish to provide feedback. Issues and PRs on <a href="https://github.com/Hyle-org/devhub-hyle">this documentation's GitHub repository</a> are also very welcome!</p>
 </div>
-<h2 id="why-hyle">Why Hylé?</h2>
+<h2 id="why-choose-hyle">Why choose Hylé</h2>
 <ul>
 <li>Native zero-knowledge proof verification on our sovereign L1: we're fast and lean.</li>
-<li>No onchain execution or virtual machine: only efficient proof verification.</li>
+<li>No onchain execution or virtual machine needed: only efficient proof verification.</li>
 <li>Run complex logic offchain and only submit proofs onchain for maximum scalability.</li>
 <li>Proof composability: seamlessly combine multiple proofs into single, verifiable transactions.</li>
 <li>Pipelined proving: send provable blobs, don't worry about proving times.</li>
@@ -945,15 +947,14 @@
 </ul>
 <h2 id="how-hyle-works">How Hylé works</h2>
 <p>Here’s what happens when you use Hylé’s sovereign verification-focused Layer 1:</p>
+<p><img alt="" src="assets/img/hyle-main-diagram.png"></p>
 <ol>
 <li><strong>Sequencing</strong>: Send a provable blob to Hylé: say what information you expect to prove later. We'll sequence the transaction immediately. <a href="https://blog.hyle.eu/an-introduction-to-delayed-proving/">Read more about pipelined proving</a>.</li>
-<li><strong>Proof generation</strong>: generate a zero-knowledge proof of a specific computation, or several if they depend on each other. <a href="https://blog.hyle.eu/proof-composability-on-hyle/">Read more about proof composability</a>.</li>
 <li><strong>Proof submission</strong>: when the proofs for your transaction are ready, send them to Hylé.</li>
 <li><strong>Verification</strong>: Hylé validators receive the transaction. They verify the proofs natively, without the limitations of a bulky virtual machine.</li>
 <li><strong>Consensus</strong>: if the proofs are valid, Hylé settles your transaction's state onchain. You're good to go!</li>
 </ol>
-<p><img alt="Diagram of the different steps coming before Hylé settlement. The diagram is in three parts. The first part, titled Application, includes the use cases (zkRollup, zkApp, zkCoprocessor, zkGaming, zkML, zkDID, and so on). Then it shows execution and data availability. The second part of the diagram is the Prover, with the proof system and the proving service. The third part is the Verifier, Hylé, which only stocks the name of the contract, the proof system and the state commitment." src="assets/img/main-diagram-large-detailed.png"></p>
-<p>With this system, execution and storage happen anywhere you like, without cost barriers. You only need a fast and trustworthy verifier: that’s Hylé.</p>
+<p>With this system, execution and storage happen <strong>anywhere you like</strong>. You only need a fast and trustworthy verifier: that’s Hylé.</p>
 <h2 id="documentation">Documentation</h2>
 <ul>
 <li><a href="developers/getting-started/">Get started now</a></li>
