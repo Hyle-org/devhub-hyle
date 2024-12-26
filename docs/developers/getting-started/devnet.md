@@ -65,23 +65,23 @@ The variable always begins with `HYLE_`, followed by the variable: `HYLE_RUN_IND
 
 All variables can be customized on your single-node instance.
 
-| Variable    | Default value | Description                                |
-|-------------|---------------|--------------------------------------------|
-| id          | "node"        |                                     |
-| single_node | true          | Whether the network runs as a single node. |
-| p2p_listen  | true          |                                            |
-| host        | "127.0.0.1:1231" |                                            |
-| peers       | []          |                                            |
-| storage__interval  | 10   |                                            |
-| log_format  | "full"          |                                            |
-| rest  | "127.0.0.1:4321"          |                                            |
-| data_directory  | "data_node"  |                                            |
-| database_url  | "postgres://postgres:postgres@localhost:5432/postgres" |  PostgreSQL server address (necessary if you want to use an indexer). |
-| consensus__slot_duration  | 1000  |                                            |
-| consensus__genesis_stakers  | {}  |  Has to be empty as config is additive                                   |
-| p2p__ping_interval | 10  |                                            |
-| run_indexer  | true  | Whether there should be an indexer. |
-| da_address  | "127.0.0.1:4141" |                                            |
+| Variable                   | Default value                                          | Description                                                                                                          |
+|----------------------------|--------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| HYLE_ID                    | "node"                                                 | Node identifier in the consensus. Usage subject to change in future releases.                                        |
+| HYLE_SINGLE_NODE           | true                                                   | Whether the network runs as a single node or with a multi-node consensus.                                            |
+| HYLE_P2P_LISTEN            | true                                                   | The node should listen to new peer. Mandatory (true) if multi node consensus.                                        |
+| host                       | "127.0.0.1:1231"                                       | host & port to listen for the P2P protocol                                                                           |
+| peers                      | []                                                     | list of peers to connect to at startup to follow a running consensus                                                 |
+| storage__interval          | 10                                                     | unused                                                                                                               |
+| log_format                 | "full"                                                 | “json” or “full”                                                                                                     |
+| rest                       | "127.0.0.1:4321"                                       | host & port for the rest api endpoint                                                                                |
+| data_directory             | "data_node"                                            | directory name to store node state                                                                                   |
+| database_url               | "postgres://postgres:postgres@localhost:5432/postgres" | PostgreSQL server address (necessary if you want to use an indexer).                                                 |
+| consensus__slot_duration   | 1000                                                   | Duration between 2 blocks                                                                                            |
+| consensus__genesis_stakers | {}                                                     | Map of stakers for the genesis block. Keys are all nodes “id”, and values are the stake amount for each one of them. |
+| p2p__ping_interval         | 10                                                     | Interval the p2p layer does a ping to check aliveness of other peers.                                                |
+| run_indexer                | true                                                   | Whether there should be an indexer.                                                                                  |
+| da_address                 | "127.0.0.1:4141"                                       | host & port of the data availability module, that streams historical & new blocks. It might be used by indexers.     |
 
 ### Using a configuration file
 
