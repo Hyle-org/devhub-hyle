@@ -23,10 +23,6 @@ Hylé smart contracts include:
 
 Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contracts.md).
 
-<!--Montrer un exemple de repo à clone -> ça te donnera cet output qui te donne le program ID à register.
-Pour ça, il faut que #tech fasse un exemple copier-coller avec un petit tooling à côté.
-On l'a avec hyrun. Note for Alex: hyled risque de sauter. -->
-
 ## Quick start: Register your contract on your local node
 
 To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-erc20/host/src/main.rs), run:
