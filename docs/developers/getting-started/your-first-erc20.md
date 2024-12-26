@@ -8,7 +8,6 @@ Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-cont
 
 - A working knowledge of zkVM basics.
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
-- [Follow the CLI installation instructions](user-tooling.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer.md).
 - [Start a single-node devnet](./devnet.md).
 - For our example, you'll need to [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
 
@@ -166,9 +165,3 @@ You can see your transaction on Hylé's explorer: `https://hyleou.hyle.eu/transa
 ### Verifying your contract's state
 
 Your contract's state digest is visible at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`
-
-You can choose to run the command below instead:
-
-```bash
-hyled state hyllar
-```
