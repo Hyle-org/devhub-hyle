@@ -10,6 +10,7 @@ Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-cont
 
 - A working knowledge of zkVM basics.
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
+- [Connect to devnet](./devnet.md) <!-- rephrase -->
 - [Follow the CLI installation instructions](user-tooling.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer.md).
 - For our example, you'll need to [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
 
