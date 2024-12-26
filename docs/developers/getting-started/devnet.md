@@ -1,13 +1,11 @@
-# Devnet
+# Run your local devnet
 
 <!-- Testnet 
 Hylé provides a testnet where you can test your smart contract and help us test our network.-->
 
-Follow the instructions below to start building on Hylé by running a local devnet.
+Follow the instructions below to start building on Hylé by running a local devnet. (Instructions for a testnet will be added when we launch it.)
 
-## Run your local devnet
-
-### Recommended: Getting started with Docker
+## Recommended: Getting started with Docker
 
 !!! failure
     We currently don't have a public Docker image available. Please [contact us](https://t.me/hyle_org) if you need it.
@@ -41,7 +39,7 @@ docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres pos
 
 You can customize the db URL with `HYLE_DATABASE_URL`, with the default value being: `postgres://postgres:postgres@localhost:5432/postgres`.
 
-### Build the Docker image locally
+## Build the Docker image locally
 
 If you want to, you can rebuild the image locally from source:
 
@@ -49,7 +47,7 @@ If you want to, you can rebuild the image locally from source:
 docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
 ```
 
-### Alternative: Getting started from source
+## Alternative: Getting started from source
 
 To start a single-node devnet (with consensus disabled), which is useful to build & debug smart contracts, run:
 
@@ -58,13 +56,13 @@ cargo build
 HYLE_RUN_INDEXER=false cargo run --bin node
 ```
 
-### Configuration
+## Configuration
 
 You can configure your setup using environment variables or by editing a configuration file.
 
 <!--TODO Add table of what can be configured-->
 
-#### Using environment variables
+### Using environment variables
 
 <!-- Corriger / compléter --->
 
@@ -104,8 +102,7 @@ Config(
 )
 ```
 
-
-##### Using a configuration file
+### Using a configuration file
 
 To use a configuration file, copy the default settings where you run the node. If a file named config.ron is present, it will be automatically loaded by the node at startup.
 
