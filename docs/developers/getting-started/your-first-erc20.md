@@ -1,6 +1,6 @@
 # Your first smart contract
 
-We'll use [our sample ERC20-like contract `hyllar`](https://github.com/Hyle-org/examples/tree/simple_erc20/simple-erc20) as the basis for this tutorial.
+We'll use [our sample token transfer example](https://github.com/Hyle-org/examples/tree/simple_erc20/simple-erc20) as the basis for this tutorial.
 
 Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-contracts.md).
 
@@ -8,7 +8,7 @@ Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-cont
 
 - A working knowledge of zkVM basics.
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
-- [Start a single-node devnet](./devnet.md).
+- [Start a single-node devnet](./devnet.md). We recommend activating [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) during your early development phase for faster iteration upon code changes with `-e RISC0_DEV_MODE=1`.
 - For our example, you'll need to [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
 
 ## Content of a smart contract
@@ -23,17 +23,13 @@ Hylé smart contracts include:
 
 Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contracts.md).
 
-<!--## Start your devnet and install our CLI
-
-See our instructions on [starting your devnet](./devnet.md) and [downloading our CLI](./user-tooling.md) if not already done.
-
- Montrer un exemple de repo à clone -> ça te donnera cet output qui te donne le program ID à register.
+<!--Montrer un exemple de repo à clone -> ça te donnera cet output qui te donne le program ID à register.
 Pour ça, il faut que #tech fasse un exemple copier-coller avec un petit tooling à côté.
 On l'a avec hyrun. Note for Alex: hyled risque de sauter. -->
 
-## Register your contract on your local node
+## Quick start: Register your contract on your local node
 
-To build all methods and register the smart contract on the local node, run:
+To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-erc20/host/src/main.rs), run:
 
 ```bash
 cargo run -- register 1000
@@ -61,7 +57,9 @@ Your node will then:
 
 This example does not compose with an identity contract, thus no identity verification is made. This is the reason of the suffix `.simple_token` on the "from" & "to" transfer fields. More info on identity management will come in the documentation.
 
-## Execute your project locally in development mode
+## Detailed explanation
+
+### Execute your project locally in development mode
 
 We recommend activating [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) during your early development phase for faster iteration upon code changes with `-e RISC0_DEV_MODE=1`.
 
@@ -73,14 +71,7 @@ The full command to run your project in development mode while getting execution
 RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 ```
 
-To register a contract on Hylé, run the following command:
-
-```bash
-# Owner is currently unused, but could be used in the future to manage contract permissions
-hyled contract [owner] [verifier] [program_id] [contract_name] [state_digest]
-```
-
-Replace `[owner], [verifier], [program_id], [contract_name]`, and `[state_digest]` with your specific details.
+<!-- 
 
 !!! warning
     - You need a unique `contract_name`.
@@ -91,14 +82,8 @@ For our example:
 - `owner`: we put « default » as the `owner`, but you can put anything you like. This field is currently not leveraged; it will be in future versions.
 - `verifier`: for this example, the verifier is `risc0`
 - `program_id`: as RISC Zero programs are identified by their image ID, without a prefix, we use the number `0xe085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f`. This will change every time the contract logic is modified.
-- `contract_name`: hyllar
+- `contract_name`: here, we use `"simple_token"`
 - `state_digest`: usually a MerkleRootHash of the contract's state. For this example, we'll use `fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000`, a hexadecimal representation of the state encoded in binary format.
-
-For our example, the bash command looks like this:
-
-```bash
-hyled contract default risc0 e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f hyllar fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000
-```
 
 ### Check your contract
 
@@ -157,6 +142,7 @@ In the case of the Hyllar program, we can now prove our state transition:
 # Make sure the name matches the contract you registered
 hyled proof [tx_hash] hyllar [path_to_proof]
 ```
+-->
 
 Hylé will now verify your proof. After verification, your transaction is settled, updating the state of the contract.
 
