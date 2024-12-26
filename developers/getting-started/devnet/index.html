@@ -1105,49 +1105,49 @@ Hylé provides a testnet where you can test your smart contract and help us test
 </thead>
 <tbody>
 <tr>
-<td>id</td>
+<td>HYLE_ID</td>
 <td>"node"</td>
-<td></td>
+<td>Node identifier in the consensus. Usage subject to change in future releases.</td>
 </tr>
 <tr>
-<td>single_node</td>
+<td>HYLE_SINGLE_NODE</td>
 <td>true</td>
-<td>Whether the network runs as a single node.</td>
+<td>Whether the network runs as a single node or with a multi-node consensus.</td>
 </tr>
 <tr>
-<td>p2p_listen</td>
+<td>HYLE_P2P_LISTEN</td>
 <td>true</td>
-<td></td>
+<td>The node should listen to new peers. Mandatory (true) if multi-node consensus.</td>
 </tr>
 <tr>
 <td>host</td>
 <td>"127.0.0.1:1231"</td>
-<td></td>
+<td>Host &amp; port to listen for the P2P protocol.</td>
 </tr>
 <tr>
 <td>peers</td>
 <td>[]</td>
-<td></td>
+<td>List of peers to connect to at startup to follow a running consensus.</td>
 </tr>
 <tr>
 <td>storage__interval</td>
 <td>10</td>
-<td></td>
+<td>unused</td>
 </tr>
 <tr>
 <td>log_format</td>
 <td>"full"</td>
-<td></td>
+<td>“json” or “full”</td>
 </tr>
 <tr>
 <td>rest</td>
 <td>"127.0.0.1:4321"</td>
-<td></td>
+<td>Host &amp; port for the REST API endpoint.</td>
 </tr>
 <tr>
 <td>data_directory</td>
 <td>"data_node"</td>
-<td></td>
+<td>Directory name to store node state.</td>
 </tr>
 <tr>
 <td>database_url</td>
@@ -1157,17 +1157,17 @@ Hylé provides a testnet where you can test your smart contract and help us test
 <tr>
 <td>consensus__slot_duration</td>
 <td>1000</td>
-<td></td>
+<td>Duration between blocks.</td>
 </tr>
 <tr>
 <td>consensus__genesis_stakers</td>
 <td>{}</td>
-<td>Has to be empty as config is additive</td>
+<td>Map of stakers for the genesis block. Keys are all nodes “id”, and values are the stake amount for each one of them.</td>
 </tr>
 <tr>
 <td>p2p__ping_interval</td>
 <td>10</td>
-<td></td>
+<td>Interval the p2p layer does a ping to check aliveness of other peers.</td>
 </tr>
 <tr>
 <td>run_indexer</td>
@@ -1177,7 +1177,7 @@ Hylé provides a testnet where you can test your smart contract and help us test
 <tr>
 <td>da_address</td>
 <td>"127.0.0.1:4141"</td>
-<td></td>
+<td>Host &amp; port of the data availability module, which streams historical &amp; new blocks. It might be used by indexers.</td>
 </tr>
 </tbody>
 </table>

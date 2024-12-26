@@ -899,61 +899,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-your-devnet-and-install-our-cli" class="md-nav__link">
+  <a href="#quick-start-register-your-contract-on-your-local-node" class="md-nav__link">
     <span class="md-ellipsis">
-      Start your devnet and install our CLI
+      Quick start: Register your contract on your local node
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#register-your-contract" class="md-nav__link">
+  <a href="#detailed-explanation" class="md-nav__link">
     <span class="md-ellipsis">
-      Register your contract
+      Detailed explanation
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Register your contract">
+    <nav class="md-nav" aria-label="Detailed explanation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#check-your-contract" class="md-nav__link">
+  <a href="#execute-your-project-locally-in-development-mode" class="md-nav__link">
     <span class="md-ellipsis">
-      Check your contract
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interact-with-hyle" class="md-nav__link">
-    <span class="md-ellipsis">
-      Interact with Hylé
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Interact with Hylé">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#publishing-blobs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Publishing blobs
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#posting-proofs-of-your-blob-to-settle-it" class="md-nav__link">
-    <span class="md-ellipsis">
-      Posting proofs of your blob to settle it
+      Execute your project locally in development mode
     </span>
   </a>
   
@@ -992,14 +959,13 @@
 
 
 <div><h1 id="your-first-smart-contract">Your first smart contract</h1>
-<p>We'll use <a href="https://github.com/Hyle-org/hyle/tree/main/contracts/hyllar">our sample ERC20-like contract <code>hyllar</code></a> as the basis for this tutorial.</p>
+<p>We'll use <a href="https://github.com/Hyle-org/examples/tree/simple_erc20/simple-erc20">our sample token transfer example</a> as the basis for this tutorial.</p>
 <p>Read more in our <a href="../../general-doc/anatomy-smart-contracts/">anatomy of a smart contract</a>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>A working knowledge of zkVM basics.</li>
 <li><a href="https://www.rust-lang.org/tools/install">Install Rust</a> (you'll need <code>rustup</code> and Cargo).</li>
-<li><a href="../user-tooling/">Follow the CLI installation instructions</a>. We are currently building utilities that will make it easier and faster to use our explorer, <a href="../../explorer/">Hyléou</a>.</li>
-<li><a href="../devnet/">Connect to devnet</a> <!-- rephrase --></li>
+<li><a href="../devnet/">Start a single-node devnet</a>. We recommend activating <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> during your early development phase for faster iteration upon code changes with <code>-e RISC0_DEV_MODE=1</code>.</li>
 <li>For our example, you'll need to <a href="https://dev.risczero.com/api/zkvm/install">install RISC Zero</a>.</li>
 </ul>
 <h2 id="content-of-a-smart-contract">Content of a smart contract</h2>
@@ -1012,81 +978,111 @@
 <li><strong>State digest</strong>: current state commitment of the contract, usually a MerkleRootHash of the contract's state.</li>
 </ul>
 <p>Read more about the <a href="../../general-doc/anatomy-smart-contracts/">anatomy of smart contracts on Hylé</a>.</p>
-<h2 id="start-your-devnet-and-install-our-cli">Start your devnet and install our CLI</h2>
-<p>See our instructions on <a href="../devnet/">starting your devnet</a> and <a href="../user-tooling/">downloading our CLI</a> if not already done.</p>
-<!-- Montrer un exemple de repo à clone -> ça te donnera cet output qui te donne le program ID à register.
+<!--Montrer un exemple de repo à clone -> ça te donnera cet output qui te donne le program ID à register.
 Pour ça, il faut que #tech fasse un exemple copier-coller avec un petit tooling à côté.
 On l'a avec hyrun. Note for Alex: hyled risque de sauter. -->
 
-<h2 id="register-your-contract">Register your contract</h2>
-<p>To register a contract on Hylé, run the following command:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Owner is currently unused, but could be used in the future to manage contract permissions</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>hyled<span class="w"> </span>contract<span class="w"> </span><span class="o">[</span>owner<span class="o">]</span><span class="w"> </span><span class="o">[</span>verifier<span class="o">]</span><span class="w"> </span><span class="o">[</span>program_id<span class="o">]</span><span class="w"> </span><span class="o">[</span>contract_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>state_digest<span class="o">]</span>
+<h2 id="quick-start-register-your-contract-on-your-local-node">Quick start: Register your contract on your local node</h2>
+<p>To build all methods and register the smart contract on the local node <a href="https://github.com/Hyle-org/examples/blob/simple_erc20/simple-erc20/host/src/main.rs">from the source</a>, run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>register<span class="w"> </span><span class="m">1000</span>
 </span></code></pre></div>
-<p>Replace <code>[owner], [verifier], [program_id], [contract_name]</code>, and <code>[state_digest]</code> with your specific details.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<ul>
-<li>You need a unique <code>contract_name</code>.</li>
-<li>The state digest cannot be empty, even if your app is stateless.</li>
-</ul>
-</div>
-<p>For our example:</p>
-<ul>
-<li><code>owner</code>: we put « default » as the <code>owner</code>, but you can put anything you like. This field is currently not leveraged; it will be in future versions.</li>
-<li><code>verifier</code>: for this example, the verifier is <code>risc0</code></li>
-<li><code>program_id</code>: as RISC Zero programs are identified by their image ID, without a prefix, we use the number <code>0xe085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f</code>. This will change every time the contract logic is modified.</li>
-<li><code>contract_name</code>: hyllar</li>
-<li><code>state_digest</code>: usually a MerkleRootHash of the contract's state. For this example, we'll use <code>fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000</code>, a hexadecimal representation of the state encoded in binary format.</li>
-</ul>
-<p>For our example, the bash command looks like this:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>hyled<span class="w"> </span>contract<span class="w"> </span>default<span class="w"> </span>risc0<span class="w"> </span>e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f<span class="w"> </span>hyllar<span class="w"> </span>fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000
+<p>On the node's logs, you should see a line stating: <code>📝 Registering new contract simple_token</code>.</p>
+<p>To send 2 tokens to <em>Bob</em>, sending a blob transaction and a proof transaction associated with that, you can run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>transfer<span class="w"> </span>faucet.simple_token<span class="w"> </span>bob.simple_token<span class="w"> </span><span class="m">2</span>
 </span></code></pre></div>
-<h3 id="check-your-contract">Check your contract</h3>
-<p>In <a href="https://hyleou.hyle.eu/">the explorer</a>, this will look like this:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="s">"tx_hash"</span><span class="p">:</span><span class="w"> </span><span class="s">"321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097"</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="s">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s">"hyle"</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="s">"verifier"</span><span class="p">:</span><span class="w"> </span><span class="s">"risc0"</span><span class="p">,</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="s">"program_id"</span><span class="p">:</span><span class="s">"e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f"</span><span class="p">,</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="s">"state_digest"</span><span class="p">:</span><span class="w"> </span><span class="s">"fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000"</span><span class="p">,</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="s">"contract_name"</span><span class="p">:</span><span class="w"> </span><span class="s">"hyllar"</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
-</span></code></pre></div>
-<h2 id="interact-with-hyle">Interact with Hylé</h2>
-<p>Hylé transactions are settled in two steps, following <a href="../../general-doc/pipelined-proving/">pipelined proving principles</a>.</p>
+<p>This will:</p>
 <ol>
-<li><strong>Publishing your blob</strong>: publish the blob of the final state.</li>
-<li><strong>Posting proof of your blob</strong>: publish proof of the final state.</li>
+<li>Send a blob transaction to transfer 2 tokens from <code>faucet</code> to <code>bob</code></li>
+<li>Generate a ZK proof of that transfer</li>
+<li>Send the proof to the devnet.</li>
 </ol>
-<h3 id="publishing-blobs">Publishing blobs</h3>
-<p>The content of the blob is app-specific: it's the input of your program.</p>
-<p>For Hyllar, this is a binary representation of the <code>ERC20Action</code> struct as defined in the contract.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Create blob</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nv">blob</span><span class="o">=</span><span class="s1">'{binary representation of the ERC20Action struct}'</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Generate the proof in 'hyllar'</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>cargo<span class="w"> </span>run<span class="w"> </span>reset<span class="w"> </span><span class="nv">$blob</span><span class="w"> </span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>hyled<span class="w"> </span>blobs<span class="w"> </span><span class="s2">""</span><span class="w"> </span>hyllar<span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$blob</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="k">)</span>
+<p>Your node will then:</p>
+<ol>
+<li>Verify the proof</li>
+<li>Settle the blob transaction</li>
+<li>Update the contract State</li>
+</ol>
+<p>This example does not compose with an identity contract, thus no identity verification is made. This is the reason of the suffix <code>.simple_token</code> on the "from" &amp; "to" transfer fields. More info on identity management will come in the documentation.</p>
+<h2 id="detailed-explanation">Detailed explanation</h2>
+<h3 id="execute-your-project-locally-in-development-mode">Execute your project locally in development mode</h3>
+<p>We recommend activating <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> during your early development phase for faster iteration upon code changes with <code>-e RISC0_DEV_MODE=1</code>.</p>
+<p>You may also want to get insights into the execution statistics of your project: add the environment variable <code>RUST_LOG="[executor]=info"</code> before running your project.</p>
+<p>The full command to run your project in development mode while getting execution statistics is:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">RUST_LOG</span><span class="o">=</span><span class="s2">"[executor]=info"</span><span class="w"> </span><span class="nv">RISC0_DEV_MODE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>cargo<span class="w"> </span>run
 </span></code></pre></div>
-<p>At this point, your transaction has been sequenced, but not settled.</p>
-<h3 id="posting-proofs-of-your-blob-to-settle-it">Posting proofs of your blob to settle it</h3>
-<p>Hylé requires specific variables in the output of the proof to process the transaction. Check the <a href="../../general-doc/smart-contract-abi/">smart contract ABI</a> for more details.</p>
-<p>Once your program conforms to the ABI, you can generate proofs and send them to Hylé.</p>
-<p>Each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>hyled<span class="w"> </span>proof<span class="w"> </span><span class="o">[</span>tx_hash<span class="o">]</span><span class="w"> </span><span class="o">[</span>contract_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>proof<span class="o">]</span>
+<!-- 
+
+!!! warning
+    - You need a unique `contract_name`.
+    - The state digest cannot be empty, even if your app is stateless.
+
+For our example:
+
+- `owner`: we put « default » as the `owner`, but you can put anything you like. This field is currently not leveraged; it will be in future versions.
+- `verifier`: for this example, the verifier is `risc0`
+- `program_id`: as RISC Zero programs are identified by their image ID, without a prefix, we use the number `0xe085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f`. This will change every time the contract logic is modified.
+- `contract_name`: here, we use `"simple_token"`
+- `state_digest`: usually a MerkleRootHash of the contract's state. For this example, we'll use `fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000`, a hexadecimal representation of the state encoded in binary format.
+
+### Check your contract
+
+In [the explorer](https://hyleou.hyle.eu/), this will look like this:
+
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="s">&quot;tx_hash&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097&quot;</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="s">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hyle&quot;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="s">&quot;verifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;risc0&quot;</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="s">&quot;program_id&quot;</span><span class="p">:</span><span class="s">&quot;e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f&quot;</span><span class="p">,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="s">&quot;state_digest&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000&quot;</span><span class="p">,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="s">&quot;contract_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hyllar&quot;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>In the case of the Hyllar program, we can now prove our state transition:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Make sure the name matches the contract you registered</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>hyled<span class="w"> </span>proof<span class="w"> </span><span class="o">[</span>tx_hash<span class="o">]</span><span class="w"> </span>hyllar<span class="w"> </span><span class="o">[</span>path_to_proof<span class="o">]</span>
+
+## Interact with Hylé
+
+Hylé transactions are settled in two steps, following [pipelined proving principles](../general-doc/pipelined-proving.md).
+
+1. **Publishing your blob**: publish the blob of the final state.
+2. **Posting proof of your blob**: publish proof of the final state.
+
+### Publishing blobs
+
+The content of the blob is app-specific: it's the input of your program.
+
+For Hyllar, this is a binary representation of the `ERC20Action` struct as defined in the contract.
+
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Create blob</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">blob</span><span class="o">=</span><span class="s1">&#39;{binary representation of the ERC20Action struct}&#39;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Generate the proof in &#39;hyllar&#39;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>cargo<span class="w"> </span>run<span class="w"> </span>reset<span class="w"> </span><span class="nv">$blob</span><span class="w"> </span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>hyled<span class="w"> </span>blobs<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>hyllar<span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$blob</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="k">)</span>
 </span></code></pre></div>
+
+At this point, your transaction has been sequenced, but not settled.
+
+### Posting proofs of your blob to settle it
+
+Hylé requires specific variables in the output of the proof to process the transaction. Check the [smart contract ABI](../general-doc/smart-contract-abi.md) for more details.
+
+Once your program conforms to the ABI, you can generate proofs and send them to Hylé.
+
+Each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.
+
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>hyled<span class="w"> </span>proof<span class="w"> </span><span class="o">[</span>tx_hash<span class="o">]</span><span class="w"> </span><span class="o">[</span>contract_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>proof<span class="o">]</span>
+</span></code></pre></div>
+
+In the case of the Hyllar program, we can now prove our state transition:
+
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Make sure the name matches the contract you registered</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>hyled<span class="w"> </span>proof<span class="w"> </span><span class="o">[</span>tx_hash<span class="o">]</span><span class="w"> </span>hyllar<span class="w"> </span><span class="o">[</span>path_to_proof<span class="o">]</span>
+</span></code></pre></div>
+-->
+
 <p>Hylé will now verify your proof. After verification, your transaction is settled, updating the state of the contract.</p>
 <p>You can see your transaction on Hylé's explorer: <code>https://hyleou.hyle.eu/transaction/$TX_HASH</code></p>
 <h3 id="verifying-your-contracts-state">Verifying your contract's state</h3>
-<p>Your contract's state digest is visible at: <code>https://hyleou.hyle.eu/contract/$CONTRACT_NAME</code></p>
-<p>You can choose to run the command below instead:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>hyled<span class="w"> </span>state<span class="w"> </span>hyllar
-</span></code></pre></div></div>
+<p>Your contract's state digest is visible at: <code>https://hyleou.hyle.eu/contract/$CONTRACT_NAME</code></p></div>
 
 
 
