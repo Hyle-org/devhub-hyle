@@ -1,5 +1,6 @@
 # Your first smart contract
 
+<!-- Update links when simple token PR is approved-->
 This guide will walk you through creating and deploying your first token transfer contract using Hylé's tools and infrastructure. We'll use [our sample token transfer example](https://github.com/Hyle-org/examples/tree/simple_erc20/simple-erc20) as the basis for this tutorial.
 
 For an in-depth understanding of smart contracts, check out our [anatomy of a smart contract](../general-doc/anatomy-smart-contracts.md).
