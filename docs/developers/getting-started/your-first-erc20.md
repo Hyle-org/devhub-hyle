@@ -75,6 +75,7 @@ cargo run -- balance faucet.simple_token
 cargo run -- balance bob.simple_token
 ```
 
+<!-- Reformuler -->
 This example does not compose with an identity contract, thus no identity verification is made. This is the reason of the suffix `.simple_token` on the "from" & "to" transfer fields. More info on identity management will come in the documentation.
 
 ## Detailed explanation
