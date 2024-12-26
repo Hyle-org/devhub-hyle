@@ -61,20 +61,18 @@ You can configure your setup using environment variables or by editing a configu
 
 ### Using environment variables
 
-The variable always begins with `HYLE_`, followed by the variable: `HYLE_RUN_INDEXER=false`. Multi-level variables are chained together with a double `_`, eg. `HYLE_CONSENSUS__SLOT_DURATION=100`.
-
 All variables can be customized on your single-node instance.
 
 | Variable                   | Default value                                          | Description                                                                                                          |
 |----------------------------|--------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| HYLE_ID                    | "node"                     | Node identifier in the consensus. Usage subject to change in future releases.      |
-| HYLE_SINGLE_NODE           | true                               | Whether the network runs as a single node or with a multi-node consensus.   |
-| HYLE_P2P_LISTEN            | true                      | The node should listen to new peers. Mandatory (true) if multi-node consensus.     |
-| host                       | "127.0.0.1:1231"           | Host & port to listen for the P2P protocol.                                     |
-| peers                      | []                        | List of peers to connect to at startup to follow a running consensus.    |
-| storage__interval          | 10              | unused                                                                   |
-| log_format                 | "full"              | “json” or “full”                                       |
-| rest                       | "127.0.0.1:4321"         | Host & port for the REST API endpoint.                                            |
+| HYLE_ID                    | "node"     | Node identifier in the consensus. Usage subject to change in future releases.      |
+| HYLE_SINGLE_NODE           | true          | Whether the network runs as a single node or with a multi-node consensus.   |
+| HYLE_P2P_LISTEN            | true    | The node should listen to new peers. Mandatory (true) if multi-node consensus.     |
+| HYLE_HOST                       | "127.0.0.1:1231"  | Host & port to listen for the P2P protocol.                                     |
+| HYLE_PEERS                      | []                        | List of peers to connect to at startup to follow a running consensus.    |
+| HYLE_STORAGE__INTERVAL     | 10              | unused                                                                   |
+| HYLE_LOG_FORMAT                 | "full"              | “json” or “full”                                       |
+| HYLE_REST                       | "127.0.0.1:4321"         | Host & port for the REST API endpoint.                                            |
 | data_directory             | "data_node"               | Directory name to store node state.              |
 | database_url               | "postgres://postgres:postgres@localhost:5432/postgres" | PostgreSQL server address (necessary if you want to use an indexer).   |
 | consensus__slot_duration   | 1000                                                   | Duration between blocks.                                     |
