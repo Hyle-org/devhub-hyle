@@ -1,6 +1,6 @@
 # Your first smart contract
 
-We'll use [our sample ERC20-like contract `hyllar`](https://github.com/Hyle-org/hyle/tree/main/contracts/hyllar) as the basis for this tutorial.
+We'll use [our sample ERC20-like contract `hyllar`](https://github.com/Hyle-org/examples/tree/simple_erc20/simple-erc20) as the basis for this tutorial.
 
 Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-contracts.md).
 
@@ -9,8 +9,8 @@ Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-cont
 - A working knowledge of zkVM basics.
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
 - [Follow the CLI installation instructions](user-tooling.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer.md).
-- [Connect to devnet](./devnet.md) <!-- rephrase -->
-- For our example, you'll need to [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
+- [Start a single-node devnet](./devnet.md).
+- For our example, you'll need to [install RISC Zero](https://dev.risczero.com/api/zkvm/install). 
 
 ## Content of a smart contract
 
@@ -24,15 +24,55 @@ Hylé smart contracts include:
 
 Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contracts.md).
 
-## Start your devnet and install our CLI
+<!--## Start your devnet and install our CLI
 
 See our instructions on [starting your devnet](./devnet.md) and [downloading our CLI](./user-tooling.md) if not already done.
 
-<!-- Montrer un exemple de repo à clone -> ça te donnera cet output qui te donne le program ID à register.
+ Montrer un exemple de repo à clone -> ça te donnera cet output qui te donne le program ID à register.
 Pour ça, il faut que #tech fasse un exemple copier-coller avec un petit tooling à côté.
 On l'a avec hyrun. Note for Alex: hyled risque de sauter. -->
 
-## Register your contract
+## Register your contract on your local node
+
+To build all methods and register the smart contract on the local node, run:
+
+```bash
+cargo run -- register 1000
+```
+
+On the node's logs, you should see a line stating: `📝 Registering new contract simple_token`.
+
+To send 2 tokens to *Bob*, sending a blob transaction and a proof transaction associated with that, you can run:
+
+```bash
+cargo run -- transfer faucet.simple_token bob.simple_token 2
+```
+
+This will:
+
+1. Send a blob transaction to transfer 2 tokens from `faucet` to `bob`
+2. Generate a ZK proof of that transfer
+3. Send the proof to the devnet.
+
+Your node will then:
+
+1. Verify the proof
+1. Settle the blob transaction
+1. Update the contract State
+
+This example does not compose with an identity contract, thus no identity verification is made. This is the reason of the suffix `.simple_token` on the "from" & "to" transfer fields. More info on identity management will come in the documentation.
+
+## Execute your project locally in development mode
+
+We recommend activating [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) during your early development phase for faster iteration upon code changes with `-e RISC0_DEV_MODE=1`.
+
+You may also want to get insights into the execution statistics of your project: add the environment variable `RUST_LOG="[executor]=info"` before running your project.
+
+The full command to run your project in development mode while getting execution statistics is:
+
+```bash
+RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
+```
 
 To register a contract on Hylé, run the following command:
 
