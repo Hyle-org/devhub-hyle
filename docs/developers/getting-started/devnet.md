@@ -37,7 +37,7 @@ If you want to run with an indexer with `HYLE_RUN_INDEXER=true`, you will need a
 docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
 ```
 
-You can customize the db URL with `HYLE_DATABASE_URL`, with the default value being: `postgres://postgres:postgres@localhost:5432/postgres`.
+You can customize the db URL with `HYLE_DATABASE_URL`, with the default value being: `postgres://postgres:postgres@localhost:5432/postgres` (see below for environment variables).
 
 ## Build the Docker image locally
 
@@ -64,43 +64,27 @@ You can configure your setup using environment variables or by editing a configu
 
 ### Using environment variables
 
-<!-- Corriger / compléter --->
+The variable always begins with `HYLE_`, followed by the variable: `HYLE_RUN_INDEXER=false`. Multi-level variables are chained together with a double `_`, eg. `HYLE_CONSENSUS__SLOT_DURATION=100`.
 
-Here's an example of how you can configure your setup using environment variables:
+All variables can be customized on your single-node instance.
 
-```bash
-HYLE_RUN_INDEXER=false 
-HYLE_CONSENSUS__SLOT_DURATION=100
-```
-
-This is the default configuration for a node. All variables can be customized on your single-node instance.
-
-```ron
-Config(
-  id: "node",
-  single_node: true,
-  p2p_listen: true,
-  host: "127.0.0.1:1231",
-  peers: [],
-  storage: Storage(
-    interval: 10
-  ),
-  log_format: "full",
-  rest: "127.0.0.1:4321",
-  data_directory: "data_node",
-  database_url: "postgres://postgres:postgres@localhost:5432/postgres",
-  consensus: Consensus (
-    slot_duration: 1000,
-    // Has to be empty as config is additive
-    genesis_stakers: {}
-  ),
-  p2p: (
-    ping_interval: 10
-  ),
-  run_indexer: true,
-  da_address: "127.0.0.1:4141"
-)
-```
+| Variable    | Default value | Description                                |
+|-------------|---------------|--------------------------------------------|
+| id          | "node"        |                                     |
+| single_node | true          | Whether the network runs as a single node. |
+| p2p_listen  | true          |                                            |
+| host        | "127.0.0.1:1231" |                                            |
+| peers       | []          |                                            |
+| storage__interval  | 10   |                                            |
+| log_format  | "full"          |                                            |
+| rest  | "127.0.0.1:4321"          |                                            |
+| data_directory  | "data_node"  |                                            |
+| database_url  | "postgres://postgres:postgres@localhost:5432/postgres" |  PostgreSQL server address (necessary if you want to use an indexer). |
+| consensus__slot_duration  | 1000  |                                            |
+| consensus__genesis_stakers  | {}  |  Has to be empty as config is additive                                   |
+| p2p__ping_interval | 10  |                                            |
+| run_indexer  | true  | Whether there should be an indexer. |
+| da_address  | "127.0.0.1:4141" |                                            |
 
 ### Using a configuration file
 
