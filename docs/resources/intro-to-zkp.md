@@ -24,6 +24,7 @@ We currently support RISC–V-based zkVMs [Risc0](https://risc0.com/docs/) and [
 
 ## Read more
 
+- [Zero-knowledge proofs explained at 5 levels of difficulty](https://www.youtube.com/watch?v=fOGdb1CTu5c) (22')
 - [awesome-zk](https://github.com/ventali/awesome-zk?tab=readme-ov-file) link repository on GitHub
 - Hylé's [very simple introduction to zero-knowledge proofs](https://blog.hyle.eu/a-simple-introduction-to-zero-knowledge-proofs-zkp/)
 - Lauri Peltonen's [blog series on ZK](https://medium.com/@laurippeltonen)
