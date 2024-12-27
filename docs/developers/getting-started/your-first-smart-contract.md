@@ -72,7 +72,7 @@ cargo run -- balance bob.simple_token
 
 See your contract's state digest at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`.
 
-See your transaction on Hylé's explorer: `https://hyleou.hyle.eu/transaction/$TX_HASH`.
+See your transaction on Hylé's explorer: `https://hyleou.hyle.eu/tx/$TX_HASH`.
 
 ## Detailed information
 
