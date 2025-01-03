@@ -24,14 +24,20 @@ Hylé splits operations into two transactions:
 From Hylé’s perspective, the blob-transaction's content is not an issue: it simply represents incoming information that your contract will process.
 
 1. **Sequencing** happens when the blob transaction is received and included in a block. This step establishes a global order and timestamps for transactions.
-1. **Settlement** happens when the corresponding proof transaction is verified and added to the block.
+1. **Settlement** happens when the corresponding proof transaction is verified and added to a block.
 
-During settlement, proved blob transactions linked to the contract are executed in their sequencing order.
+During settlement, unproven blob transactions linked to the contract are executed in their sequencing order.
 
 ![A graph with Alice, Bob, and the token state. On the middle line, there's a starting state. Alice sends her TX A blob, which updates the token's virtual state; a bit later, Bob sends a TX B blob which is sequenced. The updated state will now be used as the start state for the TX B proof, while Alice can prepare to send her TX A proof. This updates the token's state for TX A, then for TX B.](../../assets/img/pipelined-proving.jpg)
 
 ## Unprovable transactions
 
-Hylé introduces **timeouts** for blob transactions to ensure timely proof submissions.
+Even with pipelined proving, the delay in proof generation and submission can delay transaction finality and create uncertainty when determining the initial state of subsequent transactions.
 
-Transactions without proofs within a specific duration, as well as transactions with invalid proofs, are rejected.
+To remove this bottleneck, Hylé enforces timeouts for blob transactions.
+
+Each blob transaction is assigned a specific time limit for the associated proof to be submitted and verified. If the proof is not successfully provided within this window, the transaction is rejected: it is ignored for state updates but remains recorded in the block.
+
+The inclusion of the unproven transaction in the block ensures transparency, as the transaction data remains accessible.
+
+Subsequent transactions can proceed without waiting indefinitely.
