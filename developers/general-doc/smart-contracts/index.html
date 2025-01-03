@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../run-a-node/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../explorer/">
+        <link rel="next" href="../supported-proving-schemes/">
       
       
       <link rel="icon" href="../../../assets/logo.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Smart Contract ABI - Hylé Developer Hub</title>
+        <title>Smart contracts - Hylé Developer Hub</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#smart-contract-abi" class="md-skip">
+        <a href="#smart-contracts" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Smart Contract ABI
+              Smart contracts
             
           </span>
         </div>
@@ -385,8 +385,6 @@
       
         
       
-        
-      
     
     
       
@@ -433,18 +431,217 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../anatomy-smart-contracts/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Smart contracts
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Smart contracts on Hylé
+    Smart contracts
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#onchain-data-about-smart-contracts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Onchain data about smart contracts
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Onchain data about smart contracts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-the-contract-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of the contract fields
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of the contract fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifier-and-program-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifier and program identifier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-digest" class="md-nav__link">
+    <span class="md-ellipsis">
+      State digest
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smart-contract-abi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smart contract ABI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Smart contract ABI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-the-abi-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of the ABI fields
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of the ABI fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-state-and-next-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      Initial state and next state
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tx-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      TX Hash
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blob-index-and-blobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blob index and blobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-program-specific-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other program-specific outputs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      Events
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -550,145 +747,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Smart Contract ABI
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Smart Contract ABI
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#initial-state-and-next-state" class="md-nav__link">
-    <span class="md-ellipsis">
-      Initial State and Next State
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#identity" class="md-nav__link">
-    <span class="md-ellipsis">
-      Identity
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tx-hash" class="md-nav__link">
-    <span class="md-ellipsis">
-      TX Hash
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#payload-hash" class="md-nav__link">
-    <span class="md-ellipsis">
-      Payload Hash
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#success" class="md-nav__link">
-    <span class="md-ellipsis">
-      Success
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#other-program-specific-outputs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Other program-specific outputs
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#events" class="md-nav__link">
-    <span class="md-ellipsis">
-      Events
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1083,19 +1141,95 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#onchain-data-about-smart-contracts" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview
+      Onchain data about smart contracts
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Overview">
+    <nav class="md-nav" aria-label="Onchain data about smart contracts">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-the-contract-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of the contract fields
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of the contract fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifier-and-program-identifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verifier and program identifier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state-digest" class="md-nav__link">
+    <span class="md-ellipsis">
+      State digest
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smart-contract-abi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Smart contract ABI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Smart contract ABI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-the-abi-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation of the ABI fields
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explanation of the ABI fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Version
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#initial-state-and-next-state" class="md-nav__link">
     <span class="md-ellipsis">
-      Initial State and Next State
+      Initial state and next state
     </span>
   </a>
   
@@ -1120,9 +1254,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#payload-hash" class="md-nav__link">
+  <a href="#blob-index-and-blobs" class="md-nav__link">
     <span class="md-ellipsis">
-      Payload Hash
+      Blob index and blobs
     </span>
   </a>
   
@@ -1143,6 +1277,11 @@
       Other program-specific outputs
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1178,62 +1317,107 @@
   
 
 
-<div><h1 id="smart-contract-abi">Smart Contract ABI</h1>
-<p>Hylé focuses on verifying zk-proofs. Because of this, writing smart contracts on Hylé has some specificities, with other elements being the same as with most other blockchains.</p>
-<p>Depending on the type of zk-proof circuits you use, there are some superficial differences, but the overall idea is that <strong>all inputs are known at proof generation time</strong>. This includes unusual elements such as the origin of the transaction (<code>tx.origin</code> in Ethereum) and the block number.</p>
-<p>The Hylé protocol enforces several invariants on transactions to maximize security. For this reason, we must specify some of the data within a zero-knowledge proof.</p>
-<p>This page uses the Rust structures to demonstrate, but you can use the following repos for other languages:</p>
+<div><h1 id="smart-contracts">Smart contracts</h1>
+<p>Hylé is a fully programmable blockchain that optimizes data storage by keeping only the essential information needed to validate smart contract proofs. This design ensures that Hylé smart contracts are lightweight and efficient.</p>
+<p>Where traditional blockchains keep all smart contract information onchain, Hylé splits offchain data (your contract's execution) and onchain data, which is retrieved through our ABI.</p>
+<h2 id="onchain-data-about-smart-contracts">Onchain data about smart contracts</h2>
+<p>Hylé smart contracts' onchain data consists of:</p>
 <ul>
-<li>Rust example: <a href="https://github.com/Hyle-org/collatz-conjecture">https://github.com/Hyle-org/collatz-conjecture</a></li>
-<li>Gnark / Groth16 example (outdated): <a href="https://github.com/Hyle-org/groth16-example">https://github.com/Hyle-org/groth16-example</a></li>
+<li><strong>Name</strong>: the unique identifier for your contract</li>
+<li><strong>Verifier</strong>: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254")</li>
+<li><strong>Program ID</strong>: the unique identifier for your program in that proof system</li>
+<li><strong>State digest</strong>: current state commitment of the contract</li>
 </ul>
-<h2 id="overview">Overview</h2>
-<p>Here is the rust struct specifying the output of a Hylé smart contract:</p>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HyleOutput</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">version</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">initial_state</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">next_state</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">identity</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">tx_hash</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">payload_hash</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">success</span><span class="p">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">program_outputs</span><span class="p">:</span><span class="w"> </span><span class="nc">T</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>The <code>version</code> field should currently be set to 1.</p>
-<!-- Inclure diagramme sur le flow d'une preuve ici -->
+<h3 id="explanation-of-the-contract-fields">Explanation of the contract fields</h3>
+<h4 id="name">Name</h4>
+<p>The name of your contract must be unique.</p>
+<h4 id="verifier-and-program-identifier">Verifier and program identifier</h4>
+<p>Smart contracts on Hylé rely on a pairing of a zero-knowledge proof scheme (verifier) and a program identifier. Together, these components validate contract proofs.</p>
+<table>
+<thead>
+<tr>
+<th>Proving scheme</th>
+<th>Verifier</th>
+<th>Program ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Risc Zero</td>
+<td>risc0</td>
+<td>Image ID without a prefix. ex. 0x123 becomes 123.</td>
+</tr>
+<tr>
+<td>SP1</td>
+<td>sp1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!--- **Cairo**: Cairo smart contracts will be identified by their Class Hash in the future.
+- **Noir**: Noir smart contracts are identified by they verifying key.
+- **Groth16**: Groth16 programs require a trusted ceremony. As such, their identifier is the verifying key corresponding to the matching private key, which will be unique for each program & ceremony.-->
 
-<h3 id="initial-state-and-next-state">Initial State and Next State</h3>
-<p>Blockchains transactions are fundamentally <strong>state transitions</strong>. These fields handle the state transitions securely in the protocol.</p>
-<p>The <code>initial_state</code> field should match the state digest of the contract before the transaction. This could consist of several things, such as:</p>
+<h4 id="state-digest">State digest</h4>
+<p>The state digest is a minimal yet comprehensive representation of the contract's current state. It serves as the basis for verifying the integrity of the contract's data.</p>
+<p>Some examples of valid state commitments:</p>
 <ul>
-<li>the hash of the previous state</li>
-<li>the Merkle root of the previous state tree</li>
-<li>the state itself if it's small enough</li>
+<li>The full state, for a sufficiently small program (e.g. the <a href="../../examples/collatz-example-in-depth/">Collatz example</a>, or a smart-contract with a nonce)</li>
+<li>A merkle root of the state, for larger programs</li>
+<li>A hash of the full state</li>
 </ul>
-<p>The protocol enforces that this <code>initial_state</code> matches the onchain <code>state_digest</code> it knows. Otherwise, the state transition is invalid.</p>
-<p>The <code>next_state</code> field represents the new onchain <code>state_digest</code> after the transaction.</p>
-<p>Smart contracts can adapt the actual structure of this field. In the future, fees will depend on the size of the <code>state_digest</code> (among other criteria), so we encourage you to keep it small.</p>
-<h3 id="identity">Identity</h3>
-<p>The <code>identity</code> field is the identifier of the person who initiated the transaction.</p>
-<p>Unlike other blockchains, Hylé does not have a native signature type. Instead, Hylé uses the <code>identity</code> field of the first proof to identify the TX sender.
-To ensure security, the field is composite and ends with the name of the contract that the proof was generated for.</p>
-<p>Hylé could for example support Ethereum EOAs, if a smart contract is registered onchain to verify them. The <code>identity</code> would then look something like <code>0x1234...5678.eth_eoa</code>, where <code>eth_eoa</code> is the name of the contract, and the first part matches a regular Ethereum address.</p>
-<p>This gives us massive flexibility in the future to support any kind of identity verification, including WebAuthn, social media accounts, etc.</p>
-<p><strong>For now, any subsequent proof in a TX must declare the same <code>identity</code> or an empty one, or the transaction will be rejected.</strong></p>
-<h3 id="tx-hash">TX Hash</h3>
-<p>The <code>tx_hash</code> field is intended to hash transaction data, preventing replay attacks and providing a means for contracts to access this information.</p>
-<p>The field is currently completely unspecified and isn't validated by the protocol.</p>
-<h3 id="payload-hash">Payload Hash</h3>
-<p>This should match the hash of the payload that was sent to the network initially. Currently we use pedersen hashing for Cairo, no hashing for Risc0. Others are unimplemented.
-This is very WIP (as of August 2024) and will change soon.</p>
-<h3 id="success">Success</h3>
-<p>This is a boolean - whether the proof is for a succesful proof or a failure case. It can be useful to prove that a transaction is invalid. See our example in <a href="https://github.com/Hyle-org/vibe-check/blob/main/cairo-reco-smile/src/lib.cairo#L297">Vibe Check</a>.</p>
-<h3 id="other-program-specific-outputs">Other program-specific outputs</h3>
-<p>Smart contracts can provide other outputs as part of the proof they generate.</p>
-<p>This can be used for a variety of purposes, but mostly serves to provide Data Availability.</p>
+<h2 id="smart-contract-abi">Smart contract ABI</h2>
+<p>All inputs in Hylé smart contracts must be known at proof generation time. This includes elements that would be known at execution time on other blockchains, such as the origin of the transaction (tx.origin) and the block number.</p>
+<p>Here is the Rust structure specifying the output of a Hylé smart contract:</p>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">pub</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">HyleOutput</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">version</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">initial_state</span><span class="p">:</span><span class="w"> </span><span class="nc">StateDigest</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">next_state</span><span class="p">:</span><span class="w"> </span><span class="nc">StateDigest</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">identity</span><span class="p">:</span><span class="w"> </span><span class="nc">Identity</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">tx_hash</span><span class="p">:</span><span class="w"> </span><span class="nc">TxHash</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">index</span><span class="p">:</span><span class="w"> </span><span class="nc">BlobIndex</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">blobs</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">success</span><span class="p">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">program_outputs</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">u8</span><span class="o">&gt;</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="explanation-of-the-abi-fields">Explanation of the ABI fields</h3>
+<h4 id="version">Version</h4>
+<p>For now, <code>version</code> should always be set to 1.</p>
+<h4 id="initial-state-and-next-state">Initial state and next state</h4>
+<p>Blockchains transactions are fundamentally state transitions. These fields handle state changes securely.</p>
+<ul>
+<li><code>initial_state</code>: Matches the onchain <code>state_digest</code> before the transaction. The <code>initial_state</code> must match the onchain <code>state_digest</code>. Otherwise, the state transition is invalid.</li>
+<li><code>next_state</code>: Represents the new onchain <code>state_digest</code> after the transaction.</li>
+</ul>
+<p>Smart contracts can adapt the actual structure of this field. In the future, fees will depend in part on the size of the <code>state_digest</code>, so we encourage you to keep it small.</p>
+<h4 id="identity">Identity</h4>
+<p>The <code>identity</code> field identifies the person who initiates a transaction.</p>
+<p>Hylé does not have a native signature type. Instead, it uses the <code>identity</code> field of the first proof in the transaction to identify the sender. This allows you to use any kind of identity verification.</p>
+<p>The identity is in two parts:</p>
+<ol>
+<li>An address;</li>
+<li>The name of the contract that the proof was generate for.</li>
+</ol>
+<p>For example, if a smart contract was registered onchain to verify Ethereum EOAs, the <code>identity</code> for them would look like <code>0x1234...5678.eth_eoa</code> where <code>eth_eoa</code> is the name of the contract and the first part matches a regular Ethereum address.</p>
+<p><strong>Note</strong>: All proofs in a transaction must declare the same identity as the first transaction or an empty identity.</p>
+<h4 id="tx-hash">TX Hash</h4>
+<p>The <code>tx_hash</code> field hashes transaction data, preventing replay attacks and providing a means for contracts to access this information.</p>
+<p>The field is not validated by the protocol.</p>
+<h4 id="blob-index-and-blobs">Blob index and blobs</h4>
+<p>Since a blob transaction can include several blobs, the design includes:</p>
+<ul>
+<li><code>pub index: BlobIndex</code>: uniquely identifies a specific blob within a transaction.</li>
+<li><code>pub blobs: Vec&lt;u8&gt;</code>: all blobs included in the transaction.</li>
+</ul>
+<h4 id="success">Success</h4>
+<p>This boolean field indicates whether the proof is for a successful transaction or a failure. It can be useful to prove that a transaction is invalid.</p>
+<p>Use case example: <a href="https://github.com/Hyle-org/vibe-check/blob/main/cairo-reco-smile/src/lib.cairo#L297">Vibe Check</a>.</p>
+<h4 id="other-program-specific-outputs">Other program-specific outputs</h4>
+<p>Smart contracts can provide additional outputs as part of the proof they generate.</p>
+<p>These outputs mostly serve to provide data availability.</p>
 <h2 id="events">Events</h2>
-<p>Hylé does not currently ship native events. We are looking into implementing them in the near future.</p></div>
+<p>Hylé does not include events. The protocol replaces traditional event systems with blobs, which act as containers for offchain data.</p></div>
 
 
 
