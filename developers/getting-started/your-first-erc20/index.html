@@ -927,6 +927,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#content-of-the-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Content of the contract
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#verifying-your-contracts-state" class="md-nav__link">
     <span class="md-ellipsis">
       Verifying your contract's state
@@ -1002,14 +1011,27 @@ On l'a avec hyrun. Note for Alex: hyled risque de sauter. -->
 <li>Settle the blob transaction</li>
 <li>Update the contract State</li>
 </ol>
+<p>On node's logs you should see:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>INFO<span class="w"> </span>hyle::data_availability::node_state::verifiers:<span class="w"> </span>✅<span class="w"> </span>Risc0<span class="w"> </span>proof<span class="w"> </span>verified.
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>INFO<span class="w"> </span>hyle::data_availability::node_state::verifiers:<span class="w"> </span>🔎<span class="w"> </span>Program<span class="w"> </span>outputs:<span class="w"> </span>Transferred<span class="w"> </span><span class="m">2</span><span class="w"> </span>to<span class="w"> </span>bob.simple_token
+</span></code></pre></div>
+<p>And after a slot:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>INFO<span class="w"> </span>hyle::data_availability::node_state:<span class="w"> </span>Settle<span class="w"> </span>tx<span class="w"> </span>TxHash<span class="o">(</span><span class="s2">"[..]"</span><span class="o">)</span>
+</span></code></pre></div>
+<p>You can check onchain balance:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>balance<span class="w"> </span>faucet.simple_token
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>balance<span class="w"> </span>bob.simple_token
+</span></code></pre></div>
+<!-- Reformuler -->
 <p>This example does not compose with an identity contract, thus no identity verification is made. This is the reason of the suffix <code>.simple_token</code> on the "from" &amp; "to" transfer fields. More info on identity management will come in the documentation.</p>
 <h2 id="detailed-explanation">Detailed explanation</h2>
 <h3 id="execute-your-project-locally-in-development-mode">Execute your project locally in development mode</h3>
 <p>We recommend activating <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> during your early development phase for faster iteration upon code changes with <code>-e RISC0_DEV_MODE=1</code>.</p>
 <p>You may also want to get insights into the execution statistics of your project: add the environment variable <code>RUST_LOG="[executor]=info"</code> before running your project.</p>
 <p>The full command to run your project in development mode while getting execution statistics is:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">RUST_LOG</span><span class="o">=</span><span class="s2">"[executor]=info"</span><span class="w"> </span><span class="nv">RISC0_DEV_MODE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>cargo<span class="w"> </span>run
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">RUST_LOG</span><span class="o">=</span><span class="s2">"[executor]=info"</span><span class="w"> </span><span class="nv">RISC0_DEV_MODE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>cargo<span class="w"> </span>run
 </span></code></pre></div>
+<h3 id="content-of-the-contract">Content of the contract</h3>
 <!-- 
 
 !!! warning
@@ -1028,14 +1050,14 @@ For our example:
 
 In [the explorer](https://hyleou.hyle.eu/), this will look like this:
 
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="s">&quot;tx_hash&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097&quot;</span><span class="p">,</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="s">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hyle&quot;</span><span class="p">,</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="s">&quot;verifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;risc0&quot;</span><span class="p">,</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="s">&quot;program_id&quot;</span><span class="p">:</span><span class="s">&quot;e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f&quot;</span><span class="p">,</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="s">&quot;state_digest&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000&quot;</span><span class="p">,</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="s">&quot;contract_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hyllar&quot;</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="s">&quot;tx_hash&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="s">&quot;owner&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hyle&quot;</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="s">&quot;verifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;risc0&quot;</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="s">&quot;program_id&quot;</span><span class="p">:</span><span class="s">&quot;e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f&quot;</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="s">&quot;state_digest&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000&quot;</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="s">&quot;contract_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hyllar&quot;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
 </span></code></pre></div>
 
 ## Interact with Hylé
@@ -1051,12 +1073,12 @@ The content of the blob is app-specific: it's the input of your program.
 
 For Hyllar, this is a binary representation of the `ERC20Action` struct as defined in the contract.
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Create blob</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">blob</span><span class="o">=</span><span class="s1">&#39;{binary representation of the ERC20Action struct}&#39;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Generate the proof in &#39;hyllar&#39;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>cargo<span class="w"> </span>run<span class="w"> </span>reset<span class="w"> </span><span class="nv">$blob</span><span class="w"> </span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>hyled<span class="w"> </span>blobs<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>hyllar<span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$blob</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="k">)</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Create blob</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">blob</span><span class="o">=</span><span class="s1">&#39;{binary representation of the ERC20Action struct}&#39;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Generate the proof in &#39;hyllar&#39;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>cargo<span class="w"> </span>run<span class="w"> </span>reset<span class="w"> </span><span class="nv">$blob</span><span class="w"> </span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>hyled<span class="w"> </span>blobs<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span>hyllar<span class="w"> </span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="nv">$blob</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="k">)</span>
 </span></code></pre></div>
 
 At this point, your transaction has been sequenced, but not settled.
@@ -1069,13 +1091,13 @@ Once your program conforms to the ABI, you can generate proofs and send them to 
 
 Each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>hyled<span class="w"> </span>proof<span class="w"> </span><span class="o">[</span>tx_hash<span class="o">]</span><span class="w"> </span><span class="o">[</span>contract_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>proof<span class="o">]</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>hyled<span class="w"> </span>proof<span class="w"> </span><span class="o">[</span>tx_hash<span class="o">]</span><span class="w"> </span><span class="o">[</span>contract_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>proof<span class="o">]</span>
 </span></code></pre></div>
 
 In the case of the Hyllar program, we can now prove our state transition:
 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Make sure the name matches the contract you registered</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>hyled<span class="w"> </span>proof<span class="w"> </span><span class="o">[</span>tx_hash<span class="o">]</span><span class="w"> </span>hyllar<span class="w"> </span><span class="o">[</span>path_to_proof<span class="o">]</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Make sure the name matches the contract you registered</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>hyled<span class="w"> </span>proof<span class="w"> </span><span class="o">[</span>tx_hash<span class="o">]</span><span class="w"> </span>hyllar<span class="w"> </span><span class="o">[</span>path_to_proof<span class="o">]</span>
 </span></code></pre></div>
 -->
 

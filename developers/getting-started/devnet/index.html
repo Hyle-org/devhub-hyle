@@ -1093,7 +1093,6 @@ Hylé provides a testnet where you can test your smart contract and help us test
 <!--TODO Add table of what can be configured-->
 
 <h3 id="using-environment-variables">Using environment variables</h3>
-<p>The variable always begins with <code>HYLE_</code>, followed by the variable: <code>HYLE_RUN_INDEXER=false</code>. Multi-level variables are chained together with a double <code>_</code>, eg. <code>HYLE_CONSENSUS__SLOT_DURATION=100</code>.</p>
 <p>All variables can be customized on your single-node instance.</p>
 <table>
 <thead>
@@ -1120,27 +1119,27 @@ Hylé provides a testnet where you can test your smart contract and help us test
 <td>The node should listen to new peers. Mandatory (true) if multi-node consensus.</td>
 </tr>
 <tr>
-<td>host</td>
+<td>HYLE_HOST</td>
 <td>"127.0.0.1:1231"</td>
 <td>Host &amp; port to listen for the P2P protocol.</td>
 </tr>
 <tr>
-<td>peers</td>
+<td>HYLE_PEERS</td>
 <td>[]</td>
 <td>List of peers to connect to at startup to follow a running consensus.</td>
 </tr>
 <tr>
-<td>storage__interval</td>
+<td>HYLE_STORAGE__INTERVAL</td>
 <td>10</td>
 <td>unused</td>
 </tr>
 <tr>
-<td>log_format</td>
+<td>HYLE_LOG_FORMAT</td>
 <td>"full"</td>
 <td>“json” or “full”</td>
 </tr>
 <tr>
-<td>rest</td>
+<td>HYLE_REST</td>
 <td>"127.0.0.1:4321"</td>
 <td>Host &amp; port for the REST API endpoint.</td>
 </tr>

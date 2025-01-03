@@ -1086,11 +1086,7 @@
 <li><strong>State digest</strong>: current state commitment of the contract</li>
 </ul>
 <p>Depending on the type of zk-proof circuits you use, there are some superficial differences, but the overall idea is that all inputs are known at proof generation time.</p>
-<p>This page uses the Rust structures to demonstrate, but you can use the following repos for other languages:</p>
-<ul>
-<li>Rust example: https://github.com/Hyle-org/collatz-conjecture</li>
-<li>Gnark / Groth16 example (outdated): https://github.com/Hyle-org/groth16-example</li>
-</ul>
+<p>This page uses the Rust structures to demonstrate.</p>
 <h2 id="name">Name</h2>
 <p>The name of your contract must be unique.</p>
 <h2 id="verifier-and-program-identifier">Verifier and program identifier</h2>
@@ -1124,7 +1120,7 @@
 <p>The state digest is a minimal yet comprehensive representation of the contract's current state. It serves as the basis for verifying the integrity of the contract's data.</p>
 <p>Some examples of valid state commitments:</p>
 <ul>
-<li>The full state, for a sufficiently small program (e.g. the <a href="../../examples/collatz-example-in-depth/">Collatz example</a>, or a smart-contract with a nonce)</li>
+<li>The full state, for a sufficiently small program (e.g. a smart-contract with a nonce)</li>
 <li>A merkle root of the state, for larger programs</li>
 <li>A hash of the full state</li>
 </ul></div>
