@@ -3,4 +3,4 @@ nav:
     - devnet.md
     - user-tooling.md
     - your-first-smart-contract.md
-    - custom-identity-contract.md
+    - identity.md
