@@ -1,6 +1,6 @@
 nav:
     - index.md
-    - anatomy-smart-contracts.md
+    - smart-contracts.md
     - supported-proving-schemes.md
     - pipelined-proving.md
     - hyle-vs-vintage-blockchains.md
