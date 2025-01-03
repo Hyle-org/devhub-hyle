@@ -1,131 +1,237 @@
 # Your first smart contract
 
-You can use [any zkVM or proving scheme supported by Hylé](../general-doc/supported-proving-schemes.md).
+<!-- Update links when simple token PR is approved-->
+This guide will walk you through creating and deploying your first token transfer contract using Hylé's tools and infrastructure. We'll use [our sample token transfer example](https://github.com/Hyle-org/examples/tree/simple_erc20/simple-token) as the basis for this tutorial.
 
-We'll use [the Collatz example](https://github.com/Hyle-org/examples/tree/main/collatz-conjecture-rust) as an example throughout this tutorial. See the [Collatz page](../examples/collatz-example-in-depth.md) page for more information.
-
-Read more in our [anatomy of a smart contract](../general-doc/anatomy-smart-contracts.md).
+For an in-depth understanding of smart contracts, check out our [anatomy of a smart contract](../general-doc/anatomy-smart-contracts.md).
 
 ## Prerequisites
 
-- A working knowledge of zkVM basics.
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
-- [Connect to devnet](./devnet.md) <!-- rephrase -->
-- [Follow the CLI installation instructions](user-tooling.md). We are currently building utilities that will make it easier and faster to use our explorer, [Hyléou](../explorer.md).
-- For our example, you'll need to [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
+- For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
+- [Start a single-node devnet](./devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations during development.
 
-## Registering your smart contract
+## Quickstart
 
-### Content of a smart contract
+### Build and register the contract
 
-Hylé smart contracts include:
-
-- **Owner**: put anything you like. This field is currently not leveraged but will be in future versions.
-- **Verifier**: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254").
-- **Program ID**: the unique identifier for your program in that proof system.
-- **Contract name**: the unique identifier for your contract.
-- **State digest**: current state commitment of the contract, usually a MerkleRootHash of the contract's state.
-
-Read more about the [anatomy of smart contracts on Hylé](../general-doc/anatomy-smart-contracts.md).
-
-### Register your contract
-
-To register a contract on Hylé, run the following command:
+To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-token/host/src/main.rs), run:
 
 ```bash
-# Owner is currently unused, but could be used in the future to manage contract permissions
-hyled contract [owner] [verifier] [program_id] [contract_name] [state_digest]
+cargo run -- register 1000
 ```
 
-Replace `[owner], [verifier], [program_id], [contract_name]`, and `[state_digest]` with your specific details.
+The expected output is `📝 Registering new contract simple_token`.
 
-#### For Collatz
+### Transfer tokens
 
-In the case of the Collatz Conjecture example, as RISC Zero programs are identified by their image ID, without a prefix, we use the number `0xb48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b`. This will change every time the contract logic is modified.  
-
-The initial state is set to "1", so that it can be reset to any number. This is encoded in base 64 as `AAAAAQ==` because of the Rust library used to decode the state.
-
-Note that you need a unique `contract_name`. If you try to test this example on the public devnet, we recommend putting a name that's not « collatz ».
-
-For our example, the bash command looks like this:
+To transfer 2 tokens from `faucet` to `Bob`:
 
 ```bash
-hyled contract default risc0 b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b collatz AAAAAQ==
+cargo run -- transfer faucet.simple_token bob.simple_token 2
 ```
 
-(We put « default » as the `owner`, but you can put anything you like. This field is currently not leveraged; it will be in future versions.)
+This command will:
 
-#### Checking your contract
+1. Send a blob transaction to transfer 2 tokens from `faucet` to `bob`.
+2. Generate a ZK proof of that transfer.
+3. Send the proof to the devnet.
 
-In the explorer, this will look like this:
+### Verify settled state
 
-```rust
-{
-    "tx_hash": "ebecbf7458370d656772369df4a76c343b050e3fdbe4c1ceb7d54175ce290b60",
-    "owner": "default",
-    "verifier": "risc0",
-    "program_id": [
-        b48e70c79688b41fc8f0daf8370d1ddb3f44ada934c10c6e0b0f5915102a363b
-    ],
-    "state_digest": [
-        AAAAAQ==
-    ],
-    "contract_name": "collatz"
+Upon reception of the proof, the node will:
+
+1. Verify the proof
+1. Settle the blob transaction
+1. Update the contract's state
+
+The node's logs will display:
+
+```bash
+INFO hyle::data_availability::node_state::verifiers: ✅ Risc0 proof verified.
+INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Transferred 2 to bob.simple_token
+```
+
+And on the following slot:
+
+```bash
+INFO hyle::data_availability::node_state: Settle tx TxHash("[..]")
+```
+
+#### Check onchain balance
+
+Verify onchain balances:
+
+```bash
+cargo run -- balance faucet.simple_token
+cargo run -- balance bob.simple_token
+```
+
+!!! note
+    In this example, we do not verify the identity of the person who initiates the transaction. We use `.simple_token` as a suffix for the "from" and "to" transfer fields: usually, we'd use the identity scheme as the suffix. **More information about identity management will be added to the documentation in January 2025.**
+
+See your contract's state digest at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`.
+
+See your transaction on Hylé's explorer: `https://hyleou.hyle.eu/tx/$TX_HASH`.
+
+## Detailed information
+
+### Development mode
+
+We recommend activating [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) during your early development phase for faster iteration upon code changes with `-e RISC0_DEV_MODE=1`.
+
+You may also want to get insights into the execution statistics of your project: add the environment variable `RUST_LOG="[executor]=info"` before running your project.
+
+The full command to run your project in development mode while getting execution statistics is:
+
+```bash
+RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
+```
+
+### Code snippets
+
+Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-token/host/src/main.rs).
+
+#### Setup commands and CLI
+
+Set up commands and CLI. You need a unique `contract_name`: here, we use `"simple_token"`.
+
+```rs
+struct Cli {
+    #[command(subcommand)]
+    command: Commands,
+
+    #[clap(long, short)]
+    reproducible: bool,
+
+    #[arg(long, default_value = "http://localhost:4321")]
+    pub host: String,
+
+    #[arg(long, default_value = "simple_token")]
+    pub contract_name: String,
+}
+
+#[derive(Subcommand)]
+enum Commands {
+    Register {
+        supply: u128,
+    },
+    Transfer {
+        from: String,
+        to: String,
+        amount: u128,
+    },
+    Balance {
+        of: String,
+    },
 }
 ```
 
-## Interacting with Hylé
+#### Registering the contract
 
-Hylé transactions are settled in two steps, following [pipelined proving principles](https://blog.hyle.eu/an-introduction-to-delayed-proving/).
+Set up information about your contract. To register the contract, you'll need:
 
-1. **Publishing payloads**: send the input of your program to the network.
-2. **Posting proof of your payload**: generate and submit proofs validating your payload so Hylé will settle your transaction.
+- `owner`: we put "examples" as the `owner`, but you can put anything you like. This field is currently not leveraged; it will be in future versions.
+- `verifier`: for this example, the verifier is `risc0`
+- `program_id`: RISC Zero programs are identified by their image ID, without a prefix.
+- `state_digest`: usually a MerkleRootHash of the contract's initial state. For this example, we use a hexadecimal representation of the state encoded in binary format. The state digest cannot be empty, even if your app is stateless.
+- `contract_name` as set up above.
 
-### Publishing payloads
+```rs
+Commands::Register { supply } => {
+        // Build initial state of contract
+        let initial_state = Token::new(supply, format!("faucet.{}", contract_name).into());
+        println!("Initial state: {:?}", initial_state);
 
-The content of the payload is app-specific: it's the input of your program.
+        // Send the transaction to register the contract
+        let register_tx = RegisterContractTransaction {
+            owner: "examples".to_string(),
+            verifier: "risc0".into(),
+            program_id: sdk::ProgramId(sdk::to_u8_array(&GUEST_ID).to_vec()),
+            state_digest: initial_state.as_digest(),
+            contract_name: contract_name.clone().into(),
+        };
+        let res = client
+            .send_tx_register_contract(&register_tx)
+            .await
+            .unwrap()
+            .text()
+            .await
+            .unwrap();
 
-For the Collatz conjecture, this is a number encoded as a big-endian 32-bit integer.
-
-```bash
-payload='\x00\x00\x00\x05'
-# Generate the proof in 'collatz-contract'
-cargo run reset $payload
-hyled blobs "" collatz $(echo $payload | base64)
-# the "" is a placeholder for identity: it's empty, as Collatz doesn't handle identity
+        println!("✅ Register contract tx sent. Tx hash: {}", res);
+    }
 ```
 
-You can see your transaction on Hylé's explorer: `https://hyleou.hyle.eu/transaction/$TX_HASH`
+In [the explorer](https://hyleou.hyle.eu/), this will look like this:
 
-At this point, your transaction has been sequenced, but not settled.
-
-### Posting proofs of your payload to settle it
-
-Hylé requires specific variables in the output of the proof to process the transaction. Check the [smart contract ABI](../general-doc/smart-contract-abi.md) for more details.
-
-Once your program conforms to the ABI, you can generate proofs and send them to Hylé.
-
-Each payload of a transaction must be proven separately for now, so you need to specify the index of the payload you're proving.
-
-```bash
-hyled proof [tx_hash] [contract_name] [proof]
+```rs
+{
+    "tx_hash": "321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097",
+    "owner": "examples",
+    "verifier": "risc0",
+    "program_id":"e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f",
+    "state_digest": "fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000",
+    "contract_name": "simple_token"
+}
 ```
 
-In the case of the Collatz Conjecture program, we can now prove our state transition from 1 to 5.
+#### Create blob transaction
 
-```bash
-# Make sure the name matches the contract you registered
-hyled proof [tx_hash] collatz [path_to_proof]
+```rs
+    let blob_tx = BlobTransaction {
+        identity: from.into(),
+        blobs,
+    };
+
+    // Send the blob transaction
+    let blob_tx_hash = client.send_tx_blob(&blob_tx).await.unwrap();
+    println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
 ```
 
-Hylé will now verify your proof. After verification, your transaction is settled, updating the state of the contract.
+#### Prove the transaction
 
-### Verifying your contract's state
+Hylé transactions are settled in two steps, following [pipelined proving principles](../general-doc/pipelined-proving.md). After this step, your transaction is sequenced, but not settled.
 
-Your contract's state digest is visible at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`
+For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:
 
-You can choose to run the command below instead:
+- the initial state as set above
+- the identity of the transaction initiator
+- the transaction hash, which can be found in the explorer after sequencing (currently, this can be ignored; it will be necessary after an upcoming update)
+- information about the blobs.
+  - private input for proof generation in `private_blob`
+  - `blobs`: full list of blobs in the transaction (must match the blob transaction)
+  - `index`: each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.
 
-```bash
-hyled state collatz
+```rs
+    // Build the contract input
+    let inputs = ContractInput::<Token> {
+        initial_state,
+        identity: from.clone().into(),
+        tx_hash: "".into(),
+        private_blob: sdk::BlobData(vec![]),
+        blobs: blobs.clone(),
+        index: sdk::BlobIndex(0),
+    };
+    
+    // Generate the zk proof
+    let receipt = prove(cli.reproducible, inputs).unwrap();
+
+    let proof_tx = ProofTransaction {
+        blob_tx_hash,
+        proof: ProofData::Bytes(borsh::to_vec(&receipt).expect("Unable to encode receipt")),
+        contract_name: contract_name.clone().into(),
+    };
+    
+    // Send the proof transaction
+    let proof_tx_hash = client
+        .send_tx_proof(&proof_tx)
+        .await
+        .unwrap()
+        .text()
+        .await
+        .unwrap();
+    println!("✅ Proof tx sent. Tx hash: {}", proof_tx_hash);
 ```
+
+Check the full annotated code in [our GitHub example](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-token/host/src/main.rs).
