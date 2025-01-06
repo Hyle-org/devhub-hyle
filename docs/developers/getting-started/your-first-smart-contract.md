@@ -4,13 +4,13 @@ This guide will walk you through creating and deploying your first token transfe
 
 For an in-depth understanding of smart contracts, check out our [anatomy of a smart contract](../general-doc/smart-contracts.md).
 
-## Prerequisites
+## Example
+
+### Prerequisites
 
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
 - For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
 - [Start a single-node devnet](./devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations during development.
-
-## Quickstart
 
 ### Build and register the contract
 
@@ -43,6 +43,8 @@ Upon reception of the proof, the node will:
 1. Verify the proof
 1. Settle the blob transaction
 1. Update the contract's state
+
+#### Verify node logs
 
 The node's logs will display:
 
