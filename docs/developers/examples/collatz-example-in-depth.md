@@ -82,7 +82,7 @@ The Collatz smart contract demonstrates how the code of the smart contract enfor
 
 ### Use the proof
 
-Every time, a `proof.json` file containing the receipt will be generated. You can use this proof, along with the inputs, to trigger state transitions on Hylé. Read more: [Your first smart contract](../getting-started/your-first-smart-contract.md).
+Every time, a `proof.json` file containing the receipt will be generated. You can use this proof, along with the inputs, to trigger state transitions on Hylé. Read more: [Your first smart contract](../quickstart/your-first-smart-contract.md).
 
 ### Verify the proof
 
