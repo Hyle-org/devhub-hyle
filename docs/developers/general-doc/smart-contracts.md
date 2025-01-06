@@ -26,7 +26,7 @@ Smart contracts on Hylé rely on a pairing of a zero-knowledge proof scheme (ver
 | Proving scheme | Verifier | Program ID                                        |
 |----------------|----------|---------------------------------------------------|
 | Risc Zero      | risc0    | Image ID without a prefix. ex. 0x123 becomes 123. |
-| SP1            | sp1      |                                                   |
+| SP1            | sp1      | Verification key from the SP1 contract            |
 
 <!--- **Cairo**: Cairo smart contracts will be identified by their Class Hash in the future.
 - **Noir**: Noir smart contracts are identified by they verifying key.
