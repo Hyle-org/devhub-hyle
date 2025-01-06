@@ -13,7 +13,7 @@ We will release our testnet in early 2025.
 
 While we’re working towards launching the testnet, you can get hands-on right now:
 
-- [Explore our public devnet or spin up your own instance](../developers/getting-started/devnet.md) to start building today!
+- [Explore our public devnet or spin up your own instance](../developers/quickstart/devnet.md) to start building today!
 
 ## Proving schemes
 
