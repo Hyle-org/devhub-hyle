@@ -1,8 +1,8 @@
 ---
-title: Getting started
+title: Quickstart
 ---
 
-Welcome to the **Getting Started** guide for Hylé.
+Welcome to the **Quickstart** guide for Hylé.
 
 This page will help you configure your environment and start using Hylé.
 

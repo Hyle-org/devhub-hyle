@@ -2,7 +2,7 @@
 
 Welcome to the developer documentation for Hylé!
 
-- [Quickstart](./getting-started/index.md)
+- [Quickstart](./quickstart/index.md)
 - [General documentation about Hylé](./general-doc/index.md)
 - [Explorer](./explorer.md)
 - [Annotated examples](./examples/index.md)

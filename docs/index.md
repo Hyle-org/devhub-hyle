@@ -33,7 +33,7 @@ With this system, execution and storage happen **anywhere you like**. You only n
 
 ## Documentation
 
-- [Get started now](developers/getting-started/index.md)
+- [Get started now](developers/quickstart/index.md)
 - [Learn more about Hylé](developers/general-doc/index.md)
 - [Check out examples](developers/examples/index.md)
 
