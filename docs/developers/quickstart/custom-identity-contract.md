@@ -8,7 +8,7 @@ This guide walks you through creating and deploying your first simple identity c
 
 For a deeper understanding of smart contracts, explore our [identity management documentation](../general-doc/identity.md).
 
-## Example
+## Quickstart
 
 ### Prerequisites
 
