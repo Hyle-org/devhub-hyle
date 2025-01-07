@@ -2,11 +2,11 @@
 
 ## When to use identity contracts on Hylé
 
-On Hylé, any smart contract can be a proof of identity: you can register your favorite identity source as a smart contract and use it to identify accounts. Hylé also ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/contracts/hydentity) for simplicity.
+On Hylé, any smart contract can serve as proof of identity. This flexibility allows you to register your preferred identity source as a smart contract for account identification. Hylé also ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/contracts/hydentity) for simplicity.
 
-This guide will walk you through creating and deploying your first simple identity contract using Hylé's tools and infrastructure and Risc0. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/simple_erc20/simple-identity) as the basis for this tutorial. This example is very similar to our [simple token transfer example](./your-first-smart-contract.md).
+This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/simple_erc20/simple-identity), which mirrors our [simple token transfer example](./your-first-smart-contract.md).
 
-For an in-depth understanding of smart contracts, check out our [identity management documentation](../general-doc/identity.md).
+For a deeper understanding of smart contracts, explore our [identity management documentation](../general-doc/identity.md).
 
 ## Example
 
@@ -28,7 +28,7 @@ The expected output is `📝 Registering new contract simple_identity`.
 
 ### Register an account / Sign up
 
-The inputs used in this tutorial are alice's username (alice) and password (abc123).
+To register an account with a username (`alice`) and password (`abc123`), execute:
 
 ```sh
 cargo run -- register-identity alice.simple_identity abc123
@@ -52,22 +52,20 @@ cargo run -- verify-identity pseudo.simple_identity password --nonce 0
 This command will:
 
 1. Send a blob transaction to verify `alice`'s identity.
-2. Generate a ZK proof of that identity.
-3. Send the proof to the devnet.
-
-It will only be valid once, thus the inclusion of a nonce.
+1. Generate a ZK proof of that identity. It will only be valid once, thus the inclusion of a nonce.
+1. Send the proof to the devnet.
 
 Upon reception of the proof, the node will:
 
-1. Verify the proof
-1. Settle the blob transaction
-1. Update the contract's state
+1. Verify the proof.
+1. Settle the blob transaction.
+1. Update the contract's state.
 
 The node's logs will display:
 
 ```bash
 INFO hyle::data_availability::node_state::verifiers: ✅ Risc0 proof verified.
-2025-01-07T13:06:33.358070Z  INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Identity verified for account: alice.simple_identity
+INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Identity verified for account: alice.simple_identity
 ```
 
 See your contract's state digest at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`.
