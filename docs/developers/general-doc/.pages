@@ -2,6 +2,7 @@ nav:
     - index.md
     - smart-contracts.md
     - supported-proving-schemes.md
+    - identity.md
     - pipelined-proving.md
     - hyle-vs-vintage-blockchains.md
     - ...
