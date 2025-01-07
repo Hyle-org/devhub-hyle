@@ -12,6 +12,8 @@ For an in-depth understanding of smart contracts, check out our [anatomy of a sm
 - For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
 - [Start a single-node devnet](./devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations during development.
 
+## Quickstart
+
 ### Build and register the contract
 
 To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-token/host/src/main.rs), run:
@@ -43,8 +45,6 @@ Upon reception of the proof, the node will:
 1. Verify the proof
 1. Settle the blob transaction
 1. Update the contract's state
-
-#### Verify node logs
 
 The node's logs will display:
 
