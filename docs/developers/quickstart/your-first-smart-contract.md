@@ -166,7 +166,7 @@ Commands::Register { supply } => {
 
 In [the explorer](https://hyleou.hyle.eu/), this will look like this:
 
-```rs
+```json
 {
     "tx_hash": "321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097",
     "owner": "examples",

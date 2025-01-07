@@ -160,7 +160,7 @@ println!("✅ Register contract tx sent. Tx hash: {}", res);
 
 In the explorer, it will look like this:
 
-```rs
+```json
 {
     "tx_hash": "321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097",
     "owner": "examples",
