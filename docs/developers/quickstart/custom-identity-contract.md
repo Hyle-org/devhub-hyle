@@ -135,33 +135,30 @@ Set up information about your contract. To register the contract, you'll need:
 - `contract_name` as set up above.
 
 ```rs
-match cli.command {
-        Commands::RegisterContract {} => {
-            // Build initial state of contract
-            let initial_state = Identity::new();
-            println!("Initial state: {:?}", initial_state);
+// Build initial state of contract
+let initial_state = Identity::new();
+println!("Initial state: {:?}", initial_state);
 
-            // Send the transaction to register the contract
-            let register_tx = RegisterContractTransaction {
-                owner: "examples".to_string(),
-                verifier: "risc0".into(),
-                program_id: sdk::ProgramId(sdk::to_u8_array(&GUEST_ID).to_vec()),
-                state_digest: initial_state.as_digest(),
-                contract_name: contract_name.clone().into(),
-            };
-            let res = client
-                .send_tx_register_contract(&register_tx)
-                .await
-                .unwrap()
-                .text()
-                .await
-                .unwrap();
+// Send the transaction to register the contract
+let register_tx = RegisterContractTransaction {
+    owner: "examples".to_string(),
+    verifier: "risc0".into(),
+    program_id: sdk::ProgramId(sdk::to_u8_array(&GUEST_ID).to_vec()),
+    state_digest: initial_state.as_digest(),
+    contract_name: contract_name.clone().into(),
+};
+let res = client
+    .send_tx_register_contract(&register_tx)
+    .await
+    .unwrap()
+    .text()
+    .await
+    .unwrap();
 
-            println!("✅ Register contract tx sent. Tx hash: {}", res);
-        }
+println!("✅ Register contract tx sent. Tx hash: {}", res);
 ```
 
-In [the explorer](https://hyleou.hyle.eu/), this will look like this:
+In the explorer, it will look like this:
 
 ```rs
 {
@@ -178,36 +175,36 @@ In [the explorer](https://hyleou.hyle.eu/), this will look like this:
 
 ```rs
 Commands::RegisterIdentity { identity, password } => {
-            // Fetch the initial state from the node
-            let initial_state: Identity = client
-                .get_contract(&contract_name.clone().into())
-                .await
-                .unwrap()
-                .state
-                .into();
+    // Fetch the initial state from the node
+    let initial_state: Identity = client
+
+        .await
+        .unwrap()
+        .state
+        .into();
 ```
 
 ##### Build the blob transaction
 
 ```rs
-            let action = sdk::identity_provider::IdentityAction::RegisterIdentity {
-                account: identity.clone(),
-            };
-            let blobs = vec![sdk::Blob {
-                contract_name: contract_name.clone().into(),
-                data: sdk::BlobData(
-                    bincode::encode_to_vec(action, bincode::config::standard())
-                        .expect("failed to encode BlobData"),
-                ),
-            }];
-            let blob_tx = BlobTransaction {
-                identity: identity.into(),
-                blobs: blobs.clone(),
-            };
+let action = sdk::identity_provider::IdentityAction::RegisterIdentity {
+    account: identity.clone(),
+};
+let blobs = vec![sdk::Blob {
+    contract_name: contract_name.clone().into(),
+    data: sdk::BlobData(
+        bincode::encode_to_vec(action, bincode::config::standard())
+            .expect("failed to encode BlobData"),
+    ),
+}];
+let blob_tx = BlobTransaction {
+    identity: identity.into(),
+    blobs: blobs.clone(),
+};
 
-            // Send the blob transaction
-            let blob_tx_hash = client.send_tx_blob(&blob_tx).await.unwrap();
-            println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
+// Send the blob transaction
+let blob_tx_hash = client.send_tx_blob(&blob_tx).await.unwrap();
+println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
 ```
 
 ##### Prove the registration
@@ -225,29 +222,29 @@ For the transaction to be settled, it needs to be proven. You'll start with buil
   - `index`: each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.
 
 ```rs
-            // Build the contract input
-            let inputs = ContractInput {
-                initial_state: initial_state.as_digest(),
-                identity: blob_tx.identity,
-                tx_hash: "".into(),
-                private_blob: sdk::BlobData(password.into_bytes().to_vec()),
-                blobs: blobs.clone(),
-                index: sdk::BlobIndex(0),
-            };
+// Build the contract input
+let inputs = ContractInput {
+    initial_state: initial_state.as_digest(),
+    identity: blob_tx.identity,
+    tx_hash: "".into(),
+    private_blob: sdk::BlobData(password.into_bytes().to_vec()),
+    blobs: blobs.clone(),
+    index: sdk::BlobIndex(0),
+};
 
-            // Generate the zk proof
-            
-            (…)
+// Generate the zk proof
 
-            // Send the proof transaction
-            let proof_tx_hash = client
-                .send_tx_proof(&proof_tx)
-                .await
-                .unwrap()
-                .text()
-                .await
-                .unwrap();
-            println!("✅ Proof tx sent. Tx hash: {}", proof_tx_hash);
+(…)
+
+// Send the proof transaction
+let proof_tx_hash = client
+    .send_tx_proof(&proof_tx)
+    .await
+    .unwrap()
+    .text()
+    .await
+    .unwrap();
+println!("✅ Proof tx sent. Tx hash: {}", proof_tx_hash);
         }
 ```
 
@@ -257,37 +254,37 @@ The process is the same as for registering a new identity.
 
 ```rs
 Commands::VerifyIdentity {
-            identity,
-            password,
-            nonce,
-        } => {
-            {
-                // Fetch the initial state from the node
-                let initial_state: Identity = client
-                    .get_contract(&contract_name.clone().into())
-                    .await
-                    .unwrap()
-                    .state
-                    .into();
-                // ----
-                // Build the blob transaction
-                // ----
+    identity,
+    password,
 
-                let action = sdk::identity_provider::IdentityAction::VerifyIdentity {
-                    account: identity.clone(),
-                    nonce,
-                };
-                let blobs = vec![sdk::Blob {
-                    contract_name: contract_name.clone().into(),
-                    data: sdk::BlobData(
-                        bincode::encode_to_vec(action, bincode::config::standard())
-                            .expect("failed to encode BlobData"),
-                    ),
-                }];
-                let blob_tx = BlobTransaction {
-                    identity: identity.into(),
-                    blobs: blobs.clone(),
-                };
+} => {
+    {
+        // Fetch the initial state from the node
+        let initial_state: Identity = client
+            .get_contract(&contract_name.clone().into())
+            .await
+            .unwrap()
+            .state
+            .into();
+        // ----
+        // Build the blob transaction
+        // ----
+
+        let action = sdk::identity_provider::IdentityAction::VerifyIdentity {
+            account: identity.clone(),
+            nonce,
+        };
+        let blobs = vec![sdk::Blob {
+            contract_name: contract_name.clone().into(),
+            data: sdk::BlobData(
+                bincode::encode_to_vec(action, bincode::config::standard())
+                    .expect("failed to encode BlobData"),
+            ),
+        }];
+        let blob_tx = BlobTransaction {
+            identity: identity.into(),
+            blobs: blobs.clone(),
+        };
 ```
 
 Check the full annotated code in [our GitHub example](https://github.com/Hyle-org/examples/blob/simple_identity/simple-identity/host/src/main.rs).
