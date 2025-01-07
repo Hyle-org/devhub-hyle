@@ -4,7 +4,9 @@ This guide will walk you through creating and deploying your first token transfe
 
 For an in-depth understanding of smart contracts, check out our [anatomy of a smart contract](../general-doc/smart-contracts.md).
 
-## Prerequisites
+## Example
+
+### Prerequisites
 
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
 - For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
@@ -164,7 +166,7 @@ Commands::Register { supply } => {
 
 In [the explorer](https://hyleou.hyle.eu/), this will look like this:
 
-```rs
+```json
 {
     "tx_hash": "321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097",
     "owner": "examples",
