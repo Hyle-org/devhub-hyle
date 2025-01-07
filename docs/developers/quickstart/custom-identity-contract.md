@@ -253,38 +253,32 @@ println!("✅ Proof tx sent. Tx hash: {}", proof_tx_hash);
 The process is the same as for registering a new identity.
 
 ```rs
-Commands::VerifyIdentity {
-    identity,
-    password,
+// Fetch the initial state from the node
+let initial_state: Identity = client
+    .get_contract(&contract_name.clone().into())
+    .await
+    .unwrap()
+    .state
+    .into();
+// ----
+// Build the blob transaction
+// ----
 
-} => {
-    {
-        // Fetch the initial state from the node
-        let initial_state: Identity = client
-            .get_contract(&contract_name.clone().into())
-            .await
-            .unwrap()
-            .state
-            .into();
-        // ----
-        // Build the blob transaction
-        // ----
-
-        let action = sdk::identity_provider::IdentityAction::VerifyIdentity {
-            account: identity.clone(),
-            nonce,
-        };
-        let blobs = vec![sdk::Blob {
-            contract_name: contract_name.clone().into(),
-            data: sdk::BlobData(
-                bincode::encode_to_vec(action, bincode::config::standard())
-                    .expect("failed to encode BlobData"),
-            ),
-        }];
-        let blob_tx = BlobTransaction {
-            identity: identity.into(),
-            blobs: blobs.clone(),
-        };
+let action = sdk::identity_provider::IdentityAction::VerifyIdentity {
+    account: identity.clone(),
+    nonce,
+};
+let blobs = vec![sdk::Blob {
+    contract_name: contract_name.clone().into(),
+    data: sdk::BlobData(
+        bincode::encode_to_vec(action, bincode::config::standard())
+            .expect("failed to encode BlobData"),
+    ),
+}];
+let blob_tx = BlobTransaction {
+    identity: identity.into(),
+    blobs: blobs.clone(),
+};
 ```
 
 Check the full annotated code in [our GitHub example](https://github.com/Hyle-org/examples/blob/simple_identity/simple-identity/host/src/main.rs).
