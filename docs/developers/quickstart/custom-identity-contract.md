@@ -92,7 +92,7 @@ Find the full annotated code in [our examples repository](https://github.com/Hyl
 
 #### Setup commands and CLI
 
-Set up commands and CLI. You need a unique `contract_name`: here, we use `"simple_token"`.
+Set up commands and CLI. You need a unique `contract_name`: here, we use `"simple_identity"`.
 
 ```rs
 struct Cli {
