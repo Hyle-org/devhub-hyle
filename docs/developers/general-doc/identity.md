@@ -35,4 +35,6 @@ identités qui cohabitent : mon adresse gmail peut envoyer des tokens à ton pas
 On envoie une preuve par blob. Dans le Hyle_output de chaque preuve, on va donner une identité, qui sera vérifiée avec le blob. (C'est donné en input de la preuve, et la preuve la ressort en output : ça prouve qu'elle a été donnée en input.)
 
 Register + login : deux fonctions. Globalement : tu fais ton contrat comme tu veux, mais le plus simple c'est register + verify.
+
+Il faut le nonce (mais les gnes de la blockchain comprennent) pour éviter les replay attack.
 -->
