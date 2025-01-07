@@ -174,14 +174,13 @@ In the explorer, it will look like this:
 #### Register an identity
 
 ```rs
-Commands::RegisterIdentity { identity, password } => {
-    // Fetch the initial state from the node
-    let initial_state: Identity = client
+// Fetch the initial state from the node
+let initial_state: Identity = client
 
-        .await
-        .unwrap()
-        .state
-        .into();
+    .await
+    .unwrap()
+    .state
+    .into();
 ```
 
 ##### Build the blob transaction
@@ -245,7 +244,6 @@ let proof_tx_hash = client
     .await
     .unwrap();
 println!("✅ Proof tx sent. Tx hash: {}", proof_tx_hash);
-        }
 ```
 
 #### Verify an identity
