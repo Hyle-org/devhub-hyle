@@ -176,7 +176,6 @@ In the explorer, it will look like this:
 ```rs
 // Fetch the initial state from the node
 let initial_state: Identity = client
-
     .await
     .unwrap()
     .state
