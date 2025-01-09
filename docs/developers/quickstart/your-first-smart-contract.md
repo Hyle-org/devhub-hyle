@@ -180,6 +180,19 @@ In [the explorer](https://hyleou.hyle.eu/), this will look like this:
 #### Create blob transaction
 
 ```rs
+    // The action to execute, that will be proved later
+    let action = sdk::erc20::ERC20Action::Transfer {
+        recipient: to.clone(),
+        amount,
+    };
+    // Into a BlobTransaction to be sent on chain
+    let blobs = vec![sdk::Blob {
+        contract_name: contract_name.clone().into(),
+        data: sdk::BlobData(
+            bincode::encode_to_vec(action, bincode::config::standard())
+                .expect("failed to encode BlobData"),
+        ),
+    }];
     let blob_tx = BlobTransaction {
         identity: from.into(),
         blobs,
