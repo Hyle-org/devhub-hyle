@@ -1,6 +1,5 @@
 nav:
     - index.md
     - devnet.md
-    - user-tooling.md
     - your-first-smart-contract.md
     - custom-identity-contract.md
