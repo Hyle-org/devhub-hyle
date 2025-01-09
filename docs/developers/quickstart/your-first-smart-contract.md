@@ -16,7 +16,7 @@ For an in-depth understanding of smart contracts, check out our [anatomy of a sm
 
 ### Build and register the contract
 
-To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-token/host/src/main.rs), run:
+To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs), run:
 
 ```bash
 cargo run -- register 1000
@@ -91,7 +91,7 @@ RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 
 ### Code snippets
 
-Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-token/host/src/main.rs).
+Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs).
 
 #### Setup commands and CLI
 
@@ -235,4 +235,4 @@ For the transaction to be settled, it needs to be proven. You'll start with buil
     println!("✅ Proof tx sent. Tx hash: {}", proof_tx_hash);
 ```
 
-Check the full annotated code in [our GitHub example](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-token/host/src/main.rs).
+Check the full annotated code in [our GitHub example](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs).

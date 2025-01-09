@@ -88,7 +88,7 @@ RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 
 ### Code snippets
 
-Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/simple_identity/simple-identity/host/src/main.rs).
+Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs).
 
 #### Setup commands and CLI
 
@@ -278,4 +278,4 @@ let blob_tx = BlobTransaction {
 };
 ```
 
-Check the full annotated code in [our GitHub example](https://github.com/Hyle-org/examples/blob/simple_identity/simple-identity/host/src/main.rs).
+Check the full annotated code in [our GitHub example](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs).
