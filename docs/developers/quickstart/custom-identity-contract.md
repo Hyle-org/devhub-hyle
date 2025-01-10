@@ -18,7 +18,7 @@ For a deeper understanding of smart contracts, explore our [identity management 
 
 ### Build and register the identity contract
 
-To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-token/host/src/main.rs), run:
+To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-token/host/src/main.rs), from the cloned Examples folder, run:
 
 ```bash
 cargo run -- register-contract

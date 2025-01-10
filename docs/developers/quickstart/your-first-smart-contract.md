@@ -16,7 +16,7 @@ For an in-depth understanding of smart contracts, check out our [anatomy of a sm
 
 ### Build and register the contract
 
-To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs), run:
+To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs), from the cloned Examples folder, run:
 
 ```bash
 cargo run -- register 1000
