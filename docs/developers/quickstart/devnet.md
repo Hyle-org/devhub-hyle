@@ -44,6 +44,8 @@ If you want to, you can rebuild the image locally from source:
 docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
 ```
 
+You can now [create your first smart contract](./your-first-smart-contract.md).
+
 ## Alternative: Getting started from source
 
 To start a single-node devnet (with consensus disabled), which is useful to build & debug smart contracts, run:
@@ -97,3 +99,5 @@ Then, whether you're using Docker or building from source:
 # Copy default config where you run the node. If file named "config.ron" is present, it will be loaded by node at startup.
 cp ./src/utils/conf_defaults.ron config.ron
 ```
+
+You can now [create your first smart contract](./your-first-smart-contract.md).
