@@ -13,7 +13,7 @@ description: Hylé is the lean blockchain that makes building provable apps easy
 
 - Native zero-knowledge proof verification on our sovereign L1: we're fast and lean.
 - No onchain execution or virtual machine needed: only efficient proof verification.
-- Run complex logic offchain and only submit proofs onchain for maximum scalability.
+- Run complex logic off-chain and only submit proofs onchain for maximum scalability.
 - Proof composability: seamlessly combine multiple proofs into single, verifiable transactions.
 - Pipelined proving: send provable blobs, don't worry about proving times.
 - Choose your proving scheme and your language: we verify all proofs.
