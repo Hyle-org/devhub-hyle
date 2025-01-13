@@ -108,11 +108,25 @@ cargo run -- --contract-name ticket-app --user bob.ticket-app has-ticket
 
 You can also check Bob's balance and see he now has 35 tokens.
 
-## Code snippets
+## Detailed information
+
+### Development mode
+
+We recommend activating [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) during your early development phase for faster iteration upon code changes with `-e RISC0_DEV_MODE=1`.
+
+You may also want to get insights into the execution statistics of your project: add the environment variable `RUST_LOG="[executor]=info"` before running your project.
+
+The full command to run your project in development mode while getting execution statistics is:
+
+```bash
+RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
+```
+
+### Code snippets
 
 Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/ticket-app/host/src/main.rs).
 
-### Setup commands and CLI
+#### Setup commands and CLI
 
 Set up commands and CLI. You need a unique `contract_name`: here, we use `"simple_ticket_app"`.
 
@@ -142,7 +156,7 @@ enum Commands {
 }
 ```
 
-### Registering the contract
+#### Registering the contract
 
 Set up information about your contract.
 
@@ -224,7 +238,7 @@ let blob_tx_hash = client.send_tx_blob(&blob_tx).await.unwrap();
 println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
 ```
 
-##### Prove the ticket transfer
+#### Prove the ticket transfer
 
 Hylé transactions are settled in two steps, following [pipelined proving principles](../general-doc/pipelined-proving.md). After this step, your transaction is sequenced, but not settled.
 
