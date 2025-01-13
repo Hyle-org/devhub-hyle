@@ -1258,8 +1258,8 @@
 
 <div><h1 id="using-a-custom-identity-contract">Using a custom identity contract</h1>
 <h2 id="when-to-use-identity-contracts-on-hyle">When to use identity contracts on Hylé</h2>
-<p>On Hylé, any smart contract can serve as proof of identity. This flexibility allows you to register your preferred identity source as a smart contract for account identification. Hylé also ships <a href="https://github.com/Hyle-org/hyle/tree/main/contracts/hydentity">a native <code>hydentity</code> contract</a> for simplicity.</p>
-<p>This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use <a href="https://github.com/Hyle-org/examples/tree/simple_erc20/simple-identity">our simple identity example</a>, which mirrors our <a href="../your-first-smart-contract/">simple token transfer example</a>.</p>
+<p>On Hylé, any smart contract can serve as proof of identity. This flexibility allows you to register your preferred identity source as a smart contract for account identification. Hylé also ships <a href="https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity">a native <code>hydentity</code> contract</a> for simplicity.</p>
+<p>This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use <a href="https://github.com/Hyle-org/examples/tree/main/simple-identity">our simple identity example</a>, which mirrors our <a href="../your-first-smart-contract/">simple token transfer example</a>.</p>
 <p>For a deeper understanding of smart contracts, explore our <a href="../../general-doc/identity/">identity management documentation</a>.</p>
 <h2 id="quickstart">Quickstart</h2>
 <h3 id="prerequisites">Prerequisites</h3>
@@ -1270,7 +1270,7 @@
 <li><a href="../devnet/">Start a single-node devnet</a>. We recommend using <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> with <code>-e RISC0_DEV_MODE=1</code> for faster iterations during development.</li>
 </ul>
 <h3 id="build-and-register-the-identity-contract">Build and register the identity contract</h3>
-<p>To build all methods and register the smart contract on the local node <a href="https://github.com/Hyle-org/examples/blob/simple_erc20/simple-token/host/src/main.rs">from the source</a>, from the cloned Examples folder, run:</p>
+<p>To build all methods and register the smart contract on the local node <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs">from the source</a>, from the cloned Examples folder, run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>register-contract
 </span></code></pre></div>
 <p>The expected output is <code>📝 Registering new contract simple_identity</code>.</p>
@@ -1284,7 +1284,7 @@
 </span></code></pre></div>
 <h3 id="verify-identity-login">Verify identity / Login</h3>
 <p>To verify <code>alice</code>'s identity:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>verify-identity<span class="w"> </span>pseudo.simple_identity<span class="w"> </span>password<span class="w"> </span>--nonce<span class="w"> </span><span class="m">0</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>verify-identity<span class="w"> </span>alice.simple_identity<span class="w"> </span>abc123<span class="w"> </span><span class="m">0</span>
 </span></code></pre></div>
 <p>This command will:</p>
 <ol>
