@@ -47,7 +47,7 @@ INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Succe
 To verify `alice`'s identity:
 
 ```bash
-cargo run -- verify-identity pseudo.simple_identity password --nonce 0
+cargo run -- verify-identity alice.simple_identity abc123 0
 ```
 
 This command will:
