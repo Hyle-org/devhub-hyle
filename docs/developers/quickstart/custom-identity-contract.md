@@ -2,9 +2,9 @@
 
 ## When to use identity contracts on Hylé
 
-On Hylé, any smart contract can serve as proof of identity. This flexibility allows you to register your preferred identity source as a smart contract for account identification. Hylé also ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/contracts/hydentity) for simplicity.
+On Hylé, any smart contract can serve as proof of identity. This flexibility allows you to register your preferred identity source as a smart contract for account identification. Hylé also ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity) for simplicity.
 
-This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/simple_erc20/simple-identity), which mirrors our [simple token transfer example](./your-first-smart-contract.md).
+This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/main/simple-identity), which mirrors our [simple token transfer example](./your-first-smart-contract.md).
 
 For a deeper understanding of smart contracts, explore our [identity management documentation](../general-doc/identity.md).
 
@@ -19,7 +19,7 @@ For a deeper understanding of smart contracts, explore our [identity management 
 
 ### Build and register the identity contract
 
-To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/simple_erc20/simple-token/host/src/main.rs), from the cloned Examples folder, run:
+To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs), from the cloned Examples folder, run:
 
 ```bash
 cargo run -- register-contract
