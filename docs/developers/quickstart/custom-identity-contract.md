@@ -13,7 +13,7 @@ For a deeper understanding of smart contracts, explore our [identity management 
 ### Prerequisites
 
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
-- [Install OpenSSL crate](https://crates.io/crates/openssl).
+- Install openssl-dev (e.g. `apt install openssl-dev` or `cargo add openssl`).
 - For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
 - [Start a single-node devnet](./devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations during development.
 
