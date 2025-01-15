@@ -8,7 +8,10 @@ This guide walks you through creating and deploying your first simple identity c
 
 For a deeper understanding of smart contracts, explore our [identity management documentation](../general-doc/identity.md).
 
-## Quickstart
+## Run the example
+
+!!! info 
+    You can also jump to [Code Snippets](#code-snippets) if you want a deeper look on how it works.
 
 ### Prerequisites
 
@@ -89,6 +92,9 @@ RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 ## Code snippets
 
 Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs).
+
+!!! info 
+    You might be interested by reading the [Transaction on hyle](../general-doc/transaction.md) page.
 
 
 ### Registering the contract
