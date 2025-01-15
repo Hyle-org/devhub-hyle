@@ -212,7 +212,7 @@ For the transaction to be settled, it needs to be proven. You'll start with buil
 
 - the initial state as set above
 - the identity of the transaction initiator
-- the transaction hash, which can be found in the explorer after sequencing (currently, this can be ignored; it will be necessary after an upcoming update)
+- the transaction hash, which can be found in the explorer after sequencing 
 - information about the blobs.
   - private input for proof generation in `private_blob`
   - `blobs`: full list of blobs in the transaction (must match the blob transaction)
