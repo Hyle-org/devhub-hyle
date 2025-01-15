@@ -471,13 +471,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quickstart" class="md-nav__link">
+  <a href="#run-the-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Quickstart
+      Run the example
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Quickstart">
+    <nav class="md-nav" aria-label="Run the example">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -522,16 +522,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#detailed-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      Detailed information
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Detailed information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#development-mode" class="md-nav__link">
     <span class="md-ellipsis">
       Development mode
@@ -539,8 +529,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#code-snippets" class="md-nav__link">
     <span class="md-ellipsis">
       Code snippets
@@ -549,15 +539,6 @@
   
     <nav class="md-nav" aria-label="Code snippets">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setup-commands-and-cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setup commands and CLI
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#registering-the-contract" class="md-nav__link">
@@ -594,6 +575,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Prove the registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-the-backend-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      On the backend side
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-the-contract-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      On the contract side
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -607,11 +612,6 @@
       Verify an identity
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -648,6 +648,8 @@
       
         
           
+        
+      
         
       
         
@@ -1089,13 +1091,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quickstart" class="md-nav__link">
+  <a href="#run-the-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Quickstart
+      Run the example
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Quickstart">
+    <nav class="md-nav" aria-label="Run the example">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1140,16 +1142,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#detailed-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      Detailed information
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Detailed information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#development-mode" class="md-nav__link">
     <span class="md-ellipsis">
       Development mode
@@ -1157,8 +1149,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#code-snippets" class="md-nav__link">
     <span class="md-ellipsis">
       Code snippets
@@ -1167,15 +1159,6 @@
   
     <nav class="md-nav" aria-label="Code snippets">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setup-commands-and-cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setup commands and CLI
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#registering-the-contract" class="md-nav__link">
@@ -1212,6 +1195,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Prove the registration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-the-backend-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      On the backend side
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-the-contract-side" class="md-nav__link">
+    <span class="md-ellipsis">
+      On the contract side
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1225,11 +1232,6 @@
       Verify an identity
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1261,7 +1263,11 @@
 <p>On Hylé, any smart contract can serve as proof of identity. This flexibility allows you to register your preferred identity source as a smart contract for account identification. Hylé also ships <a href="https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity">a native <code>hydentity</code> contract</a> for simplicity.</p>
 <p>This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use <a href="https://github.com/Hyle-org/examples/tree/main/simple-identity">our simple identity example</a>, which mirrors our <a href="../your-first-smart-contract/">simple token transfer example</a>.</p>
 <p>For a deeper understanding of smart contracts, explore our <a href="../../general-doc/identity/">identity management documentation</a>.</p>
-<h2 id="quickstart">Quickstart</h2>
+<h2 id="run-the-example">Run the example</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Jump to <a href="#code-snippets">Code snippets</a> to see the contract code in action.</p>
+</div>
 <h3 id="prerequisites">Prerequisites</h3>
 <ul>
 <li><a href="https://www.rust-lang.org/tools/install">Install Rust</a> (you'll need <code>rustup</code> and Cargo).</li>
@@ -1304,178 +1310,95 @@
 </span></code></pre></div>
 <p>See your contract's state digest at: <code>https://hyleou.hyle.eu/contract/$CONTRACT_NAME</code>.</p>
 <p>See your transaction on Hylé's explorer: <code>https://hyleou.hyle.eu/tx/$TX_HASH</code>.</p>
-<h2 id="detailed-information">Detailed information</h2>
-<h3 id="development-mode">Development mode</h3>
+<h2 id="development-mode">Development mode</h2>
 <p>We recommend activating <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> during your early development phase for faster iteration upon code changes with <code>-e RISC0_DEV_MODE=1</code>.</p>
 <p>You may also want to get insights into the execution statistics of your project: add the environment variable <code>RUST_LOG="[executor]=info"</code> before running your project.</p>
 <p>The full command to run your project in development mode while getting execution statistics is:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">RUST_LOG</span><span class="o">=</span><span class="s2">"[executor]=info"</span><span class="w"> </span><span class="nv">RISC0_DEV_MODE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>cargo<span class="w"> </span>run
 </span></code></pre></div>
-<h3 id="code-snippets">Code snippets</h3>
+<h2 id="code-snippets">Code snippets</h2>
 <p>Find the full annotated code in <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs">our examples repository</a>.</p>
-<h4 id="setup-commands-and-cli">Setup commands and CLI</h4>
-<p>Set up commands and CLI. You need a unique <code>contract_name</code>: here, we use <code>"simple_identity"</code>.</p>
-<div class="language-rs highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Cli</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="cp">#[command(subcommand)]</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">command</span><span class="p">:</span><span class="w"> </span><span class="nc">Commands</span><span class="p">,</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="cp">#[clap(long, short)]</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="n">reproducible</span><span class="p">:</span><span class="w"> </span><span class="kt">bool</span><span class="p">,</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="cp">#[arg(long, default_value = </span><span class="s">"http://localhost:4321"</span><span class="cp">)]</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">host</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="cp">#[arg(long, default_value = </span><span class="s">"simple_identity"</span><span class="cp">)]</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="n">contract_name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="cp">#[derive(Subcommand)]</span>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="k">enum</span><span class="w"> </span><span class="nc">Commands</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="n">RegisterContract</span><span class="w"> </span><span class="p">{},</span>
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="n">RegisterIdentity</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">        </span><span class="n">identity</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
-</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">        </span><span class="n">password</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
-</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">    </span><span class="n">VerifyIdentity</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">        </span><span class="n">identity</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
-</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">        </span><span class="n">password</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
-</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">        </span><span class="n">nonce</span><span class="p">:</span><span class="w"> </span><span class="kt">u32</span><span class="p">,</span>
-</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="p">}</span>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Read more about <a href="../../general-doc/transaction/">Transactions on hyle</a>.</p>
+</div>
+<h3 id="registering-the-contract">Registering the contract</h3>
+<p>This part is the same as for the the simple transfer token example described in <a href="../your-first-smart-contract/">Your first smart contract</a></p>
+<h3 id="register-an-identity">Register an identity</h3>
+<h4 id="build-the-blob-transaction">Build the blob transaction</h4>
+<p>Here is a simplified code snippet:</p>
+<div class="language-rs highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RegisterIdentity</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">account</span><span class="p">:</span><span class="w"> </span><span class="nc">identity</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">};</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kd">let</span><span class="w"> </span><span class="n">blob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sdk</span><span class="p">::</span><span class="n">Blob</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">contract_name</span><span class="p">:</span><span class="w"> </span><span class="nc">contract_name</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="nc">action</span><span class="p">.</span><span class="n">as_blob_data</span><span class="p">(),</span><span class="w"> </span><span class="c1">// Note: This function does not exist. Used here for clarity</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">};</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="kd">let</span><span class="w"> </span><span class="n">blob_tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BlobTransaction</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">identity</span><span class="p">:</span><span class="w"> </span><span class="nc">identity</span><span class="p">,</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="n">blobs</span><span class="p">:</span><span class="w"> </span><span class="nc">vec</span><span class="o">!</span><span class="p">[</span><span class="n">blob</span><span class="p">],</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">};</span>
 </span></code></pre></div>
-<h4 id="registering-the-contract">Registering the contract</h4>
-<p>Set up information about your contract. To register the contract, you'll need:</p>
-<ul>
-<li><code>owner</code>: we put "examples" as the <code>owner</code>, but you can put anything you like. This field is currently not leveraged; it will be in future versions.</li>
-<li><code>verifier</code>: for this example, the verifier is <code>risc0</code></li>
-<li><code>program_id</code>: RISC Zero programs are identified by their image ID, without a prefix.</li>
-<li><code>state_digest</code>: usually a MerkleRootHash of the contract's initial state. For this example, we use a hexadecimal representation of the state encoded in binary format. The state digest cannot be empty, even if your app is stateless.</li>
-<li><code>contract_name</code> as set up above.</li>
-</ul>
-<div class="language-rs highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Build initial state of contract</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">initial_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Identity</span><span class="p">::</span><span class="n">new</span><span class="p">();</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="fm">println!</span><span class="p">(</span><span class="s">"Initial state: {:?}"</span><span class="p">,</span><span class="w"> </span><span class="n">initial_state</span><span class="p">);</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1">// Send the transaction to register the contract</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="kd">let</span><span class="w"> </span><span class="n">register_tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RegisterContractTransaction</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="n">owner</span><span class="p">:</span><span class="w"> </span><span class="s">"examples"</span><span class="p">.</span><span class="n">to_string</span><span class="p">(),</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="n">verifier</span><span class="p">:</span><span class="w"> </span><span class="s">"risc0"</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="n">program_id</span><span class="p">:</span><span class="w"> </span><span class="nc">sdk</span><span class="p">::</span><span class="n">ProgramId</span><span class="p">(</span><span class="n">sdk</span><span class="p">::</span><span class="n">to_u8_array</span><span class="p">(</span><span class="o">&amp;</span><span class="n">GUEST_ID</span><span class="p">).</span><span class="n">to_vec</span><span class="p">()),</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="n">state_digest</span><span class="p">:</span><span class="w"> </span><span class="nc">initial_state</span><span class="p">.</span><span class="n">as_digest</span><span class="p">(),</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="n">contract_name</span><span class="p">:</span><span class="w"> </span><span class="nc">contract_name</span><span class="p">.</span><span class="n">clone</span><span class="p">().</span><span class="n">into</span><span class="p">(),</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="p">};</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="kd">let</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="p">.</span><span class="n">send_tx_register_contract</span><span class="p">(</span><span class="o">&amp;</span><span class="n">register_tx</span><span class="p">)</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">.</span><span class="k">await</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="p">.</span><span class="n">text</span><span class="p">()</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="p">.</span><span class="k">await</span>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="fm">println!</span><span class="p">(</span><span class="s">"✅ Register contract tx sent. Tx hash: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
-</span></code></pre></div>
-<p>In the explorer, it will look like this:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="nt">"tx_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097"</span><span class="p">,</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">"owner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"examples"</span><span class="p">,</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="nt">"verifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"risc0"</span><span class="p">,</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="nt">"program_id"</span><span class="p">:</span><span class="s2">"e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f"</span><span class="p">,</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="nt">"state_digest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000"</span><span class="p">,</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="nt">"contract_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"simple_identity"</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">}</span>
-</span></code></pre></div>
-<h4 id="register-an-identity">Register an identity</h4>
-<div class="language-rs highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// Fetch the initial state from the node</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">initial_state</span><span class="p">:</span><span class="w"> </span><span class="nc">Identity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="p">.</span><span class="k">await</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="p">.</span><span class="n">state</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="p">.</span><span class="n">into</span><span class="p">();</span>
-</span></code></pre></div>
-<h5 id="build-the-blob-transaction">Build the blob transaction</h5>
-<div class="language-rs highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sdk</span><span class="p">::</span><span class="n">identity_provider</span><span class="p">::</span><span class="n">IdentityAction</span><span class="p">::</span><span class="n">RegisterIdentity</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">account</span><span class="p">:</span><span class="w"> </span><span class="nc">identity</span><span class="p">.</span><span class="n">clone</span><span class="p">(),</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">};</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="kd">let</span><span class="w"> </span><span class="n">blobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="n">sdk</span><span class="p">::</span><span class="n">Blob</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="n">contract_name</span><span class="p">:</span><span class="w"> </span><span class="nc">contract_name</span><span class="p">.</span><span class="n">clone</span><span class="p">().</span><span class="n">into</span><span class="p">(),</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="nc">sdk</span><span class="p">::</span><span class="n">BlobData</span><span class="p">(</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">        </span><span class="n">bincode</span><span class="p">::</span><span class="n">encode_to_vec</span><span class="p">(</span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">bincode</span><span class="p">::</span><span class="n">config</span><span class="p">::</span><span class="n">standard</span><span class="p">())</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">            </span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="s">"failed to encode BlobData"</span><span class="p">),</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="p">),</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">}];</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="kd">let</span><span class="w"> </span><span class="n">blob_tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BlobTransaction</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="n">identity</span><span class="p">:</span><span class="w"> </span><span class="nc">identity</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="n">blobs</span><span class="p">:</span><span class="w"> </span><span class="nc">blobs</span><span class="p">.</span><span class="n">clone</span><span class="p">(),</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="p">};</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="c1">// Send the blob transaction</span>
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="kd">let</span><span class="w"> </span><span class="n">blob_tx_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">send_tx_blob</span><span class="p">(</span><span class="o">&amp;</span><span class="n">blob_tx</span><span class="p">).</span><span class="k">await</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="fm">println!</span><span class="p">(</span><span class="s">"✅ Blob tx sent. Tx hash: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">blob_tx_hash</span><span class="p">);</span>
-</span></code></pre></div>
-<h5 id="prove-the-registration">Prove the registration</h5>
-<p>Hylé transactions are settled in two steps, following <a href="../../general-doc/pipelined-proving/">pipelined proving principles</a>. After this step, your transaction is sequenced, but not settled.</p>
+<p>You can compare this section to the fields described in the <a href="../../general-doc/transaction/">Transactions on Hylé</a> page.</p>
+<h4 id="prove-the-registration">Prove the registration</h4>
+<h5 id="on-the-backend-side">On the backend side</h5>
+<blockquote>
+<p>The backend is called "host" in Risc0.</p>
+</blockquote>
+<p>Hylé transactions are settled in two steps, following <a href="../../general-doc/pipelined-proving/">pipelined proving principles</a>. After sending the blob, your transaction is sequenced, but not settled.</p>
 <p>For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:</p>
 <ul>
-<li>the initial state as set above</li>
+<li>the initial state</li>
 <li>the identity of the transaction initiator</li>
-<li>the transaction hash, which can be found in the explorer after sequencing (currently, this can be ignored; it will be necessary after an upcoming update)</li>
+<li>the transaction hash, which can be found in the explorer after sequencing</li>
 <li>information about the blobs.</li>
-<li>private input for proof generation in <code>private_blob</code></li>
+<li>the password as a private input for proof generation in <code>private_blob</code></li>
 <li><code>blobs</code>: full list of blobs in the transaction (must match the blob transaction)</li>
 <li><code>index</code>: each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.</li>
 </ul>
-<div class="language-rs highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// Build the contract input</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ContractInput</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">initial_state</span><span class="p">:</span><span class="w"> </span><span class="nc">initial_state</span><span class="p">.</span><span class="n">as_digest</span><span class="p">(),</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">identity</span><span class="p">:</span><span class="w"> </span><span class="nc">blob_tx</span><span class="p">.</span><span class="n">identity</span><span class="p">,</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="n">tx_hash</span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">private_blob</span><span class="p">:</span><span class="w"> </span><span class="nc">sdk</span><span class="p">::</span><span class="n">BlobData</span><span class="p">(</span><span class="n">password</span><span class="p">.</span><span class="n">into_bytes</span><span class="p">().</span><span class="n">to_vec</span><span class="p">()),</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">blobs</span><span class="p">:</span><span class="w"> </span><span class="nc">blobs</span><span class="p">.</span><span class="n">clone</span><span class="p">(),</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="n">index</span><span class="p">:</span><span class="w"> </span><span class="nc">sdk</span><span class="p">::</span><span class="n">BlobIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="p">};</span>
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="c1">// Generate the zk proof</span>
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="p">(</span><span class="err">…</span><span class="p">)</span>
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
-</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="c1">// Send the proof transaction</span>
-</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="kd">let</span><span class="w"> </span><span class="n">proof_tx_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span>
-</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="p">.</span><span class="n">send_tx_proof</span><span class="p">(</span><span class="o">&amp;</span><span class="n">proof_tx</span><span class="p">)</span>
-</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="p">.</span><span class="k">await</span>
-</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span>
-</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">    </span><span class="p">.</span><span class="n">text</span><span class="p">()</span>
-</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">    </span><span class="p">.</span><span class="k">await</span>
-</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="fm">println!</span><span class="p">(</span><span class="s">"✅ Proof tx sent. Tx hash: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">proof_tx_hash</span><span class="p">);</span>
+<div class="language-rs highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Build the contract input</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ContractInput</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">initial_state</span><span class="p">:</span><span class="w"> </span><span class="nc">initial_state</span><span class="p">.</span><span class="n">as_digest</span><span class="p">(),</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">identity</span><span class="p">:</span><span class="w"> </span><span class="nc">blob_tx</span><span class="p">.</span><span class="n">identity</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">tx_hash</span><span class="p">:</span><span class="w"> </span><span class="nc">blob_tx_hash</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="n">private_blob</span><span class="p">:</span><span class="w"> </span><span class="nc">sdk</span><span class="p">::</span><span class="n">BlobData</span><span class="p">(</span><span class="n">password</span><span class="p">),</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="n">blobs</span><span class="p">:</span><span class="w"> </span><span class="nc">blobs</span><span class="p">,</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="n">index</span><span class="p">:</span><span class="w"> </span><span class="nc">sdk</span><span class="p">::</span><span class="n">BlobIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">};</span>
 </span></code></pre></div>
-<h4 id="verify-an-identity">Verify an identity</h4>
-<p>The process is the same as for registering a new identity.</p>
-<div class="language-rs highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1">// Fetch the initial state from the node</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">initial_state</span><span class="p">:</span><span class="w"> </span><span class="nc">Identity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="p">.</span><span class="n">get_contract</span><span class="p">(</span><span class="o">&amp;</span><span class="n">contract_name</span><span class="p">.</span><span class="n">clone</span><span class="p">().</span><span class="n">into</span><span class="p">())</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="p">.</span><span class="k">await</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="p">.</span><span class="n">state</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="p">.</span><span class="n">into</span><span class="p">();</span>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1">// ----</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1">// Build the blob transaction</span>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1">// ----</span>
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
-</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="kd">let</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sdk</span><span class="p">::</span><span class="n">identity_provider</span><span class="p">::</span><span class="n">IdentityAction</span><span class="p">::</span><span class="n">VerifyIdentity</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">    </span><span class="n">account</span><span class="p">:</span><span class="w"> </span><span class="nc">identity</span><span class="p">.</span><span class="n">clone</span><span class="p">(),</span>
-</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">    </span><span class="n">nonce</span><span class="p">,</span>
-</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="p">};</span>
-</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="kd">let</span><span class="w"> </span><span class="n">blobs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="n">sdk</span><span class="p">::</span><span class="n">Blob</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">    </span><span class="n">contract_name</span><span class="p">:</span><span class="w"> </span><span class="nc">contract_name</span><span class="p">.</span><span class="n">clone</span><span class="p">().</span><span class="n">into</span><span class="p">(),</span>
-</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">    </span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="nc">sdk</span><span class="p">::</span><span class="n">BlobData</span><span class="p">(</span>
-</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">        </span><span class="n">bincode</span><span class="p">::</span><span class="n">encode_to_vec</span><span class="p">(</span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">bincode</span><span class="p">::</span><span class="n">config</span><span class="p">::</span><span class="n">standard</span><span class="p">())</span>
-</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">            </span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="s">"failed to encode BlobData"</span><span class="p">),</span>
-</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">    </span><span class="p">),</span>
-</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="p">}];</span>
-</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="kd">let</span><span class="w"> </span><span class="n">blob_tx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BlobTransaction</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">    </span><span class="n">identity</span><span class="p">:</span><span class="w"> </span><span class="nc">identity</span><span class="p">.</span><span class="n">into</span><span class="p">(),</span>
-</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="w">    </span><span class="n">blobs</span><span class="p">:</span><span class="w"> </span><span class="nc">blobs</span><span class="p">.</span><span class="n">clone</span><span class="p">(),</span>
-</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="p">};</span>
+<h5 id="on-the-contract-side">On the contract side</h5>
+<blockquote>
+<p>The contract is called "guest" in Risc0</p>
+</blockquote>
+<p>These inputs are then used by the sdk to <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/methods/guest/src/main.rs#L8">initialize the contract</a> :</p>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span><span class="c1">// Parse contract inputs</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sdk</span><span class="p">::</span><span class="n">guest</span><span class="p">::</span><span class="n">init_raw</span><span class="p">::</span><span class="o">&lt;</span><span class="n">IdentityAction</span><span class="o">&gt;</span><span class="p">();</span>
+</span></code></pre></div>
+<ul>
+<li>The <strong>input</strong> variable is the above constructed <strong>ContractInput</strong></li>
+<li>The <strong>action</strong> contains the <code>let action RegisterIdentity { account: identity };</code> defined in the blob.</li>
+</ul>
+<p>The password is retrieved by the guest:</p>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w">    </span><span class="c1">// Extract private information</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">from_utf8</span><span class="p">(</span><span class="o">&amp;</span><span class="n">input</span><span class="p">.</span><span class="n">private_blob</span><span class="p">.</span><span class="mi">0</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
+</span></code></pre></div>
+<p>The action is then handled by the contract:</p>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">    </span><span class="c1">// We clone the inital state to be updated</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">next_state</span><span class="p">:</span><span class="w"> </span><span class="nc">Identity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">initial_state</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="c1">// Execute the given action</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sdk</span><span class="p">::</span><span class="n">identity_provider</span><span class="p">::</span><span class="n">execute_action</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">next_state</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+</span></code></pre></div>
+<p>And the contract then commits the new state:</p>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">    </span><span class="n">sdk</span><span class="p">::</span><span class="n">guest</span><span class="p">::</span><span class="n">commit</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">next_state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
+</span></code></pre></div>
+<p>If you look at the implementation of this <code>guest::commit</code> function, you will find the <code>HyleOutput</code> mentionned in <a href="../../general-doc/transaction/">Transaction on Hyle</a>.</p>
+<h3 id="verify-an-identity">Verify an identity</h3>
+<p>The process is the same as for registering a new identity, but the action is different:</p>
+<div class="language-rs highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VerifyIdentity</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">account</span><span class="p">:</span><span class="w"> </span><span class="nc">identity</span><span class="p">,</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">nonce</span><span class="p">,</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">};</span>
 </span></code></pre></div>
 <p>Check the full annotated code in <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs">our GitHub example</a>.</p></div>
 
