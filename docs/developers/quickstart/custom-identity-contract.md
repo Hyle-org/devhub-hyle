@@ -10,8 +10,8 @@ For a deeper understanding of smart contracts, explore our [identity management 
 
 ## Run the example
 
-!!! info 
-    You can also jump to [Code Snippets](#code-snippets) if you want a deeper look on how it works.
+!!! info
+    You can jump to [Code Snippets](#code-snippets) for an in-depth look at the contract.
 
 ### Prerequisites
 
@@ -76,7 +76,6 @@ See your contract's state digest at: `https://hyleou.hyle.eu/contract/$CONTRACT_
 
 See your transaction on Hylé's explorer: `https://hyleou.hyle.eu/tx/$TX_HASH`.
 
-
 ## Development mode
 
 We recommend activating [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) during your early development phase for faster iteration upon code changes with `-e RISC0_DEV_MODE=1`.
@@ -93,19 +92,18 @@ RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 
 Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs).
 
-!!! info 
-    You might be interested by reading the [Transaction on hyle](../general-doc/transaction.md) page.
-
+!!! info
+    Learn more on the [Transactions on Hylé](../general-doc/transaction.md) page.
 
 ### Registering the contract
 
-This part is the same as for the the simple transfer token example described in [Your first smart contract](./your-first-smart-contract.md)
+This part is the same as for [Your first smart contract](./your-first-smart-contract.md).
 
 ### Register an identity
 
 #### Build the blob transaction
 
-Given this code snippet simplified from the effective code 
+This is a simplified code snippet:
 
 ```rs
 let action = RegisterIdentity {
@@ -121,20 +119,21 @@ let blob_tx = BlobTransaction {
 };
 ```
 
-You can compare to the fields described in the [Transaction on hyle](../general-doc/transaction.md) page.
+You can compare these to the fields described in the [Transactions on Hylé](../general-doc/transaction.md) page.
 
 #### Prove the registration
 
 ##### On the backend side
-> The backend is called "host" in Risc0
+
+(The backend is called "host" in Risc0.)
 
 Hylé transactions are settled in two steps, following [pipelined proving principles](../general-doc/pipelined-proving.md). After sending the blob, your transaction is sequenced, but not settled.
 
 For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:
 
-- the initial state 
+- the initial state
 - the identity of the transaction initiator
-- the transaction hash, which can be found in the explorer after sequencing 
+- the transaction hash, which can be found in the explorer after sequencing
 - information about the blobs.
   - The password as a private input for proof generation in `private_blob`
   - `blobs`: full list of blobs in the transaction (must match the blob transaction)
@@ -153,12 +152,13 @@ let inputs = ContractInput {
 
 ```
 
-##### On the contract side 
-> The contract is called "guest" in Risc0
+##### On the contract side
+
+(The contract is called "guest" in Risc0.)
 
 These inputs are then used by the sdk to [initialize the contract](https://github.com/Hyle-org/examples/blob/main/simple-identity/methods/guest/src/main.rs#L8) :
 
-```rust 
+```rust
     // Parse contract inputs
     let (input, action) = sdk::guest::init_raw::<IdentityAction>();
 ```
@@ -175,7 +175,7 @@ The password is retrieved by the guest:
 
 The action is then handled by the contract:
 
-```rust 
+```rust
     // We clone the inital state to be updated
     let mut next_state: Identity = input.initial_state.clone();
 
@@ -185,12 +185,11 @@ The action is then handled by the contract:
 
 And the contract then commits the new state:
 
-```rust 
+```rust
     sdk::guest::commit(input, next_state, res);
 ```
 
-If you look at the implementation of this `guest::commit` function, you will find the `HyleOutput` mentionned in [Transaction on Hyle](../general-doc/transaction.md).
-
+The `guest::commit` function includes the `HyleOutput` as explained in [Transactions on Hylé](../general-doc/transaction.md).
 
 ### Verify an identity
 
