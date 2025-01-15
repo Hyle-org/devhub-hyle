@@ -9,7 +9,7 @@ On Hylé, onchain operations are split into two distinct transactions:
 
 We cut these in two steps because ZK proofs take longer to generate than traditional signature.
 
-Why two steps ? Because zkProof are not as fast to generate as traditional signatures. By sequencing your intent with a blob transaction, you can later update the state with a proof transaction after the proof is ready. For more details, read our [pipelined proving principles](../pipelined-proving.md).
+Why two steps ? Because zkProof are not as fast to generate as traditional signatures. By sequencing your intent with a blob transaction, you can later update the state with a proof transaction after the proof is ready. For more details, read our [pipelined proving principles](./pipelined-proving.md).
 
 Each proof transaction (unless using recursion) proves a single blob. If a blob transaction contains multiple blobs, a separate proof is needed for each blob.
 
