@@ -18,7 +18,7 @@ Once all blobs are proven, the Blob Transaction is considered **settled**, and a
 are updated.
 
 ## Example:
-For a token transfer, you sends a blob transaction with 2 blobs:
+For a token transfer, you send a blob transaction with 2 blobs:
 
 - A blob to validate the identity of the sender, that allows the transfer
 - A blob to effectively do the transfer
