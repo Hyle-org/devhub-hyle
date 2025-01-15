@@ -14,8 +14,8 @@ sequence your intent, and then given the sequenced operations, the state change 
 Basically a Proof transaction (unless when using recursion) prooves a single blob in a blob transaction.
 Thus, when sending a Blob Transaction with 2 blobs, you will need to send 2 proofs.
 
-Once all blobs are proven, the Blob Transaction can be **settled**, and all referenced contract's states 
-be updated.
+Once all blobs are proven, the Blob Transaction is considered **settled**, and all referenced contract's states 
+are updated.
 
 ## Example:
 For a token transfer, you sends a blob transaction with 2 blobs:
