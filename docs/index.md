@@ -40,6 +40,7 @@ With this system, execution and storage happen **anywhere you like**. You only n
 ## Links
 
 - [Rust node](http://github.com/hyle-org/hyle)
+- [Example contracts](http://github.com/hyle-org/examples)
 - [Hyle.eu](https://hyle.eu)
 - [Hylé blog](https://blog.hyle.eu)
 
