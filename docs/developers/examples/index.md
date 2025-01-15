@@ -4,11 +4,10 @@ Detailed examples of Hylé-based applications.
 
 ## Sample contracts in Hylé
 
-We have three Hylé-made Risc0 smart contracts :
+We have Hylé-made Risc0 smart contracts :
 
 * [`hydentity`](https://github.com/Hyle-org/hyle/tree/main/contracts/hydentity): Basic identity provider
 * [`hyllar`](https://github.com/Hyle-org/hyle/tree/main/contracts/hyllar): Simple ERC20-like contract
-* [`amm`](amm.md): Simple AMM contract
 * [`risc0 recursion`](https://github.com/Hyle-org/hyle/tree/main/contracts/risc0-recursion)
 * WIP: [`staking`](https://github.com/Hyle-org/hyle/tree/main/contracts/staking)
 
@@ -22,7 +21,7 @@ There is also a CLI called [`hyrun`](https://github.com/Hyle-org/hyle/tree/main/
 
 Demos:
 
-* [Vibe Check](vibe-check.md): a zkML app.
-<!--Add AMM?-->
+* [Vibe Check](https://blog.hyle.eu/introducing-vibe-check/): a zkML app.
+* [Hyleoof](https://github.com/Hyle-org/hyleoof): an AMM.
 
 [Our grantees](../../resources/grants.md) have worked on Hylé-based projects. Check them out for inspiration on building provable apps!
