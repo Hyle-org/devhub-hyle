@@ -73,9 +73,8 @@ See your contract's state digest at: `https://hyleou.hyle.eu/contract/$CONTRACT_
 
 See your transaction on Hylé's explorer: `https://hyleou.hyle.eu/tx/$TX_HASH`.
 
-## Detailed information
 
-### Development mode
+## Development mode
 
 We recommend activating [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) during your early development phase for faster iteration upon code changes with `-e RISC0_DEV_MODE=1`.
 
@@ -87,136 +86,51 @@ The full command to run your project in development mode while getting execution
 RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 ```
 
-### Code snippets
+## Code snippets
 
 Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs).
 
-#### Setup commands and CLI
 
-Set up commands and CLI. You need a unique `contract_name`: here, we use `"simple_identity"`.
+### Registering the contract
 
-```rs
-struct Cli {
-    #[command(subcommand)]
-    command: Commands,
+This part is the same as for the the simple transfer token example described in [Your first smart contract](./your-first-smart-contract.md)
 
-    #[clap(long, short)]
-    reproducible: bool,
+### Register an identity
 
-    #[arg(long, default_value = "http://localhost:4321")]
-    pub host: String,
+#### Build the blob transaction
 
-    #[arg(long, default_value = "simple_identity")]
-    pub contract_name: String,
-}
-
-#[derive(Subcommand)]
-enum Commands {
-    RegisterContract {},
-    RegisterIdentity {
-        identity: String,
-        password: String,
-    },
-    VerifyIdentity {
-        identity: String,
-        password: String,
-        nonce: u32,
-    },
-}
-```
-
-#### Registering the contract
-
-Set up information about your contract. To register the contract, you'll need:
-
-- `owner`: we put "examples" as the `owner`, but you can put anything you like. This field is currently not leveraged; it will be in future versions.
-- `verifier`: for this example, the verifier is `risc0`
-- `program_id`: RISC Zero programs are identified by their image ID, without a prefix.
-- `state_digest`: usually a MerkleRootHash of the contract's initial state. For this example, we use a hexadecimal representation of the state encoded in binary format. The state digest cannot be empty, even if your app is stateless.
-- `contract_name` as set up above.
+Given this code snippet simplified from the effective code 
 
 ```rs
-// Build initial state of contract
-let initial_state = Identity::new();
-println!("Initial state: {:?}", initial_state);
-
-// Send the transaction to register the contract
-let register_tx = RegisterContractTransaction {
-    owner: "examples".to_string(),
-    verifier: "risc0".into(),
-    program_id: sdk::ProgramId(sdk::to_u8_array(&GUEST_ID).to_vec()),
-    state_digest: initial_state.as_digest(),
-    contract_name: contract_name.clone().into(),
+let action = RegisterIdentity {
+    account: identity,
 };
-let res = client
-    .send_tx_register_contract(&register_tx)
-    .await
-    .unwrap()
-    .text()
-    .await
-    .unwrap();
-
-println!("✅ Register contract tx sent. Tx hash: {}", res);
-```
-
-In the explorer, it will look like this:
-
-```json
-{
-    "tx_hash": "321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097",
-    "owner": "examples",
-    "verifier": "risc0",
-    "program_id":"e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f",
-    "state_digest": "fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000",
-    "contract_name": "simple_identity"
-}
-```
-
-#### Register an identity
-
-```rs
-// Fetch the initial state from the node
-let initial_state: Identity = client
-    .await
-    .unwrap()
-    .state
-    .into();
-```
-
-##### Build the blob transaction
-
-```rs
-let action = sdk::identity_provider::IdentityAction::RegisterIdentity {
-    account: identity.clone(),
+let blob = sdk::Blob {
+    contract_name: contract_name,
+    data: action.as_blob_data(), // Note: This function does not exist. Used here for clarity
 };
-let blobs = vec![sdk::Blob {
-    contract_name: contract_name.clone().into(),
-    data: sdk::BlobData(
-        bincode::encode_to_vec(action, bincode::config::standard())
-            .expect("failed to encode BlobData"),
-    ),
-}];
 let blob_tx = BlobTransaction {
-    identity: identity.into(),
-    blobs: blobs.clone(),
+    identity: identity,
+    blobs: vec![blob],
 };
-
-// Send the blob transaction
-let blob_tx_hash = client.send_tx_blob(&blob_tx).await.unwrap();
-println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
 ```
 
-##### Prove the registration
+You can compare to the fields described in the [Transaction on hyle](../general-doc/transaction.md) page.
 
-Hylé transactions are settled in two steps, following [pipelined proving principles](../general-doc/pipelined-proving.md). After this step, your transaction is sequenced, but not settled.
+#### Prove the registration
+
+##### On the backend side
+> The backend is called "host" in Risc0
+
+Hylé transactions are settled in two steps, following [pipelined proving principles](../general-doc/pipelined-proving.md). After sending the blob, your transaction is sequenced, but not settled.
 
 For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:
 
-- the initial state as set above
+- the initial state 
 - the identity of the transaction initiator
-- the transaction hash, which can be found in the explorer after sequencing (currently, this can be ignored; it will be necessary after an upcoming update)
+- the transaction hash, which can be found in the explorer after sequencing 
 - information about the blobs.
-  - private input for proof generation in `private_blob`
+  - The password as a private input for proof generation in `private_blob`
   - `blobs`: full list of blobs in the transaction (must match the blob transaction)
   - `index`: each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.
 
@@ -225,57 +139,62 @@ For the transaction to be settled, it needs to be proven. You'll start with buil
 let inputs = ContractInput {
     initial_state: initial_state.as_digest(),
     identity: blob_tx.identity,
-    tx_hash: "".into(),
-    private_blob: sdk::BlobData(password.into_bytes().to_vec()),
-    blobs: blobs.clone(),
+    tx_hash: blob_tx_hash,
+    private_blob: sdk::BlobData(password),
+    blobs: blobs,
     index: sdk::BlobIndex(0),
 };
 
-// Generate the zk proof
-
-(…)
-
-// Send the proof transaction
-let proof_tx_hash = client
-    .send_tx_proof(&proof_tx)
-    .await
-    .unwrap()
-    .text()
-    .await
-    .unwrap();
-println!("✅ Proof tx sent. Tx hash: {}", proof_tx_hash);
 ```
 
-#### Verify an identity
+##### On the contract side 
+> The contract is called "guest" in Risc0
 
-The process is the same as for registering a new identity.
+These inputs are then used by the sdk to [initialize the contract](https://github.com/Hyle-org/examples/blob/main/simple-identity/methods/guest/src/main.rs#L8) :
+
+```rust 
+    // Parse contract inputs
+    let (input, action) = sdk::guest::init_raw::<IdentityAction>();
+```
+
+- The **input** variable is the above constructed **ContractInput**
+- The **action** contains the `let action RegisterIdentity { account: identity };` defined in the blob.
+
+The password is retrieved by the guest:
+
+```rust
+    // Extract private information
+    let password = from_utf8(&input.private_blob.0).unwrap();
+```
+
+The action is then handled by the contract:
+
+```rust 
+    // We clone the inital state to be updated
+    let mut next_state: Identity = input.initial_state.clone();
+
+    // Execute the given action
+    let res = sdk::identity_provider::execute_action(&mut next_state, action, password);
+```
+
+And the contract then commits the new state:
+
+```rust 
+    sdk::guest::commit(input, next_state, res);
+```
+
+If you look at the implementation of this `guest::commit` function, you will find the `HyleOutput` mentionned in [Transaction on Hyle](../general-doc/transaction.md).
+
+
+### Verify an identity
+
+The process is the same as for registering a new identity, but the action is different:
 
 ```rs
-// Fetch the initial state from the node
-let initial_state: Identity = client
-    .get_contract(&contract_name.clone().into())
-    .await
-    .unwrap()
-    .state
-    .into();
-// ----
-// Build the blob transaction
-// ----
 
-let action = sdk::identity_provider::IdentityAction::VerifyIdentity {
-    account: identity.clone(),
+let action = VerifyIdentity {
+    account: identity,
     nonce,
-};
-let blobs = vec![sdk::Blob {
-    contract_name: contract_name.clone().into(),
-    data: sdk::BlobData(
-        bincode::encode_to_vec(action, bincode::config::standard())
-            .expect("failed to encode BlobData"),
-    ),
-}];
-let blob_tx = BlobTransaction {
-    identity: identity.into(),
-    blobs: blobs.clone(),
 };
 ```
 

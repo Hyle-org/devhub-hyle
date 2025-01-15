@@ -9,7 +9,7 @@ On Hyle, it is slightly different, as an operation on chain is made of 2 "transa
 - A **Proof transaction** that effectively do the operation.
 
 Why two steps ? Because zkProof are not as fast to generate as traditional signatures. So you need to 
-sequence your intent, and then given the sequenced operations, the state change can be proven. See [pipelined proving principles](../general-doc/pipelined-proving.md) for more details.
+sequence your intent, and then given the sequenced operations, the state change can be proven. See [pipelined proving principles](../pipelined-proving.md) for more details.
 
 Basically a Proof transaction (unless when using recursion) prooves a single blob in a blob transaction.
 Thus, when sending a Blob Transaction with 2 blobs, you will need to send 2 proofs.
