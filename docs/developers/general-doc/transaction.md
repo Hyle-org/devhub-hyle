@@ -2,7 +2,7 @@
 
 On [traditional blockchains](./hyle-vs-vintage-blockchains.md),  users sign their transactions with a wallet and submit them to a node for block inclusion.
 
-On Hylé, on-chain operations are split into two distinct transactions:
+On Hylé, onchain operations are split into two distinct transactions:
 
 - Blob transaction: describes the intended operation.
 - Proof transaction: validates and executes the operation.
