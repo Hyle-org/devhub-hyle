@@ -387,8 +387,6 @@
       
         
       
-        
-      
     
     
       
@@ -645,27 +643,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../run-a-node/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Run a node
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -706,10 +683,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -890,6 +863,8 @@
       
         
       
+        
+      
     
     
       
@@ -970,6 +945,27 @@
   
   <span class="md-ellipsis">
     Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release notes
   </span>
   
 
@@ -1100,30 +1096,32 @@
 
 
 <div><h1 id="transactions-on-hyle">Transactions on Hylé</h1>
-<p>On <a href="../hyle-vs-vintage-blockchains/">traditional blockchains</a>, you used to sign your transaction with your wallet, and then send it to a node for inclusion in a block.</p>
-<p>On Hylé, an onchain operation includes two « transactions »:</p>
+<p>On <a href="../hyle-vs-vintage-blockchains/">traditional blockchains</a>,  users sign their transactions with a wallet and submit them to a node for block inclusion.</p>
+<p>On Hylé, onchain operations are split into two distinct transactions:</p>
 <ul>
-<li>A <strong>blob transaction</strong> describing the upcoming operation.</li>
-<li>A <strong>proof transaction</strong> that effectively performs the operation.</li>
+<li>Blob transaction: describes the intended operation.</li>
+<li>Proof transaction: validates and executes the operation.</li>
 </ul>
-<p>We implement this two-step approach because ZK proofs are generated slower than traditional signature; this way, you sequence your intent with the blob transaction, then update the state with a proof when the proof has been generated. See <a href="../pipelined-proving/">pipelined proving principles</a> for more details.</p>
-<p>Each proof transaction (unless using recursion) proves a single blob. If a blob transaction contains multiple blobs, a separate proof is needed for each blob. Once all blobs are proven, the blob transaction is considered <strong>settled</strong>, and the states of the referenced contracts are updated.</p>
+<p>We cut these in two steps because ZK proofs take longer to generate than traditional signature.</p>
+<p>Why two steps ? Because zkProof are not as fast to generate as traditional signatures. By sequencing your intent with a blob transaction, you can later update the state with a proof transaction after the proof is ready. For more details, read our <a href="../pipelined-proving/">pipelined proving principles</a>.</p>
+<p>Each proof transaction (unless using recursion) proves a single blob. If a blob transaction contains multiple blobs, a separate proof is needed for each blob.</p>
+<p>Once all blobs are proven, the blob transaction is considered <strong>settled</strong>, and the states of the referenced contracts are updated.</p>
 <h2 id="example-token-transfer">Example: token transfer</h2>
-<p>For a token transfer, you send a blob transaction with 2 blobs:</p>
+<p>For a token transfer, a blob transaction contains two blobs:</p>
 <ul>
-<li>Identity blob: a blob to validate the identity of the sender and allow the transfer;</li>
-<li>Transfer blob: executes the token transfer.</li>
+<li>Identity blob: verifies the sender’s identity and authorizes the transfer.</li>
+<li>Transfer: executes the token transfer.</li>
 </ul>
-<p>These require two corresponding proof transactions to validate and execute.</p>
+<p>These two blobs require two corresponding proof transactions.</p>
 <h2 id="blob-transaction-structure">Blob transaction structure</h2>
-<p>A <strong>blob transaction</strong> includes two fields:</p>
+<p>A <strong>blob transaction</strong> includes two key fields:</p>
 <ul>
-<li>An <strong>identity</strong> (string). See <a href="../identity/">the dedicated page on identity</a>.</li>
-<li>A list of <strong>blobs</strong>, each blob containing:</li>
-<li>A <strong>contract name</strong> (string)</li>
-<li><strong>Data</strong> (binary field) which will be parsed by the contract.</li>
+<li>An <strong>identity</strong> string. See <a href="../identity/">the dedicated page on identity</a>.</li>
+<li>A list of <strong>blobs</strong>, each containing:</li>
+<li>A <strong>contract name</strong> string.</li>
+<li>A <strong>data</strong> binary field, which will be parsed by the contract.</li>
 </ul>
-<p>For a token transfer, you would have:</p>
+<p>For the token transfer example, the blob transaction looks like this:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">"identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob.hydentity"</span><span class="p">,</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">"blobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -1143,20 +1141,22 @@
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="proof-transaction-structure">Proof transaction structure</h2>
-<p>A proof transaction includes:</p>
+<p>A Proof transaction is made of</p>
 <ul>
-<li>A <strong>contract name</strong></li>
-<li>The <strong>proof data</strong>, a binary field holding the ZK proof and the output of the smart contract.</li>
+<li>A <strong>contract name</strong> (string)</li>
+<li>The <strong>proof data</strong> (binary field), holding:</li>
+<li>the ZK proof;</li>
+<li>the smart contract output.</li>
 </ul>
-<p>For Risc0 &amp; SP1, this output is called "HyleOutput" and defined in the contract-sdk. It includes:</p>
+<p>For Risc0 &amp; SP1, the proof data's smart contract output is <code>HyleOutput</code>, as defined in the contract-sdk. It includes the following information:</p>
 <ul>
 <li>The <strong>initial state</strong> of the contract</li>
 <li>The <strong>new state</strong> of the contract</li>
 <li>The <strong>identity</strong> that made the operation</li>
-<li>A reference to the blob that is proven, composed of a <strong>transaction hash</strong> and an <strong>index</strong></li>
-<li>Additional fields for proof validation as built by the SDK.</li>
+<li>A reference to the proven blob, composed of a <strong>transaction hash</strong> and an <strong>index</strong></li>
+<li>Additional fields for proof validation, built by the SDK.</li>
 </ul>
-<p>For the above example, the 2 proofs will look like :</p>
+<p>For the token transfer example, the two proofs will look like this:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">"contract_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hydentity"</span><span class="p">,</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Binary proof, holding a HyleOutput with :</span>

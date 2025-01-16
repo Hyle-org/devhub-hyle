@@ -664,8 +664,6 @@
       
         
       
-        
-      
     
     
       
@@ -733,10 +731,6 @@
       
         
           
-        
-      
-        
-      
         
       
         
@@ -917,6 +911,8 @@
       
         
       
+        
+      
     
     
       
@@ -997,6 +993,27 @@
   
   <span class="md-ellipsis">
     Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release notes
   </span>
   
 
@@ -1266,12 +1283,12 @@
 <h2 id="run-the-example">Run the example</h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Jump to <a href="#code-snippets">Code snippets</a> to see the contract code in action.</p>
+<p>You can jump to <a href="#code-snippets">Code Snippets</a> for an in-depth look at the contract.</p>
 </div>
 <h3 id="prerequisites">Prerequisites</h3>
 <ul>
 <li><a href="https://www.rust-lang.org/tools/install">Install Rust</a> (you'll need <code>rustup</code> and Cargo).</li>
-<li><a href="https://crates.io/crates/openssl">Install OpenSSL crate</a>.</li>
+<li>Install openssl-dev (e.g. <code>apt install openssl-dev</code> or <code>cargo add openssl</code>).</li>
 <li>For our example, <a href="https://dev.risczero.com/api/zkvm/install">install RISC Zero</a>.</li>
 <li><a href="../devnet/">Start a single-node devnet</a>. We recommend using <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> with <code>-e RISC0_DEV_MODE=1</code> for faster iterations during development.</li>
 </ul>
@@ -1320,13 +1337,13 @@
 <p>Find the full annotated code in <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs">our examples repository</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Read more about <a href="../../general-doc/transaction/">Transactions on hyle</a>.</p>
+<p>Learn more on the <a href="../../general-doc/transaction/">Transactions on Hylé</a> page.</p>
 </div>
 <h3 id="registering-the-contract">Registering the contract</h3>
-<p>This part is the same as for the the simple transfer token example described in <a href="../your-first-smart-contract/">Your first smart contract</a></p>
+<p>This part is the same as for <a href="../your-first-smart-contract/">Your first smart contract</a>.</p>
 <h3 id="register-an-identity">Register an identity</h3>
 <h4 id="build-the-blob-transaction">Build the blob transaction</h4>
-<p>Here is a simplified code snippet:</p>
+<p>This is a simplified code snippet:</p>
 <div class="language-rs highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RegisterIdentity</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">account</span><span class="p">:</span><span class="w"> </span><span class="nc">identity</span><span class="p">,</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">};</span>
@@ -1339,12 +1356,10 @@
 </span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="n">blobs</span><span class="p">:</span><span class="w"> </span><span class="nc">vec</span><span class="o">!</span><span class="p">[</span><span class="n">blob</span><span class="p">],</span>
 </span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>You can compare this section to the fields described in the <a href="../../general-doc/transaction/">Transactions on Hylé</a> page.</p>
+<p>You can compare these to the fields described in the <a href="../../general-doc/transaction/">Transactions on Hylé</a> page.</p>
 <h4 id="prove-the-registration">Prove the registration</h4>
 <h5 id="on-the-backend-side">On the backend side</h5>
-<blockquote>
-<p>The backend is called "host" in Risc0.</p>
-</blockquote>
+<p>(The backend is called "host" in Risc0.)</p>
 <p>Hylé transactions are settled in two steps, following <a href="../../general-doc/pipelined-proving/">pipelined proving principles</a>. After sending the blob, your transaction is sequenced, but not settled.</p>
 <p>For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:</p>
 <ul>
@@ -1352,7 +1367,7 @@
 <li>the identity of the transaction initiator</li>
 <li>the transaction hash, which can be found in the explorer after sequencing</li>
 <li>information about the blobs.</li>
-<li>the password as a private input for proof generation in <code>private_blob</code></li>
+<li>The password as a private input for proof generation in <code>private_blob</code></li>
 <li><code>blobs</code>: full list of blobs in the transaction (must match the blob transaction)</li>
 <li><code>index</code>: each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.</li>
 </ul>
@@ -1367,9 +1382,7 @@
 </span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">};</span>
 </span></code></pre></div>
 <h5 id="on-the-contract-side">On the contract side</h5>
-<blockquote>
-<p>The contract is called "guest" in Risc0</p>
-</blockquote>
+<p>(The contract is called "guest" in Risc0.)</p>
 <p>These inputs are then used by the sdk to <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/methods/guest/src/main.rs#L8">initialize the contract</a> :</p>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span><span class="c1">// Parse contract inputs</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sdk</span><span class="p">::</span><span class="n">guest</span><span class="p">::</span><span class="n">init_raw</span><span class="p">::</span><span class="o">&lt;</span><span class="n">IdentityAction</span><span class="o">&gt;</span><span class="p">();</span>
@@ -1392,7 +1405,7 @@
 <p>And the contract then commits the new state:</p>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">    </span><span class="n">sdk</span><span class="p">::</span><span class="n">guest</span><span class="p">::</span><span class="n">commit</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">next_state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
 </span></code></pre></div>
-<p>If you look at the implementation of this <code>guest::commit</code> function, you will find the <code>HyleOutput</code> mentionned in <a href="../../general-doc/transaction/">Transaction on Hyle</a>.</p>
+<p>The <code>guest::commit</code> function includes the <code>HyleOutput</code> as explained in <a href="../../general-doc/transaction/">Transactions on Hylé</a>.</p>
 <h3 id="verify-an-identity">Verify an identity</h3>
 <p>The process is the same as for registering a new identity, but the action is different:</p>
 <div class="language-rs highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VerifyIdentity</span><span class="w"> </span><span class="p">{</span>
