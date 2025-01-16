@@ -8,12 +8,13 @@ We do not have a public roadmap at this time. Stay tuned for updates or ask spec
 
 ## Testnet
 
-We will release our testnet in early 2025.
+We will release our testnet in Q1 2025.
 <!-- What will we be able to do that we currently aren't? -->
 
 While we’re working towards launching the testnet, you can get hands-on right now:
 
 - [Explore our public devnet or spin up your own instance](../developers/quickstart/devnet.md) to start building today!
+- [Read our release notes for the devnet](./release-notes.md).
 
 ## Proving schemes
 

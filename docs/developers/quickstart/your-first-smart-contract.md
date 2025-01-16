@@ -11,7 +11,7 @@ For an in-depth understanding of smart contracts, check out our [anatomy of a sm
 ### Prerequisites
 
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
-- [Install OpenSSL crate](https://crates.io/crates/openssl).
+- Install openssl-dev (e.g. `apt install openssl-dev` or `cargo add openssl`).
 - For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
 - [Start a single-node devnet](./devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations during development.
 
@@ -142,29 +142,27 @@ Set up information about your contract. To register the contract, you'll need:
 - `contract_name` as set up above.
 
 ```rs
-Commands::Register { supply } => {
-        // Build initial state of contract
-        let initial_state = Token::new(supply, format!("faucet.{}", contract_name).into());
-        println!("Initial state: {:?}", initial_state);
+// Build initial state of contract
+let initial_state = Token::new(supply, format!("faucet.{}", contract_name).into());
+println!("Initial state: {:?}", initial_state);
 
-        // Send the transaction to register the contract
-        let register_tx = RegisterContractTransaction {
-            owner: "examples".to_string(),
-            verifier: "risc0".into(),
-            program_id: sdk::ProgramId(sdk::to_u8_array(&GUEST_ID).to_vec()),
-            state_digest: initial_state.as_digest(),
-            contract_name: contract_name.clone().into(),
-        };
-        let res = client
-            .send_tx_register_contract(&register_tx)
-            .await
-            .unwrap()
-            .text()
-            .await
-            .unwrap();
+// Send the transaction to register the contract
+let register_tx = RegisterContractTransaction {
+    owner: "examples".to_string(),
+    verifier: "risc0".into(),
+    program_id: sdk::ProgramId(sdk::to_u8_array(&GUEST_ID).to_vec()),
+    state_digest: initial_state.as_digest(),
+    contract_name: contract_name.clone().into(),
+};
+let res = client
+    .send_tx_register_contract(&register_tx)
+    .await
+    .unwrap()
+    .text()
+    .await
+    .unwrap();
 
-        println!("✅ Register contract tx sent. Tx hash: {}", res);
-    }
+println!("✅ Register contract tx sent. Tx hash: {}", res);
 ```
 
 In [the explorer](https://hyleou.hyle.eu/), this will look like this:
@@ -183,27 +181,27 @@ In [the explorer](https://hyleou.hyle.eu/), this will look like this:
 #### Create blob transaction
 
 ```rs
-    // The action to execute, that will be proved later
-    let action = sdk::erc20::ERC20Action::Transfer {
-        recipient: to.clone(),
-        amount,
-    };
-    // Into a BlobTransaction to be sent on chain
-    let blobs = vec![sdk::Blob {
-        contract_name: contract_name.clone().into(),
-        data: sdk::BlobData(
-            bincode::encode_to_vec(action, bincode::config::standard())
-                .expect("failed to encode BlobData"),
-        ),
-    }];
-    let blob_tx = BlobTransaction {
-        identity: from.into(),
-        blobs,
-    };
+// The action to execute, that will be proved later
+let action = sdk::erc20::ERC20Action::Transfer {
+    recipient: to.clone(),
+    amount,
+};
+// Into a BlobTransaction to be sent on chain
+let blobs = vec![sdk::Blob {
+    contract_name: contract_name.clone().into(),
+    data: sdk::BlobData(
+        bincode::encode_to_vec(action, bincode::config::standard())
+            .expect("failed to encode BlobData"),
+    ),
+}];
+let blob_tx = BlobTransaction {
+    identity: from.into(),
+    blobs,
+};
 
-    // Send the blob transaction
-    let blob_tx_hash = client.send_tx_blob(&blob_tx).await.unwrap();
-    println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
+// Send the blob transaction
+let blob_tx_hash = client.send_tx_blob(&blob_tx).await.unwrap();
+println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
 ```
 
 #### Prove the transaction
@@ -214,41 +212,41 @@ For the transaction to be settled, it needs to be proven. You'll start with buil
 
 - the initial state as set above
 - the identity of the transaction initiator
-- the transaction hash, which can be found in the explorer after sequencing (currently, this can be ignored; it will be necessary after an upcoming update)
+- the transaction hash, which can be found in the explorer after sequencing
 - information about the blobs.
   - private input for proof generation in `private_blob`
   - `blobs`: full list of blobs in the transaction (must match the blob transaction)
   - `index`: each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.
 
 ```rs
-    // Build the contract input
-    let inputs = ContractInput::<Token> {
-        initial_state,
-        identity: from.clone().into(),
-        tx_hash: "".into(),
-        private_blob: sdk::BlobData(vec![]),
-        blobs: blobs.clone(),
-        index: sdk::BlobIndex(0),
-    };
-    
-    // Generate the zk proof
-    let receipt = prove(cli.reproducible, inputs).unwrap();
+// Build the contract input
+let inputs = ContractInput::<Token> {
+    initial_state,
+    identity: from.clone().into(),
+    tx_hash: "".into(),
+    private_blob: sdk::BlobData(vec![]),
+    blobs: blobs.clone(),
+    index: sdk::BlobIndex(0),
+};
 
-    let proof_tx = ProofTransaction {
-        blob_tx_hash,
-        proof: ProofData::Bytes(borsh::to_vec(&receipt).expect("Unable to encode receipt")),
-        contract_name: contract_name.clone().into(),
-    };
-    
-    // Send the proof transaction
-    let proof_tx_hash = client
-        .send_tx_proof(&proof_tx)
-        .await
-        .unwrap()
-        .text()
-        .await
-        .unwrap();
-    println!("✅ Proof tx sent. Tx hash: {}", proof_tx_hash);
+// Generate the zk proof
+let receipt = prove(cli.reproducible, inputs).unwrap();
+
+let proof_tx = ProofTransaction {
+    blob_tx_hash,
+    proof: ProofData::Bytes(borsh::to_vec(&receipt).expect("Unable to encode receipt")),
+    contract_name: contract_name.clone().into(),
+};
+
+// Send the proof transaction
+let proof_tx_hash = client
+    .send_tx_proof(&proof_tx)
+    .await
+    .unwrap()
+    .text()
+    .await
+    .unwrap();
+println!("✅ Proof tx sent. Tx hash: {}", proof_tx_hash);
 ```
 
 Check the full annotated code in [our GitHub example](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs).
