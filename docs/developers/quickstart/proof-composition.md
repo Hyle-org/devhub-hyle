@@ -4,7 +4,7 @@ Hylé's native proof verification allows for proof composition. To understand th
 
 This guide walks you through creating and deploying your first ticket transfer contract, based on a ticket-app and a simple-token app, by using Hylé and RISC Zero.
 
-Find the source code here:
+Find the source code for both contracts here:
 
 - [ticket-app](https://github.com/Hyle-org/examples/tree/feat/ticket-app/ticket-app)
 - [simple-token](https://github.com/Hyle-org/examples/tree/feat/ticket-app/simple-token)
@@ -108,9 +108,7 @@ cargo run -- --contract-name ticket-app --user bob.ticket-app has-ticket
 
 You can also check Bob's balance and see he now has 35 tokens.
 
-## Detailed information
-
-### Development mode
+## Development mode
 
 We recommend activating [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) during your early development phase for faster iteration upon code changes with `-e RISC0_DEV_MODE=1`.
 
@@ -122,83 +120,9 @@ The full command to run your project in development mode while getting execution
 RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 ```
 
-### Code snippets
+## Code snippets
 
 Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/ticket-app/host/src/main.rs).
-
-#### Setup commands and CLI
-
-Set up commands and CLI. You need a unique `contract_name`: here, we use `"simple_ticket_app"`.
-
-```rs
-struct Cli {
-    #[command(subcommand)]
-    command: Commands,
-
-    #[clap(long, short)]
-    reproducible: bool,
-
-    #[arg(long, default_value = "http://localhost:4321")]
-    pub host: String,
-
-    #[arg(long, default_value = "simple_ticket_app")]
-    pub contract_name: String,
-
-    #[arg(long, default_value = "examples.simple_ticket_app")]
-    pub user: String,
-}
-
-#[derive(Subcommand)]
-enum Commands {
-    Register { token: String, price: u128 },
-    BuyTicket {},
-    HasTicket {},
-}
-```
-
-#### Registering the contract
-
-Set up information about your contract.
-
-```rs
-// Build initial state of contract
-let initial_state = TicketAppState::new(vec![], (ContractName(token), price));
-println!("Initial state: {:?}", initial_state);
-println!("Initial State {:?}", initial_state.as_digest());
-
-// Send the transaction to register the contract
-let register_tx = RegisterContractTransaction {
-    owner: "examples".to_string(),
-    verifier: "risc0".into(),
-    program_id: sdk::ProgramId(sdk::to_u8_array(&GUEST_ID).to_vec()),
-    state_digest: initial_state.as_digest(),
-    contract_name: contract_name.clone().into(),
-};
-let res = client
-    .send_tx_register_contract(&register_tx)
-    .await
-    .unwrap()
-    .text()
-    .await
-    .unwrap();
-
-println!("✅ Register contract tx sent. Tx hash: {}", res);
-```
-
-#### Allow to buy a ticket
-
-```rs
-// Build initial state of contract
-let initial_state: TicketAppState = client
-    .get_contract(&contract_name.clone().into())
-    .await
-    .unwrap()
-    .state
-    .into();
-```
-
-#### Build the blob transaction
-
 ```rs
 let blobs = vec![
     // identity_cf.as_blob(ContractName("hydentity".to_owned())),
@@ -237,44 +161,3 @@ let blob_tx = BlobTransaction {
 let blob_tx_hash = client.send_tx_blob(&blob_tx).await.unwrap();
 println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
 ```
-
-#### Prove the ticket transfer
-
-Hylé transactions are settled in two steps, following [pipelined proving principles](../general-doc/pipelined-proving.md). After this step, your transaction is sequenced, but not settled.
-
-For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:
-
-- the initial state as set above
-- the identity of the transaction initiator
-- the transaction hash, which can be found in the explorer after sequencing (currently, this can be ignored; it will be necessary after an upcoming update)
-- information about the blobs.
-  - private input for proof generation in `private_blob`
-  - `blobs`: full list of blobs in the transaction (must match the blob transaction)
-  - `index`: each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.
-
-```rs
-// Build the contract input
-let inputs = ContractInput {
-    initial_state: initial_state.as_digest(),
-    identity: cli.user.clone().into(),
-    tx_hash: "".into(),
-    private_blob: sdk::BlobData(vec![]),
-    blobs: blobs.clone(),
-    index: sdk::BlobIndex(1),
-};
-
-// Generate the zk proof
-(…)
-
-// Send the proof transaction
-let proof_tx_hash = client
-    .send_tx_proof(&proof_tx)
-    .await
-    .unwrap()
-    .text()
-    .await
-    .unwrap();
-println!("✅ Proof tx sent. Tx hash: {}", proof_tx_hash);
-```
-
-Check the full annotated code in [our GitHub example](https://github.com/Hyle-org/examples/blob/feat/ticket-app/ticket-app/host/src/main.rs).
