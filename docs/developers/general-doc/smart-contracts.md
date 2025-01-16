@@ -38,7 +38,7 @@ The state digest is a minimal yet comprehensive representation of the contract's
 
 Some examples of valid state commitments:
 
-- The full state, for a sufficiently small program (e.g. the [Collatz example](../examples/collatz-example-in-depth.md), or a smart-contract with a nonce)
+- The full state, for a sufficiently small program (e.g. a smart contract with a nonce)
 - A merkle root of the state, for larger programs
 - A hash of the full state
 
