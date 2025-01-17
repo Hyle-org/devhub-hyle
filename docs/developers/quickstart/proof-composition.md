@@ -2,7 +2,7 @@
 
 Hylé's native proof verification allows for proof composition. To understand the concept better, we recommend you [read this blog post](https://blog.hyle.eu/proof-composability-on-hyle/).
 
-This guide walks you through creating and deploying your first ticket transfer contract, based on a ticket-app and a [simple-token app](./your-first-smart-contract.md), by using Hylé and RISC Zero.
+This guide walks you through creating your first ticket transfer contract. With it, you will leverage proof composition to make a ticket-app and a [simple-token app](./your-first-smart-contract.md) interact.
 
 Find the source code for both contracts here:
 
@@ -14,9 +14,21 @@ Find the source code for both contracts here:
 ### Prerequisites
 
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
-- [Install OpenSSL crate](https://crates.io/crates/openssl).
 - For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
 - [Start a single-node devnet](./devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations during development.
+
+This quickstart guide will take you through the following steps:
+
+<!--Replace with workflow-->
+- [Simple-identity preparation](#simple-identity-preparation): register an identity contract & two identities.
+- [Simple-token preparation](#simple-token-preparation): register a token contract and faucet the users with this token.
+- [Register the ticket-app contract](#register-ticket-app)
+- [Buy a ticket on ticket-app](#buy-a-ticket)
+
+### Simple-identity preparation
+
+<!-- Write -->
+To be added.
 
 ### Simple-token preparation
 
