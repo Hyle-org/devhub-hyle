@@ -120,6 +120,10 @@ The full command to run your project in development mode while getting execution
 RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 ```
 
+## What happened?
+
+
+
 ## Code snippets
 
 Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/ticket-app/host/src/main.rs).
