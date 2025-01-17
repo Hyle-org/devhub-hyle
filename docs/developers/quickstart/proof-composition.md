@@ -23,7 +23,7 @@ Find the source code for all contracts here:
 ticket-app then sent a blob transaction to Hylé, including three blobs:
 
 - the usual *identity blob* (see our [anatomy of a transaction](../general-doc/transaction.md)) confirming that `bob.id` is initiating the transaction;
-- a *ticket-app blob* asserting that `bob.id` now owns a ticket;
+- a *ticket-app blob* sending `bob.id` a ticket;
 - the *simple-token blob* as defined in Step 1.
 
 ### Step 3: Prove the blobs
