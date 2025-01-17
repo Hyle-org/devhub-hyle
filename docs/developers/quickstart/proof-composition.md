@@ -9,7 +9,7 @@ Find the source code for both contracts here:
 - [ticket-app](https://github.com/Hyle-org/examples/tree/feat/ticket-app/ticket-app)
 - [simple-token](https://github.com/Hyle-org/examples/tree/feat/ticket-app/simple-token)
 
-## Quickstart
+## Run the example
 
 ### Prerequisites
 
@@ -29,6 +29,8 @@ This quickstart guide will take you through the following steps:
 
 <!-- Write -->
 To be added.
+
+`bob.simple-identity`, which will be used extensively from now on, refers to bob's identity on the simple-identity contract. Check out our [Identity management](../general-doc/identity.md) and [custom identity contract](./custom-identity-contract.md) pages to know more.
 
 ### Simple-token preparation
 
@@ -53,8 +55,8 @@ Now let's transfer some tokens to our user *bob*.
 To send 50 tokens to *bob* and 10 tokens to *alice*, run:
 
 ```bash
-cargo run -- -contract-name simple-token transfer faucet.simple-token bob.ticket-app 50
-cargo run -- -contract-name simple-token transfer faucet.simple-token alice.ticket-app 10
+cargo run -- -contract-name simple-token transfer faucet.simple-token bob.simple-identity 50
+cargo run -- -contract-name simple-token transfer faucet.simple-token alice.simple-identity 10
 ```
 
 The node's log will show:
@@ -71,14 +73,9 @@ Check onchain balance:
 ```bash
 cargo run -- --contract-name simple-token balance faucet.simple-token
 
-cargo run -- --contract-name simple-token balance bob.ticket-app
-cargo run -- --contract-name simple-token balance alice.ticket-app
+cargo run -- --contract-name simple-token balance bob.simple-identity
+cargo run -- --contract-name simple-token balance alice.simple-identity
 ```
-
-!!! note
-    The example does not compose with an identity contract, thus no identity verification is made.
-    This is the reason for the suffix ".simple-token" and ".ticket-app" on the "from" & "to" transfer fields.
-    Learn more in [our identity management page](../general-doc/identity.md).
 
 ### Using ticket-app
 
@@ -99,13 +96,13 @@ ticket-app sells a ticket for 15 simple-token.
 Let's buy a ticket for *bob*:
 
 ```bash
-cargo run -- --contract-name ticket-app --user bob.ticket-app buy-ticket
+cargo run -- --contract-name ticket-app --user bob.simple-identity buy-ticket
 ```
 
 Let's try with *alice*:
 
 ```bash
-cargo run -- --contract-name ticket-app --user alice.ticket-app buy-ticket
+cargo run -- --contract-name ticket-app --user alice.simple-identity buy-ticket
 ```
 
 You will get an error while executing the TicketApp program: `Execution failed ! Program output: Insufficient balance`. This is because Alice has a balance of 10 and the ticket costs 15.
@@ -115,7 +112,7 @@ You will get an error while executing the TicketApp program: `Execution failed !
 Check that *bob* has a ticket:
 
 ```bash
-cargo run -- --contract-name ticket-app --user bob.ticket-app has-ticket
+cargo run -- --contract-name ticket-app --user bob.simple-identity has-ticket
 ```
 
 You can also check Bob's balance and see he now has 35 tokens.
@@ -134,15 +131,27 @@ RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 
 ## Behind-the-scenes
 
-In this flow, here's what happened:
+<!--Graph-->
 
-1. ticket-app asked simple-token for a blob confirming that 15 simple-tokens had been removed from `bob.ticket-app`'s balance. (`bob.ticket-app` means bob's identity on the ticket-app contract. Check out [our Identity management page](../general-doc/identity.md) to know more.)
-1. ticket-app then sent a blob transaction to Hylé, including three blobs:
-    - the usual identity blob confirming that ticket-app is creating the transaction (see our [anatomy of a transaction](../general-doc/transaction.md))
-    - a ticket-app blob asserting that `bob.ticket-app` now has a ticket
-    - the simple-token blob above
-1. Thanks to [pipelined proving](../general-doc/pipelined-proving.md), Hylé sequences this transaction; ticket-app can take care of generating ZK proofs of each of the blobs and submitting them in due time.
-1. Hylé verifies the submitted proofs. If they're all valid, the simple-token balance and ticket-app ticket balance are updated simultaneously at transaction settlement. If one of the proofs fails (ie. if the simple-token transfer fails or if the ticket transfer fails), the whole transaction fails and neither state is updated.
+### Step 1: Cross-app composition
+
+`ticket-app` checks that there is a `simple-token` blob asserting that 15 simple-tokens have been removed from `bob.simple-identity`'s balance.
+
+### Step 2: Send the blob transaction
+
+ticket-app then sent a blob transaction to Hylé, including three blobs:
+
+- the usual identity blob confirming that ticket-app is creating the transaction (see our [anatomy of a transaction](../general-doc/transaction.md))
+- a ticket-app blob asserting that `bob.simple-identity` now has a ticket
+- the simple-token blob above, asserting that `bob.simple-identity` sent 15 tokens to `ticket-app`
+
+### Step 3: Prove the blobs
+
+Thanks to [pipelined proving](../general-doc/pipelined-proving.md), Hylé sequences this transaction; ticket-app can take care of generating ZK proofs of each of the blobs and submitting them in due time.
+
+### Step 4: Settlement
+
+Hylé verifies the submitted proofs. If they're all valid, the simple-token balance and ticket-app ticket balance are updated simultaneously at transaction settlement. If one of the proofs fails (ie. if the simple-token transfer fails or if the ticket transfer fails), the whole transaction fails and neither state is updated.
 
 Read more about this example on our blog.
 
