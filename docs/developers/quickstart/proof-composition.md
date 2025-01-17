@@ -9,6 +9,76 @@ Find the source code for both contracts here:
 - [ticket-app](https://github.com/Hyle-org/examples/tree/feat/ticket-app/ticket-app)
 - [simple-token](https://github.com/Hyle-org/examples/tree/feat/ticket-app/simple-token)
 
+## How this example works
+
+<!--Graph-->
+
+### Step 1: Cross-app composition
+
+`ticket-app` checks that there is a `simple-token` blob asserting that 15 simple-tokens have been removed from `bob.simple-identity`'s balance.
+
+### Step 2: Send the blob transaction
+
+ticket-app then sent a blob transaction to Hylé, including three blobs:
+
+- the usual identity blob confirming that ticket-app is creating the transaction (see our [anatomy of a transaction](../general-doc/transaction.md))
+- a ticket-app blob asserting that `bob.simple-identity` now has a ticket
+- the simple-token blob above, asserting that `bob.simple-identity` sent 15 tokens to `ticket-app`
+
+### Step 3: Prove the blobs
+
+Thanks to [pipelined proving](../general-doc/pipelined-proving.md), Hylé sequences this transaction; ticket-app can take care of generating ZK proofs of each of the blobs and submitting them in due time.
+
+### Step 4: Settlement
+
+Hylé verifies the submitted proofs. If they're all valid, the simple-token balance and ticket-app ticket balance are updated simultaneously at transaction settlement. If one of the proofs fails (ie. if the simple-token transfer fails or if the ticket transfer fails), the whole transaction fails and neither state is updated.
+
+Read more about this example on our blog.
+
+<!--
+## Code snippets
+
+Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/ticket-app/host/src/main.rs).
+
+```rs
+let blobs = vec![
+    // identity_cf.as_blob(ContractName("hydentity".to_owned())),
+    // Init pair 0 amount
+    sdk::Blob {
+        contract_name: initial_state.ticket_price.0.clone(),
+        data: sdk::BlobData(
+            bincode::encode_to_vec(
+                sdk::erc20::ERC20Action::Transfer {
+                    recipient: contract_name.clone(),
+                    amount: initial_state.ticket_price.1,
+                },
+                bincode::config::standard(),
+            )
+            .expect("Failed to encode Erc20 transfer action"),
+        ),
+    },
+    sdk::Blob {
+        contract_name: contract_name.clone().into(),
+        data: sdk::BlobData(
+            bincode::encode_to_vec(
+                TicketAppAction::BuyTicket {},
+                bincode::config::standard(),
+            )
+            .expect("Failed to encode Buy Ticket action"),
+        ),
+    },
+];
+
+let blob_tx = BlobTransaction {
+    identity: Identity(cli.user.clone()),
+    blobs: blobs.clone(),
+};
+
+// Send the blob transaction
+let blob_tx_hash = client.send_tx_blob(&blob_tx).await.unwrap();
+println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
+```
+-->
 ## Run the example
 
 ### Prerequisites
@@ -127,73 +197,4 @@ The full command to run your project in development mode while getting execution
 
 ```bash
 RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
-```
-
-## Behind-the-scenes
-
-<!--Graph-->
-
-### Step 1: Cross-app composition
-
-`ticket-app` checks that there is a `simple-token` blob asserting that 15 simple-tokens have been removed from `bob.simple-identity`'s balance.
-
-### Step 2: Send the blob transaction
-
-ticket-app then sent a blob transaction to Hylé, including three blobs:
-
-- the usual identity blob confirming that ticket-app is creating the transaction (see our [anatomy of a transaction](../general-doc/transaction.md))
-- a ticket-app blob asserting that `bob.simple-identity` now has a ticket
-- the simple-token blob above, asserting that `bob.simple-identity` sent 15 tokens to `ticket-app`
-
-### Step 3: Prove the blobs
-
-Thanks to [pipelined proving](../general-doc/pipelined-proving.md), Hylé sequences this transaction; ticket-app can take care of generating ZK proofs of each of the blobs and submitting them in due time.
-
-### Step 4: Settlement
-
-Hylé verifies the submitted proofs. If they're all valid, the simple-token balance and ticket-app ticket balance are updated simultaneously at transaction settlement. If one of the proofs fails (ie. if the simple-token transfer fails or if the ticket transfer fails), the whole transaction fails and neither state is updated.
-
-Read more about this example on our blog.
-
-## Code snippets
-
-Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/ticket-app/host/src/main.rs).
-
-```rs
-let blobs = vec![
-    // identity_cf.as_blob(ContractName("hydentity".to_owned())),
-    // Init pair 0 amount
-    sdk::Blob {
-        contract_name: initial_state.ticket_price.0.clone(),
-        data: sdk::BlobData(
-            bincode::encode_to_vec(
-                sdk::erc20::ERC20Action::Transfer {
-                    recipient: contract_name.clone(),
-                    amount: initial_state.ticket_price.1,
-                },
-                bincode::config::standard(),
-            )
-            .expect("Failed to encode Erc20 transfer action"),
-        ),
-    },
-    sdk::Blob {
-        contract_name: contract_name.clone().into(),
-        data: sdk::BlobData(
-            bincode::encode_to_vec(
-                TicketAppAction::BuyTicket {},
-                bincode::config::standard(),
-            )
-            .expect("Failed to encode Buy Ticket action"),
-        ),
-    },
-];
-
-let blob_tx = BlobTransaction {
-    identity: Identity(cli.user.clone()),
-    blobs: blobs.clone(),
-};
-
-// Send the blob transaction
-let blob_tx_hash = client.send_tx_blob(&blob_tx).await.unwrap();
-println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
 ```
