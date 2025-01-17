@@ -16,15 +16,15 @@ Find the source code for all contracts here:
 
 ### Step 1: Cross-app composition
 
-`ticket-app` checks that there is a `simple-token` blob asserting that 15 simple-tokens have been removed from `bob.id`'s balance.
+`ticket-app` checks that there is a `simple-token` blob performing a transfer of 15 simple-tokens taken from `bob.id`'s balance.
 
 ### Step 2: Send the blob transaction
 
 ticket-app then sent a blob transaction to Hylé, including three blobs:
 
-- the usual identity blob (see our [anatomy of a transaction](../general-doc/transaction.md)) confirming that `bob.id` is initiating the transaction;
-- a ticket-app blob asserting that `bob.id` now owns a ticket;
-- the simple-token blob above, asserting that `bob.id` sent 15 tokens to `ticket-app`.
+- the usual *identity blob* (see our [anatomy of a transaction](../general-doc/transaction.md)) confirming that `bob.id` is initiating the transaction;
+- a *ticket-app blob* asserting that `bob.id` now owns a ticket;
+- the *simple-token blob* as defined in Step 1.
 
 ### Step 3: Prove the blobs
 
