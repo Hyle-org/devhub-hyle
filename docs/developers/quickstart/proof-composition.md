@@ -23,18 +23,26 @@ Find the source code for all contracts here:
 ticket-app then sent a blob transaction to Hylé, including three blobs:
 
 - the usual *identity blob* (see our [anatomy of a transaction](../general-doc/transaction.md)) confirming that `bob.id` is initiating the transaction;
-- a *ticket-app blob* sending `bob.id` a ticket;
-- the *simple-token blob* as defined in Step 1.
+- the *simple-token blob* as defined in Step 1;
+- a *ticket-app blob* sending `bob.id` a ticket.
 
 ### Step 3: Prove the blobs
 
-Thanks to [pipelined proving](../general-doc/pipelined-proving.md), Hylé sequences this transaction; ticket-app can take care of generating ZK proofs of each of the blobs and submitting them in due time.
+Thanks to [pipelined proving](../general-doc/pipelined-proving.md), Hylé sequences this transaction.
+
+ticket-app can now generate ZK proofs of each of the blobs and submit them whenever they are ready.
 
 ### Step 4: Settlement
 
-Hylé verifies the submitted proofs. If they're all valid, the simple-token balance and ticket-app ticket balance are updated simultaneously at transaction settlement. If one of the proofs fails (ie. if the simple-token transfer fails or if the ticket transfer fails), the whole transaction fails and neither state is updated.
+Hylé verifies the submitted proofs:
 
-Read more about this example on our blog.
+- identity blob: if this fails, it means `bob.id` has not initiated the transaction.
+- simple-token blob: if this fails, it means `bob.id` did not pay for his ticket.
+- ticket-app blob: if this fails, it means `bob.id` has not received the ticket.
+
+If all proofs are valid, the simple-token balance and ticket-app ticket balance are updated simultaneously at transaction settlement: `bob.id` loses 15 simple-tokens and gains one ticket.
+
+If any of the proofs fails, the whole transaction fails and neither state is updated: `bob.id`'s token balance does not change and still has no ticket. In our example below, we're giving only 10 tokens to `alice.id`: because she can't perform the token transfer due to her low balance, the entire transaction fails.
 
 ## Run the example
 
