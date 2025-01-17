@@ -4,9 +4,10 @@ Hylé's native proof verification allows for proof composition. To understand th
 
 This guide walks you through creating your first ticket transfer contract. With it, you will leverage proof composition to make a ticket-app and a [simple-token app](./your-first-smart-contract.md) interact.
 
-Find the source code for both contracts here:
+Find the source code for all contracts here:
 
 - [ticket-app](https://github.com/Hyle-org/examples/tree/feat/ticket-app/ticket-app)
+- [simple-identity](https://github.com/Hyle-org/examples/tree/main/simple-identity)
 - [simple-token](https://github.com/Hyle-org/examples/tree/feat/ticket-app/simple-token)
 
 ## How this example works
@@ -35,50 +36,6 @@ Hylé verifies the submitted proofs. If they're all valid, the simple-token bala
 
 Read more about this example on our blog.
 
-<!--
-## Code snippets
-
-Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/ticket-app/host/src/main.rs).
-
-```rs
-let blobs = vec![
-    // identity_cf.as_blob(ContractName("hydentity".to_owned())),
-    // Init pair 0 amount
-    sdk::Blob {
-        contract_name: initial_state.ticket_price.0.clone(),
-        data: sdk::BlobData(
-            bincode::encode_to_vec(
-                sdk::erc20::ERC20Action::Transfer {
-                    recipient: contract_name.clone(),
-                    amount: initial_state.ticket_price.1,
-                },
-                bincode::config::standard(),
-            )
-            .expect("Failed to encode Erc20 transfer action"),
-        ),
-    },
-    sdk::Blob {
-        contract_name: contract_name.clone().into(),
-        data: sdk::BlobData(
-            bincode::encode_to_vec(
-                TicketAppAction::BuyTicket {},
-                bincode::config::standard(),
-            )
-            .expect("Failed to encode Buy Ticket action"),
-        ),
-    },
-];
-
-let blob_tx = BlobTransaction {
-    identity: Identity(cli.user.clone()),
-    blobs: blobs.clone(),
-};
-
-// Send the blob transaction
-let blob_tx_hash = client.send_tx_blob(&blob_tx).await.unwrap();
-println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
-```
--->
 ## Run the example
 
 ### Prerequisites
@@ -89,7 +46,6 @@ println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
 
 This quickstart guide will take you through the following steps:
 
-<!--Replace with workflow-->
 - [Simple-identity preparation](#simple-identity-preparation): register an identity contract & two identities.
 - [Simple-token preparation](#simple-token-preparation): register a token contract and faucet the users with this token.
 - [Register the ticket-app contract](#register-ticket-app)
