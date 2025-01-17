@@ -22,7 +22,7 @@ description: Hylé is the lean blockchain that makes building provable apps easy
 
 Here’s what happens when you use Hylé’s sovereign verification-focused Layer 1:
 
-![](./assets/img/hyle-main-diagram.jpg)
+![Sequence diagram explaining the steps as listed below.](./assets/img/hyle-main-diagram.jpg)
 
 1. **Sequencing**: Send a provable blob to Hylé: say what information you expect to prove later. We'll sequence the transaction immediately. [Read more about pipelined proving](https://blog.hyle.eu/an-introduction-to-delayed-proving/).
 1. **Proof submission**: when the proofs for your transaction are ready, send them to Hylé.
