@@ -15,15 +15,15 @@ Find the source code for both contracts here:
 
 ### Step 1: Cross-app composition
 
-`ticket-app` checks that there is a `simple-token` blob asserting that 15 simple-tokens have been removed from `bob.simple-identity`'s balance.
+`ticket-app` checks that there is a `simple-token` blob asserting that 15 simple-tokens have been removed from `bob.id`'s balance.
 
 ### Step 2: Send the blob transaction
 
 ticket-app then sent a blob transaction to Hylé, including three blobs:
 
-- the usual identity blob confirming that ticket-app is creating the transaction (see our [anatomy of a transaction](../general-doc/transaction.md))
-- a ticket-app blob asserting that `bob.simple-identity` now has a ticket
-- the simple-token blob above, asserting that `bob.simple-identity` sent 15 tokens to `ticket-app`
+- the usual identity blob (see our [anatomy of a transaction](../general-doc/transaction.md)) confirming that `bob.id` is initiating the transaction;
+- a ticket-app blob asserting that `bob.id` now owns a ticket;
+- the simple-token blob above, asserting that `bob.id` sent 15 tokens to `ticket-app`.
 
 ### Step 3: Prove the blobs
 
@@ -100,7 +100,7 @@ This quickstart guide will take you through the following steps:
 <!-- Write -->
 To be added.
 
-`bob.simple-identity`, which will be used extensively from now on, refers to bob's identity on the simple-identity contract. Check out our [Identity management](../general-doc/identity.md) and [custom identity contract](./custom-identity-contract.md) pages to know more.
+`bob.id`, which will be used extensively from now on, refers to bob's identity on the simple-identity contract. Check out our [Identity management](../general-doc/identity.md) and [custom identity contract](./custom-identity-contract.md) pages to know more.
 
 ### Simple-token preparation
 
@@ -125,8 +125,8 @@ Now let's transfer some tokens to our user *bob*.
 To send 50 tokens to *bob* and 10 tokens to *alice*, run:
 
 ```bash
-cargo run -- -contract-name simple-token transfer faucet.simple-token bob.simple-identity 50
-cargo run -- -contract-name simple-token transfer faucet.simple-token alice.simple-identity 10
+cargo run -- -contract-name simple-token transfer faucet.simple-token bob.id 50
+cargo run -- -contract-name simple-token transfer faucet.simple-token alice.id 10
 ```
 
 The node's log will show:
@@ -143,8 +143,8 @@ Check onchain balance:
 ```bash
 cargo run -- --contract-name simple-token balance faucet.simple-token
 
-cargo run -- --contract-name simple-token balance bob.simple-identity
-cargo run -- --contract-name simple-token balance alice.simple-identity
+cargo run -- --contract-name simple-token balance bob.id
+cargo run -- --contract-name simple-token balance alice.id
 ```
 
 ### Using ticket-app
@@ -166,13 +166,13 @@ ticket-app sells a ticket for 15 simple-token.
 Let's buy a ticket for *bob*:
 
 ```bash
-cargo run -- --contract-name ticket-app --user bob.simple-identity buy-ticket
+cargo run -- --contract-name ticket-app --user bob.id buy-ticket
 ```
 
 Let's try with *alice*:
 
 ```bash
-cargo run -- --contract-name ticket-app --user alice.simple-identity buy-ticket
+cargo run -- --contract-name ticket-app --user alice.id buy-ticket
 ```
 
 You will get an error while executing the TicketApp program: `Execution failed ! Program output: Insufficient balance`. This is because Alice has a balance of 10 and the ticket costs 15.
@@ -182,7 +182,7 @@ You will get an error while executing the TicketApp program: `Execution failed !
 Check that *bob* has a ticket:
 
 ```bash
-cargo run -- --contract-name ticket-app --user bob.simple-identity has-ticket
+cargo run -- --contract-name ticket-app --user bob.id has-ticket
 ```
 
 You can also check Bob's balance and see he now has 35 tokens.
