@@ -31,12 +31,6 @@ Here’s what happens when you use Hylé’s sovereign verification-focused Laye
 
 With this system, execution and storage happen **anywhere you like**. You only need a fast and trustworthy verifier: that’s Hylé.
 
-## Documentation
-
-- [Get started now](developers/quickstart/index.md)
-- [Learn more about Hylé](developers/general-doc/index.md)
-- [Check out examples](developers/examples/index.md)
-
 ## Links
 
 - [Rust node](http://github.com/hyle-org/hyle)
