@@ -11,3 +11,4 @@ Use the sidebar to navigate through the guide, or click on the links below to ju
 1. [Run your local devnet](devnet.md)
 1. [Create your first smart contract](your-first-smart-contract.md)
 1. [Use your favorite identity contract](custom-identity-contract.md)
+1. [Call several contracts in one transaction with proof composition](proof-composition.md)
