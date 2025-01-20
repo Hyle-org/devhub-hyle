@@ -10,8 +10,7 @@ Read our [full changelogs on GitHub](https://github.com/Hyle-org/hyle/releases/)
 
 ### ✨New features
 
-- Adding support of native verifiers. Verify hash, 
-signatures, TEE executions without needing a ZK proof! Currently supported: sha3_256 & BLST signatures.
+- Adding support of native verifiers. Verify hash signatures, TEE executions without needing a ZK proof! Currently supported: sha3_256 & BLST signatures.
 - You can now use `tx hash` inside contracts
 
 ### 🚅 Improvements
