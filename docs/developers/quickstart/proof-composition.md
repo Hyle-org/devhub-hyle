@@ -1,8 +1,8 @@
-# Proof composition with Ticket-App
+# Proof composition with Ticket App
 
 Hylé's native proof verification allows for proof composition. To understand the concept better, we recommend you [read this blog post](https://blog.hyle.eu/proof-composability-on-hyle/).
 
-This guide walks you through creating your first ticket transfer contract. With it, you will leverage proof composition to make a ticket-app and a [simple-token app](./your-first-smart-contract.md) interact.
+This guide walks you through creating your first ticket transfer contract. With it, you will leverage proof composition to make a Ticket App (with its corresponding contract `ticket-app`) and a [simple-token app](./your-first-smart-contract.md) interact.
 
 Find the source code for all contracts here:
 
@@ -12,27 +12,27 @@ Find the source code for all contracts here:
 
 ## How this example works
 
-<!--Graph-->
+### Step 1: Create the blob transaction
 
-### Step 1: Cross-app composition
+The Ticket App backend creates and sends a blob transaction to Hylé, including three blobs:
 
-`ticket-app` checks that there is a `simple-token` blob performing a transfer of 15 simple-tokens taken from `bob.id`'s balance.
+- an *identity blob* (see our [custom identity contract quickstart](./custom-identity-contract.md)) confirming that Bob (`bob.id`) is initiating the transaction;
+- a *simple-token blob* performing a transfer of 15 simple-tokens taken from `bob.id`'s balance;
+- a *ticket-app blob* sending `bob.id` a ticket if conditions are met.
 
-### Step 2: Send the blob transaction
+Once the blob is sent, it is sequenced on Hylé, without being processed. [Read more about pipelined proving.](../general-doc/pipelined-proving.md)
 
-ticket-app then sent a blob transaction to Hylé, including three blobs:
+### Step 2: Prove the blobs
 
-- the usual *identity blob* (see our [anatomy of a transaction](../general-doc/transaction.md)) confirming that `bob.id` is initiating the transaction;
-- the *simple-token blob* as defined in Step 1;
-- a *ticket-app blob* sending `bob.id` a ticket.
+The Ticket App backend can now generate ZK proofs of each of the blobs.
 
-### Step 3: Prove the blobs
+During this time, the code of the `ticket-app` contract is executed. During execution, the `ticket-app` smart contract checks that there is a `simple-token` blob performing a transfer of 15 simple-tokens taken from `bob.id`'s balance to the `ticket-app` contract.
 
-Thanks to [pipelined proving](../general-doc/pipelined-proving.md), Hylé sequences this transaction.
+Check out what the [source code](https://github.com/Hyle-org/examples/blob/492501ebe6caad8a0fbe3f286f0f51f0ddca537c/ticket-app/contract/src/lib.rs#L44-L66) looks like.
 
-ticket-app can now generate ZK proofs of each of the blobs and submit them whenever they are ready.
+At this step, `ticket-app` verifies that the transfer blob exists, but cannot verify that Bob has enough tokens in his balance to pay for the ticket. It is already, however, a sufficient condition for `ticket-app`, as the contract won't be settled onchain if the token transfer fails. This check will be performed by Hylé in Step 3.
 
-### Step 4: Settlement
+### Step 3: Settlement
 
 Hylé verifies the submitted proofs:
 
@@ -40,9 +40,11 @@ Hylé verifies the submitted proofs:
 - simple-token blob: if this fails, it means `bob.id` did not pay for his ticket.
 - ticket-app blob: if this fails, it means `bob.id` has not received the ticket.
 
-If all proofs are valid, the simple-token balance and ticket-app ticket balance are updated simultaneously at transaction settlement: `bob.id` loses 15 simple-tokens and gains one ticket.
+If all proofs are valid, the simple-token balance and ticket-app ticket balance are updated simultaneously at transaction settlement: `bob.id` sends 15 simple-tokens and gains one ticket.
 
-If any of the proofs fails, the whole transaction fails and neither state is updated: `bob.id`'s token balance does not change and still has no ticket. In our example below, we're giving only 10 tokens to `alice.id`: because she can't perform the token transfer due to her low balance, the entire transaction fails.
+If any of the proofs fails, the whole transaction fails and neither state is updated: `bob.id`'s token balance does not change and still has no ticket.
+
+In our example below, we're giving only 10 tokens to `alice.id`: because she can't perform the token transfer due to her low balance, the entire transaction fails.
 
 ## Run the example
 
@@ -50,7 +52,7 @@ If any of the proofs fails, the whole transaction fails and neither state is upd
 
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
 - For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
-- [Start a single-node devnet](./devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations during development.
+- [Start a single-node devnet](./devnet.md).
 
 This quickstart guide will take you through the following steps:
 
@@ -63,6 +65,7 @@ This quickstart guide will take you through the following steps:
 
 <!-- Write -->
 To be added.
+<!-- Follow custom-identity but replace with id. Use Alex C.'s README.-->
 
 `bob.id`, which will be used extensively from now on, refers to bob's identity on the simple-identity contract. Check out our [Identity management](../general-doc/identity.md) and [custom identity contract](./custom-identity-contract.md) pages to know more.
 
@@ -150,15 +153,3 @@ cargo run -- --contract-name ticket-app --user bob.id has-ticket
 ```
 
 You can also check Bob's balance and see he now has 35 tokens.
-
-## Development mode
-
-We recommend activating [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) during your early development phase for faster iteration upon code changes with `-e RISC0_DEV_MODE=1`.
-
-You may also want to get insights into the execution statistics of your project: add the environment variable `RUST_LOG="[executor]=info"` before running your project.
-
-The full command to run your project in development mode while getting execution statistics is:
-
-```bash
-RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
-```
