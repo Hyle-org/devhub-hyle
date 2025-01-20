@@ -325,6 +325,8 @@
       
         
       
+        
+      
     
     
       
@@ -521,6 +523,27 @@
   
   <span class="md-ellipsis">
     Using a custom identity contract
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proof-composition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Proof composition with Ticket App
   </span>
   
 
@@ -1106,12 +1129,10 @@ Hylé provides a testnet where you can test your smart contract and help us test
 <h2 id="alternative-getting-started-from-source">Alternative: Getting started from source</h2>
 <p>To start a single-node devnet (with consensus disabled), which is useful to build &amp; debug smart contracts, run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cargo<span class="w"> </span>build
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>cargo<span class="w"> </span>run<span class="w"> </span>--bin<span class="w"> </span>node
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>cargo<span class="w"> </span>run<span class="w"> </span>--bin<span class="w"> </span>hyle
 </span></code></pre></div>
 <h2 id="configuration">Configuration</h2>
 <p>You can configure your setup using environment variables or by editing a configuration file.</p>
-<!--TODO Add table of what can be configured-->
-
 <h3 id="using-environment-variables">Using environment variables</h3>
 <p>All variables can be customized on your single-node instance.</p>
 <table>

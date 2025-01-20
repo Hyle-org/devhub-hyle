@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../devnet/">
+        <link rel="prev" href="../custom-identity-contract/">
       
       
-        <link rel="next" href="../user-tooling/">
+        <link rel="next" href="../../general-doc/">
       
       
       <link rel="icon" href="../../../assets/logo.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Proof composition with Ticket-App - Hylé Developer Hub</title>
+        <title>Proof composition with Ticket App - Hylé Developer Hub</title>
       
     
     
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Proof composition with Ticket-App
+              Proof composition with Ticket App
             
           </span>
         </div>
@@ -325,6 +325,8 @@
       
         
       
+        
+      
     
     
       
@@ -425,6 +427,226 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Proof composition with Ticket App
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Proof composition with Ticket App
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-this-example-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How this example works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How this example works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-blob-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create the blob transaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-prove-the-blobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Prove the blobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-settlement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Settlement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run the example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-identity-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple-identity preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-token-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple-token preparation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple-token preparation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-simple-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register simple-token
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-onchain-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check onchain balance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-ticket-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using ticket-app
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using ticket-app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-ticket-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register ticket-app
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buy-a-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buy a ticket
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-ticket-and-token-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check ticket and token balance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -893,6 +1115,173 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-this-example-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How this example works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How this example works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-the-blob-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create the blob transaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-prove-the-blobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Prove the blobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-settlement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Settlement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run the example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run the example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-identity-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple-identity preparation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-token-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple-token preparation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple-token preparation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-simple-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register simple-token
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transfer-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transfer tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-onchain-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check onchain balance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-ticket-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using ticket-app
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Using ticket-app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-ticket-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Register ticket-app
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#buy-a-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      Buy a ticket
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-ticket-and-token-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check ticket and token balance
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -909,14 +1298,120 @@
   
 
 
-<div><h1 id="proof-composition-with-ticket-app">Proof composition with Ticket-App</h1>
+<div><h1 id="proof-composition-with-ticket-app">Proof composition with Ticket App</h1>
 <p>Hylé's native proof verification allows for proof composition. To understand the concept better, we recommend you <a href="https://blog.hyle.eu/proof-composability-on-hyle/">read this blog post</a>.</p>
-<p>This guide walks you through creating and deploying your first ticket transfer contract, based on a ticket-app and a simple-token app, by using Hylé and RISC Zero. </p>
-<p>Find the source code here:</p>
+<p>This guide walks you through creating your first ticket transfer contract. With it, you will leverage proof composition to make a Ticket App (with its corresponding contract <code>ticket-app</code>) and a <a href="../your-first-smart-contract/">simple-token app</a> interact.</p>
+<p>Find the source code for all contracts here:</p>
 <ul>
 <li><a href="https://github.com/Hyle-org/examples/tree/feat/ticket-app/ticket-app">ticket-app</a></li>
+<li><a href="https://github.com/Hyle-org/examples/tree/main/simple-identity">simple-identity</a></li>
 <li><a href="https://github.com/Hyle-org/examples/tree/feat/ticket-app/simple-token">simple-token</a></li>
-</ul></div>
+</ul>
+<h2 id="how-this-example-works">How this example works</h2>
+<h3 id="step-1-create-the-blob-transaction">Step 1: Create the blob transaction</h3>
+<p>The Ticket App backend creates and sends a blob transaction to Hylé, including three blobs:</p>
+<ul>
+<li>an <em>identity blob</em> (see our <a href="../custom-identity-contract/">custom identity contract quickstart</a>) confirming that Bob (<code>bob.id</code>) is initiating the transaction;</li>
+<li>a <em>simple-token blob</em> performing a transfer of 15 simple-tokens taken from <code>bob.id</code>'s balance;</li>
+<li>a <em>ticket-app blob</em> sending <code>bob.id</code> a ticket if conditions are met.</li>
+</ul>
+<p>Once the blob is sent, it is sequenced on Hylé, without being processed. <a href="../../general-doc/pipelined-proving/">Read more about pipelined proving.</a></p>
+<h3 id="step-2-prove-the-blobs">Step 2: Prove the blobs</h3>
+<p>The Ticket App backend can now generate ZK proofs of each of the blobs.</p>
+<p>During this time, the code of the <code>ticket-app</code> contract is executed. During execution, the <code>ticket-app</code> smart contract checks that there is a <code>simple-token</code> blob performing a transfer of 15 simple-tokens taken from <code>bob.id</code>'s balance to the <code>ticket-app</code> contract.</p>
+<p>Check out what the <a href="https://github.com/Hyle-org/examples/blob/492501ebe6caad8a0fbe3f286f0f51f0ddca537c/ticket-app/contract/src/lib.rs#L44-L66">source code</a> looks like.</p>
+<p>At this step, <code>ticket-app</code> verifies that the transfer blob exists, but cannot verify that Bob has enough tokens in his balance to pay for the ticket. It is already, however, a sufficient condition for <code>ticket-app</code>, as the contract won't be settled onchain if the token transfer fails. This check will be performed by Hylé in Step 3.</p>
+<h3 id="step-3-settlement">Step 3: Settlement</h3>
+<p>Hylé verifies the submitted proofs:</p>
+<ul>
+<li>identity blob: if this fails, it means <code>bob.id</code> has not initiated the transaction.</li>
+<li>simple-token blob: if this fails, it means <code>bob.id</code> did not pay for his ticket.</li>
+<li>ticket-app blob: if this fails, it means <code>bob.id</code> has not received the ticket.</li>
+</ul>
+<p>If all proofs are valid, the simple-token balance and ticket-app ticket balance are updated simultaneously at transaction settlement: <code>bob.id</code> sends 15 simple-tokens and gains one ticket.</p>
+<p>If any of the proofs fails, the whole transaction fails and neither state is updated: <code>bob.id</code>'s token balance does not change and still has no ticket.</p>
+<p>In our example below, we're giving only 10 tokens to <code>alice.id</code>: because she can't perform the token transfer due to her low balance, the entire transaction fails.</p>
+<h2 id="run-the-example">Run the example</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li><a href="https://www.rust-lang.org/tools/install">Install Rust</a> (you'll need <code>rustup</code> and Cargo).</li>
+<li>For our example, <a href="https://dev.risczero.com/api/zkvm/install">install RISC Zero</a>.</li>
+<li><a href="../devnet/">Start a single-node devnet</a>.</li>
+</ul>
+<p>This quickstart guide will take you through the following steps:</p>
+<ul>
+<li><a href="#simple-identity-preparation">Simple-identity preparation</a>: register an identity contract &amp; two identities.</li>
+<li><a href="#simple-token-preparation">Simple-token preparation</a>: register a token contract and faucet the users with this token.</li>
+<li><a href="#register-ticket-app">Register the ticket-app contract</a></li>
+<li><a href="#buy-a-ticket">Buy a ticket on ticket-app</a></li>
+</ul>
+<h3 id="simple-identity-preparation">Simple-identity preparation</h3>
+<p>Let's start with registering an identity contract and two identities.</p>
+<p>Go to the <code>./simple-identity</code> folder and run:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>id<span class="w"> </span>register-contract
+</span></code></pre></div>
+<p>Now we have an identity contract called <code>id</code>. We can use it to declare our users:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>id<span class="w"> </span>register-identity<span class="w"> </span>bob.id<span class="w"> </span>pass
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>id<span class="w"> </span>register-identity<span class="w"> </span>alice.id<span class="w"> </span>pass
+</span></code></pre></div>
+<p>We now have two users on the id contract: Alice and Bob, both of whom use the password <code>pass</code>.</p>
+<p>Let's verify it quickly with:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>id<span class="w"> </span>verify<span class="w"> </span>bob.id<span class="w"> </span>pass<span class="w"> </span><span class="m">0</span>
+</span></code></pre></div>
+<p>0 is a nonce: every time we verify successfully bob's identity, it increments. Now if we want to verify it again, we should use 1 as nonce.</p>
+<p>We now do the same for alice:</p>
+<div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>id<span class="w"> </span>verify<span class="w"> </span>alice.id<span class="w"> </span>pass<span class="w"> </span><span class="m">0</span>
+</span></code></pre></div>
+<p><code>bob.id</code>, which will be used extensively from now on, refers to bob's identity on the simple-identity contract. Check out our <a href="../../general-doc/identity/">Identity management</a> and <a href="../custom-identity-contract/">custom identity contract</a> pages to know more.</p>
+<h3 id="simple-token-preparation">Simple-token preparation</h3>
+<h4 id="register-simple-token">Register simple-token</h4>
+<p>Go to <code>./simple-token</code> folder and run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>simple-token<span class="w"> </span>register<span class="w"> </span><span class="m">1000</span>
+</span></code></pre></div>
+<p>On the node's logs, you will see:</p>
+<blockquote>
+<p>📝 Registering new contract simple_token</p>
+</blockquote>
+<p>You just registered a token contract named simple-token with an initial supply of 1000.</p>
+<h4 id="transfer-tokens">Transfer tokens</h4>
+<p>Now let's transfer some tokens to our user <em>bob</em>.</p>
+<p>To send 50 tokens to <em>bob</em> and 10 tokens to <em>alice</em>, run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>-contract-name<span class="w"> </span>simple-token<span class="w"> </span>transfer<span class="w"> </span>faucet.simple-token<span class="w"> </span>bob.id<span class="w"> </span><span class="m">50</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>-contract-name<span class="w"> </span>simple-token<span class="w"> </span>transfer<span class="w"> </span>faucet.simple-token<span class="w"> </span>alice.id<span class="w"> </span><span class="m">10</span>
+</span></code></pre></div>
+<p>The node's log will show:</p>
+<blockquote>
+<p>INFO hyle::data_availability::node_state::verifiers: ✅ Risc0 proof verified.</p>
+<p>INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Transferred 50 to bob.ticket_app
+INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Transferred 10 to alice.ticket_app</p>
+</blockquote>
+<h4 id="check-onchain-balance">Check onchain balance</h4>
+<p>Check onchain balance:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>simple-token<span class="w"> </span>balance<span class="w"> </span>faucet.simple-token
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>simple-token<span class="w"> </span>balance<span class="w"> </span>bob.id
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>simple-token<span class="w"> </span>balance<span class="w"> </span>alice.id
+</span></code></pre></div>
+<h3 id="using-ticket-app">Using ticket-app</h3>
+<p>Now that <em>bob</em> has some tokens, let's buy him a ticket.</p>
+<h4 id="register-ticket-app">Register ticket-app</h4>
+<p>Register the ticket app by going to <code>./ticket-app</code> folder and running:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>ticket-app<span class="w"> </span>register<span class="w"> </span>simple-token<span class="w"> </span><span class="m">15</span>
+</span></code></pre></div>
+<p>ticket-app sells a ticket for 15 simple-token.</p>
+<h4 id="buy-a-ticket">Buy a ticket</h4>
+<p>Let's buy a ticket for <em>bob</em>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>ticket-app<span class="w"> </span>--user<span class="w"> </span>bob.id<span class="w"> </span>buy-ticket
+</span></code></pre></div>
+<p>Let's try with <em>alice</em>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>ticket-app<span class="w"> </span>--user<span class="w"> </span>alice.id<span class="w"> </span>buy-ticket
+</span></code></pre></div>
+<p>You will get an error while executing the TicketApp program: <code>Execution failed ! Program output: Insufficient balance</code>. This is because Alice has a balance of 10 and the ticket costs 15.</p>
+<h4 id="check-ticket-and-token-balance">Check ticket and token balance</h4>
+<p>Check that <em>bob</em> has a ticket:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>ticket-app<span class="w"> </span>--user<span class="w"> </span>bob.id<span class="w"> </span>has-ticket
+</span></code></pre></div>
+<p>You can also check Bob's balance and see he now has 35 tokens.</p></div>
 
 
 
