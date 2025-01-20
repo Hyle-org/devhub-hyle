@@ -41,7 +41,7 @@ Read the [full changelog on GitHub](https://github.com/Hyle-org/hyle/releases/ta
 
 - Upgraded to SP1 4.0.0-rc8.
 
-### ⚒️ No longer broken
+### 🛠️ No longer broken
 
 - Fixed the default configurations.
 - Fixed loading state when restarting a node.
