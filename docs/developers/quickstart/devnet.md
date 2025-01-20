@@ -52,14 +52,12 @@ To start a single-node devnet (with consensus disabled), which is useful to buil
 
 ```bash
 cargo build
-HYLE_RUN_INDEXER=false cargo run --bin node
+HYLE_RUN_INDEXER=false cargo run --bin hyle
 ```
 
 ## Configuration
 
 You can configure your setup using environment variables or by editing a configuration file.
-
-<!--TODO Add table of what can be configured-->
 
 ### Using environment variables
 
