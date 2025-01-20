@@ -63,9 +63,36 @@ This quickstart guide will take you through the following steps:
 
 ### Simple-identity preparation
 
-<!-- Write -->
-To be added.
-<!-- Follow custom-identity but replace with id. Use Alex C.'s README.-->
+Let's start with registering an identity contract and two identities.
+
+Go to the `./simple-identity` folder and run:
+
+```sh
+cargo run -- --contract-name id register-contract
+```
+
+Now we have an identity contract called `id`. We can use it to declare our users:
+
+```sh
+cargo run -- --contract-name id register-identity bob.id pass
+cargo run -- --contract-name id register-identity alice.id pass
+```
+
+We now have two users on the id contract: Alice and Bob, both of whom use the password `pass`.
+
+Let's verify it quickly with:
+
+```sh
+cargo run -- --contract-name id verify bob.id pass 0
+```
+
+0 is a nonce: every time we verify successfully bob's identity, it increments. Now if we want to verify it again, we should use 1 as nonce.
+
+We now do the same for alice:
+
+```sh
+cargo run -- --contract-name id verify alice.id pass 0
+```
 
 `bob.id`, which will be used extensively from now on, refers to bob's identity on the simple-identity contract. Check out our [Identity management](../general-doc/identity.md) and [custom identity contract](./custom-identity-contract.md) pages to know more.
 
