@@ -2,6 +2,12 @@
 
 Read our [full changelogs on GitHub](https://github.com/Hyle-org/hyle/releases/) or the short versions [in our Telegram group](https://t.me/hyle_org).
 
+## 2025-01-21 − v0.7.1 & v0.7.2
+
+Small patches for our SDK.
+
+Read release notes [for v0.7.1](https://github.com/Hyle-org/hyle/releases/tag/v0.7.1) and [v0.7.2](https://github.com/Hyle-org/hyle/releases/tag/v0.7.2); see new [SDK readme](https://github.com/Hyle-org/hyle/tree/main/crates/contract-sdk) for more info.
+
 ## 2025-01-20 − v0.7.0
 
 ### 💥 Breaking changes
