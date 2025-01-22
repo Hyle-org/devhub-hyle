@@ -33,7 +33,9 @@ jobs:
           pip install mkdocs-video
 
       - name: Setup git user 
-        run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+        run: |
+          git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git fetch origin gh-pages
 
       - name: Publish doc 
         run: |
