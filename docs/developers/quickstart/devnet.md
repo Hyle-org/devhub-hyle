@@ -18,13 +18,13 @@ docker pull ghcr.io/hyle-org/hyle:v0.7.2
 Run the image:
 
 ```bash
-docker run -v ./db:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.7.2
+docker run -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
 If you run into an error, you may want to add the `--privileged` flag:
 
 ```bash
-docker run --privileged -v ./db:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.7.2
+docker run --privileged -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
 If you want to run with an indexer add the parameter `-e HYLE_RUN_INDEXER=true`, you will need a running PostgreSQL server. You can set it up with Docker:
@@ -38,7 +38,7 @@ docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres pos
 And the node linked to it:
 
 ```bash
-docker run -v ./db/hyle/data \
+docker run -v ./data:/hyle/data \
     -e HYLE_RUN_INDEXER=true \
     -e HYLE_DATABASE_URL=postgres://postgres:postgres@pg_hyle:5432/postgres \
     --link pg_hyle \
@@ -101,7 +101,7 @@ To use a configuration file, copy the default settings where you run the node. I
 If you're using Docker:
 
 ```bash
-docker run -v ./db:/hyle/data -v ./config.run:/hyle/config.ron -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:v0.7.2
+docker run -v ./data:/hyle/data -v ./config.run:/hyle/config.ron -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
 Then, whether you're using Docker or building from source:
