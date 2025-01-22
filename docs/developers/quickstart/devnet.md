@@ -30,11 +30,13 @@ docker run --privileged -v ./db:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:la
 If you want to run with an indexer add the parameter `-e HYLE_RUN_INDEXER=true`, you will need a running PostgreSQL server. You can set it up with Docker:
 
 Run the postgres server:
+
 ```bash
 docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
 ```
 
 And the node linked to it:
+
 ```bash
 docker run -v ./db/hyle/data \
     -e HYLE_RUN_INDEXER=true \
