@@ -46,6 +46,9 @@ docker run -v ./db/hyle/data \
     ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
+!!! tip
+    To restart your devnet from scratch, you should delete your `./data` folder and start over; otherwise, you risk re-registering a contract that still exists.
+
 ## Build the Docker image locally
 
 If you want to, you can rebuild the image locally from source:
