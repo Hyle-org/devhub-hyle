@@ -12,19 +12,19 @@ Follow these instructions to run a node, keeping in mind that this is unstable a
 Download the Docker image:
 
 ```bash
-docker pull ghcr.io/hyle-org/hyle:latest
+docker pull ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
 Run the image:
 
 ```bash
-docker run -v ./db:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:latest
+docker run -v ./db:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
 If you run into an error, you may want to add the `--privileged` flag:
 
 ```bash
-docker run --privileged -v ./db:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:latest
+docker run --privileged -v ./db:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
 If you want to run with an indexer add the parameter `-e HYLE_RUN_INDEXER=true`, you will need a running PostgreSQL server. You can set it up with Docker:
@@ -43,7 +43,7 @@ docker run -v ./db/hyle/data \
     -e HYLE_DATABASE_URL=postgres://postgres:postgres@pg_hyle:5432/postgres \
     --link pg_hyle \
     -p 4321:4321 \
-    ghcr.io/hyle-org/hyle:latest
+    ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
 ## Build the Docker image locally
@@ -98,7 +98,7 @@ To use a configuration file, copy the default settings where you run the node. I
 If you're using Docker:
 
 ```bash
-docker run -v ./db:/hyle/data -v ./config.run:/hyle/config.ron -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:latest
+docker run -v ./db:/hyle/data -v ./config.run:/hyle/config.ron -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
 Then, whether you're using Docker or building from source:
