@@ -25,8 +25,6 @@ Check out [our quickstart guide on custom identity contract](../quickstart/custo
 !!! note
     Please contact us directly to know more about identity management on Hylé. We are aiming to publish implementation instructions in February 2025.
 
-
-
 <!--
 ### You can use any source of identity
 
