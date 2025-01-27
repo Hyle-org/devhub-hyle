@@ -1,8 +1,8 @@
 # Proof composition and cross-contract calls
 
-<!-- Réécrire avec un exemple -->
+To understand the concept of proof composability on Hylé, we recommend you [read this blog post](https://blog.hyle.eu/proof-composability-on-hyle/).
 
-To understand the concept of proof composability on Hylé, we recommend you [read this blog post](https://blog.hyle.eu/proof-composability-on-hyle/). This page focuses on demonstrating how to use proof composition in your code.
+To understand proof composition in practice, check out [our quickstart example](../quickstart/proof-composition.md).
 
 ## What is proof composition?
 
@@ -13,10 +13,7 @@ Most zero-knowledge systems deal with cross-contract calls by enforcing recursiv
 - Program A verifies proof of correct execution of Program B;
 - Program B verifies proof of correct execution of Program A.
 
-<!-- Rewrite section -->
-Hylé allows you to assume, in Program A, that Program B has been successfully executed, by verifying that claim. If you batch both blobs in the same operation, we verify both natively outside of the contract; the whole operation fails if one proof fails to verify.
-
-Read more [on our blog](https://blog.hyle.eu/proof-composability-on-hyle/).
+Hylé allows you to write Program A and add an input that says « this only applies if Program B is valid ». At settlement, with both contracts in the same proof transaction, it will verify both programs and the whole operation will fail if one proof fails to verify.
 
 ## Writing a cross-contract call
 
@@ -31,13 +28,7 @@ This representation consists of:
 - the function's parameters
 - a claim on the results.
 
-<!-- TODO: replace list with an example -->
-
-Follow these steps:
-
-1. **Inject claims**: add all the claims as inputs to the blob.
-1. **Index claims**: provide an index to tell the contract where to locate its input.
-1. **Assert claims**: use the claim list to validate the required conditions for the blob.
+In our quickstart example, [the source code looks like this](https://github.com/Hyle-org/examples/blob/492501ebe6caad8a0fbe3f286f0f51f0ddca537c/ticket-app/contract/src/lib.rs#L44-L66).
 
 ## How Hylé settles multiple proofs
 
