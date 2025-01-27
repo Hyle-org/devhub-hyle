@@ -1096,9 +1096,8 @@
 
 
 <div><h1 id="proof-composition-and-cross-contract-calls">Proof composition and cross-contract calls</h1>
-<!-- Réécrire avec un exemple -->
-
-<p>To understand the concept of proof composability on Hylé, we recommend you <a href="https://blog.hyle.eu/proof-composability-on-hyle/">read this blog post</a>. This page focuses on demonstrating how to use proof composition in your code.</p>
+<p>To understand the concept of proof composability on Hylé, we recommend you <a href="https://blog.hyle.eu/proof-composability-on-hyle/">read this blog post</a>.</p>
+<p>To understand proof composition in practice, check out <a href="../../quickstart/proof-composition/">our quickstart example</a>.</p>
 <h2 id="what-is-proof-composition">What is proof composition?</h2>
 <p><strong>Proof composition</strong> happens when two contracts depend on each other. <strong>Proof composability</strong> is the fact that Hylé allows you to manage this situation while keeping their proofs independent.</p>
 <p>Most zero-knowledge systems deal with cross-contract calls by enforcing recursive proof verification:</p>
@@ -1106,9 +1105,7 @@
 <li>Program A verifies proof of correct execution of Program B;</li>
 <li>Program B verifies proof of correct execution of Program A.</li>
 </ul>
-<!-- Rewrite section -->
-<p>Hylé allows you to assume, in Program A, that Program B has been successfully executed, by verifying that claim. If you batch both blobs in the same operation, we verify both natively outside of the contract; the whole operation fails if one proof fails to verify.</p>
-<p>Read more <a href="https://blog.hyle.eu/proof-composability-on-hyle/">on our blog</a>.</p>
+<p>Hylé allows you to write Program A and add an input that says « this only applies if Program B is valid ». At settlement, with both contracts in the same proof transaction, it will verify both programs and the whole operation will fail if one proof fails to verify.</p>
 <h2 id="writing-a-cross-contract-call">Writing a cross-contract call</h2>
 <p>Your program does not need to verify the execution of another program directly.</p>
 <p>Instead, it uses a representation of the called contracts, which looks like this: <code>MoneyApp::transfer(10, A, B) == true</code> or <code>TicketApp::get(A) == ticket</code>.</p>
@@ -1119,14 +1116,7 @@
 <li>the function's parameters</li>
 <li>a claim on the results.</li>
 </ul>
-<!-- TODO: replace list with an example -->
-
-<p>Follow these steps:</p>
-<ol>
-<li><strong>Inject claims</strong>: add all the claims as inputs to the blob.</li>
-<li><strong>Index claims</strong>: provide an index to tell the contract where to locate its input.</li>
-<li><strong>Assert claims</strong>: use the claim list to validate the required conditions for the blob.</li>
-</ol>
+<p>In our quickstart example, <a href="https://github.com/Hyle-org/examples/blob/492501ebe6caad8a0fbe3f286f0f51f0ddca537c/ticket-app/contract/src/lib.rs#L44-L66">the source code looks like this</a>.</p>
 <h2 id="how-hyle-settles-multiple-proofs">How Hylé settles multiple proofs</h2>
 <p>When you submit multiple proofs to Hylé:</p>
 <ul>
