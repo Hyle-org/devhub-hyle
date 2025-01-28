@@ -2,10 +2,10 @@
 
 ## Where is identity relevant on Hylé?
 
-One blob transaction on Hylé includes:
+A `BlobTransaction` on Hylé includes:
 
-- Blobs, as many as wanted;
-- One blob which corresponds to the identity of the person who initiated the transaction.
+- As many `blob`s as wanted;
+- One `blob` which corresponds to the identity of the person who initiated the transaction.
 
 Note that:
 

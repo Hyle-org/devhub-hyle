@@ -21,9 +21,9 @@ Hylé splits operations into two transactions:
 1. **Blob-transaction**: outlines a state change for sequencing.
 2. **Proof-transaction**: provides a proof for the claimed state change for settlement.
 
-From Hylé’s perspective, the blob-transaction's content is not an issue: it simply represents incoming information that your contract will process.
+From Hylé’s perspective, the blob-transaction's content does not matter: it simply represents incoming information that your contract will process.
 
-1. **Sequencing** happens when the blob transaction is received and included in a block. This step establishes a global order and timestamps for transactions.
+1. **Sequencing** happens when the blob transaction is received and included in a block. This step establishes a global order and timestamps for transactions. Once the transactions are sequenced, the provers can easily know upon which state they should base their proof.
 1. **Settlement** happens when the corresponding proof transaction is verified and added to a block.
 
 During settlement, unproven blob transactions linked to the contract are executed in their sequencing order.

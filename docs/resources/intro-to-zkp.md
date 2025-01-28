@@ -8,7 +8,7 @@ Here are some resources on zero-knowledge proofs and how to generate them.
 
 There are three moments when ZK is the right tool for you:
 
-- **Computing power imbalance** (which includes improved **scalability**): I can verify a result without running the resource-heavy computation.
+- **Computing power imbalance** (which includes improved **scalability**): I run resource-heavy computation anywhere and verify the result.
 - **Adversarial environment**: I can verify a result without knowing trade secrets that attained this result.
 - **Anonymity**: I share only the information I want to share.
 
@@ -16,7 +16,7 @@ There are three moments when ZK is the right tool for you:
 
 There are [many ZK languages](https://github.com/microbecode/zk-languages). Hylé aims to verify [as many as possible](../developers/general-doc/supported-proving-schemes.md).
 
-DSLs are specific languages that usually compile down to a specific circuit. They're good, but they're complex and may have a high learning curve.
+DSLs, like Circom, are specific languages that usually compile down to a specific circuit. They're good, but they're complex and may have a high learning curve.
 
 zkVMs prove the correct execution of arbitrary code. They allow you to build ZK applications in a certain language without having to build a circuit around it. There are two main types of zkVMs: Cairo and RISC-V. You can benchmark your Rust code and find the best zkVM for your needs with [the any-zkvm template](https://github.com/MatteoMer/any-zkvm).
 

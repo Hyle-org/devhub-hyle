@@ -19,10 +19,11 @@ Currently, you can:
 - View the latest blocks
 - View the latest transactions.
 - View detailed information about specific blocks and transactions.
+- Fetch a .json state for the `hyllar` and `hydentity` contracts.
 
 ### Upcoming features
 
 Planned features include:
 
 - Register new contracts.
-- Send transactions by uploading ZK proofs to specific contracts (multicall not yet supported).
+- Send transactions by uploading ZK proofs to specific contracts.
