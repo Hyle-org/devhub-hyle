@@ -46,6 +46,8 @@ docker run -v ./data:/hyle/data \
     ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
+You can now [create your first smart contract](./your-first-smart-contract.md).
+
 !!! tip
     To restart your devnet from scratch, you should delete your `./data` folder and start over; otherwise, you risk re-registering a contract that still exists.
 
@@ -56,8 +58,6 @@ If you want to, you can rebuild the image locally from source:
 ```bash
 docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
 ```
-
-You can now [create your first smart contract](./your-first-smart-contract.md).
 
 ## Alternative: Getting started from source
 
@@ -72,6 +72,7 @@ To run our examples, please `git checkout tags/v0.7.2`: this is the version they
 
 ## Configuration
 
+<!--Put on docs.rs when we'll be ready.-->
 You can configure your setup using environment variables or by editing a configuration file.
 
 ### Using environment variables
@@ -109,8 +110,5 @@ docker run -v ./data:/hyle/data -v ./config.run:/hyle/config.ron -e HYLE_RUN_IND
 Then, whether you're using Docker or building from source:
 
 ```bash
-# Copy default config where you run the node. If file named "config.ron" is present, it will be loaded by node at startup.
 cp ./src/utils/conf_defaults.ron config.ron
 ```
-
-You can now [create your first smart contract](./your-first-smart-contract.md).
