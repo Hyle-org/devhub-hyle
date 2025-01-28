@@ -4,7 +4,7 @@ This guide will walk you through creating and deploying your first token transfe
 
 You can also check out [the same example built with SP1](https://github.com/Hyle-org/examples/tree/main/simple-token-sp1).
 
-For an in-depth understanding of smart contracts, check out our [anatomy of a smart contract](../general-doc/smart-contracts.md).
+For an in-depth understanding of smart contracts, check out the [anatomy of a smart contract](../general-doc/smart-contracts.md).
 
 ## Example
 
@@ -32,7 +32,7 @@ The expected output is `📝 Registering new contract simple_token`.
 
 ### Transfer tokens
 
-To transfer 2 tokens from `faucet` to `Bob`:
+To transfer 2 tokens from the Hylé `faucet` to `Bob`:
 
 ```bash
 cargo run -- transfer faucet.simple_token bob.simple_token 2
@@ -40,9 +40,9 @@ cargo run -- transfer faucet.simple_token bob.simple_token 2
 
 This command will:
 
-1. Send a blob transaction to transfer 2 tokens from `faucet` to `bob`.
+1. Send a blob transaction to transfer 2 tokens from `faucet` to `bob`. To better understand what a blob transaction is, [read more about transactions on Hylé](../general-doc/identity.md).
 2. Generate a ZK proof of that transfer.
-3. Send the proof to the devnet.
+3. Send the proof to the devnet. (Scroll down to see what that looks like in code.)
 
 ### Verify settled state
 
@@ -75,7 +75,7 @@ cargo run -- balance bob.simple_token
 ```
 
 !!! note
-    In this example, we do not verify the identity of the person who initiates the transaction. We use `.simple_token` as a suffix for the "from" and "to" transfer fields: usually, we'd use the identity scheme as the suffix. **More information about identity management will be added to the documentation in January 2025.**
+    In this example, we do not verify the identity of the person who initiates the transaction. We use `.simple_token` as a suffix for the "from" and "to" transfer fields. Usually, we'd use the identity scheme as the suffix. **More information about identity management will be added to the documentation in January 2025.**
 
 See your contract's state digest at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`.
 

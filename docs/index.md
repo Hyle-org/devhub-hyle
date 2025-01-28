@@ -24,7 +24,7 @@ Here’s what happens when you use Hylé’s sovereign verification-focused Laye
 
 ![Sequence diagram explaining the steps as listed below.](./assets/img/hyle-main-diagram.jpg)
 
-1. **Sequencing**: Send a provable blob to Hylé: say what information you expect to prove later. We'll sequence the transaction immediately. [Read more about pipelined proving](https://blog.hyle.eu/an-introduction-to-delayed-proving/).
+1. **Sequencing**: Send a provable blob of information to Hylé: say what information you expect to prove later. We'll sequence the transaction immediately and give you time to prove it. [Read more about pipelined proving](https://blog.hyle.eu/an-introduction-to-delayed-proving/).
 1. **Proof submission**: when the proofs for your transaction are ready, send them to Hylé.
 1. **Verification**: Hylé validators receive the transaction. They verify the proofs natively, without the limitations of a bulky virtual machine.
 1. **Consensus**: if the proofs are valid, Hylé settles your transaction's state onchain. You're good to go!
