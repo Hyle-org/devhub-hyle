@@ -1,8 +1,5 @@
 # Using a custom identity contract
 
-!!! warning
-    Our examples work on Hylé v0.7.2: `git checkout tags/v0.7.2`.
-
 ## When to use identity contracts on Hylé
 
 On Hylé, any smart contract can serve as proof of identity. This flexibility allows you to register your preferred identity source as a smart contract for account identification. Hylé also ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity) for simplicity.

@@ -8,9 +8,6 @@ For an in-depth understanding of smart contracts, check out our [anatomy of a sm
 
 ## Example
 
-!!! warning
-    Our examples work on Hylé v0.7.2: `git checkout tags/v0.7.2`.
-
 ### Prerequisites
 
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).

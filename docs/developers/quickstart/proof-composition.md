@@ -10,9 +10,6 @@ Find the source code for all contracts here:
 - [simple-identity](https://github.com/Hyle-org/examples/tree/main/simple-identity)
 - [simple-token](https://github.com/Hyle-org/examples/tree/feat/ticket-app/simple-token)
 
-!!! warning
-    Our examples work on Hylé v0.7.2: `git checkout tags/v0.7.2`.
-
 ## How this example works
 
 ### Step 1: Create the blob transaction
