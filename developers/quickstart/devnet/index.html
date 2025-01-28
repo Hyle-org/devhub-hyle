@@ -1014,6 +1014,7 @@
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">4321</span>:4321<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span>ghcr.io/hyle-org/hyle:v0.7.2
 </span></code></pre></div>
+<p>You can now <a href="../your-first-smart-contract/">create your first smart contract</a>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>To restart your devnet from scratch, you should delete your <code>./data</code> folder and start over; otherwise, you risk re-registering a contract that still exists.</p>
@@ -1022,7 +1023,6 @@
 <p>If you want to, you can rebuild the image locally from source:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>Hyle-org/hyle<span class="w"> </span>.<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-dit<span class="w"> </span>Hyle-org/hyle
 </span></code></pre></div>
-<p>You can now <a href="../your-first-smart-contract/">create your first smart contract</a>.</p>
 <h2 id="alternative-getting-started-from-source">Alternative: Getting started from source</h2>
 <p>To start a single-node devnet (with consensus disabled), which is useful to build &amp; debug smart contracts, run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cargo<span class="w"> </span>build
@@ -1030,6 +1030,7 @@
 </span></code></pre></div>
 <p>To run our examples, please <code>git checkout tags/v0.7.2</code>: this is the version they run on.</p>
 <h2 id="configuration">Configuration</h2>
+<!--Put on docs.rs when we'll be ready.-->
 <p>You can configure your setup using environment variables or by editing a configuration file.</p>
 <h3 id="using-environment-variables">Using environment variables</h3>
 <p>All variables can be customized on your single-node instance.</p>
@@ -1125,10 +1126,8 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span>./data:/hyle/data<span class="w"> </span>-v<span class="w"> </span>./config.run:/hyle/config.ron<span class="w"> </span>-e<span class="w"> </span><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>-p<span class="w"> </span><span class="m">4321</span>:4321<span class="w"> </span>-p<span class="w"> </span><span class="m">1234</span>:1234<span class="w"> </span>ghcr.io/hyle-org/hyle:v0.7.2
 </span></code></pre></div>
 <p>Then, whether you're using Docker or building from source:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Copy default config where you run the node. If file named "config.ron" is present, it will be loaded by node at startup.</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>cp<span class="w"> </span>./src/utils/conf_defaults.ron<span class="w"> </span>config.ron
-</span></code></pre></div>
-<p>You can now <a href="../your-first-smart-contract/">create your first smart contract</a>.</p></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cp<span class="w"> </span>./src/utils/conf_defaults.ron<span class="w"> </span>config.ron
+</span></code></pre></div></div>
 
 
 
