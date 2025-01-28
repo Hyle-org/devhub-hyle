@@ -5,7 +5,7 @@ On [traditional blockchains](./hyle-vs-vintage-blockchains.md),  users sign thei
 On Hylé, onchain operations are split into two distinct transactions:
 
 - Blob transaction: describes the intended operation.
-- Proof transaction: validates and executes the operation.
+- Proof transaction: proves the correct execution of the operation.
 
 We cut these in two steps because ZK proofs take longer to generate than traditional signature.
 
