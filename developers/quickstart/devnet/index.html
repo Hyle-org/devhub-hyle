@@ -986,10 +986,11 @@
 
 
 <div><h1 id="run-your-local-devnet">Run your local devnet</h1>
-<!-- Testnet 
-Hylé provides a testnet where you can test your smart contract and help us test our network.-->
-
 <p>Follow the instructions below to start building on Hylé by running a local devnet. (Instructions for a testnet will be added when we launch it.)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Our examples work on Hylé v0.7.2: <code>git checkout tags/v0.7.2</code>.</p>
+</div>
 <h2 id="recommended-getting-started-with-docker">Recommended: Getting started with Docker</h2>
 <p>Follow these instructions to run a node, keeping in mind that this is unstable and can break with upcoming updates.</p>
 <p>Download the Docker image:</p>
@@ -1027,6 +1028,7 @@ Hylé provides a testnet where you can test your smart contract and help us test
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cargo<span class="w"> </span>build
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">HYLE_RUN_INDEXER</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>cargo<span class="w"> </span>run<span class="w"> </span>--bin<span class="w"> </span>hyle
 </span></code></pre></div>
+<p>To run our examples, please <code>git checkout tags/v0.7.2</code>: this is the version they run on.</p>
 <h2 id="configuration">Configuration</h2>
 <p>You can configure your setup using environment variables or by editing a configuration file.</p>
 <h3 id="using-environment-variables">Using environment variables</h3>
