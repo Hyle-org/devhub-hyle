@@ -873,7 +873,7 @@
         
   
   <span class="md-ellipsis">
-    Grants
+    Contribute to Hylé
   </span>
   
 
@@ -999,9 +999,9 @@
 <li><strong>Blob-transaction</strong>: outlines a state change for sequencing.</li>
 <li><strong>Proof-transaction</strong>: provides a proof for the claimed state change for settlement.</li>
 </ol>
-<p>From Hylé’s perspective, the blob-transaction's content is not an issue: it simply represents incoming information that your contract will process.</p>
+<p>From Hylé’s perspective, the blob-transaction's content does not matter: it simply represents incoming information that your contract will process.</p>
 <ol>
-<li><strong>Sequencing</strong> happens when the blob transaction is received and included in a block. This step establishes a global order and timestamps for transactions.</li>
+<li><strong>Sequencing</strong> happens when the blob transaction is received and included in a block. This step establishes a global order and timestamps for transactions. Once the transactions are sequenced, the provers can easily know upon which state they should base their proof.</li>
 <li><strong>Settlement</strong> happens when the corresponding proof transaction is verified and added to a block.</li>
 </ol>
 <p>During settlement, unproven blob transactions linked to the contract are executed in their sequencing order.</p>

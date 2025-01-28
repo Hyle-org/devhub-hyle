@@ -873,7 +873,7 @@
         
   
   <span class="md-ellipsis">
-    Grants
+    Contribute to Hylé
   </span>
   
 
@@ -987,7 +987,7 @@
 <p>On Hylé, onchain operations are split into two distinct transactions:</p>
 <ul>
 <li>Blob transaction: describes the intended operation.</li>
-<li>Proof transaction: validates and executes the operation.</li>
+<li>Proof transaction: proves the correct execution of the operation.</li>
 </ul>
 <p>We cut these in two steps because ZK proofs take longer to generate than traditional signature.</p>
 <p>Why two steps ? Because zkProof are not as fast to generate as traditional signatures. By sequencing your intent with a blob transaction, you can later update the state with a proof transaction after the proof is ready. For more details, read our <a href="../pipelined-proving/">pipelined proving principles</a>.</p>

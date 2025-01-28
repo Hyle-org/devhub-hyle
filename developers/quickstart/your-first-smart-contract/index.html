@@ -939,7 +939,7 @@
         
   
   <span class="md-ellipsis">
-    Grants
+    Contribute to Hylé
   </span>
   
 
@@ -1180,7 +1180,7 @@
 <div><h1 id="your-first-smart-contract">Your first smart contract</h1>
 <p>This guide will walk you through creating and deploying your first token transfer contract using Hylé's tools and infrastructure. We'll use <a href="https://github.com/Hyle-org/examples/tree/main/simple-token">our sample token transfer example</a> as the basis for this tutorial.</p>
 <p>You can also check out <a href="https://github.com/Hyle-org/examples/tree/main/simple-token-sp1">the same example built with SP1</a>.</p>
-<p>For an in-depth understanding of smart contracts, check out our <a href="../../general-doc/smart-contracts/">anatomy of a smart contract</a>.</p>
+<p>For an in-depth understanding of smart contracts, check out the <a href="../../general-doc/smart-contracts/">anatomy of a smart contract</a>.</p>
 <h2 id="example">Example</h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1200,14 +1200,14 @@
 </span></code></pre></div>
 <p>The expected output is <code>📝 Registering new contract simple_token</code>.</p>
 <h3 id="transfer-tokens">Transfer tokens</h3>
-<p>To transfer 2 tokens from <code>faucet</code> to <code>Bob</code>:</p>
+<p>To transfer 2 tokens from the Hylé <code>faucet</code> to <code>Bob</code>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>transfer<span class="w"> </span>faucet.simple_token<span class="w"> </span>bob.simple_token<span class="w"> </span><span class="m">2</span>
 </span></code></pre></div>
 <p>This command will:</p>
 <ol>
-<li>Send a blob transaction to transfer 2 tokens from <code>faucet</code> to <code>bob</code>.</li>
+<li>Send a blob transaction to transfer 2 tokens from <code>faucet</code> to <code>bob</code>. To better understand what a blob transaction is, <a href="../../general-doc/identity/">read more about transactions on Hylé</a>.</li>
 <li>Generate a ZK proof of that transfer.</li>
-<li>Send the proof to the devnet.</li>
+<li>Send the proof to the devnet. (Scroll down to see what that looks like in code.)</li>
 </ol>
 <h3 id="verify-settled-state">Verify settled state</h3>
 <p>Upon reception of the proof, the node will:</p>
@@ -1230,7 +1230,7 @@
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In this example, we do not verify the identity of the person who initiates the transaction. We use <code>.simple_token</code> as a suffix for the "from" and "to" transfer fields: usually, we'd use the identity scheme as the suffix. <strong>More information about identity management will be added to the documentation in January 2025.</strong></p>
+<p>In this example, we do not verify the identity of the person who initiates the transaction. We use <code>.simple_token</code> as a suffix for the "from" and "to" transfer fields. Usually, we'd use the identity scheme as the suffix. <strong>More information about identity management will be added to the documentation in January 2025.</strong></p>
 </div>
 <p>See your contract's state digest at: <code>https://hyleou.hyle.eu/contract/$CONTRACT_NAME</code>.</p>
 <p>See your transaction on Hylé's explorer: <code>https://hyleou.hyle.eu/tx/$TX_HASH</code>.</p>
