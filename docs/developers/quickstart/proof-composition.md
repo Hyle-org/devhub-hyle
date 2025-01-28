@@ -48,6 +48,9 @@ In our example below, we're giving only 10 tokens to `alice.id`: because she can
 
 ## Run the example
 
+!!! warning
+    Our examples work on Hylé v0.7.2. Subsequent versions introduce breaking changes which have not yet been reflected in our examples.
+
 ### Prerequisites
 
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).

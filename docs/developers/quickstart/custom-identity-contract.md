@@ -10,6 +10,9 @@ For a deeper understanding of smart contracts, explore our [identity management 
 
 ## Run the example
 
+!!! warning
+    Our examples work on Hylé v0.7.2. Subsequent versions introduce breaking changes which have not yet been reflected in our examples.
+
 !!! info
     You can jump to [Code Snippets](#code-snippets) for an in-depth look at the contract.
 

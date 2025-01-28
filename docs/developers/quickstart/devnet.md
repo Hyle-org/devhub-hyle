@@ -68,6 +68,8 @@ cargo build
 HYLE_RUN_INDEXER=false cargo run --bin hyle
 ```
 
+To run our examples, please `git checkout tags/v0.7.2`: this is the version they run on.
+
 ## Configuration
 
 You can configure your setup using environment variables or by editing a configuration file.
