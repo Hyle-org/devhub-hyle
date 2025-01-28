@@ -1,9 +1,9 @@
 # Run your local devnet
 
-<!-- Testnet 
-Hylé provides a testnet where you can test your smart contract and help us test our network.-->
-
 Follow the instructions below to start building on Hylé by running a local devnet. (Instructions for a testnet will be added when we launch it.)
+
+!!! warning
+    Our examples work on Hylé v0.7.2: `git checkout tags/v0.7.2`.
 
 ## Recommended: Getting started with Docker
 
@@ -67,6 +67,8 @@ To start a single-node devnet (with consensus disabled), which is useful to buil
 cargo build
 HYLE_RUN_INDEXER=false cargo run --bin hyle
 ```
+
+To run our examples, please `git checkout tags/v0.7.2`: this is the version they run on.
 
 ## Configuration
 
