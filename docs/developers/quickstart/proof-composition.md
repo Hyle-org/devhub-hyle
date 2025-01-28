@@ -1,8 +1,8 @@
 # Proof composition with Ticket App
 
-Hylé's native proof verification allows for proof composition. To understand the concept better, we recommend you [read this blog post](https://blog.hyle.eu/proof-composability-on-hyle/).
+With Hylé's native proof verification, you can use different proving systems in a single operation: we call this proof composition. To understand the concept better, we recommend you [read this blog post](https://blog.hyle.eu/proof-composability-on-hyle/).
 
-This guide walks you through creating your first ticket transfer contract. With it, you will leverage proof composition to make a Ticket App (with its corresponding contract `ticket-app`) and a [simple-token app](./your-first-smart-contract.md) interact.
+This guide walks you through creating a Ticket App, which leverages proof composition and lets people buy a ticket using a [simple-token](./your-first-smart-contract.md).
 
 Find the source code for all contracts here:
 
@@ -11,6 +11,8 @@ Find the source code for all contracts here:
 - [simple-token](https://github.com/Hyle-org/examples/tree/feat/ticket-app/simple-token)
 
 ## How this example works
+
+In this example, `Alice` and `Bob` both want to buy a ticket from Ticket App for 15 `simple-tokens`. Only Bob has enough tokens to complete the transaction.
 
 ### Step 1: Create the blob transaction
 
@@ -30,11 +32,11 @@ During this time, the code of the `ticket-app` contract is executed. During exec
 
 Check out what the [source code](https://github.com/Hyle-org/examples/blob/492501ebe6caad8a0fbe3f286f0f51f0ddca537c/ticket-app/contract/src/lib.rs#L44-L66) looks like.
 
-At this step, `ticket-app` verifies that the transfer blob exists, but cannot verify that Bob has enough tokens in his balance to pay for the ticket. It is already, however, a sufficient condition for `ticket-app`, as the contract won't be settled onchain if the token transfer fails. This check will be performed by Hylé in Step 3.
+At this step, `ticket-app` cannot verify that Bob has enough tokens in his balance to pay for the ticket. But that's not an issue for `ticket-app`: in step 3, if the token transfer fails, the whole operation will fail and the ticket won't be transferred.
 
 ### Step 3: Settlement
 
-Hylé verifies the submitted proofs:
+Once TicketApp has sent the proofs for the previously sequenced blobs, Hylé verifies these proofs:
 
 - identity blob: if this fails, it means `bob.id` has not initiated the transaction.
 - simple-token blob: if this fails, it means `bob.id` did not pay for his ticket.
@@ -44,7 +46,9 @@ If all proofs are valid, the simple-token balance and ticket-app ticket balance 
 
 If any of the proofs fails, the whole transaction fails and neither state is updated: `bob.id`'s token balance does not change and still has no ticket.
 
-In our example below, we're giving only 10 tokens to `alice.id`: because she can't perform the token transfer due to her low balance, the entire transaction fails.
+Because all of the proofs are in a single transaction thanks to proof composition, they are verified separately (with different verifiers, so they don't need to leverage the same proving system), but they will fail or succeed together.
+
+To see proof composition in action in a different setting, you can check out [our Vibe Check demo](https://github.com/Hyle-org/vibe-check), which mixes Cairo and Noir proofs.
 
 ## Run the example
 
@@ -81,15 +85,13 @@ cargo run -- --contract-name id register-identity bob.id pass
 cargo run -- --contract-name id register-identity alice.id pass
 ```
 
-We now have two users on the id contract: Alice and Bob, both of whom use the password `pass`.
-
 Let's verify it quickly with:
 
 ```sh
 cargo run -- --contract-name id verify bob.id pass 0
 ```
 
-0 is a nonce: every time we verify successfully bob's identity, it increments. Now if we want to verify it again, we should use 1 as nonce.
+0 is a nonce: every time we verify successfully bob's identity, it increments. Now if we want to verify it again, we should use 1 as nonce. (We also use « pass » as our default password.)
 
 We now do the same for alice:
 
@@ -97,7 +99,7 @@ We now do the same for alice:
 cargo run -- --contract-name id verify alice.id pass 0
 ```
 
-`bob.id`, which will be used extensively from now on, refers to bob's identity on the simple-identity contract. Check out our [Identity management](../general-doc/identity.md) and [custom identity contract](./custom-identity-contract.md) pages to know more.
+`bob.id` is bob's identity on the simple-identity contract. Check out our [Identity management](../general-doc/identity.md) and [custom identity contract](./custom-identity-contract.md) pages to know more.
 
 ### Simple-token preparation
 
@@ -117,9 +119,9 @@ You just registered a token contract named simple-token with an initial supply o
 
 #### Transfer tokens
 
-Now let's transfer some tokens to our user *bob*.
+Now let's transfer some tokens to our user `bob`.
 
-To send 50 tokens to *bob* and 10 tokens to *alice*, run:
+To send 50 tokens to `bob` and 10 tokens to `alice`, run:
 
 ```bash
 cargo run -- -contract-name simple-token transfer faucet.simple-token bob.id 50
@@ -144,9 +146,11 @@ cargo run -- --contract-name simple-token balance bob.id
 cargo run -- --contract-name simple-token balance alice.id
 ```
 
+You should see that `bob` has a balance of 50 and `alice` has a balance of 10.
+
 ### Using ticket-app
 
-Now that *bob* has some tokens, let's buy him a ticket.
+Now that `bob` has some tokens, let's buy him a ticket.
 
 #### Register ticket-app
 
@@ -156,17 +160,17 @@ Register the ticket app by going to `./ticket-app` folder and running:
 cargo run -- --contract-name ticket-app register simple-token 15
 ```
 
-ticket-app sells a ticket for 15 simple-token.
+ticket-app sells bob a ticket for 15 simple-token.
 
 #### Buy a ticket
 
-Let's buy a ticket for *bob*:
+Let's buy a ticket for `bob`:
 
 ```bash
 cargo run -- --contract-name ticket-app --user bob.id buy-ticket
 ```
 
-Let's try with *alice*:
+Let's try with `alice`:
 
 ```bash
 cargo run -- --contract-name ticket-app --user alice.id buy-ticket
@@ -176,10 +180,12 @@ You will get an error while executing the TicketApp program: `Execution failed !
 
 #### Check ticket and token balance
 
-Check that *bob* has a ticket:
+Check that `bob` has a ticket:
 
 ```bash
 cargo run -- --contract-name ticket-app --user bob.id has-ticket
 ```
 
-You can also check Bob's balance and see he now has 35 tokens.
+You can also check `bob`'s balance and see he now has 35 tokens.
+
+With proof composition, Hylé empowers you to leverage multiple proving systems in a single transaction, making advanced functionality like the Ticket App easier than ever.
