@@ -1184,16 +1184,23 @@
 
 
 <div><h1 id="proof-composition-with-ticket-app">Proof composition with Ticket App</h1>
-<p>With Hylé's native proof verification, you can use different proving systems in a single operation: we call this proof composition. To understand the concept better, we recommend you <a href="https://blog.hyle.eu/proof-composability-on-hyle/">read this blog post</a>.</p>
-<p>This guide walks you through creating a Ticket App, which leverages proof composition and lets people buy a ticket using a <a href="../your-first-smart-contract/">simple-token</a>.</p>
+<p>Hylé enables proof composition, allowing you to use different proving systems in a single operation. This eliminates constraints on provers and significantly boosts interoperability and efficiency. Read <a href="https://blog.hyle.eu/proof-composability-on-hyle/">this introduction to proof composability</a> to understand how this works.</p>
+<p>In this guide, we’ll build a Ticket App that leverages proof composition. Users can buy a ticket using a <a href="../your-first-smart-contract/">simple-token</a>, and Hylé will verify multiple proofs in a single transaction.</p>
 <p>Find the source code for all contracts here:</p>
 <ul>
 <li><a href="https://github.com/Hyle-org/examples/tree/feat/ticket-app/ticket-app">ticket-app</a></li>
 <li><a href="https://github.com/Hyle-org/examples/tree/main/simple-identity">simple-identity</a></li>
 <li><a href="https://github.com/Hyle-org/examples/tree/feat/ticket-app/simple-token">simple-token</a></li>
 </ul>
+<p>Traditional verification systems often require all proofs to be generated using the same proving system. Hylé removes this limitation, allowing:</p>
+<ul>
+<li>Interoperability: use different proof systems within a single transaction.</li>
+<li>Atomicity: either all proofs verify, or none do. This ensures fail-safe execution.</li>
+<li>Efficiency: parallel processing of proofs without requiring a single proving standard.</li>
+</ul>
 <h2 id="how-this-example-works">How this example works</h2>
 <p>In this example, <code>Alice</code> and <code>Bob</code> both want to buy a ticket from Ticket App for 15 <code>simple-tokens</code>. Only Bob has enough tokens to complete the transaction.</p>
+<p>Let’s walk through an example where Bob and Alice want to buy a ticket from Ticket App, which costs <code>15 simple-tokens</code>. Bob has enough balance, Alice does not.</p>
 <h3 id="step-1-create-the-blob-transaction">Step 1: Create the blob transaction</h3>
 <p>The Ticket App backend creates and sends a blob transaction to Hylé, including three blobs:</p>
 <ul>
@@ -1201,27 +1208,26 @@
 <li>a <em>simple-token blob</em> performing a transfer of 15 simple-tokens taken from <code>bob.id</code>'s balance;</li>
 <li>a <em>ticket-app blob</em> sending <code>bob.id</code> a ticket if conditions are met.</li>
 </ul>
-<p>Once the blob is sent, it is sequenced on Hylé, without being processed. <a href="../../general-doc/pipelined-proving/">Read more about pipelined proving.</a></p>
+<p>For now, Hylé sequences this transaction, but it’s not processed yet. <a href="../../general-doc/pipelined-proving/">Read more about pipelined proving.</a></p>
 <h3 id="step-2-prove-the-blobs">Step 2: Prove the blobs</h3>
-<p>The Ticket App backend can now generate ZK proofs of each of the blobs.</p>
+<p>The Ticket App backend now generates ZK proofs of each blob.</p>
 <p>During this time, the code of the <code>ticket-app</code> contract is executed. During execution, the <code>ticket-app</code> smart contract checks that there is a <code>simple-token</code> blob performing a transfer of 15 simple-tokens taken from <code>bob.id</code>'s balance to the <code>ticket-app</code> contract.</p>
+<p>At this step, it cannot yet confirm Bob has enough tokens, but that’s fine: if the token transfer fails in Step 3, the entire transaction fails.</p>
 <p>Check out what the <a href="https://github.com/Hyle-org/examples/blob/492501ebe6caad8a0fbe3f286f0f51f0ddca537c/ticket-app/contract/src/lib.rs#L44-L66">source code</a> looks like.</p>
-<p>At this step, <code>ticket-app</code> cannot verify that Bob has enough tokens in his balance to pay for the ticket. But that's not an issue for <code>ticket-app</code>: in step 3, if the token transfer fails, the whole operation will fail and the ticket won't be transferred.</p>
 <h3 id="step-3-settlement">Step 3: Settlement</h3>
 <p>Once TicketApp has sent the proofs for the previously sequenced blobs, Hylé verifies these proofs:</p>
 <ul>
-<li>identity blob: if this fails, it means <code>bob.id</code> has not initiated the transaction.</li>
-<li>simple-token blob: if this fails, it means <code>bob.id</code> did not pay for his ticket.</li>
-<li>ticket-app blob: if this fails, it means <code>bob.id</code> has not received the ticket.</li>
+<li>identity blob: verifies that <code>bob.id</code> has initiated the transaction.</li>
+<li>simple-token blob: verifies that <code>bob.id</code> paid the correct amount for his ticket.</li>
+<li>ticket-app blob: verifies that <code>bob.id</code> has received the ticket.</li>
 </ul>
 <p>If all proofs are valid, the simple-token balance and ticket-app ticket balance are updated simultaneously at transaction settlement: <code>bob.id</code> sends 15 simple-tokens and gains one ticket.</p>
-<p>If any of the proofs fails, the whole transaction fails and neither state is updated: <code>bob.id</code>'s token balance does not change and still has no ticket.</p>
-<p>Because all of the proofs are in a single transaction thanks to proof composition, they are verified separately (with different verifiers, so they don't need to leverage the same proving system), but they will fail or succeed together.</p>
+<p>If any proof fails, the entire transaction fails. Neither state is updated: <code>bob.id</code>'s token balance does not change and still has no ticket.</p>
 <p>To see proof composition in action in a different setting, you can check out <a href="https://github.com/Hyle-org/vibe-check">our Vibe Check demo</a>, which mixes Cairo and Noir proofs.</p>
 <h2 id="run-the-example">Run the example</h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Our examples work on Hylé v0.7.2. Subsequent versions introduce breaking changes which have not yet been reflected in our examples.</p>
+<p>Our examples work on Hylé v0.7.2. Later versions introduce breaking changes which have not yet been reflected in our examples.</p>
 </div>
 <h3 id="prerequisites">Prerequisites</h3>
 <ul>
