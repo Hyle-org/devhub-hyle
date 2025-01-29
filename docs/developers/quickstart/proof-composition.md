@@ -1,8 +1,8 @@
 # Proof composition with Ticket App
 
-With Hylé's native proof verification, you can use different proving systems in a single operation: we call this proof composition. To understand the concept better, we recommend you [read this blog post](https://blog.hyle.eu/proof-composability-on-hyle/).
+Hylé enables proof composition, allowing you to use different proving systems in a single operation. This eliminates constraints on provers and significantly boosts interoperability and efficiency. Read [this introduction to proof composability](https://blog.hyle.eu/proof-composability-on-hyle/) to understand how this works.
 
-This guide walks you through creating a Ticket App, which leverages proof composition and lets people buy a ticket using a [simple-token](./your-first-smart-contract.md).
+In this guide, we’ll build a Ticket App that leverages proof composition. Users can buy a ticket using a [simple-token](./your-first-smart-contract.md), and Hylé will verify multiple proofs in a single transaction.
 
 Find the source code for all contracts here:
 
@@ -10,9 +10,17 @@ Find the source code for all contracts here:
 - [simple-identity](https://github.com/Hyle-org/examples/tree/main/simple-identity)
 - [simple-token](https://github.com/Hyle-org/examples/tree/feat/ticket-app/simple-token)
 
+Traditional verification systems often require all proofs to be generated using the same proving system. Hylé removes this limitation, allowing:
+
+- Interoperability: use different proof systems within a single transaction.
+- Atomicity: either all proofs verify, or none do. This ensures fail-safe execution.
+- Efficiency: parallel processing of proofs without requiring a single proving standard.
+
 ## How this example works
 
 In this example, `Alice` and `Bob` both want to buy a ticket from Ticket App for 15 `simple-tokens`. Only Bob has enough tokens to complete the transaction.
+
+Let’s walk through an example where Bob and Alice want to buy a ticket from Ticket App, which costs `15 simple-tokens`. Bob has enough balance, Alice does not.
 
 ### Step 1: Create the blob transaction
 
@@ -22,38 +30,36 @@ The Ticket App backend creates and sends a blob transaction to Hylé, including 
 - a *simple-token blob* performing a transfer of 15 simple-tokens taken from `bob.id`'s balance;
 - a *ticket-app blob* sending `bob.id` a ticket if conditions are met.
 
-Once the blob is sent, it is sequenced on Hylé, without being processed. [Read more about pipelined proving.](../general-doc/pipelined-proving.md)
+For now, Hylé sequences this transaction, but it’s not processed yet. [Read more about pipelined proving.](../general-doc/pipelined-proving.md)
 
 ### Step 2: Prove the blobs
 
-The Ticket App backend can now generate ZK proofs of each of the blobs.
+The Ticket App backend now generates ZK proofs of each blob.
 
 During this time, the code of the `ticket-app` contract is executed. During execution, the `ticket-app` smart contract checks that there is a `simple-token` blob performing a transfer of 15 simple-tokens taken from `bob.id`'s balance to the `ticket-app` contract.
 
-Check out what the [source code](https://github.com/Hyle-org/examples/blob/492501ebe6caad8a0fbe3f286f0f51f0ddca537c/ticket-app/contract/src/lib.rs#L44-L66) looks like.
+At this step, it cannot yet confirm Bob has enough tokens, but that’s fine: if the token transfer fails in Step 3, the entire transaction fails.
 
-At this step, `ticket-app` cannot verify that Bob has enough tokens in his balance to pay for the ticket. But that's not an issue for `ticket-app`: in step 3, if the token transfer fails, the whole operation will fail and the ticket won't be transferred.
+Check out what the [source code](https://github.com/Hyle-org/examples/blob/492501ebe6caad8a0fbe3f286f0f51f0ddca537c/ticket-app/contract/src/lib.rs#L44-L66) looks like.
 
 ### Step 3: Settlement
 
 Once TicketApp has sent the proofs for the previously sequenced blobs, Hylé verifies these proofs:
 
-- identity blob: if this fails, it means `bob.id` has not initiated the transaction.
-- simple-token blob: if this fails, it means `bob.id` did not pay for his ticket.
-- ticket-app blob: if this fails, it means `bob.id` has not received the ticket.
+- identity blob: verifies that `bob.id` has initiated the transaction.
+- simple-token blob: verifies that `bob.id` paid the correct amount for his ticket.
+- ticket-app blob: verifies that `bob.id` has received the ticket.
 
 If all proofs are valid, the simple-token balance and ticket-app ticket balance are updated simultaneously at transaction settlement: `bob.id` sends 15 simple-tokens and gains one ticket.
 
-If any of the proofs fails, the whole transaction fails and neither state is updated: `bob.id`'s token balance does not change and still has no ticket.
-
-Because all of the proofs are in a single transaction thanks to proof composition, they are verified separately (with different verifiers, so they don't need to leverage the same proving system), but they will fail or succeed together.
+If any proof fails, the entire transaction fails. Neither state is updated: `bob.id`'s token balance does not change and still has no ticket.
 
 To see proof composition in action in a different setting, you can check out [our Vibe Check demo](https://github.com/Hyle-org/vibe-check), which mixes Cairo and Noir proofs.
 
 ## Run the example
 
 !!! warning
-    Our examples work on Hylé v0.7.2. Subsequent versions introduce breaking changes which have not yet been reflected in our examples.
+    Our examples work on Hylé v0.7.2. Later versions introduce breaking changes which have not yet been reflected in our examples.
 
 ### Prerequisites
 
