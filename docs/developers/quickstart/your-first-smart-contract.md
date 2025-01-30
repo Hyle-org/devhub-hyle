@@ -101,41 +101,6 @@ Find the full annotated code in [our examples repository](https://github.com/Hyl
 
 These code snippets show you what your code could look like when writing your own smart contracts.
 
-#### Setup commands and CLI
-
-Set up commands and CLI. You need a unique `contract_name`: here, we use `"simple_token"`.
-
-```rs
-struct Cli {
-    #[command(subcommand)]
-    command: Commands,
-
-    #[clap(long, short)]
-    reproducible: bool,
-
-    #[arg(long, default_value = "http://localhost:4321")]
-    pub host: String,
-
-    #[arg(long, default_value = "simple_token")]
-    pub contract_name: String,
-}
-
-#[derive(Subcommand)]
-enum Commands {
-    Register {
-        supply: u128,
-    },
-    Transfer {
-        from: String,
-        to: String,
-        amount: u128,
-    },
-    Balance {
-        of: String,
-    },
-}
-```
-
 #### Registering the contract
 
 Set up information about your contract. To register the contract, you'll need:
