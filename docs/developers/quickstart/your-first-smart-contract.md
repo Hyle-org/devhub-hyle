@@ -95,9 +95,11 @@ The full command to run your project in development mode while getting execution
 RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 ```
 
-### Code snippets
+### Annotated code snippets
 
 Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs).
+
+These code snippets show you what your code could look like when writing your own smart contracts.
 
 #### Setup commands and CLI
 
