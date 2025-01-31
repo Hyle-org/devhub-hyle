@@ -89,13 +89,13 @@ All variables can be customized on your single-node instance.
 | HYLE_STORAGE__INTERVAL     | 10                                                   | unused                                                                                                               |
 | HYLE_LOG_FORMAT            | full                                                 | “full” or “json”                                                                                                     |
 | HYLE_REST                  | 127.0.0.1:4321                                       | Host & port for the REST API endpoint.                                                                               |
-| DATA_DIRECTORY             | data_node                                            | Directory name to store node state.                                                                                  |
-| DATABASE_URL               | postgres://postgres:postgres @localhost:5432/postgres| PostgreSQL server address (necessary if you want to use an indexer).                                                 |
-| CONSENSUS__SLOT_DURATION   | 1000                                                 | Duration between blocks.                                                                                             |
-| CONSENSUS__GENESIS_STAKERS | {}                                                   | Keys are all nodes “id”, and values are the stake amount for each one of them. Map of stakers for the genesis block. |
-| P2P__PING_INTERVAL         | 10                                                   | Interval the p2p layer does a ping to check aliveness of other peers.                                                |
-| RUN_INDEXER                | true                                                 | Whether there should be an indexer.                                                                                  |
-| DA_ADDRESS                 | 127.0.0.1:4141                                       | Host & port of the data availability module, which streams historical & new blocks. It might be used by indexers.    |
+| HYLE_DATA_DIRECTORY             | data_node                                            | Directory name to store node state.                                                                                  |
+| HYLE_DATABASE_URL               | postgres://postgres:postgres @localhost:5432/postgres| PostgreSQL server address (necessary if you want to use an indexer).                                                 |
+| HYLE_CONSENSUS__SLOT_DURATION   | 1000                                                 | Duration between blocks.                                                                                             |
+| HYLE_CONSENSUS__GENESIS_STAKERS | {}                                                   | Keys are all nodes “id”, and values are the stake amount for each one of them. Map of stakers for the genesis block. |
+| HYLE_P2P__PING_INTERVAL         | 10                                                   | Interval the p2p layer does a ping to check aliveness of other peers.                                                |
+| HYLE_RUN_INDEXER                | true                                                 | Whether there should be an indexer.                                                                                  |
+| HYLE_DA_ADDRESS                 | 127.0.0.1:4141                                       | Host & port of the data availability module, which streams historical & new blocks. It might be used by indexers.    |
 
 ### Using a configuration file
 
