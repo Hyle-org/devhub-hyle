@@ -2,6 +2,37 @@
 
 Read our [full changelogs on GitHub](https://github.com/Hyle-org/hyle/releases/) or the short versions [in our Telegram group](https://t.me/hyle_org).
 
+## 2025-02-03 − v0.9.0
+
+💥 Breaking changes:
+
+- Added transactions context (block, timestamp, …) to proofs for more flexibility
+
+✨ New features:
+
+- You can now start a node with an indexer and postgres database simply with `cargo run -- --pg`
+- Added an endpoint for contract registration
+
+🚅 Improvements:
+
+- Updated risc0 to 1.2.2
+- Made logging less spammy and more informative (incl. logging timeouts as info)
+- Improved the transaction builder tool in the SDK
+
+🛠️ No longer broken:
+
+- Contract state indexers are now fully saved upon restart
+- Staking contracts now check that there is a `transfer` blob
+- The Rust version enforced in cargo is less restrictive
+
+📚 Documentation:
+
+- Updated [our examples](https://github.com/Hyle-org/examples) so they work with 0.9.0!
+- Added OpenAPI documentation on contract state indexers
+- Added a swagger for the node and its indexer
+
+Quick note: release notes will be published on Fridays instead of Mondays from now on. See you in just a few days!
+
 ## 2025-01-27 − v0.8.0
 
 💥 Breaking changes:
