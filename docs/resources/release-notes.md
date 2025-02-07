@@ -2,6 +2,21 @@
 
 Read our [full changelogs on GitHub](https://github.com/Hyle-org/hyle/releases/) or the short versions [in our Telegram group](https://t.me/hyle_org).
 
+## 2025-02-07 − v0.10.0
+
+💥 Breaking change: we’ve replaced our serialization standard, bincode, with borsh. Encoding BlobData from JS didn’t work properly with bincode: borsh offers better support and opens new possibilities!
+
+✨ New features:
+
+- Introduced an indexer endpoint that adds events to BlobTXs: if your transaction didn’t settle, you can now debug its flow much more easily!
+- Introduced fees in ConsensusProposal. This has no external impact at this time.
+- Added Mempool status event `waiting_dissemination`
+
+🛠️ No longer broken:
+
+- Hyllar Indexer now computes the correct caller in proof composition cases.
+- Fixed a bug where the client couldn’t close the websocket.
+
 ## 2025-02-03 − v0.9.0
 
 💥 Breaking changes:
