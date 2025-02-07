@@ -16,11 +16,16 @@ pip3 install mkdocs-awesome-pages-plugin
 
 And if you run into any issue, install the Material theme for MkDocs:
 
-```pip install mkdocs-material```
+```sh
+pip install mkdocs-material
+```
 
 Also install:
 
-```pip install mkdocs-video```
+```sh
+pip install mkdocs-video
+pip install neoteroi-mkdocs
+```
 
 ## Dev mode
 

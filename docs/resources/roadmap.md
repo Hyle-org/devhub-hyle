@@ -1,15 +1,14 @@
----
-title: Roadmap
----
+# Roadmap
 
-<!-- TODO: Push the team to provide a roadmap. -->
+Stay tuned for updates or ask specific questions [in our Telegram group](https://t.me/hyle_org).
 
-We do not have a public roadmap at this time. Stay tuned for updates or ask specific questions [in our Telegram group](https://t.me/hyle_org).
+## What to expect in 2025
 
-## Testnet
+We will release our **testnet** in Q2 2025. Parallel to this, we will start implementing more QA & tooling solutions, as well as build our discovery team.
 
-We will release our testnet in Q2 2025.
-<!-- What will we be able to do that we currently aren't? -->
+In S2 2025, we will perform audits and rollout apps made by the Discovery team.
+
+## What do to now
 
 While we’re working towards launching the testnet, you can get hands-on right now:
 
