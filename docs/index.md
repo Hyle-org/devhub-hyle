@@ -1,10 +1,10 @@
 ---
-description: Hylé is the lean blockchain that makes building provable apps easy. This is your developer documentation.
+description: Hylé is the new-generation Layer 1 network for the era of unchained applications. This is your developer documentation.
 ---
 
 # Home
 
-[Hylé](https://hyle.eu/) is a lean blockchain that lets you easily take your provable application onchain.
+[Hylé](https://hyle.eu/) is the new-generation Layer 1 network for the era of unchained applications.
 
 !!! note
     This developer portal and the project itself are still evolving. [Join us on Telegram](https://t.me/hyle_org) if you need assistance or wish to provide feedback. Issues and PRs on [this documentation's GitHub repository](https://github.com/Hyle-org/devhub-hyle) are also very welcome!
@@ -14,13 +14,15 @@ description: Hylé is the lean blockchain that makes building provable apps easy
 - Native zero-knowledge proof verification on our sovereign L1: we're fast and lean.
 - No onchain execution or virtual machine needed: only efficient proof verification.
 - Run complex logic off-chain and only submit proofs onchain for maximum scalability.
-- Proof composability: seamlessly combine multiple proofs into single, verifiable transactions.
+- Authenticate effortlessly with any identity provider.
+- Interoperate with other smart contracts like it’s an API call.
 - Pipelined proving: send provable blobs, don't worry about proving times.
+- Unlock Web2 speed with a state-of-the-art consensus protocol for DA & settlement.
 - Choose your proving scheme and your language: we verify all proofs.
 
 ## How Hylé works
 
-Here’s what happens when you use Hylé’s sovereign verification-focused Layer 1:
+Here’s what happens when you use Hylé’s next-generation base layer:
 
 ![Sequence diagram explaining the steps as listed below.](./assets/img/hyle-main-diagram.jpg)
 
