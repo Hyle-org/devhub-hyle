@@ -596,18 +596,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#failed-transactions" class="md-nav__link">
+  <a href="#unprovable-transactions" class="md-nav__link">
     <span class="md-ellipsis">
-      Failed transactions
+      Unprovable transactions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#unprovable-transactions" class="md-nav__link">
+  <a href="#failed-transactions" class="md-nav__link">
     <span class="md-ellipsis">
-      Unprovable transactions
+      Failed transactions
     </span>
   </a>
   
@@ -985,18 +985,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#failed-transactions" class="md-nav__link">
+  <a href="#unprovable-transactions" class="md-nav__link">
     <span class="md-ellipsis">
-      Failed transactions
+      Unprovable transactions
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#unprovable-transactions" class="md-nav__link">
+  <a href="#failed-transactions" class="md-nav__link">
     <span class="md-ellipsis">
-      Unprovable transactions
+      Failed transactions
     </span>
   </a>
   
@@ -1024,9 +1024,9 @@
 <div><h1 id="pipelined-proving">Pipelined proving</h1>
 <h2 id="the-problem-base-state-conflicts">The problem: base state conflicts</h2>
 <p>The Hylé base layer ensures both privacy and scalability by verifying only the state transitions of smart contracts, rather than re-executing them. This approach reduces computational overhead but introduces a critical issue for provable applications: base state conflicts.</p>
-<p>Proof generation can be slow, especially on less powerful devices. An app with a lot of usage will see conflicting operations, where multiple transactions reference the same base state, waiting for the previous state change to be settled.</p>
+<p>An app with a lot of usage will see conflicting operations, where multiple transactions reference the same base state, waiting for the previous state change to be settled.</p>
 <p>The time spent generating proofs delays transaction finality. Proofs require accurate timestamps, but users can't predict when their transaction will be sequenced.</p>
-<p>This causes <strong>parallelization limits</strong>: multiple transactions may reference the same base state, creating invalid proofs when one is settled before the other.</p>
+<p>This causes parallelization limits: multiple transactions may reference the same base state, creating invalid proofs when one is settled before the other.</p>
 <p>We solve these issues by splitting sequencing from settlement; an operation includes two transactions.</p>
 <h2 id="blob-and-proof-transactions">Blob- and proof-transactions</h2>
 <p>To address base state conflicts, Hylé splits operations into two transactions:</p>
@@ -1038,14 +1038,14 @@
 <p><strong>Settlement</strong> happens when the corresponding proof transaction is verified and added to a block. During settlement, unproven blob transactions linked to the contract are executed in their sequencing order.</p>
 <p><img alt="A graph with Alice, Bob, and the contract state. On the top line, there's a starting state. Alice sends her TX A blob, which updates the token's virtual state; a bit later, Bob sends a TX B blob which is sequenced. The updated state will now be used as the start state for the TX B proof, while Alice can prepare to send her TX A proof. This updates the token's state for TX A, then for TX B." src="../../../assets/img/pipelined-proving.jpg"></p>
 <p>This separation solves all three issues shown above. The blob transaction immediately reserves a place in execution order, allowing proof generation to run without blocking other transactions. The sequencing provides an immutable timestamp, so provers know which base state to use when generating proofs and can parallelize actions.</p>
-<h2 id="failed-transactions">Failed transactions</h2>
-<p>If the app's front-end doesn't submit a proof within this window, or if the submitted proof is invalid, the transaction is included in the block, marked as Rejected, and is ignored for state updates.</p>
-<p>The inclusion of the unproven transaction in the block ensures transparency, as the transaction data remains accessible.</p>
-<p><img alt="A graph with Alice, Bob, and the contract state, as above. Alice's proof transaction fails, meaning that the state of the contract removed the virtual states for Alice and Bob's transactions and creates a new virtual state with only Bob's transaction: this is what Bob can prove now to update the final asset." src="../../../assets/img/pipelined-proving-fail.jpg"></p>
 <h2 id="unprovable-transactions">Unprovable transactions</h2>
 <p>Even with pipelined proving, sequenced transactions that never settle can slow down the network.</p>
 <p>To remove this risk, Hylé enforces <strong>timeouts</strong> for blob transactions.</p>
-<p>Each blob transaction is assigned a specific time limit for the associated proof to be submitted and verified. Subsequent transactions can proceed without waiting indefinitely.</p></div>
+<p>Each blob transaction is assigned a specific time limit for the associated proof to be submitted and verified. Subsequent transactions can proceed without waiting indefinitely.</p>
+<h2 id="failed-transactions">Failed transactions</h2>
+<p>If the proof isn't submitted before timeout, or if the submitted proof is invalid, the transaction is included in the block, marked as Rejected, and is ignored for state updates.</p>
+<p>The inclusion of the unproven transaction in the block ensures transparency, as the transaction data remains accessible.</p>
+<p><img alt="A graph with Alice, Bob, and the contract state, as above. Alice's proof transaction fails, meaning that the state of the contract removed the virtual states for Alice and Bob's transactions and creates a new virtual state with only Bob's transaction: this is what Bob can prove now to update the final asset." src="../../../assets/img/pipelined-proving-fail.jpg"></p></div>
 
 
 
