@@ -2,15 +2,13 @@
 
 ## The problem: base state conflicts
 
-Hylé ensures both privacy and scalability by verifying only the state transitions of smart contracts. This approach reduces computational overhead but introduces a critical issue for provable applications: base state conflicts.
+The Hylé base layer ensures both privacy and scalability by verifying only the state transitions of smart contracts. This approach reduces computational overhead but introduces a critical issue for provable applications: base state conflicts.
 
 Proof generation can be slow, especially on less powerful devices. An app with a lot of usage will see conflicting operations, where multiple transactions reference the same base state, waiting for the previous state change to be settled.
 
-Since proof generation lags behind sequencing, users submitting transactions cannot be certain which state their operation will build upon, causing:
+The time spent generating proofs delays transaction finality. Proofs require accurate timestamps, but users can't predict when their transaction will be sequenced.
 
-- **Proof generation latency**: the time spent generating proofs delays transaction finality.
-- **Timekeeping uncertainty**: proofs require accurate timestamps, but users can't predict when their transaction will be sequenced.
-- **Parallelization limits**: multiple transactions may reference the same base state, creating invalid proofs when one is settled before the other.
+This causes **parallelization limits**: multiple transactions may reference the same base state, creating invalid proofs when one is settled before the other.
 
 We solve these issues by splitting sequencing from settlement; an operation includes two transactions.
 
@@ -33,9 +31,9 @@ This separation solves all three issues shown above. The blob transaction immedi
 
 Even with pipelined proving, the delay in proof generation and submission can delay transaction finality and create uncertainty when determining the initial state of subsequent transactions.
 
-To remove this bottleneck, Hylé enforces timeouts for blob transactions.
+To remove this bottleneck, Hylé enforces **timeouts** for blob transactions.
 
-Each blob transaction is assigned a specific time limit for the associated proof to be submitted and verified. If the proof is not successfully provided within this window, the transaction is rejected: it is ignored for state updates but remains recorded in the block.
+Each blob transaction is assigned a specific time limit for the associated proof to be submitted and verified. If the app's front-end doesn't submit a proof within this window, the transaction is included in the block, marked as Rejected, and is ignored for state updates.
 
 The inclusion of the unproven transaction in the block ensures transparency, as the transaction data remains accessible.
 
