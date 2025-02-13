@@ -1,8 +1,8 @@
 nav:
     - index.md
     - smart-contracts.md
-    - proof-generation.md
     - transaction.md
+    - proof-generation.md
     - identity.md
     - pipelined-proving.md
     - proof-composability.md
