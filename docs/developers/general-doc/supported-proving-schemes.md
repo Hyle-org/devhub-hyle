@@ -6,7 +6,7 @@ We support as many as we can, giving you the flexibility to choose the most suit
 
 ## Supported proving schemes
 
-As of December 2024, Hylé currently supports the following zero-knowledge proving schemes:
+Hylé currently supports the following zero-knowledge proving schemes:
 
 - [Noir](https://noir-lang.org/docs/)
 - [Risc0](https://risc0.com/docs/)
