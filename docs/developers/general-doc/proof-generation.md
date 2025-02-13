@@ -6,27 +6,21 @@ With Hylé, generate your proof wherever you prefer, then send it for native onc
 
 If you're a complete beginner with zero-knowledge proofs, [our no-code introduction](https://blog.hyle.eu/a-simple-introduction-to-zero-knowledge-proofs-zkp/) might help.
 
-## How to use zero-knowledge proofs
+## Generating zero-knowledge proofs for Hylé
 
-There are [many ZK languages](https://github.com/microbecode/zk-languages). Hylé aims to verify [as many as possible](./supported-proving-schemes.md).
+### Choose what you prove
+
+Each application defines its proof logic. This means that each application developer can decide **what information** gets proven: for Hylé, proof settlement is a Success or a Failure. You define what that means for your app.
+
+Each app developer also defines what the **public and private inputs** of their app will be: what information should remain private and what should go onchain?
+
+### How to generate a zero-knowledge proof
+
+There are [many ZK languages](https://github.com/microbecode/zk-languages). Hylé aims to verify as many as possible.
 
 DSLs, like Circom, are specific languages that usually compile down to a specific circuit. They're good, but they're complex and may have a high learning curve.
 
 zkVMs prove the correct execution of arbitrary code. They allow you to build ZK applications in a certain language without having to build a circuit around it. There are two main types of zkVMs: Cairo and RISC-V. You can benchmark your Rust code and find the best zkVM for your needs with [the any-zkvm template](https://github.com/MatteoMer/any-zkvm).
-
-We currently support RISC–V-based zkVMs [Risc0](https://risc0.com/docs/) and [SP1](https://docs.succinct.xyz/) and will support more types, including Cairo-based zkVMs and DSLs, in the future.
-
-## Generating a proof
-
-### What you prove
-
-Each application defines its proof logic. This means that each application developer can decide:
-
-- **What information** gets proven: for Hylé, proof settlement is a Success or a Failure. You define what that means for your app.
-- What the **public and private inputs** should be. Decide what information should remain private and what should go onchain.
-- **Proving scheme**: whichever zero-knowledge proof type you prefer is the one you’ll use. We verify [several proving schemes](./supported-proving-schemes.md) natively and aim to add more soon.
-
-### Where to generate your proof
 
 Each application can generate its proof in whichever place fits best.
 
@@ -35,6 +29,29 @@ Each application can generate its proof in whichever place fits best.
 | Client-side (browser, mobile app) | Maximum privacy<br>Data ownership                                              | Requires robust client-side hardware                    | Personal data that should remain private            |
 | External prover or proving market | No client-side costs or constraints<br>Offload proof generation to the experts | Requires trusting the external prover with your inputs  | Resource-intensive and not privacy-sensitive proofs |
 | By the application itself         | Simple UX<br>No dependencies<br>Code can be private                            | Higher infrastructure needs<br>Potential liveness issue | Confidential or centralized applications            |
+
+### Our supported proving schemes
+
+Proving schemes are the cryptographic protocols that make zero-knowledge proofs usable. We support as many as we can, giving you the flexibility to choose the most suitable protocol for your specific use case.
+
+Hylé currently supports the following zero-knowledge proving schemes:
+
+- [Noir](https://noir-lang.org/docs/)
+- [Risc0](https://risc0.com/docs/)
+- [SP1](https://docs.succinct.xyz/docs/introduction)
+
+We also verify these natively, without the need for a ZK proof.
+
+- sha3_256
+- BLST signatures
+
+We will support more types, including Cairo-based zkVMs and DSLs, in the future, and plan to support all major proving schemes eventually. The next proving schemes we're aiming to support are [Cairo](https://www.cairo-lang.org/docs/) via Stwo and [Groth16](https://github.com/arkworks-rs/groth16).
+
+### Our proof generation partners
+
+If you choose to work with an external prover or proving market, you can choose from one of our partners in that area and benefit from a better Hylé integration.
+
+We recommend checking out [Electron](https://electron.dev/), [Fermah](https://www.fermah.xyz/), [Kakarot](https://www.kakarot.org/), [Marlin](https://www.marlin.org/), [Nexus](https://nexus.xyz/), [Nodekit](https://www.nodekit.xyz/), [ZEROBASE](http://zerobase.pro/), or [zkCloud](https://zkcloud.com/).
 
 ## Submitting a proof to Hylé
 
