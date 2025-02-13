@@ -1,9 +1,11 @@
 nav:
     - index.md
     - smart-contracts.md
+    - proof-generation.md
     - supported-proving-schemes.md
     - transaction.md
     - identity.md
     - pipelined-proving.md
+    - proof-composability.md
     - hyle-vs-vintage-blockchains.md
     - ...
