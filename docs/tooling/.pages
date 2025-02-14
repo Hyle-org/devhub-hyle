@@ -1,6 +1,5 @@
 nav:
     - index.md
-    - quickstart
-    - general-doc
     - explorer.md
+    - sdk.md
     - ...

@@ -6,7 +6,7 @@ On Hylé, any smart contract can serve as proof of identity. This flexibility al
 
 This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/main/simple-identity), which mirrors our [simple token transfer example](./your-first-smart-contract.md).
 
-For a deeper understanding of smart contracts, explore our [identity management documentation](../general-doc/identity.md).
+For a deeper understanding of smart contracts, explore our [identity management documentation](../concepts/identity.md).
 
 ## Run the example
 
@@ -96,7 +96,7 @@ RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs).
 
 !!! info
-    Learn more on the [Transactions on Hylé](../general-doc/transaction.md) page.
+    Learn more on the [Transactions on Hylé](../concepts/transaction.md) page.
 
 ### Registering the contract
 
@@ -122,7 +122,7 @@ let blob_tx = BlobTransaction {
 };
 ```
 
-You can compare these to the fields described in the [Transactions on Hylé](../general-doc/transaction.md) page.
+You can compare these to the fields described in the [Transactions on Hylé](../concepts/transaction.md) page.
 
 #### Prove the registration
 
@@ -130,7 +130,7 @@ You can compare these to the fields described in the [Transactions on Hylé](../
 
 (The backend is called "host" in Risc0.)
 
-Hylé transactions are settled in two steps, following [pipelined proving principles](../general-doc/pipelined-proving.md). After sending the blob, your transaction is sequenced, but not settled.
+Hylé transactions are settled in two steps, following [pipelined proving principles](../concepts/pipelined-proving.md). After sending the blob, your transaction is sequenced, but not settled.
 
 For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:
 
@@ -192,7 +192,7 @@ And the contract then commits the new state:
     sdk::guest::commit(input, next_state, res);
 ```
 
-The `guest::commit` function includes the `HyleOutput` as explained in [Transactions on Hylé](../general-doc/transaction.md).
+The `guest::commit` function includes the `HyleOutput` as explained in [Transactions on Hylé](../concepts/transaction.md).
 
 ### Verify an identity
 

@@ -1,6 +1,4 @@
----
-title: Quickstart
----
+# :checkered_flag: Quickstart
 
 Welcome to the **Quickstart** guide for Hylé.
 
