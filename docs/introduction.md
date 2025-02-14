@@ -1,6 +1,6 @@
 # Introduction to Hylé
 
-[Hylé](https://hyle.eu/) is the new-generation Layer 1 network for the era of unchained applications.
+[Hylé](https://hyle.eu/) is the new-generation base layer for the era of unchained applications.
 
 ## Why choose Hylé
 

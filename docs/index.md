@@ -1,10 +1,10 @@
 ---
-description: Hylé is the new-generation Layer 1 network for the era of unchained applications. This is your developer documentation.
+description: Hylé is the new-generation base layer for the era of unchained applications. This is your developer documentation.
 ---
 
 # Home
 
-[Hylé](https://hyle.eu/) is the new-generation Layer 1 network for the era of unchained applications.
+[Hylé](https://hyle.eu/) is the new-generation base layer for the era of unchained applications.
 
 !!! note
     This developer portal and the project itself are still evolving. [Join us on Telegram](https://t.me/hyle_org) if you need assistance or wish to provide feedback. Issues and PRs on [this documentation's GitHub repository](https://github.com/Hyle-org/devhub-hyle) are also very welcome!
