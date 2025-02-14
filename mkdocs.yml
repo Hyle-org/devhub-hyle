@@ -1,4 +1,5 @@
 site_name: Hylé Developer Hub
+site_url: https://docs.hyle.eu
 theme:
   name: material
   logo: assets/logo.png
