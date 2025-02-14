@@ -2,6 +2,30 @@
 
 Read our [full changelogs on GitHub](https://github.com/Hyle-org/hyle/releases/) or the short versions [in our Telegram group](https://t.me/hyle_org).
 
+## 2025-02-14 − v0.11.0
+
+✨ New features:
+
+- Added Mempool status event `data proposal created`
+- When a parent transaction times out, the timeout window for the child transactions is reset
+
+🚅 Improvements:
+
+- Bumped risc0 from 1.2.2 to 1.2.3 and sp1 from 4.0.1 to 4.1.1
+- Improved several logs, making them more specific or adding context to them, especially on error logs
+- Improved storage to make it more compact
+
+🛠️ No longer broken:
+
+- The Mempool status event `wait dissemination` now works for the first data proposal (genesis)
+- The indexer client now gets blobs’ endpoints
+- Fixed the input encoding for the bonsai runner
+
+📚 Documentation:
+
+- Revamped homepage and in-docs navigation
+- Made some improvements for clarity to [our pipelined proving concept page](https://docs.hyle.eu/developers/general-doc/pipelined-proving/)
+
 ## 2025-02-07 − v0.10.0
 
 💥 Breaking change: we’ve replaced our serialization standard, bincode, with borsh. Encoding BlobData from JS didn’t work properly with bincode: borsh offers better support and opens new possibilities!
