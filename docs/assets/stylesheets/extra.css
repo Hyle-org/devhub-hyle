@@ -13,3 +13,9 @@
     max-width: 1200px;
     margin: auto;
 }
+
+/* Previous and next buttons */
+.md-footer__link {
+    background-color: #e0482e;
+    color: white;
+}
