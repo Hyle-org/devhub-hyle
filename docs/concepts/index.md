@@ -1,6 +1,4 @@
----
-title: General documentation
----
+# :bulb: Concepts
 
 Welcome to the developer documentation for Hylé.
 
