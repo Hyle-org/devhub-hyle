@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://docs.hyle.eu/resources/release-notes/">
+      
       
         <link rel="prev" href="../roadmap/">
       
@@ -53,6 +55,32 @@
       
 
     
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Release notes - Hylé Developer Hub" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://docs.hyle.eu/assets/images/social/resources/release-notes.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://docs.hyle.eu/resources/release-notes/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Release notes - Hylé Developer Hub" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://docs.hyle.eu/assets/images/social/resources/release-notes.png" >
+      
     
     
   </head>
@@ -920,6 +948,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#2025-02-14-v0110" class="md-nav__link">
+    <span class="md-ellipsis">
+      2025-02-14 − v0.11.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2025-02-07-v0100" class="md-nav__link">
     <span class="md-ellipsis">
       2025-02-07 − v0.10.0
@@ -1060,6 +1097,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#2025-02-14-v0110" class="md-nav__link">
+    <span class="md-ellipsis">
+      2025-02-14 − v0.11.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2025-02-07-v0100" class="md-nav__link">
     <span class="md-ellipsis">
       2025-02-07 − v0.10.0
@@ -1134,6 +1180,30 @@
 
 <div><h1 id="release-notes">Release notes</h1>
 <p>Read our <a href="https://github.com/Hyle-org/hyle/releases/">full changelogs on GitHub</a> or the short versions <a href="https://t.me/hyle_org">in our Telegram group</a>.</p>
+<h2 id="2025-02-14-v0110">2025-02-14 − v0.11.0</h2>
+<p>✨ New features:</p>
+<ul>
+<li>Added Mempool status event <code>data proposal created</code></li>
+<li>When a parent transaction times out, the timeout window for the child transactions is reset</li>
+</ul>
+<p>🚅 Improvements:</p>
+<ul>
+<li>Bumped risc0 from 1.2.2 to 1.2.3 and sp1 from 4.0.1 to 4.1.1</li>
+<li>Improved several logs, making them more specific or adding context to them, especially on error logs</li>
+<li>Improved storage to make it more compact</li>
+</ul>
+<p>🛠️ No longer broken:</p>
+<ul>
+<li>The Mempool status event <code>wait dissemination</code> now works for the first data proposal (genesis)</li>
+<li>The indexer client now gets blobs’ endpoints</li>
+<li>Fixed the input encoding for the bonsai runner</li>
+</ul>
+<p>📚 Documentation:</p>
+<ul>
+<li>Revamped homepage and in-docs navigation</li>
+<li>Made some improvements for clarity to <a href="../../concepts/pipelined-proving/">our pipelined proving concept page</a></li>
+<li>Added a page on <a href="../../concepts/proof-generation/">proof generation and submission</a></li>
+</ul>
 <h2 id="2025-02-07-v0100">2025-02-07 − v0.10.0</h2>
 <p>💥 Breaking change: we’ve replaced our serialization standard, bincode, with borsh. Encoding BlobData from JS didn’t work properly with bincode: borsh offers better support and opens new possibilities!</p>
 <p>✨ New features:</p>
@@ -1256,6 +1326,9 @@
 
 
 
+
+  
+  
 
 
 
