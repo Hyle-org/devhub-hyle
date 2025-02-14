@@ -39,7 +39,7 @@ plugins:
   - mkdocs-video
   - social:
       cards_layout_options:
-        background_color: "#E0482E"
+        color: "#E0482E"
 
 copyright: Copyright &copy; 2024 Hylé
 
