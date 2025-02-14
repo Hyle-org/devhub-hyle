@@ -11,10 +11,13 @@ Hylé-specific documentation on industry concepts:
 - [How to generate and submit a proof on Hylé](./proof-generation.md)
 - [Identity management on Hylé](./identity.md)
 
+<<<<<<< HEAD
 Hylé-specific concepts:
 
 - [Pipelined proving](./pipelined-proving.md)
 - [Proof composability](./proof-composability.md)
 - [Main differences between Hylé and traditional blockchains](./hyle-vs-vintage-blockchains.md)
 
+=======
+>>>>>>> 09776c4 (navigation updates (#59))
 You can also refer to [our Getting Started step-by-step guide](..//quickstart/index.md).
