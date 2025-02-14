@@ -2,7 +2,7 @@
 
 To understand the concept of proof composability on Hylé, we recommend you [read this blog post](https://blog.hyle.eu/proof-composability-on-hyle/).
 
-To understand proof composition in practice, check out [our quickstart example](../quickstart/proof-composition.md).
+To understand proof composition in practice, check out [our quickstart example](..//quickstart/proof-composition.md).
 
 ## What is proof composition?
 

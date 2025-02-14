@@ -1,5 +1,7 @@
 nav:
     - index.md
-    - developers
+    - quickstart
+    - concepts
+    - tooling
     - resources
     

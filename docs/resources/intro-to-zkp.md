@@ -14,7 +14,7 @@ There are three moments when ZK is the right tool for you:
 
 ## How to use zero-knowledge proofs
 
-There are [many ZK languages](https://github.com/microbecode/zk-languages). Hylé aims to verify [as many as possible](../developers/general-doc/supported-proving-schemes.md).
+There are [many ZK languages](https://github.com/microbecode/zk-languages). Hylé aims to verify [as many as possible](../concepts/supported-proving-schemes.md).
 
 DSLs, like Circom, are specific languages that usually compile down to a specific circuit. They're good, but they're complex and may have a high learning curve.
 

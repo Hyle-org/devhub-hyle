@@ -105,8 +105,8 @@ Read release notes [for v0.7.1](https://github.com/Hyle-org/hyle/releases/tag/v0
 
 📚 Documentation:
 
-- [Transactions on Hylé](https://docs.hyle.eu/developers/general-doc/transaction/)
-- [Identity management](https://docs.hyle.eu/developers/general-doc/identity/)
+- [Transactions on Hylé](https://docs.hyle.eu//concepts/transaction/)
+- [Identity management](https://docs.hyle.eu//concepts/identity/)
 
 Read the [full changelog on GitHub](https://github.com/Hyle-org/hyle/releases/tag/v0.7.0) and receive future release notes [in our Telegram group](https://t.me/hyle_org).
 
@@ -127,6 +127,6 @@ Read the [full changelog on GitHub](https://github.com/Hyle-org/hyle/releases/ta
 
 📚 Documentation:
 
-- Rewrote [our Quickstart guide](https://docs.hyle.eu/developers/quickstart/).
+- Rewrote [our Quickstart guide](https://docs.hyle.eu//quickstart/).
 
 Read the [full changelog on GitHub](https://github.com/Hyle-org/hyle/releases/tag/v0.6.0) and receive future release notes [in our Telegram group](https://t.me/hyle_org).

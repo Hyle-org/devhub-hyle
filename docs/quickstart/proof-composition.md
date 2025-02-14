@@ -30,7 +30,7 @@ The Ticket App backend creates and sends a blob transaction to Hylé, including 
 - a *simple-token blob* performing a transfer of 15 simple-tokens taken from `bob.id`'s balance;
 - a *ticket-app blob* sending `bob.id` a ticket if conditions are met.
 
-For now, Hylé sequences this transaction, but it’s not processed yet. [Read more about pipelined proving.](../general-doc/pipelined-proving.md)
+For now, Hylé sequences this transaction, but it’s not processed yet. [Read more about pipelined proving.](../concepts/pipelined-proving.md)
 
 ### Step 2: Prove the blobs
 
@@ -105,7 +105,7 @@ We now do the same for alice:
 cargo run -- --contract-name id verify alice.id pass 0
 ```
 
-`bob.id` is bob's identity on the simple-identity contract. Check out our [Identity management](../general-doc/identity.md) and [custom identity contract](./custom-identity-contract.md) pages to know more.
+`bob.id` is bob's identity on the simple-identity contract. Check out our [Identity management](../concepts/identity.md) and [custom identity contract](./custom-identity-contract.md) pages to know more.
 
 ### Simple-token preparation
 

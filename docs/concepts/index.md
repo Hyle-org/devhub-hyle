@@ -14,4 +14,4 @@ This section includes general documentation topics, such as:
 - [What a transaction looks like on Hylé](./transaction.md)
 - Our [supported proving schemes](./supported-proving-schemes.md)
 
-You can also refer to [our Getting Started step-by-step guide](../quickstart/index.md).
+You can also refer to [our Getting Started step-by-step guide](..//quickstart/index.md).
