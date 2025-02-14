@@ -16,4 +16,4 @@ While we’re working, you can get hands-on right now:
 
 ## Proving schemes
 
-Check the [list of the proving schemes](../concepts/supported-proving-schemes.md) we currently support and the ones we'll work on next.
+Check the [list of the proving schemes](../concepts/proof-generation.md#our-supported-proving-schemes) we currently support and the ones we'll work on next.
