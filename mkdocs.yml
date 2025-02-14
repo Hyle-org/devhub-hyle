@@ -36,6 +36,7 @@ plugins:
   - search
   - awesome-pages
   - mkdocs-video
+  - social
 
 copyright: Copyright &copy; 2024 Hylé
 
