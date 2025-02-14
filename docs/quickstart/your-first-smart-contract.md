@@ -4,7 +4,7 @@ This guide will walk you through creating and deploying your first token transfe
 
 You can also check out [the same example built with SP1](https://github.com/Hyle-org/examples/tree/main/simple-token-sp1).
 
-For an in-depth understanding of smart contracts, check out the [anatomy of a smart contract](../general-doc/smart-contracts.md).
+For an in-depth understanding of smart contracts, check out the [anatomy of a smart contract](../concepts/smart-contracts.md).
 
 ## Example
 
@@ -40,7 +40,7 @@ cargo run -- transfer faucet.simple_token bob.simple_token 2
 
 This command will:
 
-1. Send a blob transaction to transfer 2 tokens from `faucet` to `bob`. To better understand what a blob transaction is, [read more about transactions on Hylé](../general-doc/identity.md).
+1. Send a blob transaction to transfer 2 tokens from `faucet` to `bob`. To better understand what a blob transaction is, [read more about transactions on Hylé](../concepts/identity.md).
 2. Generate a ZK proof of that transfer.
 3. Send the proof to the devnet. (Scroll down to see what that looks like in code.)
 
@@ -176,7 +176,7 @@ println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
 
 #### Prove the transaction
 
-Hylé transactions are settled in two steps, following [pipelined proving principles](../general-doc/pipelined-proving.md). After this step, your transaction is sequenced, but not settled.
+Hylé transactions are settled in two steps, following [pipelined proving principles](../concepts/pipelined-proving.md). After this step, your transaction is sequenced, but not settled.
 
 For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:
 

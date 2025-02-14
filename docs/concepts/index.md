@@ -1,6 +1,4 @@
----
-title: General documentation
----
+# :bulb: Concepts
 
 Welcome to the developer documentation for Hylé.
 
@@ -19,4 +17,4 @@ Hylé-specific concepts:
 - [Proof composability](./proof-composability.md)
 - [Main differences between Hylé and traditional blockchains](./hyle-vs-vintage-blockchains.md)
 
-You can also refer to [our Getting Started step-by-step guide](../quickstart/index.md).
+You can also refer to [our Getting Started step-by-step guide](..//quickstart/index.md).
