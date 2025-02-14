@@ -9,6 +9,7 @@
 }
 
 /* Maximum space for text block */
-.md-grid {
-    max-width: 95%;
+.md-content {
+    max-width: 1200px;
+    margin: auto;
 }
