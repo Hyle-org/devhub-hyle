@@ -37,7 +37,9 @@ plugins:
   - search
   - awesome-pages
   - mkdocs-video
-  - social
+  - social:
+      cards_layout_options:
+        background_color: "#E0482E"
 
 copyright: Copyright &copy; 2024 Hylé
 
