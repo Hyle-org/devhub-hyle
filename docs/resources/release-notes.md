@@ -24,7 +24,8 @@ Read our [full changelogs on GitHub](https://github.com/Hyle-org/hyle/releases/)
 📚 Documentation:
 
 - Revamped homepage and in-docs navigation
-- Made some improvements for clarity to [our pipelined proving concept page](https://docs.hyle.eu/developers/general-doc/pipelined-proving/)
+- Made some improvements for clarity to [our pipelined proving concept page](../concepts/pipelined-proving.md)
+- Added a page on [proof generation and submission](../concepts/proof-generation.md)
 
 ## 2025-02-07 − v0.10.0
 
