@@ -38,12 +38,10 @@ plugins:
   - awesome-pages
   - mkdocs-video
   - social:
-      layers:
-        - background:
-          color: "#4051b5"
-        - typography:
-          color: white
-          overflow: shrink
+      cards_layout_options:
+        background_color: "#4051b5"
+        font_family: Roboto
+        color: "#DF6445"
 
 copyright: Copyright &copy; 2024 Hylé
 
