@@ -3,22 +3,29 @@
 !!! note
     To understand proof composition in practice, check out [our quickstart example](..//quickstart/proof-composition.md).
 
-## Why proof composition?
-
-### Cross-contract calls with proof composition
+## The problem: clunky interactions
 
 In zero-knowledge systems, interactions between different proofs introduce complexity.
 
-In most zero-knowledge systems, cross-contract interactions require recursive proof verification:
+Cross-contract interactions require recursive proof verification, where Program A verifies proof of the correct execution of Program B. This is inefficient and creates overhead at the proof generation and verification stages.
 
-- Program A verifies proof of correct execution of Program B;
-- Program B verifies proof of correct execution of Program A.
+The challenge becomes even greater when you start involving proofs that use different schemes.
+
+Most zero-knowledge systems force you to write your proofs in a unified scheme. By doing that, you lose all the advantages of specialization.
+
+Different proving schemes meet different needs. [Some proof systems are best](./proof-generation.md) for client-side proving; others allow developers to use general-purpose programming languages.
+
+We solve this issue by allowing for native proof composition between contracts and proving schemes. Now, proofs interact seamlessly, and each one can be written in the language that works best.
+
+## The solution: proof composition
+
+### Cross-contract calls with proof composition
 
 **Proof composability** means that Hylé enables these interactions while keeping each proof independent; **proof composition** is the action enabled by composability.
 
-Hylé gets rid of recursion by allowing Program A to specify: « this only applies if Program B is valid ». At settlement, both proofs are included in the same proof transaction. Hylé verifies them together, and the entire operation fails if any proof fails.
+Hylé gets rid of recursion by allowing Program A to specify: «This only applies if all blobs in this operation are valid ». At settlement, both proofs are included in the same proof transaction. Hylé verifies them together, and the entire operation fails if any proof fails.
 
-This solution entails an easier developer experience, as well as lower gas costs and a shorter proving time.
+This solution improves developer experience, lowers gas costs, and shortens proving time.
 
 ### Proofs using different schemes
 
@@ -32,13 +39,13 @@ Proof composition is useful if:
 
 - Your operation involves several apps.
 - Your operation involves several proofs written in different languages.
-- Your operation involves actions that are very different and have different optimal languages: you can now afford to use them.
+- Your operation involves very different actions and has different optimal languages: you can now afford to use them.
 
-It is not useful if your operation's entire logic is in one single proof.
+It has no effect if your operation's entire logic is in one single proof.
 
 ## Writing a cross-contract call
 
-Your program doesn't need to directly verify another program’s execution. Instead, it references the external contract using a structured claim, such as:
+Your program doesn't need to verify another program’s execution directly. Instead, it references the external contract using a structured claim, such as:
 
 ```md
 MoneyApp::transfer(10, A, B) == true
@@ -58,11 +65,11 @@ In our quickstart example, [the source code looks like this](https://github.com/
 
 ## How Hylé settles multiple proofs
 
-![](../assets/img/proof-composition-flow.jpg)
+![A ticket purchase process with four key steps. First, a user requests a ticket through the TicketApp, which in turn requests a transaction blob from MoneyApp. The blob includes the transfer details and is sent back to TicketApp for verification. Second, the TicketApp composes a transaction by combining its own blob and the MoneyApp blob, detailing the operation's validity. Third, the composed transaction is sent to Hylé for verification, where the state transition and assertions are confirmed. Finally, after verification, the user pays $10 and receives their ticket.](../assets/img/proof-composition-flow.jpg)
 
 When you submit multiple proofs to Hylé, proof generation can be parallelized.
 
-Proof verification is asynchronous thanks to [pipelined proving](./pipelined-proving.md). Proving times do not compound since proofs do not depend on each other, so proof generation can be parallelized.
+Thanks to [pipelined proving](./pipelined-proving.md), proof verification is asynchronous. Proving times do not compound since proofs do not depend on each other, allowing proof generation to be parallelized.
 
 As soon as one proof is ready, it can be verified on Hylé, even if the other proofs aren't ready yet.
 
