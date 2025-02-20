@@ -2,6 +2,8 @@
 title: Roadmap
 ---
 
+![Our roadmap, which includes two private testnets and a public testnet.](../assets/img/roadmap.png)
+
 ## Testnet
 
 We are on our way to launch a **private testnet in Q2 2025**, which will be followed by a public testnet.
@@ -13,8 +15,6 @@ While we’re working, you can get hands-on right now:
 - [Explore our public devnet or spin up your own instance](..//quickstart/devnet.md) to start building today!
 - [Read our release notes for the devnet](./release-notes.md).
 - If you are an individual, join us [for ODBoost weeks](https://app.onlydust.com/p/hyl).
-
-![Our roadmap, which includes two private testnets and a public testnet.](../assets/img/roadmap.jpg)
 
 ## Proving schemes
 
