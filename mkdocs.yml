@@ -40,7 +40,7 @@ plugins:
   - social:
       enabled: true
       cards_layout_options:
-        background_color: "#4051b5"
+        background_color: "#1E2933"
         font_family: Roboto
         color: "#DF6445"
 
