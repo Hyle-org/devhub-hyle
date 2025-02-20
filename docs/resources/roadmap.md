@@ -14,6 +14,8 @@ While we’re working, you can get hands-on right now:
 - [Read our release notes for the devnet](./release-notes.md).
 - If you are an individual, join us [for ODBoost weeks](https://app.onlydust.com/p/hyl).
 
+![Our roadmap, which includes two private testnets and a public testnet.](../assets/img/roadmap.jpg)
+
 ## Proving schemes
 
 Check the [list of the proving schemes](../concepts/proof-generation.md#our-supported-proving-schemes) we currently support and the ones we'll work on next.
