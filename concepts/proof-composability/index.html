@@ -18,11 +18,11 @@
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
     
     
       
-        <title>Proof composition and cross-contract calls - Hylé Developer Hub</title>
+        <title>Proof composition - Hylé Developer Hub</title>
       
     
     
@@ -59,7 +59,7 @@
       
         <meta  property="og:type"  content="website" >
       
-        <meta  property="og:title"  content="Proof composition and cross-contract calls - Hylé Developer Hub" >
+        <meta  property="og:title"  content="Proof composition - Hylé Developer Hub" >
       
         <meta  property="og:description"  content="None" >
       
@@ -75,7 +75,7 @@
       
         <meta  name="twitter:card"  content="summary_large_image" >
       
-        <meta  name="twitter:title"  content="Proof composition and cross-contract calls - Hylé Developer Hub" >
+        <meta  name="twitter:title"  content="Proof composition - Hylé Developer Hub" >
       
         <meta  name="twitter:description"  content="None" >
       
@@ -100,7 +100,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#proof-composition-and-cross-contract-calls" class="md-skip">
+        <a href="#proof-composition" class="md-skip">
           Skip to content
         </a>
       
@@ -135,7 +135,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Proof composition and cross-contract calls
+              Proof composition
             
           </span>
         </div>
@@ -655,7 +655,7 @@
           
   
   <span class="md-ellipsis">
-    Proof composition and cross-contract calls
+    Proof composition
     
   </span>
   
@@ -667,7 +667,7 @@
         
   
   <span class="md-ellipsis">
-    Proof composition and cross-contract calls
+    Proof composition
     
   </span>
   
@@ -690,11 +690,53 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-proof-composition" class="md-nav__link">
+  <a href="#the-problem-clunky-interactions" class="md-nav__link">
     <span class="md-ellipsis">
-      What is proof composition?
+      The problem: clunky interactions
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-solution-proof-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      The solution: proof composition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The solution: proof composition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-contract-calls-with-proof-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-contract calls with proof composition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proofs-using-different-schemes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proofs using different schemes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-proof-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use proof composition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1061,11 +1103,53 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-proof-composition" class="md-nav__link">
+  <a href="#the-problem-clunky-interactions" class="md-nav__link">
     <span class="md-ellipsis">
-      What is proof composition?
+      The problem: clunky interactions
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-solution-proof-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      The solution: proof composition
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The solution: proof composition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-contract-calls-with-proof-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-contract calls with proof composition
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proofs-using-different-schemes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proofs using different schemes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-proof-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to use proof composition
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1106,36 +1190,54 @@
   
 
 
-<div><h1 id="proof-composition-and-cross-contract-calls">Proof composition and cross-contract calls</h1>
-<p>To understand the concept of proof composability on Hylé, we recommend you <a href="https://blog.hyle.eu/proof-composability-on-hyle/">read this blog post</a>.</p>
+<div><h1 id="proof-composition">Proof composition</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>To understand proof composition in practice, check out <a href="../../quickstart/proof-composition/">our quickstart example</a>.</p>
-<h2 id="what-is-proof-composition">What is proof composition?</h2>
-<p><strong>Proof composition</strong> happens when two contracts depend on each other. <strong>Proof composability</strong> is the fact that Hylé allows you to manage this situation while keeping their proofs independent.</p>
-<p>Most zero-knowledge systems deal with cross-contract calls by enforcing recursive proof verification:</p>
+</div>
+<h2 id="the-problem-clunky-interactions">The problem: clunky interactions</h2>
+<p>In zero-knowledge systems, interactions between different proofs introduce complexity.</p>
+<p>Cross-contract interactions require recursive proof verification, where Program A verifies proof of the correct execution of Program B. This is inefficient and creates overhead at the proof generation and verification stages.</p>
+<p>The challenge becomes even greater when you start involving proofs that use different schemes.</p>
+<p>Most zero-knowledge systems force you to write your proofs in a unified scheme. By doing that, you lose all the advantages of specialization.</p>
+<p>Different proving schemes meet different needs. <a href="../proof-generation/">Some proof systems are best</a> for client-side proving; others allow developers to use general-purpose programming languages.</p>
+<p>We solve this issue by allowing for native proof composition between contracts and proving schemes. Now, proofs interact seamlessly, and each one can be written in the language that works best.</p>
+<h2 id="the-solution-proof-composition">The solution: proof composition</h2>
+<h3 id="cross-contract-calls-with-proof-composition">Cross-contract calls with proof composition</h3>
+<p><strong>Proof composability</strong> means that Hylé enables these interactions while keeping each proof independent; <strong>proof composition</strong> is the action enabled by composability.</p>
+<p>Hylé gets rid of recursion by allowing Program A to specify: «This only applies if all blobs in this operation are valid ». At settlement, both proofs are included in the same proof transaction. Hylé verifies them together, and the entire operation fails if any proof fails.</p>
+<p>This solution improves developer experience, lowers gas costs, and shortens proving time.</p>
+<h3 id="proofs-using-different-schemes">Proofs using different schemes</h3>
+<p>Since proofs in Hylé remain independent, you can batch multiple proofs within a single transaction, each using its optimal proving scheme.</p>
+<p>Proofs are verified separately, eliminating the need to compromise for compatibility. This also enables cross-contract calls between applications using different proof systems.</p>
+<h3 id="when-to-use-proof-composition">When to use proof composition</h3>
+<p>Proof composition is useful if:</p>
 <ul>
-<li>Program A verifies proof of correct execution of Program B;</li>
-<li>Program B verifies proof of correct execution of Program A.</li>
+<li>Your operation involves several apps.</li>
+<li>Your operation involves several proofs written in different languages.</li>
+<li>Your operation involves very different actions and has different optimal languages: you can now afford to use them.</li>
 </ul>
-<p>Hylé allows you to write Program A and add an input that says « this only applies if Program B is valid ». At settlement, with both contracts in the same proof transaction, it will verify both programs and the whole operation will fail if one proof fails to verify.</p>
+<p>It has no effect if your operation's entire logic is in one single proof.</p>
 <h2 id="writing-a-cross-contract-call">Writing a cross-contract call</h2>
-<p>Your program does not need to verify the execution of another program directly.</p>
-<p>Instead, it uses a representation of the called contracts, which looks like this: <code>MoneyApp::transfer(10, A, B) == true</code> or <code>TicketApp::get(A) == ticket</code>.</p>
-<p>This representation consists of:</p>
+<p>Your program doesn't need to verify another program’s execution directly. Instead, it references the external contract using a structured claim, such as:</p>
+<div class="language-md highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>MoneyApp::transfer(10, A, B) == true
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>TicketApp::get(A) == ticket
+</span></code></pre></div>
+<p><img alt="An example of a blob with two transactions. For App A, the function called is get for a parameter A, and leads to a ticket. For App B, the function is a transfer of 10 from A to B and has the result true." src="../../assets/img/proof-composition-blob.jpg"></p>
+<p>Each claim consists of:</p>
 <ul>
-<li>the app</li>
-<li>the function</li>
-<li>the function's parameters</li>
-<li>a claim on the results.</li>
+<li>The application (MoneyApp, TicketApp)</li>
+<li>The function being called (transfer, get)</li>
+<li>The parameters used</li>
+<li>A result assertion (== true, == ticket)</li>
 </ul>
 <p>In our quickstart example, <a href="https://github.com/Hyle-org/examples/blob/492501ebe6caad8a0fbe3f286f0f51f0ddca537c/ticket-app/contract/src/lib.rs#L44-L66">the source code looks like this</a>.</p>
 <h2 id="how-hyle-settles-multiple-proofs">How Hylé settles multiple proofs</h2>
-<p>When you submit multiple proofs to Hylé:</p>
-<ul>
-<li>Proof generation can be parallelized: proving times do not compound since proofs do not depend on each other.</li>
-<li>Proof verification is asynchronous thanks to <a href="../pipelined-proving/">pipelined proving</a>. As soon as one proof is ready, it can be verified on Hylé, even if the other proofs aren't ready yet.</li>
-<li>Once all proofs related to the transaction are verified, the transaction is settled on Hylé. If one proof verification fails, then the entire transaction fails.</li>
-</ul>
-<p>Read more <a href="https://blog.hyle.eu/proof-composability-on-hyle/">on our blog</a>.</p></div>
+<p><img alt="A ticket purchase process with four key steps. First, a user requests a ticket through the TicketApp, which in turn requests a transaction blob from MoneyApp. The blob includes the transfer details and is sent back to TicketApp for verification. Second, the TicketApp composes a transaction by combining its own blob and the MoneyApp blob, detailing the operation's validity. Third, the composed transaction is sent to Hylé for verification, where the state transition and assertions are confirmed. Finally, after verification, the user pays $10 and receives their ticket." src="../../assets/img/proof-composition-flow.jpg"></p>
+<p>When you submit multiple proofs to Hylé, proof generation can be parallelized.</p>
+<p>Thanks to <a href="../pipelined-proving/">pipelined proving</a>, proof verification is asynchronous. Proving times do not compound since proofs do not depend on each other, allowing proof generation to be parallelized.</p>
+<p>As soon as one proof is ready, it can be verified on Hylé, even if the other proofs aren't ready yet.</p>
+<p>Once all proofs related to the transaction are verified, the transaction is settled on Hylé. If one proof verification fails, then the entire transaction fails. If a proof times out, the transaction fails when the timeout occurs.</p></div>
 
 
 
