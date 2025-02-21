@@ -6,12 +6,40 @@ This section includes general documentation topics. You can also refer to [our G
 
 ## Hylé-specific docs on industry concepts
 
+
 <div class="grid cards" markdown>
 
-- :material-lightbulb: [Smart contracts](./smart-contracts.md)
-- :material-lightbulb: [Transactions](./transaction.md)
-- :material-lightbulb: [Proving](./proof-generation.md)
-- :material-lightbulb: [Identity](./identity.md)
+-   :material-lightbulb:{ .lg .middle } __Smart contracts__
+
+    ---
+
+    Most smart contract information stays off-chain.
+
+    [:octicons-arrow-right-24: Read more](./smart-contracts.md)
+
+-   :material-lightbulb:{ .lg .middle } __Transactions__
+
+    ---
+
+    Understand blob transactions and proof transactions.
+
+    [:octicons-arrow-right-24: Read more](./transaction.md)
+
+-   :material-lightbulb:{ .lg .middle } __Proof generation__
+
+    ---
+
+    Learn how to prove your blobs for Hylé.
+
+    [:octicons-arrow-right-24: Read more](./proof-generation.md)
+
+-   :material-lightbulb:{ .lg .middle } __Identity__
+
+    ---
+
+    Any smart contract can be an identity on Hylé.
+
+    [:octicons-arrow-right-24: Read more](./proof-generation.md)
 
 </div>
 
@@ -41,6 +69,12 @@ This section includes general documentation topics. You can also refer to [our G
 
 <div class="grid cards" markdown>
 
-- :material-lightbulb: [Hylé vs. vintage blockchains](./hyle-vs-vintage-blockchains.md)
+-   :material-lightbulb:{ .lg .middle } __Hylé vs. vintage blockchains__
+
+    ---
+
+    Learn the main differences between Hylé and traditional blockchains.
+
+    [:octicons-arrow-right-24: Read more](./proof-composability.md)
 
 </div>
