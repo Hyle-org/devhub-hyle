@@ -4,9 +4,14 @@ title: Find us
 
 ## Useful links
 
-- [Rust node](http://github.com/hyle-org/hyle)
-- [Hyle.eu](https://hyle.eu)
-- [Hylé blog](https://blog.hyle.eu)
+<div class="grid cards" markdown>
+
+- :fontawesome-solid-circle-nodes: [Rust node](http://github.com/hyle-org/hyle)
+- :material-hexagon-multiple-outline: [Example contracts](http://github.com/hyle-org/examples)
+- :material-home: [Website](https://hyle.eu)
+- :material-rss: [Hylé blog](https://blog.hyle.eu)
+
+</div>
 
 ## Contact us
 
