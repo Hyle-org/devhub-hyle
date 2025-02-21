@@ -6,23 +6,58 @@ description: Hylé is the new-generation base layer for the era of unchained app
 
 [Hylé](https://hyle.eu/) is the new-generation base layer for the era of unchained applications.
 
-!!! note
-    This developer portal and the project itself are still evolving. [Join us on Telegram](https://t.me/hyle_org) if you need assistance or wish to provide feedback. Issues and PRs on [this documentation's GitHub repository](https://github.com/Hyle-org/devhub-hyle) are also very welcome!
+## Navigation
 
-## Sections
+<div class="grid cards" markdown>
 
-- [Introduction to Hylé](./introduction.md)
-- [Quickstart](./quickstart/index.md)
-- [Concepts](./concepts/index.md)
-- [Tooling](./tooling/index.md)
-- [Resources](./resources/index.md)
+-   :material-clock-fast:{ .lg .middle } __Introduction__
 
-## Links
+    ---
 
-- [Rust node](http://github.com/hyle-org/hyle)
-- [Example contracts](http://github.com/hyle-org/examples)
-- [Hyle.eu](https://hyle.eu)
-- [Hylé blog](https://blog.hyle.eu)
+    A quick overview of Hylé, the base layer for unchained apps.
+
+    [:octicons-arrow-right-24: Introduction](./introduction.md)
+
+-   :simple-startpage:{ .lg .middle } __Quickstart__
+
+    ---
+
+    Get started with Hylé in just a few minutes with a step-by-step annotated quickstart.
+
+    [:octicons-arrow-right-24: Quickstart](./quickstart/index.md)
+
+-   :fontawesome-solid-earth-europe:{ .lg .middle } __Concepts__
+
+    ---
+
+    Hylé-specific concepts and Hylé's spin on industry classics explained in detail.
+
+    [:octicons-arrow-right-24: Concepts](./concepts/index.md)
+
+-   :material-tools:{ .lg .middle } __Tooling__
+
+    ---
+
+    Hylé tooling to improve your building experience.
+
+    [:octicons-arrow-right-24: Tooling](./tooling/index.md)
+
+</div>
+
+[Reach out on Telegram](https://t.me/hyle_org) or [open an issue](https://github.com/Hyle-org/devhub-hyle) if you need assistance or wish to provide feedback on the documentation: we're always looking to improve.
+
+## Useful links
+
+<div class="grid cards" markdown>
+
+- :fontawesome-solid-circle-nodes: [Rust node](http://github.com/hyle-org/hyle)
+- :material-hexagon-multiple-outline: [Example contracts](http://github.com/hyle-org/examples)
+- :material-home: [Website](https://hyle.eu)
+- :material-rss: [Hylé blog](https://blog.hyle.eu)
+
+</div>
+
+## Let's talk!
 
 Reach out to the team for more information:
 
