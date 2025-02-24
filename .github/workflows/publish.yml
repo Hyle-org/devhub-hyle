@@ -40,7 +40,8 @@ jobs:
           pip install mkdocs-awesome-pages-plugin
           pip install mkdocs mkdocs-material
           pip install mkdocs-video
-          pip install "mkdocs-material[imaging]"
+          pip install "mkdocs-material[imaging]
+          pip install neoteroi-mkdocs"
 
       - name: Setup git user 
         run: |
