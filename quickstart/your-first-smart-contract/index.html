@@ -517,16 +517,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#detailed-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      Detailed information
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Detailed information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#development-mode" class="md-nav__link">
     <span class="md-ellipsis">
       Development mode
@@ -534,8 +524,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#annotated-code-snippets" class="md-nav__link">
     <span class="md-ellipsis">
       Annotated code snippets
@@ -552,7 +542,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Registering the contract">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#create-blob-transaction" class="md-nav__link">
@@ -1266,16 +1257,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#detailed-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      Detailed information
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Detailed information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#development-mode" class="md-nav__link">
     <span class="md-ellipsis">
       Development mode
@@ -1283,8 +1264,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#annotated-code-snippets" class="md-nav__link">
     <span class="md-ellipsis">
       Annotated code snippets
@@ -1301,7 +1282,8 @@
     </span>
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Registering the contract">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#create-blob-transaction" class="md-nav__link">
@@ -1352,36 +1334,36 @@
 
 
 <div><h1 id="your-first-smart-contract">Your first smart contract</h1>
-<p>This guide will walk you through creating and deploying your first token transfer contract using Hylé's tools and infrastructure. We'll use <a href="https://github.com/Hyle-org/examples/tree/main/simple-token">our sample token transfer example</a> as the basis for this tutorial.</p>
-<p>You can also check out <a href="https://github.com/Hyle-org/examples/tree/main/simple-token-sp1">the same example built with SP1</a>.</p>
-<p>For an in-depth understanding of smart contracts, check out the <a href="../../concepts/smart-contracts/">anatomy of a smart contract</a>.</p>
+<p>This guide will walk you through creating and deploying your first token transfer contract using Hylé's tools and infrastructure. We'll use <a href="https://github.com/Hyle-org/examples/tree/main/simple-token">our simple-token transfer example</a> as the basis for this tutorial.</p>
+<p>For an alternative implementation, check out <a href="https://github.com/Hyle-org/examples/tree/main/simple-token-sp1">the same example built with SP1</a>.</p>
+<p>If you’re new to smart contracts on Hylé, read the <a href="../../concepts/smart-contracts/">anatomy of a smart contract</a>.</p>
 <h2 id="example">Example</h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Our examples work on Hylé v0.7.2. Subsequent versions introduce breaking changes which have not yet been reflected in our examples.</p>
+<p>Our examples work on Hylé v0.11.1. Later versions may introduce breaking changes that are not yet reflected in our examples.</p>
 </div>
 <h3 id="prerequisites">Prerequisites</h3>
 <ul>
 <li><a href="https://www.rust-lang.org/tools/install">Install Rust</a> (you'll need <code>rustup</code> and Cargo).</li>
 <li>Install openssl-dev (e.g. <code>apt install openssl-dev</code> or <code>cargo add openssl</code>).</li>
 <li>For our example, <a href="https://dev.risczero.com/api/zkvm/install">install RISC Zero</a>.</li>
-<li><a href="../devnet/">Start a single-node devnet</a>. We recommend using <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> with <code>-e RISC0_DEV_MODE=1</code> for faster iterations during development.</li>
+<li><a href="../devnet/">Run a single-node devnet</a>. We recommend using <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> with <code>-e RISC0_DEV_MODE=1</code> for faster iterations.</li>
 </ul>
 <h2 id="quickstart">Quickstart</h2>
 <h3 id="build-and-register-the-contract">Build and register the contract</h3>
-<p>To build all methods and register the smart contract on the local node <a href="https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs">from the source</a>, from the cloned Examples folder, run:</p>
+<p>To build all methods and register the smart contract <a href="https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs">from the source</a>, navigate to your cloned Examples folder and run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>register<span class="w"> </span><span class="m">1000</span>
 </span></code></pre></div>
 <p>The expected output is <code>📝 Registering new contract simple_token</code>.</p>
 <h3 id="transfer-tokens">Transfer tokens</h3>
-<p>To transfer 2 tokens from the Hylé <code>faucet</code> to <code>Bob</code>:</p>
+<p>Transfer 2 tokens from the Hylé <code>faucet</code> to <code>Bob</code>:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>transfer<span class="w"> </span>faucet.simple_token<span class="w"> </span>bob.simple_token<span class="w"> </span><span class="m">2</span>
 </span></code></pre></div>
-<p>This command will:</p>
+<p>This command:</p>
 <ol>
-<li>Send a blob transaction to transfer 2 tokens from <code>faucet</code> to <code>bob</code>. To better understand what a blob transaction is, <a href="../../concepts/identity/">read more about transactions on Hylé</a>.</li>
-<li>Generate a ZK proof of that transfer.</li>
-<li>Send the proof to the devnet. (Scroll down to see what that looks like in code.)</li>
+<li>Sends a blob transaction to transfer 2 tokens from <code>faucet</code> to <code>bob</code>. To better understand what a blob transaction is, <a href="../../concepts/transaction/">read more about transactions on Hylé</a>.</li>
+<li>Generates a ZK proof for the transfer.</li>
+<li>Sends the proof to the devnet for verification. (Scroll down to see what that looks like in code.)</li>
 </ol>
 <h3 id="verify-settled-state">Verify settled state</h3>
 <p>Upon reception of the proof, the node will:</p>
@@ -1390,11 +1372,11 @@
 <li>Settle the blob transaction</li>
 <li>Update the contract's state</li>
 </ol>
-<p>The node's logs will display:</p>
+<p>Expected log output:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>INFO<span class="w"> </span>hyle::data_availability::node_state::verifiers:<span class="w"> </span>✅<span class="w"> </span>Risc0<span class="w"> </span>proof<span class="w"> </span>verified.
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>INFO<span class="w"> </span>hyle::data_availability::node_state::verifiers:<span class="w"> </span>🔎<span class="w"> </span>Program<span class="w"> </span>outputs:<span class="w"> </span>Transferred<span class="w"> </span><span class="m">2</span><span class="w"> </span>to<span class="w"> </span>bob.simple_token
 </span></code></pre></div>
-<p>And on the following slot:</p>
+<p>On the following slot:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>INFO<span class="w"> </span>hyle::data_availability::node_state:<span class="w"> </span>Settle<span class="w"> </span>tx<span class="w"> </span>TxHash<span class="o">(</span><span class="s2">"[..]"</span><span class="o">)</span>
 </span></code></pre></div>
 <h4 id="check-onchain-balance">Check onchain balance</h4>
@@ -1404,21 +1386,20 @@
 </span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In this example, we do not verify the identity of the person who initiates the transaction. We use <code>.simple_token</code> as a suffix for the "from" and "to" transfer fields. Usually, we'd use the identity scheme as the suffix. <strong>More information about identity management will be added to the documentation in January 2025.</strong></p>
+<p>In this example, we do not verify the identity of the person who initiates the transaction. We use <code>.simple_token</code> as a suffix for the "from" and "to" transfer fields, but the correct identity scheme should be used in production.</p>
 </div>
 <p>See your contract's state digest at: <code>https://hyleou.hyle.eu/contract/$CONTRACT_NAME</code>.</p>
 <p>See your transaction on Hylé's explorer: <code>https://hyleou.hyle.eu/tx/$TX_HASH</code>.</p>
-<h2 id="detailed-information">Detailed information</h2>
-<h3 id="development-mode">Development mode</h3>
-<p>We recommend activating <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> during your early development phase for faster iteration upon code changes with <code>-e RISC0_DEV_MODE=1</code>.</p>
-<p>You may also want to get insights into the execution statistics of your project: add the environment variable <code>RUST_LOG="[executor]=info"</code> before running your project.</p>
-<p>The full command to run your project in development mode while getting execution statistics is:</p>
+<h2 id="development-mode">Development mode</h2>
+<p>For faster iteration during development, enable <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a>: <code>-e RISC0_DEV_MODE=1</code>.</p>
+<p>To get execution statistics, set: <code>RUST_LOG="[executor]=info"</code> as an environment variable.</p>
+<p>To run your project in development mode with logs:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">RUST_LOG</span><span class="o">=</span><span class="s2">"[executor]=info"</span><span class="w"> </span><span class="nv">RISC0_DEV_MODE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>cargo<span class="w"> </span>run
 </span></code></pre></div>
-<h3 id="annotated-code-snippets">Annotated code snippets</h3>
+<h2 id="annotated-code-snippets">Annotated code snippets</h2>
 <p>Find the full annotated code in <a href="https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs">our examples repository</a>.</p>
-<p>These code snippets show you what your code could look like when writing your own smart contracts.</p>
-<h4 id="registering-the-contract">Registering the contract</h4>
+<p>Below are key snippets explaining contract registration, blob transactions, and proofs.</p>
+<h3 id="registering-the-contract">Registering the contract</h3>
 <p>Set up information about your contract. To register the contract, you'll need:</p>
 <ul>
 <li><code>owner</code>: we put "examples" as the <code>owner</code>, but you can put anything you like. This field is currently not leveraged; it will be in future versions.</li>

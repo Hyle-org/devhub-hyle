@@ -497,7 +497,7 @@
           <li class="md-nav__item">
   <a href="#register-an-account-sign-up" class="md-nav__link">
     <span class="md-ellipsis">
-      Register an account / Sign up
+      Register an account (sign up)
     </span>
   </a>
   
@@ -575,18 +575,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#on-the-backend-side" class="md-nav__link">
+  <a href="#on-the-backend-host-side" class="md-nav__link">
     <span class="md-ellipsis">
-      On the backend side
+      On the backend (host) side
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#on-the-contract-side" class="md-nav__link">
+  <a href="#on-the-contract-guest-side" class="md-nav__link">
     <span class="md-ellipsis">
-      On the contract side
+      On the contract (guest) side
     </span>
   </a>
   
@@ -1236,7 +1236,7 @@
           <li class="md-nav__item">
   <a href="#register-an-account-sign-up" class="md-nav__link">
     <span class="md-ellipsis">
-      Register an account / Sign up
+      Register an account (sign up)
     </span>
   </a>
   
@@ -1314,18 +1314,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#on-the-backend-side" class="md-nav__link">
+  <a href="#on-the-backend-host-side" class="md-nav__link">
     <span class="md-ellipsis">
-      On the backend side
+      On the backend (host) side
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#on-the-contract-side" class="md-nav__link">
+  <a href="#on-the-contract-guest-side" class="md-nav__link">
     <span class="md-ellipsis">
-      On the contract side
+      On the contract (guest) side
     </span>
   </a>
   
@@ -1377,17 +1377,17 @@
 
 <div><h1 id="using-a-custom-identity-contract">Using a custom identity contract</h1>
 <h2 id="when-to-use-identity-contracts-on-hyle">When to use identity contracts on Hylé</h2>
-<p>On Hylé, any smart contract can serve as proof of identity. This flexibility allows you to register your preferred identity source as a smart contract for account identification. Hylé also ships <a href="https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity">a native <code>hydentity</code> contract</a> for simplicity.</p>
+<p>On Hylé, <strong>any smart contract can be a proof of identity</strong>. This flexibility enables you to register your preferred identity source as a smart contract for account identification. ;If you don't want to use a custom identity source, Hylé ships <a href="https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity">a native <code>hydentity</code> contract</a>.</p>
 <p>This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use <a href="https://github.com/Hyle-org/examples/tree/main/simple-identity">our simple identity example</a>, which mirrors our <a href="../your-first-smart-contract/">simple token transfer example</a>.</p>
-<p>For a deeper understanding of smart contracts, explore our <a href="../../concepts/identity/">identity management documentation</a>.</p>
+<p>If you’re new to identity management on Hylé, read the <a href="../../concepts/identity/">identity management concept page</a>.</p>
 <h2 id="run-the-example">Run the example</h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Our examples work on Hylé v0.7.2. Subsequent versions introduce breaking changes which have not yet been reflected in our examples.</p>
+<p>Our examples work on Hylé v0.11.1. Later versions may introduce breaking changes which have not yet been reflected in our examples.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>You can jump to <a href="#code-snippets">Code Snippets</a> for an in-depth look at the contract.</p>
+<p>Jump to <a href="#code-snippets">Code Snippets</a> for an in-depth look at the contract.</p>
 </div>
 <h3 id="prerequisites">Prerequisites</h3>
 <ul>
@@ -1397,15 +1397,15 @@
 <li><a href="../devnet/">Start a single-node devnet</a>. We recommend using <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> with <code>-e RISC0_DEV_MODE=1</code> for faster iterations during development.</li>
 </ul>
 <h3 id="build-and-register-the-identity-contract">Build and register the identity contract</h3>
-<p>To build all methods and register the smart contract on the local node <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs">from the source</a>, from the cloned Examples folder, run:</p>
+<p>To build all methods and register the smart contract on the local node <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs">from the source</a>, navigate to your cloned Examples folder and run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>register-contract
 </span></code></pre></div>
 <p>The expected output is <code>📝 Registering new contract simple_identity</code>.</p>
-<h3 id="register-an-account-sign-up">Register an account / Sign up</h3>
+<h3 id="register-an-account-sign-up">Register an account (sign up)</h3>
 <p>To register an account with a username (<code>alice</code>) and password (<code>abc123</code>), execute:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>register-identity<span class="w"> </span>alice.simple_identity<span class="w"> </span>abc123
 </span></code></pre></div>
-<p>The node's logs will display:</p>
+<p>Expected log output:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>INFO<span class="w"> </span>hyle::data_availability::node_state::verifiers:<span class="w"> </span>✅<span class="w"> </span>Risc0<span class="w"> </span>proof<span class="w"> </span>verified.
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>INFO<span class="w"> </span>hyle::data_availability::node_state::verifiers:<span class="w"> </span>🔎<span class="w"> </span>Program<span class="w"> </span>outputs:<span class="w"> </span>Successfully<span class="w"> </span>registered<span class="w"> </span>identity<span class="w"> </span><span class="k">for</span><span class="w"> </span>account:<span class="w"> </span>alice.simple_identity
 </span></code></pre></div>
@@ -1413,11 +1413,11 @@
 <p>To verify <code>alice</code>'s identity:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>verify-identity<span class="w"> </span>alice.simple_identity<span class="w"> </span>abc123<span class="w"> </span><span class="m">0</span>
 </span></code></pre></div>
-<p>This command will:</p>
+<p>This command:</p>
 <ol>
-<li>Send a blob transaction to verify <code>alice</code>'s identity.</li>
-<li>Generate a ZK proof of that identity. It will only be valid once, thus the inclusion of a nonce.</li>
-<li>Send the proof to the devnet.</li>
+<li>Sends a blob transaction to verify <code>alice</code>'s identity.</li>
+<li>Generates a ZK proof of that identity. It will only be valid once, thus the inclusion of a nonce.</li>
+<li>Sends the proof to the devnet.</li>
 </ol>
 <p>Upon reception of the proof, the node will:</p>
 <ol>
@@ -1425,12 +1425,10 @@
 <li>Settle the blob transaction.</li>
 <li>Update the contract's state.</li>
 </ol>
-<p>The node's logs will display:</p>
+<p>Expected log output:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>INFO<span class="w"> </span>hyle::data_availability::node_state::verifiers:<span class="w"> </span>✅<span class="w"> </span>Risc0<span class="w"> </span>proof<span class="w"> </span>verified.
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>INFO<span class="w"> </span>hyle::data_availability::node_state::verifiers:<span class="w"> </span>🔎<span class="w"> </span>Program<span class="w"> </span>outputs:<span class="w"> </span>Identity<span class="w"> </span>verified<span class="w"> </span><span class="k">for</span><span class="w"> </span>account:<span class="w"> </span>alice.simple_identity
 </span></code></pre></div>
-<p>See your contract's state digest at: <code>https://hyleou.hyle.eu/contract/$CONTRACT_NAME</code>.</p>
-<p>See your transaction on Hylé's explorer: <code>https://hyleou.hyle.eu/tx/$TX_HASH</code>.</p>
 <h2 id="development-mode">Development mode</h2>
 <p>We recommend activating <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> during your early development phase for faster iteration upon code changes with <code>-e RISC0_DEV_MODE=1</code>.</p>
 <p>You may also want to get insights into the execution statistics of your project: add the environment variable <code>RUST_LOG="[executor]=info"</code> before running your project.</p>
@@ -1439,10 +1437,6 @@
 </span></code></pre></div>
 <h2 id="code-snippets">Code snippets</h2>
 <p>Find the full annotated code in <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs">our examples repository</a>.</p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Learn more on the <a href="../../concepts/transaction/">Transactions on Hylé</a> page.</p>
-</div>
 <h3 id="registering-the-contract">Registering the contract</h3>
 <p>This part is the same as for <a href="../your-first-smart-contract/">Your first smart contract</a>.</p>
 <h3 id="register-an-identity">Register an identity</h3>
@@ -1462,18 +1456,21 @@
 </span></code></pre></div>
 <p>You can compare these to the fields described in the <a href="../../concepts/transaction/">Transactions on Hylé</a> page.</p>
 <h4 id="prove-the-registration">Prove the registration</h4>
-<h5 id="on-the-backend-side">On the backend side</h5>
-<p>(The backend is called "host" in Risc0.)</p>
-<p>Hylé transactions are settled in two steps, following <a href="../../concepts/pipelined-proving/">pipelined proving principles</a>. After sending the blob, your transaction is sequenced, but not settled.</p>
-<p>For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:</p>
+<h5 id="on-the-backend-host-side">On the backend (host) side</h5>
+<p>Hylé transactions follow a two-step settlement process based on <a href="../../concepts/pipelined-proving/">pipelined proving</a> principles:</p>
+<ol>
+<li>Sending the blob transaction: The transaction is sequenced but not yet settled.</li>
+<li>Proving the transaction: The transaction is settled after a proof is generated.</li>
+</ol>
+<p>To generate the proof, we build the contract input, specifying:</p>
 <ul>
-<li>the initial state</li>
-<li>the identity of the transaction initiator</li>
-<li>the transaction hash, which can be found in the explorer after sequencing</li>
-<li>information about the blobs.</li>
+<li>initial state</li>
+<li>identity of the transaction initiator</li>
+<li>transaction hash (found in the explorer after sequencing)</li>
+<li>blob information</li>
 <li>The password as a private input for proof generation in <code>private_blob</code></li>
 <li><code>blobs</code>: full list of blobs in the transaction (must match the blob transaction)</li>
-<li><code>index</code>: each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.</li>
+<li><code>index</code>: each blob must be proven separately, so they need an index</li>
 </ul>
 <div class="language-rs highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Build the contract input</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">let</span><span class="w"> </span><span class="n">inputs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ContractInput</span><span class="w"> </span><span class="p">{</span>
@@ -1485,33 +1482,32 @@
 </span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="n">index</span><span class="p">:</span><span class="w"> </span><span class="nc">sdk</span><span class="p">::</span><span class="n">BlobIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
 </span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">};</span>
 </span></code></pre></div>
-<h5 id="on-the-contract-side">On the contract side</h5>
-<p>(The contract is called "guest" in Risc0.)</p>
-<p>These inputs are then used by the sdk to <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/methods/guest/src/main.rs#L8">initialize the contract</a> :</p>
+<h5 id="on-the-contract-guest-side">On the contract (guest) side</h5>
+<p>These inputs are then processed by the <a href="../../tooling/sdk/">SDK</a> to <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/methods/guest/src/main.rs#L8">initialize the contract</a> :</p>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="w">    </span><span class="c1">// Parse contract inputs</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sdk</span><span class="p">::</span><span class="n">guest</span><span class="p">::</span><span class="n">init_raw</span><span class="p">::</span><span class="o">&lt;</span><span class="n">IdentityAction</span><span class="o">&gt;</span><span class="p">();</span>
 </span></code></pre></div>
 <ul>
-<li>The <strong>input</strong> variable is the above constructed <strong>ContractInput</strong></li>
-<li>The <strong>action</strong> contains the <code>let action RegisterIdentity { account: identity };</code> defined in the blob.</li>
+<li>The <strong>input</strong> variable is the <strong>ContractInput</strong> defined earlier</li>
+<li>The <strong>action</strong> contains the <code>let action RegisterIdentity { account: identity };</code> from the blob.</li>
 </ul>
-<p>The password is retrieved by the guest:</p>
+<p>The password is extracted as a private input:</p>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="w">    </span><span class="c1">// Extract private information</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">from_utf8</span><span class="p">(</span><span class="o">&amp;</span><span class="n">input</span><span class="p">.</span><span class="n">private_blob</span><span class="p">.</span><span class="mi">0</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
 </span></code></pre></div>
-<p>The action is then handled by the contract:</p>
+<p>The contract processes the identity registration:</p>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="w">    </span><span class="c1">// We clone the inital state to be updated</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">next_state</span><span class="p">:</span><span class="w"> </span><span class="nc">Identity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="n">initial_state</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="c1">// Execute the given action</span>
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sdk</span><span class="p">::</span><span class="n">identity_provider</span><span class="p">::</span><span class="n">execute_action</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">next_state</span><span class="p">,</span><span class="w"> </span><span class="n">action</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
 </span></code></pre></div>
-<p>And the contract then commits the new state:</p>
+<p>Finally, the contract commits the updated state:</p>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="w">    </span><span class="n">sdk</span><span class="p">::</span><span class="n">guest</span><span class="p">::</span><span class="n">commit</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">next_state</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">);</span>
 </span></code></pre></div>
-<p>The <code>guest::commit</code> function includes the <code>HyleOutput</code> as explained in <a href="../../concepts/transaction/">Transactions on Hylé</a>.</p>
+<p>The <code>guest::commit</code> function includes the <code>HyleOutput</code>, as explained in <a href="../../concepts/transaction/">Transactions on Hylé</a>.</p>
 <h3 id="verify-an-identity">Verify an identity</h3>
-<p>The process is the same as for registering a new identity, but the action is different:</p>
+<p>The identity verification process is identical to identity registration, with a different action:</p>
 <div class="language-rs highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">let</span><span class="w"> </span><span class="n">action</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VerifyIdentity</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">account</span><span class="p">:</span><span class="w"> </span><span class="nc">identity</span><span class="p">,</span>
 </span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">nonce</span><span class="p">,</span>
