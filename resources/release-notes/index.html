@@ -952,6 +952,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#2025-02-24-v0120" class="md-nav__link">
+    <span class="md-ellipsis">
+      2025-02-24 − v0.12.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2025-02-14-v0110" class="md-nav__link">
     <span class="md-ellipsis">
       2025-02-14 − v0.11.0
@@ -1101,6 +1110,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#2025-02-24-v0120" class="md-nav__link">
+    <span class="md-ellipsis">
+      2025-02-24 − v0.12.0
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2025-02-14-v0110" class="md-nav__link">
     <span class="md-ellipsis">
       2025-02-14 − v0.11.0
@@ -1185,6 +1203,37 @@
 
 <div><h1 id="release-notes">Release notes</h1>
 <p>Read our <a href="https://github.com/Hyle-org/hyle/releases/">full changelogs on GitHub</a> or the short versions <a href="https://t.me/hyle_org">in our Telegram group</a>.</p>
+<h2 id="2025-02-24-v0120">2025-02-24 − v0.12.0</h2>
+<p>🗞️ Our news:</p>
+<ul>
+<li>All examples <a href="https://github.com/Hyle-org/hyle/releases/tag/v0.11.0">have been updated to v0.11.0</a></li>
+<li>We’ve added Metamask authentication to our demo AMM, <a href="https://blog.hyle.eu/introducing-hyleoof/">Hyleoof</a>. We’re looking forward to making the demo fully public!</li>
+</ul>
+<p>💥 Breaking changes:</p>
+<p>We heard your feedback on our <strong>frequent breaking changes</strong>. Going forward, we’ll be making fewer releases, relying instead on <code>rc</code> versions, so that breaking changes are batched.</p>
+<ul>
+<li>Contract input now uses state instead of state digest, which simplifies the API.</li>
+<li>SP1 verifier is now a separate feature: this drastically shortens build time if you’re not using it.</li>
+<li>We’ve improved the general structure of smart contracts.</li>
+</ul>
+<p>✨ New features:</p>
+<ul>
+<li>We have <a href="https://www.npmjs.com/package/hyle">a JS SDK</a> now!</li>
+</ul>
+<p>🚅 Improvements:</p>
+<ul>
+<li>Added caching for computed hash, which doubles performance in heavy load situations</li>
+<li>Other big performance improvements for in-memory storage</li>
+</ul>
+<p>🛠️ No longer broken:</p>
+<ul>
+<li>Added missing data proposal hashes in blocks</li>
+<li>Fixed blob proof output index logic at settlement stage</li>
+</ul>
+<p>📚 Documentation:</p>
+<ul>
+<li>Added explanations to our <a href="https://docs.hyle.eu/concepts/proof-composability/">proof composition concept page</a></li>
+</ul>
 <h2 id="2025-02-14-v0110">2025-02-14 − v0.11.0</h2>
 <p>✨ New features:</p>
 <ul>
