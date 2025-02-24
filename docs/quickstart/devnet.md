@@ -1,35 +1,31 @@
 # Run your local devnet
 
-Follow the instructions below to start building on Hylé by running a local devnet. (Instructions for a testnet will be added when we launch it.)
-
 !!! warning
-    Our examples work on Hylé v0.7.2: `git checkout tags/v0.7.2`.
+    Our examples work on Hylé v0.12.1: `git checkout tags/v0.12.1`.
 
-## Recommended: Getting started with Docker
+## Recommended: Start with Docker
 
-Follow these instructions to run a node, keeping in mind that this is unstable and can break with upcoming updates.
+Use Docker to run a local node. Note that the devnet is unstable and may break with future updates.
 
-Download the Docker image:
-
-```bash
-docker pull ghcr.io/hyle-org/hyle:v0.7.2
-```
-
-Run the image:
+### Pull the Docker image
 
 ```bash
-docker run -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.7.2
+docker pull ghcr.io/hyle-org/hyle:v0.12.1
 ```
 
-If you run into an error, you may want to add the `--privileged` flag:
+### Run the Docker container
 
 ```bash
-docker run --privileged -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.7.2
+docker run -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.12.1
 ```
 
-If you want to run with an indexer add the parameter `-e HYLE_RUN_INDEXER=true`, you will need a running PostgreSQL server. You can set it up with Docker:
+If you run into an error, try adding the `--privileged` flag:
 
-Run the postgres server:
+```bash
+docker run --privileged -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.12.1
+```
+
+To run with an indexer add the parameter `-e HYLE_RUN_INDEXER=true`, set up a running PostGreSQL server with Docker:
 
 ```bash
 docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
@@ -49,26 +45,45 @@ docker run -v ./data:/hyle/data \
 You can now [create your first smart contract](./your-first-smart-contract.md).
 
 !!! tip
-    To restart your devnet from scratch, you should delete your `./data` folder and start over; otherwise, you risk re-registering a contract that still exists.
+    To reset your devnet, delete the ./data folder and restart from Step 1. Otherwise, you risk re-registering a contract that still exists.
 
-## Build the Docker image locally
+## Alternative: Build the Docker image locally
 
-If you want to, you can rebuild the image locally from source:
+If you prefer to build the image from source, run:
 
 ```bash
 docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
 ```
 
-## Alternative: Getting started from source
+## Alternative: Run from source
 
-To start a single-node devnet (with consensus disabled), which is useful to build & debug smart contracts, run:
+For a single-node devnet (consensus disabled), useful for debugging smart contracts, run:
 
 ```bash
 cargo build
 HYLE_RUN_INDEXER=false cargo run --bin hyle
 ```
 
-To run our examples, please `git checkout tags/v0.7.2`: this is the version they run on.
+To run an indexer alongside your node, use the `--pg` argument:
+
+```bash
+cargo run -- --pg
+```
+
+This command starts a temporary PostgreSQL server and erases its data when you stop the node.
+
+For persistent storage, start a standalone PostgreSQL instance:
+
+```bash
+# Start PostgreSQL with default configuration:
+docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
+```
+
+Then, navigate to the Hylé root and run:
+
+```bash
+cargo run
+```
 
 ## Configuration
 
@@ -99,15 +114,16 @@ All variables can be customized on your single-node instance.
 
 ### Using a configuration file
 
-To use a configuration file, copy the default settings where you run the node. If a file named config.ron is present, it will be automatically loaded by the node at startup.
+To load settings from a file, place `config.ron` in your node's working directory. It will be detected automatically at startup.
 
-If you're using Docker:
+For Docker users, mount the config file when running the container:
 
 ```bash
-docker run -v ./data:/hyle/data -v ./config.run:/hyle/config.ron -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:v0.7.2
+docker run -v ./data:/hyle/data -v ./config.run:/hyle/config.ron -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:v0.12.1
+cp ./src/utils/conf_defaults.ron config.ron
 ```
 
-Then, whether you're using Docker or building from source:
+For source users, copy the default config template:
 
 ```bash
 cp ./src/utils/conf_defaults.ron config.ron

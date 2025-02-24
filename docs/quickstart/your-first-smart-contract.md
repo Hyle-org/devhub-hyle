@@ -9,7 +9,7 @@ If you’re new to smart contracts on Hylé, read the [anatomy of a smart contra
 ## Example
 
 !!! warning
-    Our examples work on Hylé v0.11.1. Later versions may introduce breaking changes that are not yet reflected in our examples.
+    Our examples work on Hylé v0.12.1. Later versions may introduce breaking changes that are not yet reflected in our examples.
 
 ### Prerequisites
 

@@ -23,11 +23,13 @@ The name of your contract must be unique.
 
 Smart contracts on Hylé rely on a pairing of a zero-knowledge proof scheme (verifier) and a program identifier. Together, these components validate contract proofs.
 
-| Proving scheme | Verifier | Program ID                                        |
-|----------------|----------|---------------------------------------------------|
-| Noir           | noir     | Verification key.                                 |
-| Risc Zero      | risc0    | Image ID without a prefix. ex. 0x123 becomes 123. |
-| SP1            | sp1      | Verification key.                                 |
+We've written templates for some of our supported programs. Clone them to get started with smart contract writing.
+
+| Proving scheme | Verifier | Program ID | Template                                       |
+|----------------|----------|---------------------------------------------------|---|
+| Noir           | noir     | Verification key.                                 |   |
+| Risc Zero      | risc0    | Image ID without a prefix. ex. 0x123 becomes 123. | [Template](https://github.com/Hyle-org/risc0-template)  |
+| SP1            | sp1      | Verification key.                                 |   |
 
 <!--- **Cairo**: Cairo smart contracts will be identified by their Class Hash in the future.
 - **Groth16**: Groth16 programs require a trusted ceremony. As such, their identifier is the verifying key corresponding to the matching private key, which will be unique for each program & ceremony.-->
