@@ -2,6 +2,43 @@
 
 Read our [full changelogs on GitHub](https://github.com/Hyle-org/hyle/releases/) or the short versions [in our Telegram group](https://t.me/hyle_org).
 
+## 2025-02-24 − v0.12.0
+
+### Release
+
+🗞️ Our news:
+
+- All examples [have been updated to v0.11.0](https://github.com/Hyle-org/hyle/releases/tag/v0.11.0)
+- We’ve added Metamask authentication to our demo AMM, [Hyleoof](https://blog.hyle.eu/introducing-hyleoof/). We’re looking forward to making the demo fully public!
+
+💥 Breaking changes:
+
+We heard your feedback on our **frequent breaking changes**. Going forward, we’ll be making fewer releases, relying instead on `rc` versions, so that breaking changes are batched. We’ll also include a migration guide for new releases on GitHub and in our docs.
+
+- Contract input now uses state instead of state digest, which simplifies the API.
+- SP1 verifier is now a separate feature: this drastically shortens build time if you’re not using it.
+- We’ve improved the general structure of smart contracts.
+
+✨ New features:
+
+- We have [a JS SDK](https://www.npmjs.com/package/hyle) now!
+
+🚅 Improvements:
+
+- Added caching for computed hash, which doubles performance in heavy load situations
+- Other big performance improvements for in-memory storage
+
+🛠️ No longer broken:
+
+- Added missing data proposal hashes in blocks
+- Fixed blob proof output index logic at settlement stage
+
+📚 Documentation:
+
+- Added explanations to our [proof composition concept page](https://docs.hyle.eu/concepts/proof-composability/)
+
+### Migration guide
+
 ## 2025-02-14 − v0.11.0
 
 ✨ New features:
