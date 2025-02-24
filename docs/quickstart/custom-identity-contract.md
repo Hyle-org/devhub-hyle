@@ -2,19 +2,19 @@
 
 ## When to use identity contracts on Hylé
 
-On Hylé, any smart contract can serve as proof of identity. This flexibility allows you to register your preferred identity source as a smart contract for account identification. Hylé also ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity) for simplicity.
+On Hylé, **any smart contract can be a proof of identity**. This flexibility enables you to register your preferred identity source as a smart contract for account identification. ;If you don't want to use a custom identity source, Hylé ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity).
 
 This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/main/simple-identity), which mirrors our [simple token transfer example](./your-first-smart-contract.md).
 
-For a deeper understanding of smart contracts, explore our [identity management documentation](../concepts/identity.md).
+If you’re new to identity management on Hylé, read the [identity management concept page](../concepts/identity.md).
 
 ## Run the example
 
 !!! warning
-    Our examples work on Hylé v0.7.2. Subsequent versions introduce breaking changes which have not yet been reflected in our examples.
+    Our examples work on Hylé v0.11.1. Later versions may introduce breaking changes which have not yet been reflected in our examples.
 
 !!! info
-    You can jump to [Code Snippets](#code-snippets) for an in-depth look at the contract.
+    Jump to [Code Snippets](#code-snippets) for an in-depth look at the contract.
 
 ### Prerequisites
 
@@ -25,7 +25,7 @@ For a deeper understanding of smart contracts, explore our [identity management 
 
 ### Build and register the identity contract
 
-To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs), from the cloned Examples folder, run:
+To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs), navigate to your cloned Examples folder and run:
 
 ```bash
 cargo run -- register-contract
@@ -33,7 +33,7 @@ cargo run -- register-contract
 
 The expected output is `📝 Registering new contract simple_identity`.
 
-### Register an account / Sign up
+### Register an account (sign up)
 
 To register an account with a username (`alice`) and password (`abc123`), execute:
 
@@ -41,7 +41,7 @@ To register an account with a username (`alice`) and password (`abc123`), execut
 cargo run -- register-identity alice.simple_identity abc123
 ```
 
-The node's logs will display:
+Expected log output:
 
 ```bash
 INFO hyle::data_availability::node_state::verifiers: ✅ Risc0 proof verified.
@@ -56,11 +56,11 @@ To verify `alice`'s identity:
 cargo run -- verify-identity alice.simple_identity abc123 0
 ```
 
-This command will:
+This command:
 
-1. Send a blob transaction to verify `alice`'s identity.
-1. Generate a ZK proof of that identity. It will only be valid once, thus the inclusion of a nonce.
-1. Send the proof to the devnet.
+1. Sends a blob transaction to verify `alice`'s identity.
+1. Generates a ZK proof of that identity. It will only be valid once, thus the inclusion of a nonce.
+1. Sends the proof to the devnet.
 
 Upon reception of the proof, the node will:
 
@@ -68,16 +68,12 @@ Upon reception of the proof, the node will:
 1. Settle the blob transaction.
 1. Update the contract's state.
 
-The node's logs will display:
+Expected log output:
 
 ```bash
 INFO hyle::data_availability::node_state::verifiers: ✅ Risc0 proof verified.
 INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Identity verified for account: alice.simple_identity
 ```
-
-See your contract's state digest at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`.
-
-See your transaction on Hylé's explorer: `https://hyleou.hyle.eu/tx/$TX_HASH`.
 
 ## Development mode
 
@@ -94,9 +90,6 @@ RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 ## Code snippets
 
 Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs).
-
-!!! info
-    Learn more on the [Transactions on Hylé](../concepts/transaction.md) page.
 
 ### Registering the contract
 
@@ -126,21 +119,22 @@ You can compare these to the fields described in the [Transactions on Hylé](../
 
 #### Prove the registration
 
-##### On the backend side
+##### On the backend (host) side
 
-(The backend is called "host" in Risc0.)
+Hylé transactions follow a two-step settlement process based on [pipelined proving](../concepts/pipelined-proving.md) principles:
 
-Hylé transactions are settled in two steps, following [pipelined proving principles](../concepts/pipelined-proving.md). After sending the blob, your transaction is sequenced, but not settled.
+1. Sending the blob transaction: The transaction is sequenced but not yet settled.
+1. Proving the transaction: The transaction is settled after a proof is generated.
 
-For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:
+To generate the proof, we build the contract input, specifying:
 
-- the initial state
-- the identity of the transaction initiator
-- the transaction hash, which can be found in the explorer after sequencing
-- information about the blobs.
+- initial state
+- identity of the transaction initiator
+- transaction hash (found in the explorer after sequencing)
+- blob information
   - The password as a private input for proof generation in `private_blob`
   - `blobs`: full list of blobs in the transaction (must match the blob transaction)
-  - `index`: each blob of a transaction must be proven separately for now, so you need to specify the index of the blob you're proving.
+  - `index`: each blob must be proven separately, so they need an index
 
 ```rs
 // Build the contract input
@@ -155,28 +149,26 @@ let inputs = ContractInput {
 
 ```
 
-##### On the contract side
+##### On the contract (guest) side
 
-(The contract is called "guest" in Risc0.)
-
-These inputs are then used by the sdk to [initialize the contract](https://github.com/Hyle-org/examples/blob/main/simple-identity/methods/guest/src/main.rs#L8) :
+These inputs are then processed by the [SDK](../tooling/sdk.md) to [initialize the contract](https://github.com/Hyle-org/examples/blob/main/simple-identity/methods/guest/src/main.rs#L8) :
 
 ```rust
     // Parse contract inputs
     let (input, action) = sdk::guest::init_raw::<IdentityAction>();
 ```
 
-- The **input** variable is the above constructed **ContractInput**
-- The **action** contains the `let action RegisterIdentity { account: identity };` defined in the blob.
+- The **input** variable is the **ContractInput** defined earlier
+- The **action** contains the `let action RegisterIdentity { account: identity };` from the blob.
 
-The password is retrieved by the guest:
+The password is extracted as a private input:
 
 ```rust
     // Extract private information
     let password = from_utf8(&input.private_blob.0).unwrap();
 ```
 
-The action is then handled by the contract:
+The contract processes the identity registration:
 
 ```rust
     // We clone the inital state to be updated
@@ -186,17 +178,17 @@ The action is then handled by the contract:
     let res = sdk::identity_provider::execute_action(&mut next_state, action, password);
 ```
 
-And the contract then commits the new state:
+Finally, the contract commits the updated state:
 
 ```rust
     sdk::guest::commit(input, next_state, res);
 ```
 
-The `guest::commit` function includes the `HyleOutput` as explained in [Transactions on Hylé](../concepts/transaction.md).
+The `guest::commit` function includes the `HyleOutput`, as explained in [Transactions on Hylé](../concepts/transaction.md).
 
 ### Verify an identity
 
-The process is the same as for registering a new identity, but the action is different:
+The identity verification process is identical to identity registration, with a different action:
 
 ```rs
 
