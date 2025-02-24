@@ -1,28 +1,28 @@
 # Your first smart contract
 
-This guide will walk you through creating and deploying your first token transfer contract using Hylé's tools and infrastructure. We'll use [our sample token transfer example](https://github.com/Hyle-org/examples/tree/main/simple-token) as the basis for this tutorial.
+This guide will walk you through creating and deploying your first token transfer contract using Hylé's tools and infrastructure. We'll use [our simple-token transfer example](https://github.com/Hyle-org/examples/tree/main/simple-token) as the basis for this tutorial.
 
-You can also check out [the same example built with SP1](https://github.com/Hyle-org/examples/tree/main/simple-token-sp1).
+For an alternative implementation, check out [the same example built with SP1](https://github.com/Hyle-org/examples/tree/main/simple-token-sp1).
 
-For an in-depth understanding of smart contracts, check out the [anatomy of a smart contract](../concepts/smart-contracts.md).
+If you’re new to smart contracts on Hylé, read the [anatomy of a smart contract](../concepts/smart-contracts.md).
 
 ## Example
 
 !!! warning
-    Our examples work on Hylé v0.7.2. Subsequent versions introduce breaking changes which have not yet been reflected in our examples.
+    Our examples work on Hylé v0.11.1. Later versions may introduce breaking changes that are not yet reflected in our examples.
 
 ### Prerequisites
 
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
 - Install openssl-dev (e.g. `apt install openssl-dev` or `cargo add openssl`).
 - For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
-- [Start a single-node devnet](./devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations during development.
+- [Run a single-node devnet](./devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations.
 
 ## Quickstart
 
 ### Build and register the contract
 
-To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs), from the cloned Examples folder, run:
+To build all methods and register the smart contract [from the source](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs), navigate to your cloned Examples folder and run:
 
 ```bash
 cargo run -- register 1000
@@ -32,17 +32,17 @@ The expected output is `📝 Registering new contract simple_token`.
 
 ### Transfer tokens
 
-To transfer 2 tokens from the Hylé `faucet` to `Bob`:
+Transfer 2 tokens from the Hylé `faucet` to `Bob`:
 
 ```bash
 cargo run -- transfer faucet.simple_token bob.simple_token 2
 ```
 
-This command will:
+This command:
 
-1. Send a blob transaction to transfer 2 tokens from `faucet` to `bob`. To better understand what a blob transaction is, [read more about transactions on Hylé](../concepts/identity.md).
-2. Generate a ZK proof of that transfer.
-3. Send the proof to the devnet. (Scroll down to see what that looks like in code.)
+1. Sends a blob transaction to transfer 2 tokens from `faucet` to `bob`. To better understand what a blob transaction is, [read more about transactions on Hylé](../concepts/transaction.md).
+2. Generates a ZK proof for the transfer.
+3. Sends the proof to the devnet for verification. (Scroll down to see what that looks like in code.)
 
 ### Verify settled state
 
@@ -52,14 +52,14 @@ Upon reception of the proof, the node will:
 1. Settle the blob transaction
 1. Update the contract's state
 
-The node's logs will display:
+Expected log output:
 
 ```bash
 INFO hyle::data_availability::node_state::verifiers: ✅ Risc0 proof verified.
 INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Transferred 2 to bob.simple_token
 ```
 
-And on the following slot:
+On the following slot:
 
 ```bash
 INFO hyle::data_availability::node_state: Settle tx TxHash("[..]")
@@ -75,33 +75,31 @@ cargo run -- balance bob.simple_token
 ```
 
 !!! note
-    In this example, we do not verify the identity of the person who initiates the transaction. We use `.simple_token` as a suffix for the "from" and "to" transfer fields. Usually, we'd use the identity scheme as the suffix. **More information about identity management will be added to the documentation in January 2025.**
+    In this example, we do not verify the identity of the person who initiates the transaction. We use `.simple_token` as a suffix for the "from" and "to" transfer fields, but the correct identity scheme should be used in production.
 
 See your contract's state digest at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`.
 
 See your transaction on Hylé's explorer: `https://hyleou.hyle.eu/tx/$TX_HASH`.
 
-## Detailed information
+## Development mode
 
-### Development mode
+For faster iteration during development, enable [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode): `-e RISC0_DEV_MODE=1`.
 
-We recommend activating [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) during your early development phase for faster iteration upon code changes with `-e RISC0_DEV_MODE=1`.
+To get execution statistics, set: `RUST_LOG="[executor]=info"` as an environment variable.
 
-You may also want to get insights into the execution statistics of your project: add the environment variable `RUST_LOG="[executor]=info"` before running your project.
-
-The full command to run your project in development mode while getting execution statistics is:
+To run your project in development mode with logs:
 
 ```bash
 RUST_LOG="[executor]=info" RISC0_DEV_MODE=1 cargo run
 ```
 
-### Annotated code snippets
+## Annotated code snippets
 
 Find the full annotated code in [our examples repository](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs).
 
-These code snippets show you what your code could look like when writing your own smart contracts.
+Below are key snippets explaining contract registration, blob transactions, and proofs.
 
-#### Registering the contract
+### Registering the contract
 
 Set up information about your contract. To register the contract, you'll need:
 
