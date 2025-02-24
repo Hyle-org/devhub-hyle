@@ -25,27 +25,21 @@ If you run into an error, try adding the `--privileged` flag:
 docker run --privileged -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.11.1
 ```
 
-### Optional: Add an indexer
-
-To run an indexer alongside your node, use the `--pg` argument:
+To run with an indexer add the parameter `-e HYLE_RUN_INDEXER=true`, set up a running PostGreSQL server with Docker:
 
 ```bash
-cargo run -- --pg
-```
-
-This command starts a temporary PostgreSQL server and erases its data when you stop the node.
-
-For persistent storage, start a standalone PostgreSQL instance:
-
-```bash
-# Start PostgreSQL with default configuration:
 docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
 ```
 
-Then, navigate to the Hylé root and run:
+And the node linked to it:
 
 ```bash
-cargo run
+docker run -v ./data:/hyle/data \
+    -e HYLE_RUN_INDEXER=true \
+    -e HYLE_DATABASE_URL=postgres://postgres:postgres@pg_hyle:5432/postgres \
+    --link pg_hyle \
+    -p 4321:4321 \
+    ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
 You can now [create your first smart contract](./your-first-smart-contract.md).
@@ -68,6 +62,27 @@ For a single-node devnet (consensus disabled), useful for debugging smart contra
 ```bash
 cargo build
 HYLE_RUN_INDEXER=false cargo run --bin hyle
+```
+
+To run an indexer alongside your node, use the `--pg` argument:
+
+```bash
+cargo run -- --pg
+```
+
+This command starts a temporary PostgreSQL server and erases its data when you stop the node.
+
+For persistent storage, start a standalone PostgreSQL instance:
+
+```bash
+# Start PostgreSQL with default configuration:
+docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
+```
+
+Then, navigate to the Hylé root and run:
+
+```bash
+cargo run
 ```
 
 ## Configuration
