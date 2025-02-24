@@ -58,7 +58,7 @@ If any proof fails, the entire transaction fails. Neither state is updated: Bob'
 ## Run the example
 
 !!! warning
-    Our examples work on Hylé v0.11.0. Later versions introduce breaking changes which have not yet been reflected in our examples.
+    Our examples work on Hylé v0.12.1. Later versions introduce breaking changes which have not yet been reflected in our examples.
 
 ### Prerequisites
 

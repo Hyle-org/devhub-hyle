@@ -11,7 +11,7 @@ If you’re new to identity management on Hylé, read the [identity management c
 ## Run the example
 
 !!! warning
-    Our examples work on Hylé v0.11.0. Later versions may introduce breaking changes which have not yet been reflected in our examples.
+    Our examples work on Hylé v0.12.1. Later versions may introduce breaking changes which have not yet been reflected in our examples.
 
 !!! info
     Jump to [Code Snippets](#code-snippets) for an in-depth look at the contract.
