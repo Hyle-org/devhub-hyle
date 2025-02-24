@@ -6,7 +6,6 @@ This section includes general documentation topics. You can also refer to [our G
 
 ## Hylé-specific docs on industry concepts
 
-
 <div class="grid cards" markdown>
 
 -   :material-lightbulb:{ .lg .middle } __Smart contracts__

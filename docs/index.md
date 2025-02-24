@@ -10,7 +10,7 @@ description: Hylé is the new-generation base layer for the era of unchained app
 
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Introduction__
+-   :material-home:{ .lg .middle } __Introduction__
 
     ---
 
@@ -18,7 +18,7 @@ description: Hylé is the new-generation base layer for the era of unchained app
 
     [:octicons-arrow-right-24: Introduction](./introduction.md)
 
--   :simple-startpage:{ .lg .middle } __Quickstart__
+-   :material-clock-fast:{ .lg .middle } __Quickstart__
 
     ---
 
@@ -26,7 +26,7 @@ description: Hylé is the new-generation base layer for the era of unchained app
 
     [:octicons-arrow-right-24: Quickstart](./quickstart/index.md)
 
--   :fontawesome-solid-earth-europe:{ .lg .middle } __Concepts__
+-   :material-lightbulb:{ .lg .middle } __Concepts__
 
     ---
 
