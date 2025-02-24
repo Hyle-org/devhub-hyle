@@ -1,7 +1,7 @@
 # Run your local devnet
 
 !!! warning
-    Our examples work on Hylé v0.11.1: `git checkout tags/v0.11.1`.
+    Our examples work on Hylé v0.11.0: `git checkout tags/v0.11.0`.
 
 ## Recommended: Start with Docker
 
@@ -10,19 +10,19 @@ Use Docker to run a local node. Note that the devnet is unstable and may break w
 ### Pull the Docker image
 
 ```bash
-docker pull ghcr.io/hyle-org/hyle:v0.11.1
+docker pull ghcr.io/hyle-org/hyle:v0.11.0
 ```
 
 ### Run the Docker container
 
 ```bash
-docker run -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.11.1
+docker run -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.11.0
 ```
 
 If you run into an error, try adding the `--privileged` flag:
 
 ```bash
-docker run --privileged -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.11.1
+docker run --privileged -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.11.0
 ```
 
 To run with an indexer add the parameter `-e HYLE_RUN_INDEXER=true`, set up a running PostGreSQL server with Docker:
@@ -119,7 +119,7 @@ To load settings from a file, place `config.ron` in your node's working director
 For Docker users, mount the config file when running the container:
 
 ```bash
-docker run -v ./data:/hyle/data -v ./config.run:/hyle/config.ron -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:v0.11.1
+docker run -v ./data:/hyle/data -v ./config.run:/hyle/config.ron -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:v0.11.0
 cp ./src/utils/conf_defaults.ron config.ron
 ```
 
