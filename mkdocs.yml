@@ -2,6 +2,7 @@ site_name: Hylé Developer Hub
 site_url: https://docs.hyle.eu
 theme:
   name: material
+  custom_dir: 'overrides'
   logo: assets/logo.png
   favicon: assets/logo.png
   palette:
@@ -14,7 +15,7 @@ theme:
     - navigation.prune # html minimization
   #  - toc.integrate # toc in left-hand sidebar
     - content.code.copy
-    - navigation.footer
+  #  - navigation.footer
 
 extra_css:
   - assets/stylesheets/extra.css

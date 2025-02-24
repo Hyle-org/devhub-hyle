@@ -1,9 +1,9 @@
 :root {
-    --md-primary-fg-color:        #e0482e;
+    --md-primary-fg-color:        #DF6445;
     --md-primary-fg-color--light: #efb4aa;
     --md-primary-fg-color--dark:  #752517;
 
-    --md-accent-fg-color:        #e0482e;
+    --md-accent-fg-color:        #DF6445;
     --md-accent-fg-color--light: #efb4aa;
     --md-accent-fg-color--dark:  #752517;
 }
@@ -14,8 +14,61 @@
     margin: auto;
 }
 
-/* Previous and next buttons */
-.md-footer__link {
-    background-color: #e0482e;
-    color: white;
+/* Change hover color for all links */
+a:hover {
+    color: #1E2933 !important;
 }
+
+/* Ensure navigation buttons also follow the new hover color */
+.nav-button:hover {
+    background-color: #752517 !important;
+    border-color: #000 !important;
+    color: #FFF !important; /* Keep text readable */
+}
+
+
+/* Previous and next buttons */
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    color: #DF6445;
+}
+
+.nav-links .spacer {
+    flex: 1; /* Pushes the Next button to the right when no Previous button exists */
+}
+
+.nav-button {
+    padding: 12px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prev {
+    background-color: #f5f5f5;
+    color: #1E2933;
+    border: 1px solid #ddd;
+}
+
+.next {
+    background-color: #f5f5f5;
+    color: #1E2933;
+    border: 1px solid #ddd;
+}
+
+.a:hover {
+    color:#DF6445;
+}
+
+.prev:hover {
+    background-color: #ddd;
+}
+
+.next:hover {
+    background-color: #ddd;
+}
+
