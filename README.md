@@ -25,6 +25,7 @@ Also install:
 ```sh
 pip install mkdocs-video
 pip install "mkdocs-material[imaging]"
+pip install neoteroi-mkdocs
 ```
 
 ## Dev mode

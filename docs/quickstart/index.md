@@ -1,12 +1,30 @@
 # :checkered_flag: Quickstart
 
-Welcome to the **Quickstart** guide for Hylé.
+Welcome to the **Quickstart** guide for Hylé. It uses several examples to help you start building as soon as possible.
 
-This page will help you configure your environment and start using Hylé.
+::timeline:: id="epic-timeline"
 
-Use the sidebar to navigate through the guide, or click on the links below to jump to a specific section:
+[
+    {
+        "title": "[Run your local devnet](./devnet.md)",
+        "content": "Where it all begins.",
+        "icon": ":material-home:",
+    },
+    {
+        "title": "[Create your first smart contract](your-first-smart-contract.md)",
+        "content": "Understand how smart contracts work on Hylé with our simple-token example.",
+        "icon": ":fontawesome-solid-coins:",
+    },
+    {
+        "title": "[Use an identity contract](custom-identity-contract.md)",
+        "content": "Every contract can be an identity on Hylé. Try it out with our simple-identity example.",
+        "icon": ":octicons-people-16:",
+    },
+    {
+        "title": "[Call several contracts in one transaction](proof-composition.md)",
+        "content": "Use cross-contract proof composition to buy a simple-ticket with a simple-token.",
+        "icon": ":material-call-merge:",
+    },
+]
 
-1. [Run your local devnet](devnet.md)
-1. [Create your first smart contract](your-first-smart-contract.md)
-1. [Use your favorite identity contract](custom-identity-contract.md)
-1. [Call several contracts in one transaction with proof composition](proof-composition.md)
+::/timeline::

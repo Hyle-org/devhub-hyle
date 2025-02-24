@@ -10,7 +10,7 @@ Here, you'll find our resources about Hylé's tooling.
 
     Use the helper functions in our contract SDK.
 
-    [:octicons-arrow-right-24: Introduction](./introduction.md)
+    [:octicons-arrow-right-24: Read more](https://github.com/Hyle-org/hyle/tree/main/crates/contract-sdk)
 
 -   :octicons-tools-16:{ .lg .middle } __Explorer__
 
@@ -18,6 +18,6 @@ Here, you'll find our resources about Hylé's tooling.
 
     Understand and use the Hylé explorer.
 
-    [:octicons-arrow-right-24: Quickstart](./quickstart/index.md)
+    [:octicons-arrow-right-24: Read more](./explorer.md)
 
 </div>
