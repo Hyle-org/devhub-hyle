@@ -4,8 +4,6 @@ Read our [full changelogs on GitHub](https://github.com/Hyle-org/hyle/releases/)
 
 ## 2025-02-24 − v0.12.0
 
-### Release
-
 🗞️ Our news:
 
 - All examples [have been updated to v0.11.0](https://github.com/Hyle-org/hyle/releases/tag/v0.11.0)
@@ -13,7 +11,7 @@ Read our [full changelogs on GitHub](https://github.com/Hyle-org/hyle/releases/)
 
 💥 Breaking changes:
 
-We heard your feedback on our **frequent breaking changes**. Going forward, we’ll be making fewer releases, relying instead on `rc` versions, so that breaking changes are batched. We’ll also include a migration guide for new releases on GitHub and in our docs.
+We heard your feedback on our **frequent breaking changes**. Going forward, we’ll be making fewer releases, relying instead on `rc` versions, so that breaking changes are batched.
 
 - Contract input now uses state instead of state digest, which simplifies the API.
 - SP1 verifier is now a separate feature: this drastically shortens build time if you’re not using it.
@@ -36,8 +34,6 @@ We heard your feedback on our **frequent breaking changes**. Going forward, we�
 📚 Documentation:
 
 - Added explanations to our [proof composition concept page](https://docs.hyle.eu/concepts/proof-composability/)
-
-### Migration guide
 
 ## 2025-02-14 − v0.11.0
 
