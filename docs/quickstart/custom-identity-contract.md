@@ -2,7 +2,7 @@
 
 ## When to use identity contracts on Hylé
 
-On Hylé, **any smart contract can be a proof of identity**. This flexibility enables you to register your preferred identity source as a smart contract for account identification. ;If you don't want to use a custom identity source, Hylé ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity).
+On Hylé, **any smart contract can be a proof of identity**. This flexibility enables you to register your preferred identity source as a smart contract for account identification. If you don't want to use a custom identity source, Hylé ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity).
 
 This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/main/simple-identity), which mirrors our [simple token transfer example](./your-first-smart-contract.md).
 

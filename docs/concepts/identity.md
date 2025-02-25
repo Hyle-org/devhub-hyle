@@ -1,40 +1,36 @@
 # Identity management
 
-## Where is identity relevant on Hylé?
+Identity [in traditional blockchains](./hyle-vs-vintage-blockchains.md) is often tied to a single wallet address, which limits flexibility and privacy.
 
-A `BlobTransaction` on Hylé includes:
+Hylé introduces a **proof-based identity model**. Instead of relying on fixed addresses or centralized registries, your application can use cryptographic proofs of identity.
 
-- As many `blob`s as wanted;
-- One `blob` which corresponds to the identity of the person who initiated the transaction.
+This approach allows users to authenticate with any identity source: meet users where they are and don't worry about onboarding and clunky wallets!
 
-Note that:
+## Choosing an identity source
 
-- Every blob transaction requires a single identity.
-- All provable blobs within a transaction must share the same identity.
+On Hylé, any smart contract can be used as a proof of identity. This flexibility enables you to register your preferred identity source as a smart contract for account authentication. If you don't want to create a custom identity source, Hylé provides [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity).
 
-Any contract can be an identity. Hylé ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/contracts/hydentity), but you can use any source as an identity proving scheme.
+Here are some important aspects of identity contracts:
 
-## What's special about identity on Hylé
+- Identity contracts define how proofs of identity are verified and validated.
+- Applications decide which identities to accept. A contract can enforce specific identity types (e.g., Google accounts only) or support multiple sources simultaneously.
+- A transaction can seamlessly send Hylé tokens between any identity types, such as from a Metamask wallet to an email and password-based account: using proofs as identities on Hylé means there is perfect interoperability.
+- There are no Hylé-specific wallets. Users authenticate using any proof supported by their application.
 
-Any smart contract can be an identity provider, and there is true interoperability: a transaction can send Hylé tokens from your Metamask wallet to an email and password account seamlessly.
+## How Hylé processes identity proofs
 
-## Implementation
+As explained in [our transactions concept page](./transaction.md), a `BlobTransaction` on Hylé can include multiple blobs. One of these blobs must be an identity claim.
 
-!!! note
-    Please contact us directly to know more about identity management on Hylé. We are aiming to publish implementation instructions in January 2025.
+- Each blob transaction requires a single identity.
+- All provable blobs in a transaction must share the same identity.
+- Identity proofs must include a nonce to prevent replay attacks.
+- The proof verification process ensures the identity was correctly provided.
 
-<!--
-### You can use any source of identity
+## Custom identity contracts
 
-Un contrat d'identité sur Hylé peut venir de n'importe où : t'as pas un wallet Hylé. sur ETH t'utilises ta clé privée, etc. : on abstrait ça, tu prouves ton ID avec n'importe quel contrat du moment que le contrat de transfert accepte ton contrat d'identité.
-A contract can impose a given identity, but doesn't _need_ to: I can say that a .google is as valid as a .skibidi
-Montrer que n'importe quel contrat d'identité fonctionnera avec n'importe quel contrat
+Applications on Hylé can implement custom identity verification rules through smart contracts. A typical identity contract includes two core functions, as shown in [our identity quickstart](../quickstart/custom-identity-contract.md):
 
-identités qui cohabitent : mon adresse gmail peut envoyer des tokens à ton passeport !
+- **Register**: Users submit an initial proof of identity.
+- **Verify**: The contract validates the proof against predefined rules.
 
-On envoie une preuve par blob. Dans le Hyle_output de chaque preuve, on va donner une identité, qui sera vérifiée avec le blob. (C'est donné en input de la preuve, et la preuve la ressort en output : ça prouve qu'elle a été donnée en input.)
-
-Register + login : deux fonctions. Globalement : tu fais ton contrat comme tu veux, mais le plus simple c'est register + verify.
-
-Il faut le nonce (mais les gnes de la blockchain comprennent) pour éviter les replay attack.
--->
+Applications can use this structure or define their own identity workflows as needed.
