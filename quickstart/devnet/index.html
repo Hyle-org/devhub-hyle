@@ -1241,7 +1241,7 @@
 <p>If you run into an error, try adding the <code>--privileged</code> flag:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--privileged<span class="w"> </span>-v<span class="w"> </span>./data:/hyle/data<span class="w"> </span>-p<span class="w"> </span><span class="m">4321</span>:4321<span class="w"> </span>ghcr.io/hyle-org/hyle:v0.12.1
 </span></code></pre></div>
-<p>To run with an indexer add the parameter <code>-e HYLE_RUN_INDEXER=true</code>, set up a running PostGreSQL server with Docker:</p>
+<p>To run with an indexer, add the parameter <code>-e HYLE_RUN_INDEXER=true</code> and set up a running PostGreSQL server with Docker:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>pg_hyle<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>postgres<span class="w"> </span>postgres
 </span></code></pre></div>
 <p>And the node linked to it:</p>
@@ -1269,7 +1269,7 @@
 <p>To run an indexer alongside your node, use the <code>--pg</code> argument:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--pg
 </span></code></pre></div>
-<p>This command starts a temporary PostgreSQL server and erases its data when you stop the node.</p>
+<p>This command starts a temporary PostGreSQL server and erases its data when you stop the node.</p>
 <p>For persistent storage, start a standalone PostgreSQL instance:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Start PostgreSQL with default configuration:</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>pg_hyle<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>postgres<span class="w"> </span>postgres
