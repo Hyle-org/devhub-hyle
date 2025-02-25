@@ -14,6 +14,7 @@ Here are some important aspects of identity contracts:
 
 - Identity contracts define how proofs of identity are verified and validated.
 - Applications decide which identities to accept. A contract can enforce specific identity types (e.g., Google accounts only) or support multiple sources simultaneously.
+- Identity providers must provide a verifiable signature to be secure.
 - A transaction can seamlessly send Hylé tokens between any identity types, such as from a Metamask wallet to an email and password-based account: using proofs as identities on Hylé means there is perfect interoperability.
 - There are no Hylé-specific wallets. Users authenticate using any proof supported by their application.
 
