@@ -36,13 +36,9 @@ We've written templates for some of our supported programs. Clone them to get st
 
 #### State digest
 
-The state digest is a minimal yet comprehensive representation of the contract's current state. It serves as the basis for verifying the integrity of the contract's data.
+The state digest is a commitment of the contract's current state, allowing Hylé to guarantee its integrity. It can take any form as long as it fulfills this purpose.
 
-Some examples of valid state commitments:
-
-- The full state, for a sufficiently small program (e.g. a smart contract with a nonce)
-- A merkle root of the state, for larger programs
-- A hash of the full state
+The state digest can be expressed as a hash or even a serialization of the state if it's small enough.
 
 ## Smart contract ABI
 
