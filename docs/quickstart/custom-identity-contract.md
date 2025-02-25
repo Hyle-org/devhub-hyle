@@ -171,7 +171,7 @@ The password is extracted as a private input:
 The contract processes the identity registration:
 
 ```rust
-    // We clone the inital state to be updated
+    // We clone the initial state to be updated
     let mut next_state: Identity = input.initial_state.clone();
 
     // Execute the given action
