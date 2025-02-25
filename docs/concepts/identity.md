@@ -8,7 +8,7 @@ This approach allows users to authenticate with any identity source: meet users 
 
 ## Choosing an identity source
 
-On Hylé, any smart contract can be used as a proof of identity. This flexibility enables you to register your preferred identity source as a smart contract for account authentication. If you don't want to create a custom identity source, Hylé provides [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity).
+On Hylé, any smart contract can be used as a proof of identity. This flexibility enables you to register your preferred identity source as a smart contract for account authentication.
 
 Here are some important aspects of identity contracts:
 
@@ -16,6 +16,8 @@ Here are some important aspects of identity contracts:
 - Applications decide which identities to accept. A contract can enforce specific identity types (e.g., Google accounts only) or support multiple sources simultaneously.
 - A transaction can seamlessly send Hylé tokens between any identity types, such as from a Metamask wallet to an email and password-based account: using proofs as identities on Hylé means there is perfect interoperability.
 - There are no Hylé-specific wallets. Users authenticate using any proof supported by their application.
+
+If you don't want to create a custom identity source for early development, Hylé provides [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity). This contract is not secure and should not be used in production.
 
 ## How Hylé processes identity proofs
 
