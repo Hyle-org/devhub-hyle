@@ -42,8 +42,8 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
@@ -584,13 +584,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#onchain-data-about-smart-contracts" class="md-nav__link">
+  <a href="#onchain-smart-contract-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Onchain data about smart contracts
+      Onchain smart contract data
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Onchain data about smart contracts">
+    <nav class="md-nav" aria-label="Onchain smart contract data">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -613,9 +613,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#verifier-and-program-identifier" class="md-nav__link">
+  <a href="#verifier-and-program-id" class="md-nav__link">
     <span class="md-ellipsis">
-      Verifier and program identifier
+      Verifier and program ID
     </span>
   </a>
   
@@ -1197,13 +1197,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#onchain-data-about-smart-contracts" class="md-nav__link">
+  <a href="#onchain-smart-contract-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Onchain data about smart contracts
+      Onchain smart contract data
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Onchain data about smart contracts">
+    <nav class="md-nav" aria-label="Onchain smart contract data">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1226,9 +1226,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#verifier-and-program-identifier" class="md-nav__link">
+  <a href="#verifier-and-program-id" class="md-nav__link">
     <span class="md-ellipsis">
-      Verifier and program identifier
+      Verifier and program ID
     </span>
   </a>
   
@@ -1377,19 +1377,19 @@
 
 <div><h1 id="smart-contracts">Smart contracts</h1>
 <p>Hylé is a fully programmable blockchain that optimizes data storage by keeping only the essential information needed to validate smart contract proofs. This design ensures that Hylé smart contracts are lightweight and efficient.</p>
-<p>Where traditional blockchains keep all smart contract information onchain, Hylé splits offchain data (your contract's execution) and onchain data, which is retrieved through our ABI.</p>
-<h2 id="onchain-data-about-smart-contracts">Onchain data about smart contracts</h2>
-<p>Hylé smart contracts' onchain data consists of:</p>
+<p><a href="../hyle-vs-vintage-blockchains/">Unlike traditional blockchains</a>, which store all smart contract data onchain, Hylé separates execution data (managed offchain by each application) from onchain data, which can be retrieved via our ABI.</p>
+<h2 id="onchain-smart-contract-data">Onchain smart contract data</h2>
+<p>Hylé smart contracts store the following data onchain:</p>
 <ul>
-<li><strong>Name</strong>: the unique identifier for your contract</li>
-<li><strong>Verifier</strong>: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254")</li>
-<li><strong>Program ID</strong>: the unique identifier for your program in that proof system</li>
+<li><strong>Name</strong>: the unique identifier for the contract</li>
+<li><strong>Verifier</strong>: the proof system used (e.g., "risc0" or "gnark-groth16-te-BN254")</li>
+<li><strong>Program ID</strong>: the unique identifier for the program within that proof system</li>
 <li><strong>State digest</strong>: current state commitment of the contract</li>
 </ul>
 <h3 id="explanation-of-the-contract-fields">Explanation of the contract fields</h3>
 <h4 id="name">Name</h4>
 <p>The name of your contract must be unique.</p>
-<h4 id="verifier-and-program-identifier">Verifier and program identifier</h4>
+<h4 id="verifier-and-program-id">Verifier and program ID</h4>
 <p>Smart contracts on Hylé rely on a pairing of a zero-knowledge proof scheme (verifier) and a program identifier. Together, these components validate contract proofs.</p>
 <p>We've written templates for some of our supported programs. Clone them to get started with smart contract writing.</p>
 <table>
