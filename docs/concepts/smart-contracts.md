@@ -77,6 +77,9 @@ Smart contracts can adapt the actual structure of this field. In the future, fee
 
 #### Identity
 
+!!! info
+    Read [our identity page](./identity.md) for in-depth information.
+
 The `identity` field identifies the person who initiates a transaction.
 
 Hylé does not have a native signature type. Instead, it uses the `identity` field of the first proof in the transaction to identify the sender. This allows you to use any kind of identity verification.
