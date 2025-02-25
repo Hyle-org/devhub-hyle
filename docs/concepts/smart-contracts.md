@@ -2,15 +2,15 @@
 
 Hylé is a fully programmable blockchain that optimizes data storage by keeping only the essential information needed to validate smart contract proofs. This design ensures that Hylé smart contracts are lightweight and efficient.
 
-Where traditional blockchains keep all smart contract information onchain, Hylé splits offchain data (your contract's execution) and onchain data, which is retrieved through our ABI.
+[Unlike traditional blockchains](./hyle-vs-vintage-blockchains.md), which store all smart contract data onchain, Hylé separates execution data (managed offchain by each application) from onchain data, which can be retrieved via our ABI.
 
-## Onchain data about smart contracts
+## Onchain smart contract data
 
-Hylé smart contracts' onchain data consists of:
+Hylé smart contracts store the following data onchain:
 
-- **Name**: the unique identifier for your contract
-- **Verifier**: the proof system (e.g. "risc0" or "gnark-groth16-te-BN254")
-- **Program ID**: the unique identifier for your program in that proof system
+- **Name**: the unique identifier for the contract
+- **Verifier**: the proof system used (e.g., "risc0" or "gnark-groth16-te-BN254")
+- **Program ID**: the unique identifier for the program within that proof system
 - **State digest**: current state commitment of the contract
 
 ### Explanation of the contract fields
@@ -19,7 +19,7 @@ Hylé smart contracts' onchain data consists of:
 
 The name of your contract must be unique.
 
-#### Verifier and program identifier
+#### Verifier and program ID
 
 Smart contracts on Hylé rely on a pairing of a zero-knowledge proof scheme (verifier) and a program identifier. Together, these components validate contract proofs.
 
