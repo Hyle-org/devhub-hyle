@@ -650,27 +650,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#where-is-identity-relevant-on-hyle" class="md-nav__link">
+  <a href="#choosing-an-identity-source" class="md-nav__link">
     <span class="md-ellipsis">
-      Where is identity relevant on Hylé?
+      Choosing an identity source
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#whats-special-about-identity-on-hyle" class="md-nav__link">
+  <a href="#how-hyle-processes-identity-proofs" class="md-nav__link">
     <span class="md-ellipsis">
-      What's special about identity on Hylé
+      How Hylé processes identity proofs
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
+  <a href="#custom-identity-contracts" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementation
+      Custom identity contracts
     </span>
   </a>
   
@@ -1065,27 +1065,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#where-is-identity-relevant-on-hyle" class="md-nav__link">
+  <a href="#choosing-an-identity-source" class="md-nav__link">
     <span class="md-ellipsis">
-      Where is identity relevant on Hylé?
+      Choosing an identity source
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#whats-special-about-identity-on-hyle" class="md-nav__link">
+  <a href="#how-hyle-processes-identity-proofs" class="md-nav__link">
     <span class="md-ellipsis">
-      What's special about identity on Hylé
+      How Hylé processes identity proofs
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
+  <a href="#custom-identity-contracts" class="md-nav__link">
     <span class="md-ellipsis">
-      Implementation
+      Custom identity contracts
     </span>
   </a>
   
@@ -1112,40 +1112,35 @@
 
 
 <div><h1 id="identity-management">Identity management</h1>
-<h2 id="where-is-identity-relevant-on-hyle">Where is identity relevant on Hylé?</h2>
-<p>A <code>BlobTransaction</code> on Hylé includes:</p>
+<p>Identity <a href="../hyle-vs-vintage-blockchains/">in traditional blockchains</a> is often tied to a single wallet address, which limits flexibility and privacy.</p>
+<p>Hylé introduces a <strong>proof-based identity model</strong>. Instead of relying on fixed addresses or centralized registries, your application can use cryptographic proofs of identity.</p>
+<p>This approach allows users to authenticate with any identity source: meet users where they are and don't worry about onboarding and clunky wallets!</p>
+<h2 id="choosing-an-identity-source">Choosing an identity source</h2>
+<p>On Hylé, any smart contract can be used as a proof of identity. This flexibility enables you to register your preferred identity source as a smart contract for account authentication.</p>
+<p>Here are some important aspects of identity contracts:</p>
 <ul>
-<li>As many <code>blob</code>s as wanted;</li>
-<li>One <code>blob</code> which corresponds to the identity of the person who initiated the transaction.</li>
+<li>Identity contracts define how proofs of identity are verified and validated.</li>
+<li>Applications decide which identities to accept. A contract can enforce specific identity types (e.g., Google accounts only) or support multiple sources simultaneously.</li>
+<li>A transaction can seamlessly send Hylé tokens between any identity types, such as from a Metamask wallet to an email and password-based account: using proofs as identities on Hylé means there is perfect interoperability.</li>
+<li>There are no Hylé-specific wallets. Users authenticate using any proof supported by their application.</li>
 </ul>
-<p>Note that:</p>
+<p>A safe Identity provider should sign the whole blob transaction to ensure that the blobs have been approved by the user. One way of doing it is to let the user sign the blobs they agree to execute. The identity contract will then check that all the transaction's blobs are signed.</p>
+<p>If you don't want to create a custom identity source for early development, Hylé provides <a href="https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity">a native <code>hydentity</code> contract</a>. This contract is not secure and must not be used in production.</p>
+<h2 id="how-hyle-processes-identity-proofs">How Hylé processes identity proofs</h2>
+<p>As explained in <a href="../transaction/">our transactions concept page</a>, a <code>BlobTransaction</code> on Hylé can include multiple blobs. One of these blobs must be an identity claim.</p>
 <ul>
-<li>Every blob transaction requires a single identity.</li>
-<li>All provable blobs within a transaction must share the same identity.</li>
+<li>Each blob transaction requires a single identity.</li>
+<li>All provable blobs in a transaction must share the same identity.</li>
+<li>Identity proofs must include a nonce to prevent replay attacks.</li>
+<li>The proof verification process ensures the identity was correctly provided.</li>
 </ul>
-<p>Any contract can be an identity. Hylé ships <a href="https://github.com/Hyle-org/hyle/tree/main/contracts/hydentity">a native <code>hydentity</code> contract</a>, but you can use any source as an identity proving scheme.</p>
-<h2 id="whats-special-about-identity-on-hyle">What's special about identity on Hylé</h2>
-<p>Any smart contract can be an identity provider, and there is true interoperability: a transaction can send Hylé tokens from your Metamask wallet to an email and password account seamlessly.</p>
-<h2 id="implementation">Implementation</h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Please contact us directly to know more about identity management on Hylé. We are aiming to publish implementation instructions in January 2025.</p>
-</div>
-<!--
-### You can use any source of identity
-
-Un contrat d'identité sur Hylé peut venir de n'importe où : t'as pas un wallet Hylé. sur ETH t'utilises ta clé privée, etc. : on abstrait ça, tu prouves ton ID avec n'importe quel contrat du moment que le contrat de transfert accepte ton contrat d'identité.
-A contract can impose a given identity, but doesn't _need_ to: I can say that a .google is as valid as a .skibidi
-Montrer que n'importe quel contrat d'identité fonctionnera avec n'importe quel contrat
-
-identités qui cohabitent : mon adresse gmail peut envoyer des tokens à ton passeport !
-
-On envoie une preuve par blob. Dans le Hyle_output de chaque preuve, on va donner une identité, qui sera vérifiée avec le blob. (C'est donné en input de la preuve, et la preuve la ressort en output : ça prouve qu'elle a été donnée en input.)
-
-Register + login : deux fonctions. Globalement : tu fais ton contrat comme tu veux, mais le plus simple c'est register + verify.
-
-Il faut le nonce (mais les gnes de la blockchain comprennent) pour éviter les replay attack.
---></div>
+<h2 id="custom-identity-contracts">Custom identity contracts</h2>
+<p>Applications on Hylé can implement custom identity verification rules through smart contracts. A typical identity contract includes two core functions, as shown in <a href="../../quickstart/custom-identity-contract/">our identity quickstart</a>:</p>
+<ul>
+<li><strong>Register</strong>: Users submit an initial proof of identity.</li>
+<li><strong>Verify</strong>: The contract validates the proof against predefined rules.</li>
+</ul>
+<p>Applications can use this structure or define their own identity workflows as needed.</p></div>
 
 
 
