@@ -14,11 +14,12 @@ Here are some important aspects of identity contracts:
 
 - Identity contracts define how proofs of identity are verified and validated.
 - Applications decide which identities to accept. A contract can enforce specific identity types (e.g., Google accounts only) or support multiple sources simultaneously.
-- Identity providers must provide a verifiable signature to be secure.
 - A transaction can seamlessly send Hylé tokens between any identity types, such as from a Metamask wallet to an email and password-based account: using proofs as identities on Hylé means there is perfect interoperability.
 - There are no Hylé-specific wallets. Users authenticate using any proof supported by their application.
 
-If you don't want to create a custom identity source for early development, Hylé provides [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity). This contract is not secure and should not be used in production.
+A safe Identity provider should sign the whole blob transaction to ensure that the blobs have been approved by the user. One way of doing it is to let the user sign the blobs they agree to execute. The identity contract will then check that all the transaction's blobs are signed.
+
+If you don't want to create a custom identity source for early development, Hylé provides [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity). This contract is not secure and must not be used in production.
 
 ## How Hylé processes identity proofs
 
