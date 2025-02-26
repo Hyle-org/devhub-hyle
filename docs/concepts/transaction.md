@@ -1,39 +1,46 @@
 # Transactions on Hylé
 
-On [traditional blockchains](./hyle-vs-vintage-blockchains.md),  users sign their transactions with a wallet and submit them to a node for block inclusion.
+Hylé introduces a novel transaction model that separates intent from proof, optimizing for scalability and privacy.
 
-On Hylé, onchain operations are split into two distinct transactions:
+Unlike [traditional blockchains](./hyle-vs-vintage-blockchains.md), where transactions are executed and proven in a single step, Hylé employs a two-step process called [pipelined proving](./pipelined-proving.md):
 
-- Blob transaction: describes the intended operation.
-- Proof transaction: proves the correct execution of the operation.
+1. **Blob-transaction**: outlines a state change for sequencing.
+2. **Proof-transaction**: provides a proof of the state change for settlement.
 
-We cut these in two steps because ZK proofs take longer to generate than traditional signature.
+Each proof transaction verifies a single blob. If a blob transaction contains multiple blobs, each requires a separate proof.
 
-Why two steps ? Because zkProof are not as fast to generate as traditional signatures. By sequencing your intent with a blob transaction, you can later update the state with a proof transaction after the proof is ready. For more details, read our [pipelined proving principles](./pipelined-proving.md).
-
-Each proof transaction (unless using recursion) proves a single blob. If a blob transaction contains multiple blobs, a separate proof is needed for each blob.
-
-Once all blobs are proven, the blob transaction is considered **settled**, and the states of the referenced contracts are updated.
-
-## Example: token transfer
-
-For a token transfer, a blob transaction contains two blobs:
-
-- Identity blob: verifies the sender’s identity and authorizes the transfer.
-- Transfer: executes the token transfer.
-
-These two blobs require two corresponding proof transactions.
+Once all blobs are proven, the blob transaction is settled, and the referenced contract states are updated.
 
 ## Blob transaction structure
 
-A **blob transaction** includes two key fields:
+A **blob transaction** consists of:
 
-- An **identity** string. See [the dedicated page on identity](./identity.md).
+- An **identity** string. See [identity](./identity.md).
 - A list of **blobs**, each containing:
-  - A **contract name** string.
-  - A **data** binary field, which will be parsed by the contract.
+  - A **contract name** (string).
+  - A **data** field (binary), which the contract parses.
 
-For the token transfer example, the blob transaction looks like this:
+## Proof transaction structure
+
+A **proof transaction** includes:
+
+- A **contract name** (string).
+- **Proof data** (binary), containing:
+  - A zero-knowledge proof.
+  - The smart contract output.
+
+For Risc0 and SP1, the proof data's smart contract output follows `HyleOutput` as defined in the [smart contract ABI](./smart-contracts.md).
+
+## Example: token transfer
+
+A token transfer involves two blobs in a blob transaction:
+
+- **Identity blob**: Verifies the sender’s identity and authorizes the transfer.
+- **Transfer blob**: Executes the token transfer.
+
+Each blob requires a corresponding proof transaction.
+
+### Blob transaction
 
 ```json
 {
@@ -55,57 +62,34 @@ For the token transfer example, the blob transaction looks like this:
 }
 ```
 
-## Proof transaction structure
+### Proof transactions
 
-A Proof transaction is made of
-
-- A **contract name** (string)
-- The **proof data** (binary field), holding:
-  - the ZK proof;
-  - the smart contract output.
-
-For Risc0 & SP1, the proof data's smart contract output is `HyleOutput`, as defined in the contract-sdk. It includes the following information:
-
-- The **initial state** of the contract
-- The **new state** of the contract
-- The **identity** that made the operation
-- A reference to the proven blob, composed of a **transaction hash** and an **index**
-- Additional fields for proof validation, built by the SDK.
-
-For the token transfer example, the two proofs will look like this:
+#### Identity proof
 
 ```json
 {
     "contract_name": "hydentity",
-    // Binary proof, holding a HyleOutput with :
-    // initial_state: the state of the contract "hydentity" 
-    //    before the blob transaction execution 
-    //    (nonce of bob is 1)
-    // next_state: the state of the contract "hydentity" 
-    //    after the blob transaction execution 
-    //    (nonce of bob is 2)
-    // identity: "bob.hydentity"
-    // tx_hash: the above blob transaction hash 
-    // index: 0
     "proof": "[...]"
 }
 ```
+
+The binary proof's output includes:
+
+- Initial state: `bob.hydentity` nonce = 1.
+- Next state: `bob.hydentity` nonce = 2.
+- Index: 0 (first blob in the transaction).
 
 and
 
 ```json
 {
     "contract_name": "hyllar",
-    // Binary proof, holding a HyleOutput with :
-    // initial_state: the state of the contract "hyllar" 
-    //    before the blob transaction execution 
-    //    (balance of bob is 100 and alice is 0)
-    // next_state: the state of the contract "hyllar" 
-    //    after the blob transaction execution 
-    //    (balance of bob is 80 and alice is 20)
-    // identity: "bob.hydentity"
-    // tx_hash: the above blob transaction hash 
-    // index: 1
     "proof": "[...]"
 }
 ```
+
+The binary proof's output includes:
+
+- Initial state: `bob.hydentity` balance = 100, `alice.hydentity` balance = 0.
+- Next state: `bob.hydentity` balance = 80, `alice.hydentity` balance = 20.
+- Index: 1 (second blob in the transaction).
