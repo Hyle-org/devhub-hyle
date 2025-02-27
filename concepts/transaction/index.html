@@ -606,15 +606,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example-token-transfer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example: token transfer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#blob-transaction-structure" class="md-nav__link">
     <span class="md-ellipsis">
       Blob transaction structure
@@ -629,6 +620,54 @@
       Proof transaction structure
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-token-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: token transfer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example: token transfer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blob-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blob transaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proof-transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof transactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proof transactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identity-proof" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity proof
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1065,15 +1104,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example-token-transfer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Example: token transfer
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#blob-transaction-structure" class="md-nav__link">
     <span class="md-ellipsis">
       Blob transaction structure
@@ -1088,6 +1118,54 @@
       Proof transaction structure
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-token-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: token transfer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example: token transfer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#blob-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blob transaction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proof-transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proof transactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Proof transactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#identity-proof" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identity proof
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1112,32 +1190,39 @@
 
 
 <div><h1 id="transactions-on-hyle">Transactions on Hylé</h1>
-<p>On <a href="../hyle-vs-vintage-blockchains/">traditional blockchains</a>,  users sign their transactions with a wallet and submit them to a node for block inclusion.</p>
-<p>On Hylé, onchain operations are split into two distinct transactions:</p>
-<ul>
-<li>Blob transaction: describes the intended operation.</li>
-<li>Proof transaction: proves the correct execution of the operation.</li>
-</ul>
-<p>We cut these in two steps because ZK proofs take longer to generate than traditional signature.</p>
-<p>Why two steps ? Because zkProof are not as fast to generate as traditional signatures. By sequencing your intent with a blob transaction, you can later update the state with a proof transaction after the proof is ready. For more details, read our <a href="../pipelined-proving/">pipelined proving principles</a>.</p>
-<p>Each proof transaction (unless using recursion) proves a single blob. If a blob transaction contains multiple blobs, a separate proof is needed for each blob.</p>
-<p>Once all blobs are proven, the blob transaction is considered <strong>settled</strong>, and the states of the referenced contracts are updated.</p>
-<h2 id="example-token-transfer">Example: token transfer</h2>
-<p>For a token transfer, a blob transaction contains two blobs:</p>
-<ul>
-<li>Identity blob: verifies the sender’s identity and authorizes the transfer.</li>
-<li>Transfer: executes the token transfer.</li>
-</ul>
-<p>These two blobs require two corresponding proof transactions.</p>
+<p>Hylé introduces a novel transaction model that separates intent from proof, optimizing for scalability and privacy.</p>
+<p>Unlike <a href="../hyle-vs-vintage-blockchains/">traditional blockchains</a>, where transactions are executed and proven in a single step, Hylé employs a two-step process called <a href="../pipelined-proving/">pipelined proving</a>:</p>
+<ol>
+<li><strong>Blob-transaction</strong>: outlines a state change for sequencing.</li>
+<li><strong>Proof-transaction</strong>: provides a proof of the state change for settlement.</li>
+</ol>
+<p>Each proof transaction verifies a single blob, unless you use recursion. If a blob transaction contains multiple blobs, each requires a separate proof.</p>
+<p>Once all blobs are proven, the blob transaction is settled, and the referenced contract states are updated.</p>
 <h2 id="blob-transaction-structure">Blob transaction structure</h2>
-<p>A <strong>blob transaction</strong> includes two key fields:</p>
+<p>A <strong>blob transaction</strong> consists of:</p>
 <ul>
-<li>An <strong>identity</strong> string. See <a href="../identity/">the dedicated page on identity</a>.</li>
+<li>An <strong>identity</strong> string. See <a href="../identity/">identity</a>.</li>
 <li>A list of <strong>blobs</strong>, each containing:</li>
-<li>A <strong>contract name</strong> string.</li>
-<li>A <strong>data</strong> binary field, which will be parsed by the contract.</li>
+<li>A <strong>contract name</strong> (string).</li>
+<li>A <strong>data</strong> field (binary), which the contract parses.</li>
 </ul>
-<p>For the token transfer example, the blob transaction looks like this:</p>
+<h2 id="proof-transaction-structure">Proof transaction structure</h2>
+<p>A <strong>proof transaction</strong> includes:</p>
+<ul>
+<li>A <strong>contract name</strong> (string).</li>
+<li><strong>Proof data</strong> (binary), containing:</li>
+<li>A zero-knowledge proof.</li>
+<li>The smart contract output.</li>
+</ul>
+<p>For Risc0 and SP1, the proof data's smart contract output follows <code>HyleOutput</code> as defined in the <a href="../smart-contracts/">smart contract ABI</a>.</p>
+<h2 id="example-token-transfer">Example: token transfer</h2>
+<p>A token transfer involves two blobs in a blob transaction:</p>
+<ul>
+<li><strong>Identity blob</strong>: Verifies the sender’s identity and authorizes the transfer.</li>
+<li><strong>Transfer blob</strong>: Executes the token transfer.</li>
+</ul>
+<p>Each blob requires a corresponding proof transaction.</p>
+<h3 id="blob-transaction">Blob transaction</h3>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">"identity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bob.hydentity"</span><span class="p">,</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">"blobs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -1156,54 +1241,31 @@
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="p">]</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="proof-transaction-structure">Proof transaction structure</h2>
-<p>A Proof transaction is made of</p>
-<ul>
-<li>A <strong>contract name</strong> (string)</li>
-<li>The <strong>proof data</strong> (binary field), holding:</li>
-<li>the ZK proof;</li>
-<li>the smart contract output.</li>
-</ul>
-<p>For Risc0 &amp; SP1, the proof data's smart contract output is <code>HyleOutput</code>, as defined in the contract-sdk. It includes the following information:</p>
-<ul>
-<li>The <strong>initial state</strong> of the contract</li>
-<li>The <strong>new state</strong> of the contract</li>
-<li>The <strong>identity</strong> that made the operation</li>
-<li>A reference to the proven blob, composed of a <strong>transaction hash</strong> and an <strong>index</strong></li>
-<li>Additional fields for proof validation, built by the SDK.</li>
-</ul>
-<p>For the token transfer example, the two proofs will look like this:</p>
+<h3 id="proof-transactions">Proof transactions</h3>
+<h4 id="identity-proof">Identity proof</h4>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">"contract_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hydentity"</span><span class="p">,</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="c1">// Binary proof, holding a HyleOutput with :</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="c1">// initial_state: the state of the contract "hydentity" </span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="c1">//    before the blob transaction execution </span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="c1">//    (nonce of bob is 1)</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="c1">// next_state: the state of the contract "hydentity" </span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="c1">//    after the blob transaction execution </span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="c1">//    (nonce of bob is 2)</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="c1">// identity: "bob.hydentity"</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="c1">// tx_hash: the above blob transaction hash </span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="c1">// index: 0</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[...]"</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[...]"</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">}</span>
 </span></code></pre></div>
+<p>The binary proof's output includes:</p>
+<ul>
+<li>Initial state: <code>bob.hydentity</code> nonce = 1.</li>
+<li>Next state: <code>bob.hydentity</code> nonce = 2.</li>
+<li>Index: 0 (first blob in the transaction).</li>
+</ul>
 <p>and</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">"contract_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hyllar"</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="c1">// Binary proof, holding a HyleOutput with :</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="c1">// initial_state: the state of the contract "hyllar" </span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="c1">//    before the blob transaction execution </span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="c1">//    (balance of bob is 100 and alice is 0)</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="c1">// next_state: the state of the contract "hyllar" </span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="c1">//    after the blob transaction execution </span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="c1">//    (balance of bob is 80 and alice is 20)</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="c1">// identity: "bob.hydentity"</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="c1">// tx_hash: the above blob transaction hash </span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="c1">// index: 1</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[...]"</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
-</span></code></pre></div></div>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">"proof"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[...]"</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The binary proof's output includes:</p>
+<ul>
+<li>Initial state: <code>bob.hydentity</code> balance = 100, <code>alice.hydentity</code> balance = 0.</li>
+<li>Next state: <code>bob.hydentity</code> balance = 80, <code>alice.hydentity</code> balance = 20.</li>
+<li>Index: 1 (second blob in the transaction).</li>
+</ul></div>
 
 
 
