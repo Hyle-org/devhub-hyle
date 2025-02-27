@@ -7,7 +7,7 @@ Unlike [traditional blockchains](./hyle-vs-vintage-blockchains.md), where transa
 1. **Blob-transaction**: outlines a state change for sequencing.
 2. **Proof-transaction**: provides a proof of the state change for settlement.
 
-Each proof transaction verifies a single blob. If a blob transaction contains multiple blobs, each requires a separate proof.
+Each proof transaction verifies a single blob, unless you use recursion. If a blob transaction contains multiple blobs, each requires a separate proof.
 
 Once all blobs are proven, the blob transaction is settled, and the referenced contract states are updated.
 

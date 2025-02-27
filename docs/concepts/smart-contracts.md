@@ -56,7 +56,7 @@ pub struct HyleOutput {
     pub blobs: Vec<u8>,
     pub tx_hash: TxHash,
     pub success: bool,
-    pub tx_ctx: Option<TxContext>, // optional
+    pub tx_ctx: Option<TxContext>,
     pub registered_contracts: Vec<RegisterContractEffect>,
     pub program_outputs: Vec<u8>, 
 }
@@ -73,7 +73,7 @@ These fields define state transitions.
 - `initial_state`: must match the onchain `state_digest` before the transaction. If they don't match, the state transition is invalid.
 - `next_state`: Represents the new onchain `state_digest` after the transaction.
 
-Future fees may depend on `state_digest` size, so keep it minimal.
+In the future, `state_digest` size will be limited and fees will depend on proof size (which is affected by the digest's size). Keep them small!
 
 ### Identity
 
@@ -82,7 +82,7 @@ Future fees may depend on `state_digest` size, so keep it minimal.
 
 Identity consists of:
 
-1. An address;
+1. An identifier;
 1. The name of the contract that the proof was generated for.
 
 !!! example
@@ -97,7 +97,7 @@ Each blob transaction includes multiple blobs:
 
 ### TX Hash
 
-`tx_hash` is a hash of transaction data.
+`tx_hash` is the blob Transaction's hash.
 
 The protocol does not validate this field and `tx_hash` may be deprecated in later versions.
 
@@ -105,15 +105,17 @@ The protocol does not validate this field and `tx_hash` may be deprecated in lat
 
 This boolean field indicates whether the proof is for a successful or failed transactions. It can be used to prove that a transaction is invalid.
 
-Use case example: [Vibe Check](https://github.com/Hyle-org/vibe-check/blob/main/cairo-reco-smile/src/lib.cairo#L297).
+If a proof returns `success = false`, the whole blob transaction will fail. In that case, there is no need to generate proofs for other blobs.
 
 ### Transaction context
+
+Transaction context allows the contract to know in which block (hash, height, timestamp) the blob transaction has been sequenced.
 
 This field is optional. If left empty, it will not be validated by Hylé or usable by the program.
 
 ### Registered contracts
 
-Stores the effects of registered contracts.
+A list of new contracts to register, which can be used to self-upgrade a contract.
 
 ### Other program-specific outputs
 
