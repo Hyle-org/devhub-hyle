@@ -3,7 +3,28 @@
 !!! warning
     Our examples work on Hylé v0.12.1: `git checkout tags/v0.12.1`.
 
-## Recommended: Start with Docker
+## Recommended: Run from source
+
+For a single-node devnet (consensus disabled) with an indexer, clone the [hyle repository](https://github.com/Hyle-org/hyle) and run:
+
+```sh
+cargo run -- --pg
+```
+
+This command starts a temporary PostGreSQL server and erases its data when you stop the node. For persistent storage, start a standalone PostgreSQL instance:
+
+```bash
+# Start PostgreSQL with default configuration:
+docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
+```
+
+Then, navigate to the Hylé root and run:
+
+```bash
+cargo run
+```
+
+## Alternative: Start with Docker
 
 Use Docker to run a local node. Note that the devnet is unstable and may break with future updates.
 
@@ -53,36 +74,6 @@ If you prefer to build the image from source, run:
 
 ```bash
 docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
-```
-
-## Alternative: Run from source
-
-For a single-node devnet (consensus disabled), useful for debugging smart contracts, run:
-
-```bash
-cargo build
-HYLE_RUN_INDEXER=false cargo run --bin hyle
-```
-
-To run an indexer alongside your node, use the `--pg` argument:
-
-```bash
-cargo run -- --pg
-```
-
-This command starts a temporary PostGreSQL server and erases its data when you stop the node.
-
-For persistent storage, start a standalone PostgreSQL instance:
-
-```bash
-# Start PostgreSQL with default configuration:
-docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
-```
-
-Then, navigate to the Hylé root and run:
-
-```bash
-cargo run
 ```
 
 ## Configuration
