@@ -14,6 +14,8 @@ We solve these issues by splitting sequencing from settlement; an operation incl
 
 ## Blob- and proof-transactions
 
+Read more on the content of blob and proof transactions on our [transaction page](./transaction.md).
+
 To address base state conflicts, Hylé splits operations into two transactions:
 
 1. **Blob-transaction**: outlines a state change for sequencing.
