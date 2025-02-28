@@ -26,6 +26,14 @@
 
     [:octicons-arrow-right-24: Grants](./grants.md)
 
+-   :octicons-people-16:{ .lg .middle } __Glossary__
+
+    ---
+
+    Understand our vocabulary
+
+    [:octicons-arrow-right-24: Glossary](./glossary.md)
+
 -   :simple-livechat:{ .lg .middle } __Find us__
 
     ---
