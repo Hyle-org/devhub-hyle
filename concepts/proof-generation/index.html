@@ -300,11 +300,9 @@
     
       
         
+      
+        
           
-        
-      
-        
-      
         
       
         
@@ -358,8 +356,6 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
-            
-              
                 
   
   
@@ -379,6 +375,8 @@
     </li>
   
 
+              
+            
               
             
               
@@ -409,39 +407,50 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../quickstart/custom-identity-contract/" class="md-nav__link">
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
         
   
+  
+    <a href="../../quickstart/example/" class="md-nav__link">
+      
+  
   <span class="md-ellipsis">
-    Using a custom identity contract
+    Example
     
   </span>
   
 
-      </a>
-    </li>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../quickstart/proof-composition/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Proof composition with Ticket App
-    
-  </span>
-  
-
-      </a>
+      
     </li>
   
 
@@ -1240,12 +1249,12 @@
 </table>
 <h3 id="our-supported-proving-schemes">Our supported proving schemes</h3>
 <p>Proving schemes are the cryptographic protocols that make zero-knowledge proofs usable. We support as many as we can, giving you the flexibility to choose the most suitable protocol for your specific use case.</p>
-<p>Hylé currently supports the following zero-knowledge proving schemes:</p>
-<ul>
-<li><a href="https://noir-lang.org/docs/">Noir</a></li>
-<li><a href="https://risc0.com/docs/">Risc0</a></li>
-<li><a href="https://docs.succinct.xyz/docs/sp1/introduction">SP1</a></li>
-</ul>
+<p>We've written templates for some of our supported programs. Clone them to <a href="../../quickstart/your-first-smart-contract/">get started</a> with smart contract writing.</p>
+<p>| Proving scheme | Template                                       |
+|----------------||---|
+| <a href="https://noir-lang.org/docs/">Noir</a>           |   - |
+| <a href="https://risc0.com/docs/">Risc0</a>      |  <a href="https://github.com/Hyle-org/template-risc0">Template</a>  |
+| <a href="https://docs.succinct.xyz/sp1/introduction">SP1</a>  |   <a href="https://github.com/Hyle-org/template-sp1">Template</a> |</p>
 <p>We also verify these natively, without the need for a ZK proof.</p>
 <ul>
 <li>sha3_256</li>
@@ -1259,7 +1268,7 @@
 <p>Read more about the transaction lifecycle on our <a href="../transaction/">transactions overview</a>.</p>
 <p>First, your application sends a blob transaction to Hylé.</p>
 <p>Thanks to <a href="../pipelined-proving/">pipelined proving</a>, once a transaction is submitted, it is sequenced.</p>
-<p>You can then start generating your proof using the sequenced virtual base state as the base state for your operation. <a href="../../quickstart/your-first-smart-contract/#prove-the-transaction">Read our quickstart</a> for a concrete example of how to prove a transaction.</p>
+<p>You can then start generating your proof using the sequenced virtual base state as the base state for your operation. <a href="../../quickstart/example/your-first-smart-contract/#prove-the-transaction">Read our quickstart</a> for a concrete example of how to prove a transaction.</p>
 <p>Once sent, the proof goes through Hylé’s native verification, removing the need for verifier contracts.</p>
 <p>Once verified, the proof is settled onchain. Use this settled state to update your app accordingly outside of Hylé.</p>
 <h2 id="external-resources">External resources</h2>

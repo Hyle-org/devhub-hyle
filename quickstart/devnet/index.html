@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://docs.hyle.eu/quickstart/devnet/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../../introduction/">
       
       
-        <link rel="next" href="../your-first-smart-contract/">
+        <link rel="next" href="../">
       
       
       <link rel="icon" href="../../assets/logo.png">
@@ -302,11 +302,9 @@
     
       
         
+      
+        
           
-        
-      
-        
-      
         
       
         
@@ -356,8 +354,6 @@
             Quickstart
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
             
               
                 
@@ -507,6 +503,8 @@
               
             
               
+            
+              
                 
   
   
@@ -534,39 +532,50 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../custom-identity-contract/" class="md-nav__link">
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
         
   
+  
+    <a href="../example/" class="md-nav__link">
+      
+  
   <span class="md-ellipsis">
-    Using a custom identity contract
+    Example
     
   </span>
   
 
-      </a>
-    </li>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../proof-composition/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Proof composition with Ticket App
-    
-  </span>
-  
-
-      </a>
+      
     </li>
   
 
@@ -1226,10 +1235,6 @@
 
 
 <div><h1 id="run-your-local-devnet">Run your local devnet</h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Our examples work on Hylé v0.12.1: <code>git checkout tags/v0.12.1</code>.</p>
-</div>
 <h2 id="recommended-run-from-source">Recommended: Run from source</h2>
 <p>For a single-node devnet (consensus disabled) with an indexer, clone the <a href="https://github.com/Hyle-org/hyle">hyle repository</a> and run:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--pg
@@ -1263,7 +1268,7 @@
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span>-p<span class="w"> </span><span class="m">4321</span>:4321<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span>ghcr.io/hyle-org/hyle:v0.7.2
 </span></code></pre></div>
-<p>You can now <a href="../your-first-smart-contract/">create your first smart contract</a>.</p>
+<p>You can now <a href="../example/your-first-smart-contract/">create your first smart contract</a>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>To reset your devnet, delete the ./data folder and restart from Step 1. Otherwise, you risk re-registering a contract that still exists.</p>
@@ -1390,13 +1395,13 @@
                 
   <div class="nav-links">
     
-        <a href="../" class="nav-button prev">
-            &larr; 🏁 Quickstart
+        <a href="../../introduction/" class="nav-button prev">
+            &larr; Introduction to Hylé
         </a>
     
     
-        <a href="../your-first-smart-contract/" class="nav-button next">
-            Your first smart contract &rarr;
+        <a href="../" class="nav-button next">
+            🏁 Quickstart &rarr;
         </a>
     
 </div>

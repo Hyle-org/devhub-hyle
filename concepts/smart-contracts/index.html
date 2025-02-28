@@ -300,11 +300,9 @@
     
       
         
+      
+        
           
-        
-      
-        
-      
         
       
         
@@ -358,8 +356,6 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
-            
-              
                 
   
   
@@ -379,6 +375,8 @@
     </li>
   
 
+              
+            
               
             
               
@@ -409,39 +407,50 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../quickstart/custom-identity-contract/" class="md-nav__link">
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
         
   
+  
+    <a href="../../quickstart/example/" class="md-nav__link">
+      
+  
   <span class="md-ellipsis">
-    Using a custom identity contract
+    Example
     
   </span>
   
 
-      </a>
-    </li>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
   
 
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../quickstart/proof-composition/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Proof composition with Ticket App
-    
-  </span>
-  
-
-      </a>
+      
     </li>
   
 
@@ -1397,34 +1406,30 @@
 <p>The contract name must be unique.</p>
 <h4 id="verifier-and-program-id">Verifier and program ID</h4>
 <p>Smart contracts on Hylé rely on a pairing of a zero-knowledge proof scheme (verifier) and a program identifier. Together, these components validate contract proofs.</p>
-<p>We've written templates for some of our supported programs. Clone them to get started with smart contract writing.</p>
+<p>We've written templates for some of our supported programs. Clone them to <a href="../../quickstart/your-first-smart-contract/">get started with smart contract writing</a>.</p>
 <table>
 <thead>
 <tr>
 <th>Proving scheme</th>
 <th>Verifier</th>
 <th>Program ID</th>
-<th>Template</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Noir</td>
+<td><a href="https://noir-lang.org/docs/">Noir</a></td>
 <td>noir</td>
 <td>Verification key.</td>
-<td>-</td>
 </tr>
 <tr>
-<td>Risc Zero</td>
+<td><a href="https://risc0.com/docs/">Risc0</a></td>
 <td>risc0</td>
 <td>Image ID without a prefix. ex. 0x123 becomes 123.</td>
-<td><a href="https://github.com/Hyle-org/risc0-template">Template</a></td>
 </tr>
 <tr>
-<td>SP1</td>
+<td><a href="https://docs.succinct.xyz/docs/introduction">SP1</a></td>
 <td>sp1</td>
 <td>Verification key.</td>
-<td>-</td>
 </tr>
 </tbody>
 </table>
