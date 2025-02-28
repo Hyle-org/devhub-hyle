@@ -1,7 +1,7 @@
 # Proof composition
 
 !!! note
-    To understand proof composition in practice, check out [our quickstart example](..//quickstart/proof-composition.md).
+    To understand proof composition in practice, check out [our quickstart example](../quickstart/example/proof-composition.md).
 
 ## The problem: clunky interactions
 

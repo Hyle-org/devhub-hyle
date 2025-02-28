@@ -34,11 +34,13 @@ Each application can generate its proof in whichever place fits best.
 
 Proving schemes are the cryptographic protocols that make zero-knowledge proofs usable. We support as many as we can, giving you the flexibility to choose the most suitable protocol for your specific use case.
 
-Hylé currently supports the following zero-knowledge proving schemes:
+We've written templates for some of our supported programs. Clone them to [get started](../quickstart/your-first-smart-contract.md) with smart contract writing.
 
-- [Noir](https://noir-lang.org/docs/)
-- [Risc0](https://risc0.com/docs/)
-- [SP1](https://docs.succinct.xyz/docs/sp1/introduction)
+| Proving scheme | Template                                       |
+|----------------||---|
+| [Noir](https://noir-lang.org/docs/)           |   - |
+| [Risc0](https://risc0.com/docs/)      |  [Template](https://github.com/Hyle-org/template-risc0)  |
+| [SP1](https://docs.succinct.xyz/sp1/introduction)  |   [Template](https://github.com/Hyle-org/template-sp1) |
 
 We also verify these natively, without the need for a ZK proof.
 
@@ -61,7 +63,7 @@ First, your application sends a blob transaction to Hylé.
 
 Thanks to [pipelined proving](./pipelined-proving.md), once a transaction is submitted, it is sequenced.
 
-You can then start generating your proof using the sequenced virtual base state as the base state for your operation. [Read our quickstart](../quickstart/your-first-smart-contract.md#prove-the-transaction) for a concrete example of how to prove a transaction.
+You can then start generating your proof using the sequenced virtual base state as the base state for your operation. [Read our quickstart](../quickstart/example/your-first-smart-contract.md#prove-the-transaction) for a concrete example of how to prove a transaction.
 
 Once sent, the proof goes through Hylé’s native verification, removing the need for verifier contracts.
 

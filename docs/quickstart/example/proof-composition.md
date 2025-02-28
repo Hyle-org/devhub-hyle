@@ -1,6 +1,6 @@
 # Proof composition with Ticket App
 
-Hylé enables [proof composition](../concepts/proof-composability.md), allowing different proving systems to work within a single operation. This removes constraints on provers and significantly improves interoperability and efficiency.
+Hylé enables [proof composition](../../concepts/proof-composability.md), allowing different proving systems to work within a single operation. This removes constraints on provers and significantly improves interoperability and efficiency.
 
 In this guide, we’ll build a Ticket App that demonstrates proof composition. Users can buy a ticket using [simple-token](./your-first-smart-contract.md), and Hylé will verify multiple proofs in a single transaction.
 
@@ -28,7 +28,7 @@ The Ticket App backend creates and sends a blob transaction to Hylé, including 
 - a *simple-token blob* transferring 15 simple-tokens from `bob.id`'s balance;
 - a *ticket-app blob* sending `bob.id` a ticket if conditions are met.
 
-At this stage, Hylé sequences the transaction, but it’s not yet settled. [Read more about pipelined proving.](../concepts/pipelined-proving.md)
+At this stage, Hylé sequences the transaction, but it’s not yet settled. [Read more about pipelined proving.](../../concepts/pipelined-proving.md)
 
 ### Step 2: Prove the blobs
 
@@ -64,7 +64,7 @@ If any proof fails, the entire transaction fails. Neither state is updated: Bob'
 
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
 - For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
-- [Start a single-node devnet](./devnet.md).
+- [Start a single-node devnet](../devnet.md).
 
 This quickstart guide will take you through the following steps:
 
@@ -104,7 +104,7 @@ We now do the same for alice:
 cargo run -- --contract-name id verify alice.id pass 0
 ```
 
-`bob.id` is bob's identity on the simple-identity contract. Check out our [Identity management](../concepts/identity.md) and [custom identity contract](./custom-identity-contract.md) pages to know more.
+`bob.id` is bob's identity on the simple-identity contract. Check out our [Identity management](../../concepts/identity.md) and [custom identity contract](./custom-identity-contract.md) pages to know more.
 
 ### Simple-token preparation
 

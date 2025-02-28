@@ -32,7 +32,7 @@ As explained in [our transactions concept page](./transaction.md), a `BlobTransa
 
 ## Custom identity contracts
 
-Applications on Hylé can implement custom identity verification rules through smart contracts. A typical identity contract includes two core functions, as shown in [our identity quickstart](../quickstart/custom-identity-contract.md):
+Applications on Hylé can implement custom identity verification rules through smart contracts. A typical identity contract includes two core functions, as shown in [our identity quickstart](../quickstart/example/custom-identity-contract.md):
 
 - **Register**: Users submit an initial proof of identity.
 - **Verify**: The contract validates the proof against predefined rules.
