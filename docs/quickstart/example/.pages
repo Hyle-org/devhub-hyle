@@ -1,5 +1,5 @@
 nav:
     - index.md
-    - your-first-smart-contract.md
+    - first-token-contract.md
     - custom-identity-contract.md
     - proof-composition.md
