@@ -4,7 +4,7 @@ This guide will walk you through creating and deploying your first token transfe
 
 For an alternative implementation, check out [the same example built with SP1](https://github.com/Hyle-org/examples/tree/main/simple-token-sp1).
 
-If you’re new to smart contracts on Hylé, read the [anatomy of a smart contract](../../../concepts/smart-contracts.md).
+If you’re new to smart contracts on Hylé, read the [anatomy of a smart contract](../../concepts/smart-contracts.md).
 
 ## Example
 
@@ -16,7 +16,7 @@ If you’re new to smart contracts on Hylé, read the [anatomy of a smart contra
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
 - Install openssl-dev (e.g. `apt install openssl-dev` or `cargo add openssl`).
 - For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
-- [Run a single-node devnet](../../devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations.
+- [Run a single-node devnet](../devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations.
 
 ## Quickstart
 
@@ -40,7 +40,7 @@ cargo run -- transfer faucet.simple_token bob.simple_token 2
 
 This command:
 
-1. Sends a blob transaction to transfer 2 tokens from `faucet` to `bob`. To better understand what a blob transaction is, [read more about transactions on Hylé](../../../concepts/transaction.md).
+1. Sends a blob transaction to transfer 2 tokens from `faucet` to `bob`. To better understand what a blob transaction is, [read more about transactions on Hylé](../../concepts/transaction.md).
 2. Generates a ZK proof for the transfer.
 3. Sends the proof to the devnet for verification. (Scroll down to see what that looks like in code.)
 
@@ -174,7 +174,7 @@ println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
 
 #### Prove the transaction
 
-Hylé transactions are settled in two steps, following [pipelined proving principles](../../../concepts/pipelined-proving.md). After this step, your transaction is sequenced, but not settled.
+Hylé transactions are settled in two steps, following [pipelined proving principles](../../concepts/pipelined-proving.md). After this step, your transaction is sequenced, but not settled.
 
 For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:
 
