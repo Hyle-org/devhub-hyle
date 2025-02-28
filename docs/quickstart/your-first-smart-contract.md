@@ -8,7 +8,7 @@
 We support [several proving schemes](../concepts/proof-generation.md#our-supported-proving-schemes) and provide templates for the following:
 
 - [risc0](https://github.com/Hyle-org/risc0-template)
-<!--- [SP1](https://github.com/Hyle-org/sp1-template)-->
+- [SP1](https://github.com/Hyle-org/template-sp1)
 
 ## Step 2: Edit your contract
 

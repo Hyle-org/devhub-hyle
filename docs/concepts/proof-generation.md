@@ -36,11 +36,11 @@ Proving schemes are the cryptographic protocols that make zero-knowledge proofs 
 
 We've written templates for some of our supported programs. Clone them to [get started](../quickstart/your-first-smart-contract.md) with smart contract writing.
 
-| Proving scheme | Verifier | Program ID | Template                                       |
-|----------------|----------|---------------------------------------------------|---|
-| [Noir](https://noir-lang.org/docs/)           | noir     | Verification key.                                 |   - |
-| [Risc0](https://risc0.com/docs/)      | risc0    | Image ID without a prefix. ex. 0x123 becomes 123. | [Template](https://github.com/Hyle-org/risc0-template)  |
-| [SP1](https://docs.succinct.xyz/sp1/introduction)            | sp1      | Verification key.                                 |   - |
+| Proving scheme | Template                                       |
+|----------------||---|
+| [Noir](https://noir-lang.org/docs/)           |   - |
+| [Risc0](https://risc0.com/docs/)      |  [Template](https://github.com/Hyle-org/risc0-template)  |
+| [SP1](https://docs.succinct.xyz/sp1/introduction)  |   [Template](https://github.com/Hyle-org/template-sp1) |
 
 We also verify these natively, without the need for a ZK proof.
 
