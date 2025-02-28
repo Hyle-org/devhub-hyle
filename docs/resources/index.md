@@ -18,11 +18,11 @@
 
     [:octicons-arrow-right-24: Release notes](./release-notes.md)
 
--   :octicons-people-16:{ .lg .middle } __Grants__
+-   :octicons-people-16:{ .lg .middle } __Contribute__
 
     ---
 
-    Discover our grant program.
+    Contribute to Hylé through hackathons and grants.
 
     [:octicons-arrow-right-24: Grants](./grants.md)
 
