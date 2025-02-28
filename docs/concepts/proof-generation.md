@@ -38,7 +38,7 @@ Hylé currently supports the following zero-knowledge proving schemes:
 
 - [Noir](https://noir-lang.org/docs/)
 - [Risc0](https://risc0.com/docs/)
-- [SP1](https://docs.succinct.xyz/docs/introduction)
+- [SP1](https://docs.succinct.xyz/docs/sp1/introduction)
 
 We also verify these natively, without the need for a ZK proof.
 
