@@ -39,7 +39,7 @@ We've written templates for some of our supported programs. Clone them to [get s
 | Proving scheme | Template                                       |
 |----------------||---|
 | [Noir](https://noir-lang.org/docs/)           |   - |
-| [Risc0](https://risc0.com/docs/)      |  [Template](https://github.com/Hyle-org/risc0-template)  |
+| [Risc0](https://risc0.com/docs/)      |  [Template](https://github.com/Hyle-org/template-risc0)  |
 | [SP1](https://docs.succinct.xyz/sp1/introduction)  |   [Template](https://github.com/Hyle-org/template-sp1) |
 
 We also verify these natively, without the need for a ZK proof.
