@@ -1,6 +1,8 @@
 # :checkered_flag: Quickstart
 
-Welcome to the **Quickstart** guide for Hylé. It uses several examples to help you start building as soon as possible.
+Welcome to the **Quickstart** guide for Hylé.
+
+It uses several examples to help you start building as soon as possible.
 
 ::timeline:: id="epic-timeline"
 
@@ -11,19 +13,14 @@ Welcome to the **Quickstart** guide for Hylé. It uses several examples to help 
         "icon": ":material-home:",
     },
     {
-        "title": "[Create your first smart contract](your-first-smart-contract.md)",
-        "content": "Understand how smart contracts work on Hylé with our simple-token example.",
-        "icon": ":fontawesome-solid-coins:",
+        "title": "[Create your first smart contract](./your-first-smart-contract.md)",
+        "content": "In just a couple of lines, create and register your first smart contract.",
+        "icon": ":material-creation:",
     },
     {
-        "title": "[Use an identity contract](custom-identity-contract.md)",
-        "content": "Every contract can be an identity on Hylé. Try it out with our simple-identity example.",
-        "icon": ":octicons-people-16:",
-    },
-    {
-        "title": "[Call several contracts in one transaction](proof-composition.md)",
-        "content": "Use cross-contract proof composition to buy a simple-ticket with a simple-token.",
-        "icon": ":material-call-merge:",
+        "title": "[Walk through a full example](./example/index.md)",
+        "content": "Check out a ticket app based on a token and simple identity contract.",
+        "icon": ":material-globe-model:",
     },
 ]
 

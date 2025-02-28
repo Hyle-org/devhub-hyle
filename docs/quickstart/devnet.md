@@ -1,8 +1,5 @@
 # Run your local devnet
 
-!!! warning
-    Our examples work on Hylé v0.12.1: `git checkout tags/v0.12.1`.
-
 ## Recommended: Run from source
 
 For a single-node devnet (consensus disabled) with an indexer, clone the [hyle repository](https://github.com/Hyle-org/hyle) and run:
@@ -63,7 +60,7 @@ docker run -v ./data:/hyle/data \
     ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
-You can now [create your first smart contract](./your-first-smart-contract.md).
+You can now [create your first smart contract](./example/your-first-smart-contract.md).
 
 !!! tip
     To reset your devnet, delete the ./data folder and restart from Step 1. Otherwise, you risk re-registering a contract that still exists.

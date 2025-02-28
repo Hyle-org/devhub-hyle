@@ -1,6 +1,5 @@
 nav:
-    - index.md
     - devnet.md
+    - index.md
     - your-first-smart-contract.md
-    - custom-identity-contract.md
-    - proof-composition.md
+    - example

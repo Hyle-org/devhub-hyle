@@ -6,7 +6,7 @@ On Hylé, **any smart contract can be a proof of identity**. This flexibility en
 
 This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/main/simple-identity), which mirrors our [simple token transfer example](./your-first-smart-contract.md).
 
-If you’re new to identity management on Hylé, read the [identity management concept page](../concepts/identity.md).
+If you’re new to identity management on Hylé, read the [identity management concept page](../../concepts/identity.md).
 
 ## Run the example
 
@@ -21,7 +21,7 @@ If you’re new to identity management on Hylé, read the [identity management c
 - [Install Rust](https://www.rust-lang.org/tools/install) (you'll need `rustup` and Cargo).
 - Install openssl-dev (e.g. `apt install openssl-dev` or `cargo add openssl`).
 - For our example, [install RISC Zero](https://dev.risczero.com/api/zkvm/install).
-- [Start a single-node devnet](./devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations during development.
+- [Start a single-node devnet](../devnet.md). We recommend using [dev-mode](https://dev.risczero.com/api/generating-proofs/dev-mode) with `-e RISC0_DEV_MODE=1` for faster iterations during development.
 
 ### Build and register the identity contract
 
@@ -115,13 +115,13 @@ let blob_tx = BlobTransaction {
 };
 ```
 
-You can compare these to the fields described in the [Transactions on Hylé](../concepts/transaction.md) page.
+You can compare these to the fields described in the [Transactions on Hylé](../../concepts/transaction.md) page.
 
 #### Prove the registration
 
 ##### On the backend (host) side
 
-Hylé transactions follow a two-step settlement process based on [pipelined proving](../concepts/pipelined-proving.md) principles:
+Hylé transactions follow a two-step settlement process based on [pipelined proving](../../concepts/pipelined-proving.md) principles:
 
 1. Sending the blob transaction: The transaction is sequenced but not yet settled.
 1. Proving the transaction: The transaction is settled after a proof is generated.
@@ -151,7 +151,7 @@ let inputs = ContractInput {
 
 ##### On the contract (guest) side
 
-These inputs are then processed by the [SDK](../tooling/sdk.md) to [initialize the contract](https://github.com/Hyle-org/examples/blob/main/simple-identity/methods/guest/src/main.rs#L8) :
+These inputs are then processed by the [SDK](../../tooling/sdk.md) to [initialize the contract](https://github.com/Hyle-org/examples/blob/main/simple-identity/methods/guest/src/main.rs#L8) :
 
 ```rust
     // Parse contract inputs
@@ -184,7 +184,7 @@ Finally, the contract commits the updated state:
     sdk::guest::commit(input, next_state, res);
 ```
 
-The `guest::commit` function includes the `HyleOutput`, as explained in [Transactions on Hylé](../concepts/transaction.md).
+The `guest::commit` function includes the `HyleOutput`, as explained in [Transactions on Hylé](../../concepts/transaction.md).
 
 ### Verify an identity
 
