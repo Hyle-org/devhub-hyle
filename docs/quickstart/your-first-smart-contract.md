@@ -1,7 +1,7 @@
 # Your first smart contract
 
 !!! tip
-    Check our [example walkthrough](./example/first-token-contract.md) for more!
+    Check our [example walkthrough](./example/index.md) for more!
 
 ## Step 1: Clone a template
 
