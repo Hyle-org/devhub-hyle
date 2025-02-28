@@ -11,7 +11,7 @@ Here's a step-by-step walkthrough of an example.
         "icon": ":material-home:",
     },
     {
-        "title": "[Create your first smart contract](./your-first-smart-contract.md)",
+        "title": "[Create your first smart contract](./first-token-contract.md)",
         "content": "Understand how smart contracts work on Hylé with our simple-token example.",
         "icon": ":fontawesome-solid-coins:",
     },

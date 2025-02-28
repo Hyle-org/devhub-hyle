@@ -1,4 +1,4 @@
-# Your first smart contract
+# Your first token contract
 
 This guide will walk you through creating and deploying your first token transfer contract using Hylé's tools and infrastructure. We'll use [our simple-token transfer example](https://github.com/Hyle-org/examples/tree/main/simple-token) as the basis for this tutorial.
 

@@ -63,7 +63,7 @@ First, your application sends a blob transaction to Hylé.
 
 Thanks to [pipelined proving](./pipelined-proving.md), once a transaction is submitted, it is sequenced.
 
-You can then start generating your proof using the sequenced virtual base state as the base state for your operation. [Read our quickstart](../quickstart/example/your-first-smart-contract.md#prove-the-transaction) for a concrete example of how to prove a transaction.
+You can then start generating your proof using the sequenced virtual base state as the base state for your operation. [Read our quickstart](../quickstart/example/first-token-contract.md#prove-the-transaction) for a concrete example of how to prove a transaction.
 
 Once sent, the proof goes through Hylé’s native verification, removing the need for verifier contracts.
 

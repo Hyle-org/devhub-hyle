@@ -2,7 +2,7 @@
 
 Hylé enables [proof composition](../../concepts/proof-composability.md), allowing different proving systems to work within a single operation. This removes constraints on provers and significantly improves interoperability and efficiency.
 
-In this guide, we’ll build a Ticket App that demonstrates proof composition. Users can buy a ticket using [simple-token](./your-first-smart-contract.md), and Hylé will verify multiple proofs in a single transaction.
+In this guide, we’ll build a Ticket App that demonstrates proof composition. Users can buy a ticket using [simple-token](./first-token-contract.md), and Hylé will verify multiple proofs in a single transaction.
 
 Find the source code for all contracts here:
 
