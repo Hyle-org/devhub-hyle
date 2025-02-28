@@ -42,8 +42,6 @@ We've written templates for some of our supported programs. Clone them to [get s
 | [Risc0](https://risc0.com/docs/)      | risc0    | Image ID without a prefix. ex. 0x123 becomes 123. | [Template](https://github.com/Hyle-org/risc0-template)  |
 | [SP1](https://docs.succinct.xyz/docs/introduction)            | sp1      | Verification key.                                 |   - |
 
-Hylé currently supports the following zero-knowledge proving schemes:
-
 We also verify these natively, without the need for a ZK proof.
 
 - sha3_256
