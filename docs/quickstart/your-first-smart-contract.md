@@ -10,6 +10,8 @@ We support [several proving schemes](../concepts/proof-generation.md#our-support
 - [risc0](https://github.com/Hyle-org/risc0-template)
 - [SP1](https://github.com/Hyle-org/template-sp1)
 
+Clone the template or, for proving schemes without templates, use the templates as inspiration for writing your contract. You can also check our [smart contract concept page](../concepts/smart-contracts.md) for more information!
+
 ## Step 2: Edit your contract
 
 Navigate to the `contract/` folder and edit your contract as necessary.

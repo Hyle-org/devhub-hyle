@@ -23,7 +23,7 @@ The contract name must be unique.
 
 Smart contracts on Hylé rely on a pairing of a zero-knowledge proof scheme (verifier) and a program identifier. Together, these components validate contract proofs.
 
-We've written templates for some of our supported programs. Clone them to get started with smart contract writing.
+We've written templates for some of our supported programs. Clone them to [get started with smart contract writing](../quickstart/your-first-smart-contract.md).
 
 | Proving scheme | Verifier | Program ID | 
 |----------------|----------|---------------------------------------------------|
