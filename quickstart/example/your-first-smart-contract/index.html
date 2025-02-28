@@ -1098,6 +1098,8 @@
       
         
       
+        
+      
     
     
       
@@ -1180,6 +1182,28 @@
   
   <span class="md-ellipsis">
     Release notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/glossary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Glossary
     
   </span>
   
@@ -1428,7 +1452,7 @@
 <div><h1 id="your-first-smart-contract">Your first smart contract</h1>
 <p>This guide will walk you through creating and deploying your first token transfer contract using Hylé's tools and infrastructure. We'll use <a href="https://github.com/Hyle-org/examples/tree/main/simple-token">our simple-token transfer example</a> as the basis for this tutorial.</p>
 <p>For an alternative implementation, check out <a href="https://github.com/Hyle-org/examples/tree/main/simple-token-sp1">the same example built with SP1</a>.</p>
-<p>If you’re new to smart contracts on Hylé, read the <a href="../../../concepts/smart-contracts.md">anatomy of a smart contract</a>.</p>
+<p>If you’re new to smart contracts on Hylé, read the <a href="../../../concepts/smart-contracts/">anatomy of a smart contract</a>.</p>
 <h2 id="example">Example</h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1439,7 +1463,7 @@
 <li><a href="https://www.rust-lang.org/tools/install">Install Rust</a> (you'll need <code>rustup</code> and Cargo).</li>
 <li>Install openssl-dev (e.g. <code>apt install openssl-dev</code> or <code>cargo add openssl</code>).</li>
 <li>For our example, <a href="https://dev.risczero.com/api/zkvm/install">install RISC Zero</a>.</li>
-<li><a href="../../devnet.md">Run a single-node devnet</a>. We recommend using <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> with <code>-e RISC0_DEV_MODE=1</code> for faster iterations.</li>
+<li><a href="../../devnet/">Run a single-node devnet</a>. We recommend using <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> with <code>-e RISC0_DEV_MODE=1</code> for faster iterations.</li>
 </ul>
 <h2 id="quickstart">Quickstart</h2>
 <h3 id="build-and-register-the-contract">Build and register the contract</h3>
@@ -1453,7 +1477,7 @@
 </span></code></pre></div>
 <p>This command:</p>
 <ol>
-<li>Sends a blob transaction to transfer 2 tokens from <code>faucet</code> to <code>bob</code>. To better understand what a blob transaction is, <a href="../../../concepts/transaction.md">read more about transactions on Hylé</a>.</li>
+<li>Sends a blob transaction to transfer 2 tokens from <code>faucet</code> to <code>bob</code>. To better understand what a blob transaction is, <a href="../../../concepts/transaction/">read more about transactions on Hylé</a>.</li>
 <li>Generates a ZK proof for the transfer.</li>
 <li>Sends the proof to the devnet for verification. (Scroll down to see what that looks like in code.)</li>
 </ol>
@@ -1556,7 +1580,7 @@
 </span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="fm">println!</span><span class="p">(</span><span class="s">"✅ Blob tx sent. Tx hash: {}"</span><span class="p">,</span><span class="w"> </span><span class="n">blob_tx_hash</span><span class="p">);</span>
 </span></code></pre></div>
 <h4 id="prove-the-transaction">Prove the transaction</h4>
-<p>Hylé transactions are settled in two steps, following <a href="../../../concepts/pipelined-proving.md">pipelined proving principles</a>. After this step, your transaction is sequenced, but not settled.</p>
+<p>Hylé transactions are settled in two steps, following <a href="../../../concepts/pipelined-proving/">pipelined proving principles</a>. After this step, your transaction is sequenced, but not settled.</p>
 <p>For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:</p>
 <ul>
 <li>the initial state as set above</li>
