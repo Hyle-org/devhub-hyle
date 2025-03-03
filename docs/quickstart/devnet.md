@@ -8,7 +8,9 @@ For a single-node devnet (consensus disabled) with an indexer, clone the [hyle r
 cargo run -- --pg
 ```
 
-This command starts a temporary PostgreSQL server and erases its data when you stop the node. For persistent storage, start a standalone PostgreSQL instance:
+This command starts a temporary PostgreSQL server and erases its data when you stop the node.
+
+For persistent storage, start a standalone PostgreSQL instance:
 
 ```bash
 # Start PostgreSQL with default configuration:
