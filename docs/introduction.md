@@ -6,11 +6,11 @@ An unchained application runs offchain and settles onchain. It benefits from the
 
 ## Why choose Hylé
 
-- Native zero-knowledge proof verification on our sovereign L1: we're fast and lean.
+- Native zero-knowledge proof verification on our sovereign L1 for maximum speed.
 - No onchain execution or virtual machine needed: only efficient proof verification.
 - Run complex logic off-chain and only submit proofs onchain for maximum scalability.
 - Authenticate effortlessly with any identity provider.
-- Interoperate with other smart contracts like it’s an API call.
+- Interact with other contracts via simple API-like calls.
 - Pipelined proving: send provable blobs, don't worry about proving times.
 - Unlock Web2 speed with a state-of-the-art consensus protocol for DA & settlement.
 - Choose your proving scheme and your language: we verify all proofs.
