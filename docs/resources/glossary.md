@@ -2,6 +2,7 @@
 
 |              Term              |                                                            Definition                                                           | Related concept page |
 |:------------------------------:|:-------------------------------------------------------------------------------:|:--------------:
+|**base state** | The state of a smart contract before an operation occurs. | [Transactions](../concepts/transaction.md) |
 | **blob**                       | A piece of provable information that is sent to Hylé.                                                                           | [Smart contracts](../concepts/smart-contracts.md) |
 | **blob transaction**           | A transaction including a provable *blob*, used for sequencing.       | [Pipelined proving](../concepts/proof-composability.md) |
 | **cross-contract composition** | The ability to use and verify a contract's proofs in other contracts.  | [Proof composition](../concepts/proof-composability.md) |
