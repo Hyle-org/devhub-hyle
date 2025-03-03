@@ -1564,7 +1564,7 @@
 <p>Let's verify it quickly with:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>id<span class="w"> </span>verify<span class="w"> </span>bob.id<span class="w"> </span>pass<span class="w"> </span><span class="m">0</span>
 </span></code></pre></div>
-<p>0 is a nonce: every time we verify successfully bob's identity, it increments. Now if we want to verify it again, we should use 1 as nonce. (We also use « pass » as our default password.)</p>
+<p>0 is a nonce: every time we verify successfully bob's identity, it increments. Now if we want to verify it again, we should use 1 as nonce. (We also use "pass" as our default password.)</p>
 <p>We now do the same for alice:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--contract-name<span class="w"> </span>id<span class="w"> </span>verify<span class="w"> </span>alice.id<span class="w"> </span>pass<span class="w"> </span><span class="m">0</span>
 </span></code></pre></div>

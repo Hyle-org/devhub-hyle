@@ -1243,7 +1243,7 @@
 <h2 id="the-solution-proof-composition">The solution: proof composition</h2>
 <h3 id="cross-contract-calls-with-proof-composition">Cross-contract calls with proof composition</h3>
 <p><strong>Proof composability</strong> means that Hylé enables these interactions while keeping each proof independent; <strong>proof composition</strong> is the action enabled by composability.</p>
-<p>Hylé gets rid of recursion by allowing Program A to specify: «This only applies if all blobs in this operation are valid ». At settlement, both proofs are included in the same proof transaction. Hylé verifies them together, and the entire operation fails if any proof fails.</p>
+<p>Hylé gets rid of recursion by allowing Program A to specify: "This only applies if all blobs in this operation are valid". At settlement, both proofs are included in the same proof transaction. Hylé verifies them together, and the entire operation fails if any proof fails.</p>
 <p>This solution improves developer experience, lowers gas costs, and shortens proving time.</p>
 <h3 id="proofs-using-different-schemes">Proofs using different schemes</h3>
 <p>Since proofs in Hylé remain independent, you can batch multiple proofs within a single transaction, each using its optimal proving scheme.</p>
