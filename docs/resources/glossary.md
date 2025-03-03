@@ -11,3 +11,4 @@
 | **proof verification**         | The act by which Hylé verifies submitted proofs before settling them onchain.                               | [Transactions](../concepts/transaction.md) |
 | **timeout**                    | A time window after which, if no *proof transaction* has been submitted, an *operation* fails.    | [Pipelined proving](../concepts/proof-composability.md) |
 | **transaction**                | A part of an *operation* that gets sent to Hylé. There are two types of transactions: *blob transactions* and *proof transactions*.   | [Transactions](../concepts/transaction.md) |
+| **unchained app**  | An app that runs offchain and settles onchain, giving it both the Web2 user experience and the security of Web3. |  |

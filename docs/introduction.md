@@ -2,6 +2,8 @@
 
 [Hylé](https://hyle.eu/) is the new-generation base layer for the era of unchained applications.
 
+An unchained application runs offchain and settles onchain. It benefits from the Web2 user experience and the security of Web3.
+
 ## Why choose Hylé
 
 - Native zero-knowledge proof verification on our sovereign L1: we're fast and lean.
