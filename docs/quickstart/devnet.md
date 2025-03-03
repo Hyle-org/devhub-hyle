@@ -8,7 +8,7 @@ For a single-node devnet (consensus disabled) with an indexer, clone the [hyle r
 cargo run -- --pg
 ```
 
-This command starts a temporary PostGreSQL server and erases its data when you stop the node. For persistent storage, start a standalone PostgreSQL instance:
+This command starts a temporary PostgreSQL server and erases its data when you stop the node. For persistent storage, start a standalone PostgreSQL instance:
 
 ```bash
 # Start PostgreSQL with default configuration:
@@ -43,7 +43,7 @@ If you run into an error, try adding the `--privileged` flag:
 docker run --privileged -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.12.1
 ```
 
-To run with an indexer, add the parameter `-e HYLE_RUN_INDEXER=true` and set up a running PostGreSQL server with Docker:
+To run with an indexer, add the parameter `-e HYLE_RUN_INDEXER=true` and set up a running PostgreSQL server with Docker:
 
 ```bash
 docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
