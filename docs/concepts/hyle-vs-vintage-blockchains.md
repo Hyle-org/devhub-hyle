@@ -20,7 +20,7 @@ This architecture reduces storage overhead and promotes scalability while mainta
 
 ## No wallets
 
-Stop asking yourself, «Which wallet do I use? How do I bridge? ». With Hylé, there are no wallets and no bridges − any identity source that can be attested with a zero-knowledge proof is a valid identity.
+Stop asking yourself, "Which wallet do I use? How do I bridge?". With Hylé, there are no wallets and no bridges − any identity source that can be attested with a zero-knowledge proof is a valid identity.
 
 ## Every app is a rollup
 

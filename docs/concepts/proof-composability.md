@@ -23,7 +23,7 @@ We solve this issue by allowing for native proof composition between contracts a
 
 **Proof composability** means that Hylé enables these interactions while keeping each proof independent; **proof composition** is the action enabled by composability.
 
-Hylé gets rid of recursion by allowing Program A to specify: «This only applies if all blobs in this operation are valid ». At settlement, both proofs are included in the same proof transaction. Hylé verifies them together, and the entire operation fails if any proof fails.
+Hylé gets rid of recursion by allowing Program A to specify: "This only applies if all blobs in this operation are valid". At settlement, both proofs are included in the same proof transaction. Hylé verifies them together, and the entire operation fails if any proof fails.
 
 This solution improves developer experience, lowers gas costs, and shortens proving time.
 

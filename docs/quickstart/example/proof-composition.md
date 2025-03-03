@@ -96,7 +96,7 @@ Let's verify it quickly with:
 cargo run -- --contract-name id verify bob.id pass 0
 ```
 
-0 is a nonce: every time we verify successfully bob's identity, it increments. Now if we want to verify it again, we should use 1 as nonce. (We also use « pass » as our default password.)
+0 is a nonce: every time we verify successfully bob's identity, it increments. Now if we want to verify it again, we should use 1 as nonce. (We also use "pass" as our default password.)
 
 We now do the same for alice:
 
