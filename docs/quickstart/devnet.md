@@ -10,6 +10,8 @@ cargo run -- --pg
 
 This command starts a temporary PostgreSQL server and erases its data when you stop the node.
 
+### Optional: Persistent storage
+
 For persistent storage, start a standalone PostgreSQL instance:
 
 ```bash
