@@ -416,6 +416,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Recommended: Run from source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-persistent-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Persistent storage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1161,6 +1176,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Recommended: Run from source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-persistent-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Persistent storage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1264,6 +1294,7 @@
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>--pg
 </span></code></pre></div>
 <p>This command starts a temporary PostgreSQL server and erases its data when you stop the node.</p>
+<h3 id="optional-persistent-storage">Optional: Persistent storage</h3>
 <p>For persistent storage, start a standalone PostgreSQL instance:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Start PostgreSQL with default configuration:</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>pg_hyle<span class="w"> </span>-p<span class="w"> </span><span class="m">5432</span>:5432<span class="w"> </span>-e<span class="w"> </span><span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>postgres<span class="w"> </span>postgres
