@@ -898,6 +898,98 @@
       
         
       
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/supported-proving-schemes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supported proving schemes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
         
       
         
@@ -922,7 +1014,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
         
           
           
@@ -939,14 +1031,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Resources
           </label>
@@ -1150,12 +1242,37 @@
 <p>Check our <a href="../example/">example walkthrough</a> for more!</p>
 </div>
 <h2 id="step-1-clone-a-template">Step 1: Clone a template</h2>
-<p>We support <a href="../../concepts/proof-generation/#our-supported-proving-schemes">several proving schemes</a>:</p>
-<ul>
-<li><a href="https://github.com/Hyle-org/template-risc0">risc0</a></li>
-<li><a href="https://github.com/Hyle-org/template-sp1">SP1</a></li>
-<li>Noir (no template available)</li>
-</ul>
+<p>We support <a href="../../reference/supported-proving-schemes/">several proving schemes</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Proving scheme</th>
+<th>Verifier</th>
+<th>Program ID</th>
+<th>Template</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://noir-lang.org/docs/">Noir</a></td>
+<td>noir</td>
+<td>Verification key.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://risc0.com/docs/">Risc0</a></td>
+<td>risc0</td>
+<td>Image ID without a prefix. ex. 0x123 becomes 123.</td>
+<td><a href="https://github.com/Hyle-org/template-risc0">Template</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.succinct.xyz/docs/introduction">SP1</a></td>
+<td>sp1</td>
+<td>Verification key.</td>
+<td><a href="https://github.com/Hyle-org/template-sp1">Template</a></td>
+</tr>
+</tbody>
+</table>
 <p>Clone the template or, for proving schemes without templates, use the templates as inspiration for writing your contract. You can also check our <a href="../../concepts/smart-contracts/">smart contract concept page</a> for more information!</p>
 <h2 id="step-2-edit-your-contract">Step 2: Edit your contract</h2>
 <p>Navigate to the <code>contract/</code> folder and edit your contract as necessary.</p>

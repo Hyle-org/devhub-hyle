@@ -1033,6 +1033,98 @@
       
         
       
+    
+    
+      
+        
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/supported-proving-schemes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Supported proving schemes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
         
       
         
@@ -1057,7 +1149,7 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
         
           
           
@@ -1074,14 +1166,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             Resources
           </label>
@@ -1430,13 +1522,14 @@
 <p>The contract name must be unique.</p>
 <h4 id="verifier-and-program-id">Verifier and program ID</h4>
 <p>Smart contracts on Hylé rely on a pairing of a zero-knowledge proof scheme (verifier) and a program identifier. Together, these components validate contract proofs.</p>
-<p>We've written templates for some of our supported programs. Clone them to <a href="../../quickstart/your-first-smart-contract/">get started with smart contract writing</a>.</p>
+<p>Clone a template or write your own program to <a href="../../quickstart/your-first-smart-contract/">get started with smart contract writing</a>.</p>
 <table>
 <thead>
 <tr>
 <th>Proving scheme</th>
 <th>Verifier</th>
 <th>Program ID</th>
+<th>Template</th>
 </tr>
 </thead>
 <tbody>
@@ -1444,22 +1537,22 @@
 <td><a href="https://noir-lang.org/docs/">Noir</a></td>
 <td>noir</td>
 <td>Verification key.</td>
+<td></td>
 </tr>
 <tr>
 <td><a href="https://risc0.com/docs/">Risc0</a></td>
 <td>risc0</td>
 <td>Image ID without a prefix. ex. 0x123 becomes 123.</td>
+<td><a href="https://github.com/Hyle-org/template-risc0">Template</a></td>
 </tr>
 <tr>
 <td><a href="https://docs.succinct.xyz/docs/introduction">SP1</a></td>
 <td>sp1</td>
 <td>Verification key.</td>
+<td><a href="https://github.com/Hyle-org/template-sp1">Template</a></td>
 </tr>
 </tbody>
 </table>
-<!--- **Cairo**: Cairo smart contracts will be identified by their Class Hash in the future.
-- **Groth16**: Groth16 programs require a trusted ceremony. As such, their identifier is the verifying key corresponding to the matching private key, which will be unique for each program & ceremony.-->
-
 <h4 id="state-digest">State digest</h4>
 <p>The state digest represents the contract's current state commitment. It allows Hylé to guarantee its integrity. It can take any form as long as it fulfills this purpose.</p>
 <p>The state digest can be expressed as a hash or even a serialization of the state if it's small enough.</p>
