@@ -26,7 +26,7 @@ Stop asking yourself, "Which wallet do I use? How do I bridge?". You don’t nee
 
 On Hylé, there is one general-purpose blockchain, and every app is its own based ZK-rollup, removing the problems associated with fragmentation.
 
-An app’s transactions are sequenced directly on the Hylé base layer. They are split into a blob transaction, which allows for [pipelined proving](https://docs.hyle.eu/developers/general-doc/pipelined-proving/), and a proof transaction to store the state commitment onchain.
+An app’s transactions are sequenced directly on the Hylé base layer. They are split into a blob transaction, which allows for [pipelined proving](../concepts/pipelined-proving.md), and a proof transaction to store the state commitment onchain.
 
 ## Privacy is built-in
 
