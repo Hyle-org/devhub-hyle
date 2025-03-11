@@ -34,13 +34,7 @@ Each application can generate its proof in whichever place fits best.
 
 Proving schemes are the cryptographic protocols that make zero-knowledge proofs usable. We support as many as we can, giving you the flexibility to choose the most suitable protocol for your specific use case.
 
-We've written templates for some of our supported programs. Clone them to [get started](../quickstart/your-first-smart-contract.md) with smart contract writing.
-
-| Proving scheme | Template                                       |
-|----------------||---|
-| [Noir](https://noir-lang.org/docs/)           |   - |
-| [Risc0](https://risc0.com/docs/)      |  [Template](https://github.com/Hyle-org/template-risc0)  |
-| [SP1](https://docs.succinct.xyz/sp1/introduction)  |   [Template](https://github.com/Hyle-org/template-sp1) |
+We've written templates for some of [our supported programs](../reference/supported-proving-schemes.md). Clone them to [get started](../quickstart/your-first-smart-contract.md) with smart contract writing.
 
 We also verify these natively, without the need for a ZK proof.
 
