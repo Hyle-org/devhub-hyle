@@ -2,3 +2,4 @@ nav:
     - index.md
     - supported-proving-schemes.md
     - devnet.md
+    - node.md
