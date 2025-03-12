@@ -67,7 +67,7 @@ docker run -v ./data:/hyle/data \
 You can now [create your first smart contract](./example/first-token-contract.md).
 
 !!! tip
-    To reset your devnet, delete the ./data folder and restart from Step 1. Otherwise, you risk re-registering a contract that still exists.
+To reset your devnet, delete the ./data folder and restart from Step 1. Otherwise, you risk re-registering a contract that still exists.
 
 ## Alternative: Build the Docker image locally
 
@@ -80,43 +80,35 @@ docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
 ## Configuration
 
 <!--Put on docs.rs when we'll be ready.-->
+
 You can configure your setup using environment variables or by editing a configuration file.
-
-### Using environment variables
-
-All variables can be customized on your single-node instance.
-
-| Variable                   | Default value                                        | Description                                                                                                          |
-|----------------------------|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| HYLE_ID                    | node                                                 | Node identifier in the consensus. Usage subject to change in future releases.                                        |
-| HYLE_SINGLE_NODE           | true                                                 | Whether the network runs as a single node or with a multi-node consensus.                                            |
-| HYLE_P2P_LISTEN            | true                                                 | Mandatory (true) if multi-node consensus. The node should listen to new peers.                                       |
-| HYLE_HOST                  | 127.0.0.1:1231                                       | Host & port to listen for the P2P protocol.                                                                          |
-| HYLE_PEERS                 | []                                                   | List of peers to connect to at startup to follow a running consensus.                                                |
-| HYLE_STORAGE__INTERVAL     | 10                                                   | unused                                                                                                               |
-| HYLE_LOG_FORMAT            | full                                                 | “full” or “json”                                                                                                     |
-| HYLE_REST                  | 127.0.0.1:4321                                       | Host & port for the REST API endpoint.                                                                               |
-| HYLE_DATA_DIRECTORY             | data_node                                            | Directory name to store node state.                                                                                  |
-| HYLE_DATABASE_URL               | postgres://postgres:postgres @localhost:5432/postgres| PostgreSQL server address (necessary if you want to use an indexer).                                                 |
-| HYLE_CONSENSUS__SLOT_DURATION   | 1000                                                 | Duration between blocks.                                                                                             |
-| HYLE_CONSENSUS__GENESIS_STAKERS | {}                                                   | Keys are all nodes “id”, and values are the stake amount for each one of them. Map of stakers for the genesis block. |
-| HYLE_P2P__PING_INTERVAL         | 10                                                   | Interval the p2p layer does a ping to check aliveness of other peers.                                                |
-| HYLE_RUN_INDEXER                | true                                                 | Whether there should be an indexer.                                                                                  |
-| HYLE_DA_ADDRESS                 | 127.0.0.1:4141                                       | Host & port of the data availability module, which streams historical & new blocks. It might be used by indexers.    |
 
 ### Using a configuration file
 
-To load settings from a file, place `config.ron` in your node's working directory. It will be detected automatically at startup.
+To load settings from a file, place `config.toml` in your node's working directory. It will be detected automatically at startup.
+
+For documentation, see the defaults at [src/utils/conf_defaults.toml](https://github.com/Hyle-org/hyle/blob/main/src/utils/conf_defaults.ron).
 
 For Docker users, mount the config file when running the container:
 
 ```bash
-docker run -v ./data:/hyle/data -v ./config.run:/hyle/config.ron -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:v0.12.1
-cp ./src/utils/conf_defaults.ron config.ron
+docker run -v ./data:/hyle/data -v ./config.run:/hyle/config.toml -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:v0.12.1
+cp ./src/utils/conf_defaults.toml config.toml
 ```
 
 For source users, copy the default config template:
 
 ```bash
-cp ./src/utils/conf_defaults.ron config.ron
+cp ./src/utils/conf_defaults.toml config.toml
 ```
+
+### Using environment variables
+
+All variables can be customized on your single-node instance.
+The mapping uses 'HYLE\_' as a prefix, then '\_\_' where a '.' would be in the config file.
+
+e.g.
+
+`id` is set with `HYLE_ID="your_id"`.
+`run_indexer` is set with `HYLE_RUN_INDEXER="true"`.
+`p2p.address` is set with `HYLE_P2P__ADDRESS="127.0.0.1:4321"` (note the double \_\_ for the dot).
