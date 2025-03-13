@@ -64,7 +64,7 @@ docker run -v ./data:/hyle/data \
     ghcr.io/hyle-org/hyle:v0.7.2
 ```
 
-You can now [create your first smart contract](./example/first-token-contract.md).
+You can now [create your first smart contract](../quickstart/example/first-token-contract.md).
 
 !!! tip
 To reset your devnet, delete the ./data folder and restart from Step 1. Otherwise, you risk re-registering a contract that still exists.

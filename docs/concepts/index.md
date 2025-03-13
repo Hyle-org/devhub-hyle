@@ -38,7 +38,7 @@ This section includes general documentation topics. You can also refer to [our G
 
     Any smart contract can be an identity on Hylé.
 
-    [:octicons-arrow-right-24: Read more](./proof-generation.md)
+    [:octicons-arrow-right-24: Read more](./identity.md)
 
 </div>
 
