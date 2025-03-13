@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.8">
     
     
       
@@ -1328,6 +1328,8 @@
 <p>Clone the template or, for proving schemes without templates, use the templates as inspiration for writing your contract. You can also check our <a href="../../concepts/smart-contracts/">smart contract concept page</a> for more information!</p>
 <h2 id="step-2-edit-your-contract">Step 2: Edit your contract</h2>
 <p>Navigate to the <code>contract/</code> folder and edit your contract as necessary.</p>
+<p>In our templates, the application backend that generates the proof is a CLI. You can change this to your favorite architecture, for instance an http server.</p>
+<p>Use any architecture you like for your <a href="../../concepts/proof-generation/">proof generation and submission</a>: the only thing we need is a valid <code>HyleOutput</code>.</p>
 <h2 id="step-3-register-your-contract">Step 3: Register your contract</h2>
 <p>On <a href="../devnet/">the devnet</a>, register your contract by running:</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>register-contract
