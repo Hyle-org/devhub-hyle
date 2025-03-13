@@ -19,6 +19,10 @@ Clone the template or, for proving schemes without templates, use the templates 
 
 Navigate to the `contract/` folder and edit your contract as necessary.
 
+In our templates, the application backend that generates the proof is a CLI. You can change this to your favorite architecture, for instance an http server.
+
+Use any architecture you like for your [proof generation and submission](../concepts/proof-generation.md): the only thing we need is a valid `HyleOutput`.
+
 ## Step 3: Register your contract
 
 On [the devnet](./devnet.md), register your contract by running:
