@@ -1,5 +1,5 @@
 nav:
-    - devnet.md
     - index.md
+    - devnet.md
     - your-first-smart-contract.md
     - example
