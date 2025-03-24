@@ -1,6 +1,6 @@
 nav:
     - index.md
-    - api.md
-    - sdk.md
     - explorer.md
+    - sdk.md
+    - api.md
     - ...
