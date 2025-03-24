@@ -2,4 +2,4 @@
 
 Our contract SDK includes helper functions for building a smart contract on Hylé.
 
-Read more: [SDK README](https://github.com/Hyle-org/hyle/tree/main/crates/contract-sdk).
+[Read the doc on docs.rs](https://docs.rs/hyle-contract-sdk/latest/hyle_contract_sdk/).
