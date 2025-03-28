@@ -10,7 +10,15 @@ Here, you'll find our resources about Hylé's tooling.
 
     Use the helper functions in our contract SDK.
 
-    [:octicons-arrow-right-24: Read more](https://github.com/Hyle-org/hyle/tree/main/crates/contract-sdk)
+    [:octicons-arrow-right-24: Read more](./sdk.md)
+
+-   :octicons-tools-16:{ .lg .middle } __API__
+
+    ---
+
+    Explore our API.
+
+    [:octicons-arrow-right-24: Read more](./api.md)
 
 -   :octicons-tools-16:{ .lg .middle } __Explorer__
 
