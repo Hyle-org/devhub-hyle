@@ -13,7 +13,7 @@ A blob transaction on Hylé includes multiple blobs. One of these blobs must con
 - Identity proofs include a nonce to prevent replay attacks.
 - The proof verification process ensures the identity was correctly provided.
 
-![Each blob has a proof. Blob0 being a hydentity contract action for « verify password » on the account bob.hydentity is verified by the contract and by the node. Blob1 is an USDC transfer contract. Another graph under this one shows that each blob is proven and that all proofs are verified by the node; they all have bob.hydentity as their output identity. The identity fields are coherent between all blobs and proofs](../assets/img/how-nodes-ensure-identity.jpg)
+![Each blob has a proof. Blob0 being a hydentity contract action for « verify password » on the account bob@hydentity is verified by the contract and by the node. Blob1 is an USDC transfer contract. Another graph under this one shows that each blob is proven and that all proofs are verified by the node; they all have bob@hydentity as their output identity. The identity fields are coherent between all blobs and proofs](../assets/img/how-nodes-ensure-identity.jpg)
 
 ## Choosing an identity source
 
@@ -40,7 +40,7 @@ A user authenticates using a private password known only to them.
 - Proof: only those who know the password can generate a valid proof for these blobs.
 - The proof is valid only for the blobs in this blob transaction.
 
-![In this blob transaction, bob.hydentity's blob0 has verify password as its action. The proof for Blob1 has the password as private input and compares it with the stored hash. Only those who know the password can generate a valid proof of the identity blob. This proof is valid only for the blobs in this blob transaction.](../assets/img/identity-password.jpg)
+![In this blob transaction, bob@hydentity's blob0 has verify password as its action. The proof for Blob1 has the password as private input and compares it with the stored hash. Only those who know the password can generate a valid proof of the identity blob. This proof is valid only for the blobs in this blob transaction.](../assets/img/identity-password.jpg)
 
 ### Public signature
 
@@ -49,15 +49,15 @@ A user signs a message with their private key to prove identity.
 - Signature: public input. No private input is required, since only the owner of the private key can generate a valid signature.
 - Proof: anyone can generate a proof based on the public signature.
 
-![In this graph, the blob transaction has 0xcafe.ecdsa as an identity. The ECDSA contract in blob0 has the action verify signature. The signature is `sign(hash([blob1])`. There is no private input required, anyone can generate a proof but only the owner of the private key can generate a valid signature.)](../assets/img/identity-public-signature.jpg)
+![In this graph, the blob transaction has 0xcafe@ecdsa as an identity. The ECDSA contract in blob0 has the action verify signature. The signature is `sign(hash([blob1])`. There is no private input required, anyone can generate a proof but only the owner of the private key can generate a valid signature.)](../assets/img/identity-public-signature.jpg)
 
 ### Private OpenID verification
 
 This works just like it does with a private password, except it generally can't be done client-side.
 
-The OpenID provider knows your secret key, so it could be able to generate transactions on  your behalf.
+The OpenID provider knows your secret key, so it could be able to generate transactions on your behalf.
 
-![A blob transaction where identity is bob@gmail.com.oidc. Blob0 is to verify openID with an OIDC contract; the proof for blob0 has the openID as private input and verify its validity. The other blob is an USDC contract to transfer money. ](../assets/img/identity-openid.jpg)
+![A blob transaction where identity is bob@gmail.com@oidc. Blob0 is to verify openID with an OIDC contract; the proof for blob0 has the openID as private input and verify its validity. The other blob is an USDC contract to transfer money. ](../assets/img/identity-openid.jpg)
 
 ## Custom identity contracts
 
