@@ -5,47 +5,56 @@
 
 ## The problem: clunky interactions
 
-In zero-knowledge systems, interactions between different proofs introduce complexity.
+In zero-knowledge systems, coordinating multiple proofs is complex. Cross-contract calls often rely on recursive verification, where Program A verifies a proof of the correct execution of Program B. This is inefficient and creates overhead at the proof generation and verification stages.
 
-Cross-contract interactions require recursive proof verification, where Program A verifies proof of the correct execution of Program B. This is inefficient and creates overhead at the proof generation and verification stages.
+The situation worsens when different proving schemes are involved. Most zero-knowledge systems force you to write your proofs in a unified scheme. By doing that, you lose all the advantages of specialization.
 
-The challenge becomes even greater when you start involving proofs that use different schemes.
-
-Most zero-knowledge systems force you to write your proofs in a unified scheme. By doing that, you lose all the advantages of specialization.
-
-Different proving schemes meet different needs. [Some proof systems are best](./proof-generation.md) for client-side proving; others allow developers to use general-purpose programming languages.
-
-We solve this issue by allowing for native proof composition between contracts and proving schemes. Now, proofs interact seamlessly, and each one can be written in the language that works best.
+Different proving schemes answer different needs. [Some proof systems are best](./proof-generation.md) for client-side proving; others allow developers to use general-purpose programming languages.
 
 ## The solution: proof composition
 
+Hylé introduces **native proof composition**, allowing proofs to interact while remaining independent. Each proof can use the most suitable language and proving scheme, all within a single transaction.
+
+You benefit from composition when your transaction:
+
+- Involves multiple applications
+- Includes proofs in different languages or proving schemes
+- Combines heterogeneous logic where different tools are ideal
+
+If everything fits cleanly within one proof, there is no composition.
+
 ### Cross-contract calls with proof composition
 
-**Proof composability** means that Hylé enables these interactions while keeping each proof independent; **proof composition** is the action enabled by composability.
+Instead of recursion, Hylé lets a program declare: "This only applies if all referenced blobs are valid." During settlement, all proofs are included in one transaction. Hylé verifies them together. If any proof fails, the entire transaction fails.
 
-Hylé gets rid of recursion by allowing Program A to specify: "This only applies if all blobs in this operation are valid". At settlement, both proofs are included in the same proof transaction. Hylé verifies them together, and the entire operation fails if any proof fails.
+This model:
 
-This solution improves developer experience, lowers gas costs, and shortens proving time.
+- removes the need for embedded recursion;
+- improves developer experience;
+- reduces gas costs;
+- enables parallel proving.
 
-### Proofs using different schemes
+### Mixing proof schemes
 
-Since proofs in Hylé remain independent, you can batch multiple proofs within a single transaction, each using its optimal proving scheme.
+Since proofs in Hylé remain independent, each proof in a composed transaction can use its own proving scheme. Proofs are verified separately, eliminating the need to compromise for compatibility. This also enables cross-contract calls between applications using different proof systems.
 
-Proofs are verified separately, eliminating the need to compromise for compatibility. This also enables cross-contract calls between applications using different proof systems.
+You can:
 
-### When to use proof composition
+- batch heterogeneous proofs;
+- call between contracts using different systems;
+- choose the best proving scheme for each proof.
 
-Proof composition is useful if:
+## How Hylé settles multiple proofs
 
-- Your operation involves several apps.
-- Your operation involves several proofs written in different languages.
-- Your operation involves very different actions and has different optimal languages: you can now afford to use them.
+![A ticket purchase process with four key steps. First, a user requests a ticket through the TicketApp, which in turn requests a transaction blob from MoneyApp. The blob includes the transfer details and is sent back to TicketApp for verification. Second, the TicketApp composes a transaction by combining its own blob and the MoneyApp blob, detailing the operation's validity. Third, the composed transaction is sent to Hylé for verification, where the state transition and assertions are confirmed. Finally, after verification, the user pays $10 and receives their ticket.](../assets/img/proof-composition-flow.jpg)
 
-It has no effect if your operation's entire logic is in one single proof.
+When a transaction includes multiple proofs, Hylé begins verifying each proof as soon as it's ready. If one fails or times out, the entire transaction is rejected.
+
+Proof generation is parallelized as all proofs are independent. Verification is asynchronous thanks to [pipelined proving](./pipelined-proving.md).
 
 ## Writing a cross-contract call
 
-Your program doesn't need to verify another program’s execution directly. Instead, it references the external contract using a structured claim, such as:
+Your program doesn't need to verify another program’s execution directly. Instead, your contract declares claims about other apps:
 
 ```md
 MoneyApp::transfer(10, A, B) == true
@@ -57,20 +66,50 @@ TicketApp::get(A) == ticket
 Each claim consists of:
 
 - The application (MoneyApp, TicketApp)
-- The function being called (transfer, get)
-- The parameters used
+- The function (transfer, get)
+- Parameters
 - A result assertion (== true, == ticket)
 
-In our quickstart example, [the source code looks like this](https://github.com/Hyle-org/examples/blob/492501ebe6caad8a0fbe3f286f0f51f0ddca537c/ticket-app/contract/src/lib.rs#L44-L66).
+See [the source code from our example](https://github.com/Hyle-org/examples/blob/492501ebe6caad8a0fbe3f286f0f51f0ddca537c/ticket-app/contract/src/lib.rs#L44-L66).
 
-## How Hylé settles multiple proofs
+## Delegating identity
 
-![A ticket purchase process with four key steps. First, a user requests a ticket through the TicketApp, which in turn requests a transaction blob from MoneyApp. The blob includes the transfer details and is sent back to TicketApp for verification. Second, the TicketApp composes a transaction by combining its own blob and the MoneyApp blob, detailing the operation's validity. Third, the composed transaction is sent to Hylé for verification, where the state transition and assertions are confirmed. Finally, after verification, the user pays $10 and receives their ticket.](../assets/img/proof-composition-flow.jpg)
+Each transaction in Hylé is signed by a single identity blob. By default, this identity authorizes all blobs in the transaction.
 
-When you submit multiple proofs to Hylé, proof generation can be parallelized.
+For cross-contract composition, Hylé supports **callees**, blobs that run under a different identity.
 
-Thanks to [pipelined proving](./pipelined-proving.md), proof verification is asynchronous. Proving times do not compound since proofs do not depend on each other, allowing proof generation to be parallelized.
+This lets contracts trigger delegated actions without needing nested calls or recursion.
 
-As soon as one proof is ready, it can be verified on Hylé, even if the other proofs aren't ready yet.
+Consider an AMM:
 
-Once all proofs related to the transaction are verified, the transaction is settled on Hylé. If one proof verification fails, then the entire transaction fails. If a proof times out, the transaction fails when the timeout occurs.
+1. Alice signs and submits a swap
+1. The AMM blob executes `swap()`
+1. `swap()` lists `transfer()` and `transferFrom()` as callees
+1. These callees run as if the AMM signed them
+ 
+![Diagram showing a composed transaction in Hylé for an AMM swap. BlobIdentity verifies the user's identity. Blob1: The user approves the AMM to spend 5 TokenX (approve call to the TokenX contract). Blob2: The AMM initiates a swap for the X/Y pair, listing Blob3 and Blob4 as callees. It checks that the swap is valid and callees are correctly structured. Blob3: The AMM transfers 0.02 TokenY to the user via the TokenY contract. It verifies that the caller matches the from field. Blob4: The AMM calls transferFrom to pull 5 TokenX from the user. It checks that the caller is allowed to move the tokens or has an approval.Each blob runs independently but within a shared transaction structure, with the AMM blob delegating authority to callees.](../assets/img/amm.jpg)
+
+### Caller
+
+The **caller** is the identity under which a blob executes. By default, it’s the transaction signer (e.g., `Alice.hydentity`).
+
+If a blob is a callee, its caller becomes the blob that declared it.
+
+## Callee
+
+A **callee** is a blob that runs on behalf of another blob. This lets contracts perform delegated actions without initiating their own transactions.
+
+For example:
+
+- Alice signs and submits a transaction that includes a blob for an AMM swap
+- The AMM swap blob declares two callees: `transfer` and `transferFrom`
+- These execute with the AMM as the caller
+
+## Execution and validation
+
+Each callee:
+
+- Verifies that the caller blob explicitly listed it as a callee
+- Checks authorization logic (e.g., `transferFrom` checks for prior `approve`)
+
+This approach lets users delegate logic to contracts without nested transactions, maintaining clarity and flatness in Hylé’s execution model.
