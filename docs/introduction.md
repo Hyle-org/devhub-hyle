@@ -13,7 +13,7 @@ Hylé is built for speed, flexibility, and seamless blockchain integration:
 - Frictionless onboarding: authenticate with any identity provider, no wallets required.
 - High throughput, low latency with [pipelined proving](./concepts/pipelined-proving.md).
 - Choose your tools: use any proving scheme, any language.
-- Seamless interoperability: call other contracts with [proof composition](./concepts/proof-composability.md).
+- Seamless interoperability: call other contracts with [proof composition](./concepts/proof-composition.md).
 - Web2 speed, Web3 security: we use Autobahn consensus for DA & settlement.
 
 ## How Hylé works
