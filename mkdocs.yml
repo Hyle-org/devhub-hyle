@@ -53,7 +53,7 @@ plugins:
         color: "#DF6445"
   - redirects:
       redirect_maps:
-        'proof-composability.md': 'proof-composition.md'
+        'concepts/proof-composability.md': 'concepts/proof-composition.md'
 
 copyright: Copyright &copy; 2024 Hylé
 

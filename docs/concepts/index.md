@@ -52,7 +52,7 @@ This section includes general documentation topics. You can also refer to [our G
 
     Compose several proof systems and manage cross-contract composition seamlessly.
 
-    [:octicons-arrow-right-24: Read more](./proof-composability.md)
+    [:octicons-arrow-right-24: Read more](./proof-composition.md)
 
 -   :material-lightbulb:{ .lg .middle } __Pipelined proving__
 
@@ -74,6 +74,6 @@ This section includes general documentation topics. You can also refer to [our G
 
     Learn the main differences between Hylé and traditional blockchains.
 
-    [:octicons-arrow-right-24: Read more](./proof-composability.md)
+    [:octicons-arrow-right-24: Read more](./proof-composition.md)
 
 </div>
