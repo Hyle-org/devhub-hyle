@@ -9,7 +9,7 @@ If you’re new to smart contracts on Hylé, read the [anatomy of a smart contra
 ## Example
 
 !!! warning
-    Our examples work on Hylé v0.12.1. Later versions may introduce breaking changes that are not yet reflected in our examples.
+Our examples work on Hylé v0.12.1. Later versions may introduce breaking changes that are not yet reflected in our examples.
 
 ### Prerequisites
 
@@ -35,7 +35,7 @@ The expected output is `📝 Registering new contract simple_token`.
 Transfer 2 tokens from the Hylé `faucet` to `Bob`:
 
 ```bash
-cargo run -- transfer faucet.simple_token bob.simple_token 2
+cargo run -- transfer faucet@simple_token bob@simple_token 2
 ```
 
 This command:
@@ -56,7 +56,7 @@ Expected log output:
 
 ```bash
 INFO hyle::data_availability::node_state::verifiers: ✅ Risc0 proof verified.
-INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Transferred 2 to bob.simple_token
+INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Transferred 2 to bob@simple_token
 ```
 
 On the following slot:
@@ -70,12 +70,12 @@ INFO hyle::data_availability::node_state: Settle tx TxHash("[..]")
 Verify onchain balances:
 
 ```bash
-cargo run -- balance faucet.simple_token
-cargo run -- balance bob.simple_token
+cargo run -- balance faucet@simple_token
+cargo run -- balance bob@simple_token
 ```
 
 !!! note
-    In this example, we do not verify the identity of the person who initiates the transaction. We use `.simple_token` as a suffix for the "from" and "to" transfer fields, but the correct identity scheme should be used in production.
+In this example, we do not verify the identity of the person who initiates the transaction. We use `@simple_token` as a suffix for the "from" and "to" transfer fields, but the correct identity scheme should be used in production.
 
 See your contract's state digest at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`.
 
@@ -111,7 +111,7 @@ Set up information about your contract. To register the contract, you'll need:
 
 ```rs
 // Build initial state of contract
-let initial_state = Token::new(supply, format!("faucet.{}", contract_name).into());
+let initial_state = Token::new(supply, format!("faucet@{}", contract_name).into());
 println!("Initial state: {:?}", initial_state);
 
 // Send the transaction to register the contract
@@ -137,12 +137,12 @@ In [the explorer](https://hyleou.hyle.eu/), this will look like this:
 
 ```json
 {
-    "tx_hash": "321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097",
-    "owner": "examples",
-    "verifier": "risc0",
-    "program_id":"e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f",
-    "state_digest": "fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000",
-    "contract_name": "simple_token"
+  "tx_hash": "321b7a4b2228904fc92979117e7c2aa6740648e339c97986141e53d967e08097",
+  "owner": "examples",
+  "verifier": "risc0",
+  "program_id": "e085fa46f2e62d69897fc77f379c0ba1d252d7285f84dbcc017957567d1e812f",
+  "state_digest": "fd00e876481700000001106661756365742e687964656e74697479fd00e876481700000000",
+  "contract_name": "simple_token"
 }
 ```
 

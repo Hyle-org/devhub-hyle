@@ -11,10 +11,10 @@ If you’re new to identity management on Hylé, read the [identity management c
 ## Run the example
 
 !!! warning
-    Our examples work on Hylé v0.12.1. Later versions may introduce breaking changes which have not yet been reflected in our examples.
+Our examples work on Hylé v0.12.1. Later versions may introduce breaking changes which have not yet been reflected in our examples.
 
 !!! info
-    Jump to [Code Snippets](#code-snippets) for an in-depth look at the contract.
+Jump to [Code Snippets](#code-snippets) for an in-depth look at the contract.
 
 ### Prerequisites
 
@@ -38,14 +38,14 @@ The expected output is `📝 Registering new contract simple_identity`.
 To register an account with a username (`alice`) and password (`abc123`), execute:
 
 ```sh
-cargo run -- register-identity alice.simple_identity abc123
+cargo run -- register-identity alice@simple_identity abc123
 ```
 
 Expected log output:
 
 ```bash
 INFO hyle::data_availability::node_state::verifiers: ✅ Risc0 proof verified.
-INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Successfully registered identity for account: alice.simple_identity
+INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Successfully registered identity for account: alice@simple_identity
 ```
 
 ### Verify identity / Login
@@ -53,7 +53,7 @@ INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Succe
 To verify `alice`'s identity:
 
 ```bash
-cargo run -- verify-identity alice.simple_identity abc123 0
+cargo run -- verify-identity alice@simple_identity abc123 0
 ```
 
 This command:
@@ -72,7 +72,7 @@ Expected log output:
 
 ```bash
 INFO hyle::data_availability::node_state::verifiers: ✅ Risc0 proof verified.
-INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Identity verified for account: alice.simple_identity
+INFO hyle::data_availability::node_state::verifiers: 🔎 Program outputs: Identity verified for account: alice@simple_identity
 ```
 
 ## Development mode

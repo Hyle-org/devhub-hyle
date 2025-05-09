@@ -44,21 +44,21 @@ Each blob requires a corresponding proof transaction.
 
 ```json
 {
-    "identity": "bob.hydentity",
-    "blobs": [
-        {
-            "contract_name": "hydentity",
-             // Binary data for the operation of hydentity contract
-             // VerifyIdentity { account: "bob.hydentity", nonce: "2" }
-            "data": "[...]" 
-        },
-        {
-            "contract_name": "hyllar",
-             // Binary data for the operation of hyllar contract
-             // Transfer { recipient: "alice.hydentity", ammount: "20" }
-            "data": "[...]"
-        }
-    ]
+  "identity": "bob@hydentity",
+  "blobs": [
+    {
+      "contract_name": "hydentity",
+      // Binary data for the operation of hydentity contract
+      // VerifyIdentity { account: "bob@hydentity", nonce: "2" }
+      "data": "[...]"
+    },
+    {
+      "contract_name": "hyllar",
+      // Binary data for the operation of hyllar contract
+      // Transfer { recipient: "alice@hydentity", ammount: "20" }
+      "data": "[...]"
+    }
+  ]
 }
 ```
 
@@ -68,28 +68,28 @@ Each blob requires a corresponding proof transaction.
 
 ```json
 {
-    "contract_name": "hydentity",
-    "proof": "[...]"
+  "contract_name": "hydentity",
+  "proof": "[...]"
 }
 ```
 
 The binary proof's output includes:
 
-- Initial state: `bob.hydentity` nonce = 1.
-- Next state: `bob.hydentity` nonce = 2.
+- Initial state: `bob@hydentity` nonce = 1.
+- Next state: `bob@hydentity` nonce = 2.
 - Index: 0 (first blob in the transaction).
 
 and
 
 ```json
 {
-    "contract_name": "hyllar",
-    "proof": "[...]"
+  "contract_name": "hyllar",
+  "proof": "[...]"
 }
 ```
 
 The binary proof's output includes:
 
-- Initial state: `bob.hydentity` balance = 100, `alice.hydentity` balance = 0.
-- Next state: `bob.hydentity` balance = 80, `alice.hydentity` balance = 20.
+- Initial state: `bob@hydentity` balance = 100, `alice@hydentity` balance = 0.
+- Next state: `bob@hydentity` balance = 80, `alice@hydentity` balance = 20.
 - Index: 1 (second blob in the transaction).
