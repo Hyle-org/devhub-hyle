@@ -1,6 +1,6 @@
-# Hylé developer hub
+# Hyli developer hub
 
-This repository contains the source of the [Hylé Developer Hub](https://docs.hyle.eu/).
+This repository contains the source of the [Hyli Developer Hub](https://docs.hyli.org/).
 
 You can participate by filing issues or submitting pull requests.
 

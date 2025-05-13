@@ -2,11 +2,11 @@
 
 Identity [in traditional blockchains](./hyle-vs-vintage-blockchains.md) is typically tied to a single wallet address. This approach limits flexibility and compromises privacy.
 
-On Hylé, **any smart contract can be a proof of identity**. This enables you to register your preferred identity source as a smart contract for authentication.
+On Hyli, **any smart contract can be a proof of identity**. This enables you to register your preferred identity source as a smart contract for authentication.
 
-## How Hylé processes identity proofs
+## How Hyli processes identity proofs
 
-A blob transaction on Hylé includes multiple blobs. One of these blobs must contain an identity claim. (If this isn't clear, read more on [our transactions concept page](./transaction.md).)
+A blob transaction on Hyli includes multiple blobs. One of these blobs must contain an identity claim. (If this isn't clear, read more on [our transactions concept page](./transaction.md).)
 
 - Each blob transaction has a single identity blob.
 - All provable blobs within a transaction share the same identity.
@@ -21,16 +21,16 @@ When selecting an identity contract, remember:
 
 - Identity contracts define how identity proofs are verified.
 - Applications decide which identity they support. Some may enforce a specific identity type (e.g., Google accounts), while others allow multiple sources.
-- Transactions can transfer Hylé tokens between different identity types, such as from a Metamask wallet to an email/password-based account.
-- Users authenticate with any proof supported by their application. There are no "Hylé wallets".
+- Transactions can transfer Hyli tokens between different identity types, such as from a Metamask wallet to an email/password-based account.
+- Users authenticate with any proof supported by their application. There are no "Hyli wallets".
 
 The identity provider should sign the entire blob transaction to ensure that all the included blobs have been approved by the user. One approach is to make the user sign the blobs they agree to execute. The identity contract then verifies that all blobs in the transaction are properly signed.
 
-If you don't want to create a custom identity source for early development, Hylé provides [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity). This contract is not secure and must not be used in production.
+If you don't want to create a custom identity source for early development, Hyli provides [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity). This contract is not secure and must not be used in production.
 
 ## Identity verification methods
 
-Hylé supports multiple identity verification methods, each with unique characteristics. Here are some of the most common.
+Hyli supports multiple identity verification methods, each with unique characteristics. Here are some of the most common.
 
 ### Private password
 
@@ -61,7 +61,7 @@ The OpenID provider knows your secret key, so it could be able to generate trans
 
 ## Custom identity contracts
 
-Applications on Hylé can implement custom identity verification rules through smart contracts. A typical identity contract includes two core functions, as shown in [our identity quickstart](../quickstart/example/custom-identity-contract.md):
+Applications on Hyli can implement custom identity verification rules through smart contracts. A typical identity contract includes two core functions, as shown in [our identity quickstart](../quickstart/example/custom-identity-contract.md):
 
 - **Register**: Users submit an initial proof of identity.
 - **Verify**: The contract validates the proof against predefined rules.

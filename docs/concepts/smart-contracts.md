@@ -1,12 +1,12 @@
 # Smart contracts
 
-Hylé is a fully programmable blockchain designed for efficient data storage. Hylé only keeps the essential information needed to validate smart contract proofs, ensuring that smart contracts are lightweight and performant.
+Hyli is a fully programmable blockchain designed for efficient data storage. Hyli only keeps the essential information needed to validate smart contract proofs, ensuring that smart contracts are lightweight and performant.
 
-[Unlike traditional blockchains](./hyle-vs-vintage-blockchains.md), which store all smart contract data onchain, Hylé separates execution data (managed offchain by each application) from onchain data, which can be retrieved via our ABI.
+[Unlike traditional blockchains](./hyle-vs-vintage-blockchains.md), which store all smart contract data onchain, Hyli separates execution data (managed offchain by each application) from onchain data, which can be retrieved via our ABI.
 
 ## Onchain smart contract data
 
-Hylé smart contracts store the following data onchain:
+Hyli smart contracts store the following data onchain:
 
 - **Name**: the unique identifier for the contract
 - **Verifier**: the proof system used (e.g., "risc0" or "gnark-groth16-te-BN254")
@@ -21,7 +21,7 @@ The contract name must be unique.
 
 #### Verifier and program ID
 
-Smart contracts on Hylé rely on a pairing of a zero-knowledge proof scheme (verifier) and a program identifier. Together, these components validate contract proofs.
+Smart contracts on Hyli rely on a pairing of a zero-knowledge proof scheme (verifier) and a program identifier. Together, these components validate contract proofs.
 
 Clone a template or write your own program to [get started with smart contract writing](../quickstart/your-first-smart-contract.md).
 
@@ -33,15 +33,15 @@ Clone a template or write your own program to [get started with smart contract w
 
 #### State digest
 
-The state digest represents the contract's current state commitment. It allows Hylé to guarantee its integrity. It can take any form as long as it fulfills this purpose.
+The state digest represents the contract's current state commitment. It allows Hyli to guarantee its integrity. It can take any form as long as it fulfills this purpose.
 
 The state digest can be expressed as a hash or even a serialization of the state if it's small enough.
 
 ## Smart contract ABI
 
-All inputs in Hylé smart contracts must be known at proof generation time. This includes elements like the `tx_hash` which are typically available only at execution time on other blockchains.
+All inputs in Hyli smart contracts must be known at proof generation time. This includes elements like the `tx_hash` which are typically available only at execution time on other blockchains.
 
-Here is the Rust structure specifying the output of a Hylé smart contract:
+Here is the Rust structure specifying the output of a Hyli smart contract:
 
 ```rust
 pub struct HyleOutput {
@@ -108,7 +108,7 @@ If a proof returns `success = false`, the whole blob transaction will fail. In t
 
 Transaction context allows the contract to know in which block (hash, height, timestamp) the blob transaction has been sequenced.
 
-This field is optional. If left empty, it will not be validated by Hylé or usable by the program.
+This field is optional. If left empty, it will not be validated by Hyli or usable by the program.
 
 ### Registered contracts
 
@@ -120,4 +120,4 @@ Smart contracts can generate additional outputs as proof data. These outputs ens
 
 ## Events
 
-Hylé does not use traditional events. Instead, it relies on blobs, which serve as containers for offchain data.
+Hyli does not use traditional events. Instead, it relies on blobs, which serve as containers for offchain data.

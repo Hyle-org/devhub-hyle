@@ -1,5 +1,5 @@
-site_name: Hylé Developer Hub
-site_url: https://docs.hyle.eu
+site_name: Hyli Developer Hub
+site_url: https://docs.hyli.org
 theme:
   name: material
   custom_dir: 'overrides'
@@ -55,14 +55,14 @@ plugins:
       redirect_maps:
         'concepts/proof-composability.md': 'concepts/proof-composition.md'
 
-copyright: Copyright &copy; 2024 Hylé
+copyright: Copyright &copy; 2025 Hyli
 
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: http://github.com/hyle-org/
+      link: http://github.com/hyli-org/
     - icon: fontawesome/brands/twitter
-      link: http://twitter.com/hyle_org
+      link: http://twitter.com/hyli_org
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/company/hyl-/
     - icon: fontawesome/solid/archway
@@ -72,4 +72,4 @@ extra:
     - icon: fontawesome/brands/telegram
       link: https://t.me/hyle_org
 
-repo_url: https://github.com/Hyle-org/hyle
+repo_url: https://github.com/Hyli-org/hyli

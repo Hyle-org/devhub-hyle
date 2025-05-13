@@ -1,6 +1,6 @@
 # :checkered_flag: Quickstart
 
-Welcome to the **Quickstart** guide for Hylé.
+Welcome to the **Quickstart** guide for Hyli.
 
 It uses several examples to help you start building as soon as possible.
 

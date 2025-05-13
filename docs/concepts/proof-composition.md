@@ -13,7 +13,7 @@ Different proving schemes answer different needs. [Some proof systems are best](
 
 ## The solution: proof composition
 
-Hylé introduces **native proof composition**, allowing proofs to interact while remaining independent. Each proof can use the most suitable language and proving scheme, all within a single transaction.
+Hyli introduces **native proof composition**, allowing proofs to interact while remaining independent. Each proof can use the most suitable language and proving scheme, all within a single transaction.
 
 You benefit from composition when your transaction:
 
@@ -25,7 +25,7 @@ If everything fits cleanly within one proof, there is no composition.
 
 ### Cross-contract calls with proof composition
 
-Instead of recursion, Hylé lets a program declare: "This only applies if all referenced blobs are valid." During settlement, all proofs are included in one transaction. Hylé verifies them together. If any proof fails, the entire transaction fails.
+Instead of recursion, Hyli lets a program declare: "This only applies if all referenced blobs are valid." During settlement, all proofs are included in one transaction. Hyli verifies them together. If any proof fails, the entire transaction fails.
 
 This model:
 
@@ -36,7 +36,7 @@ This model:
 
 ### Mixing proof schemes
 
-Since proofs in Hylé remain independent, each proof in a composed transaction can use its own proving scheme. Proofs are verified separately, eliminating the need to compromise for compatibility. This also enables cross-contract calls between applications using different proof systems.
+Since proofs in Hyli remain independent, each proof in a composed transaction can use its own proving scheme. Proofs are verified separately, eliminating the need to compromise for compatibility. This also enables cross-contract calls between applications using different proof systems.
 
 You can:
 
@@ -44,11 +44,11 @@ You can:
 - call between contracts using different systems;
 - choose the best proving scheme for each proof.
 
-## How Hylé settles multiple proofs
+## How Hyli settles multiple proofs
 
-![A ticket purchase process with four key steps. First, a user requests a ticket through the TicketApp, which in turn requests a transaction blob from MoneyApp. The blob includes the transfer details and is sent back to TicketApp for verification. Second, the TicketApp composes a transaction by combining its own blob and the MoneyApp blob, detailing the operation's validity. Third, the composed transaction is sent to Hylé for verification, where the state transition and assertions are confirmed. Finally, after verification, the user pays $10 and receives their ticket.](../assets/img/proof-composition-flow.jpg)
+![A ticket purchase process with four key steps. First, a user requests a ticket through the TicketApp, which in turn requests a transaction blob from MoneyApp. The blob includes the transfer details and is sent back to TicketApp for verification. Second, the TicketApp composes a transaction by combining its own blob and the MoneyApp blob, detailing the operation's validity. Third, the composed transaction is sent to Hyli for verification, where the state transition and assertions are confirmed. Finally, after verification, the user pays $10 and receives their ticket.](../assets/img/proof-composition-flow.jpg)
 
-When a transaction includes multiple proofs, Hylé begins verifying each proof as soon as it's ready. If one fails or times out, the entire transaction is rejected.
+When a transaction includes multiple proofs, Hyli begins verifying each proof as soon as it's ready. If one fails or times out, the entire transaction is rejected.
 
 Proof generation is parallelized as all proofs are independent. Verification is asynchronous thanks to [pipelined proving](./pipelined-proving.md).
 
@@ -74,9 +74,9 @@ See [the source code from our example](https://github.com/Hyle-org/examples/blob
 
 ## Delegating identity
 
-Each transaction in Hylé is signed by a single identity blob. By default, this identity authorizes all blobs in the transaction.
+Each transaction in Hyli is signed by a single identity blob. By default, this identity authorizes all blobs in the transaction.
 
-For cross-contract composition, Hylé supports **callees**, blobs that run under a different identity.
+For cross-contract composition, Hyli supports **callees**, blobs that run under a different identity.
 
 This lets contracts trigger delegated actions without needing nested calls or recursion.
 
@@ -87,7 +87,7 @@ Consider an AMM:
 1. `swap()` lists `transfer()` and `transferFrom()` as callees
 1. These callees run as if the AMM signed them
  
-![Diagram showing a composed transaction in Hylé for an AMM swap. BlobIdentity verifies the user's identity. Blob1: The user approves the AMM to spend 5 TokenX (approve call to the TokenX contract). Blob2: The AMM initiates a swap for the X/Y pair, listing Blob3 and Blob4 as callees. It checks that the swap is valid and callees are correctly structured. Blob3: The AMM transfers 0.02 TokenY to the user via the TokenY contract. It verifies that the caller matches the from field. Blob4: The AMM calls transferFrom to pull 5 TokenX from the user. It checks that the caller is allowed to move the tokens or has an approval.Each blob runs independently but within a shared transaction structure, with the AMM blob delegating authority to callees.](../assets/img/amm.jpg)
+![Diagram showing a composed transaction in Hyli for an AMM swap. BlobIdentity verifies the user's identity. Blob1: The user approves the AMM to spend 5 TokenX (approve call to the TokenX contract). Blob2: The AMM initiates a swap for the X/Y pair, listing Blob3 and Blob4 as callees. It checks that the swap is valid and callees are correctly structured. Blob3: The AMM transfers 0.02 TokenY to the user via the TokenY contract. It verifies that the caller matches the from field. Blob4: The AMM calls transferFrom to pull 5 TokenX from the user. It checks that the caller is allowed to move the tokens or has an approval.Each blob runs independently but within a shared transaction structure, with the AMM blob delegating authority to callees.](../assets/img/amm.jpg)
 
 ### Caller
 
@@ -112,4 +112,4 @@ Each callee:
 - Verifies that the caller blob explicitly listed it as a callee
 - Checks authorization logic (e.g., `transferFrom` checks for prior `approve`)
 
-This approach lets users delegate logic to contracts without nested transactions, maintaining clarity and flatness in Hylé’s execution model.
+This approach lets users delegate logic to contracts without nested transactions, maintaining clarity and flatness in Hyli’s execution model.

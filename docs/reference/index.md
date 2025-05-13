@@ -1,3 +1,3 @@
 # Reference
 
-This section provides key reference materials related to Hylé.
+This section provides key reference materials related to Hyli.

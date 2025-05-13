@@ -1,8 +1,8 @@
 # Proof composition with Ticket App
 
-Hylé enables [proof composition](../../concepts/proof-composition.md), allowing different proving systems to work within a single operation. This removes constraints on provers and significantly improves interoperability and efficiency.
+Hyli enables [proof composition](../../concepts/proof-composition.md), allowing different proving systems to work within a single operation. This removes constraints on provers and significantly improves interoperability and efficiency.
 
-In this guide, we’ll build a Ticket App that demonstrates proof composition. Users can buy a ticket using [simple-token](./first-token-contract.md), and Hylé will verify multiple proofs in a single transaction.
+In this guide, we’ll build a Ticket App that demonstrates proof composition. Users can buy a ticket using [simple-token](./first-token-contract.md), and Hyli will verify multiple proofs in a single transaction.
 
 Find the source code for all contracts here:
 
@@ -10,7 +10,7 @@ Find the source code for all contracts here:
 - [simple-identity](https://github.com/Hyle-org/examples/tree/main/simple-identity)
 - [simple-token](https://github.com/Hyle-org/examples/tree/feat/ticket-app/simple-token)
 
-Traditional verification systems often require all proofs to be generated using the same proving system. Hylé removes this limitation, allowing:
+Traditional verification systems often require all proofs to be generated using the same proving system. Hyli removes this limitation, allowing:
 
 - Interoperability: use different proof systems within a single transaction.
 - Atomicity: either all proofs verify, or none do. This ensures fail-safe execution.
@@ -22,13 +22,13 @@ In this example, `Alice` and `Bob` both want to buy a ticket from Ticket App for
 
 ### Step 1: Create the blob transaction
 
-The Ticket App backend creates and sends a blob transaction to Hylé, including three blobs:
+The Ticket App backend creates and sends a blob transaction to Hyli, including three blobs:
 
 - an *identity blob* (see our [custom identity contract quickstart](./custom-identity-contract.md)) confirming that Bob (`bob.id`) is initiating the transaction;
 - a *simple-token blob* transferring 15 simple-tokens from `bob.id`'s balance;
 - a *ticket-app blob* sending `bob.id` a ticket if conditions are met.
 
-At this stage, Hylé sequences the transaction, but it’s not yet settled. [Read more about pipelined proving.](../../concepts/pipelined-proving.md)
+At this stage, Hyli sequences the transaction, but it’s not yet settled. [Read more about pipelined proving.](../../concepts/pipelined-proving.md)
 
 ### Step 2: Prove the blobs
 
@@ -45,7 +45,7 @@ Check out the [source code](https://github.com/Hyle-org/examples/blob/492501ebe6
 
 ### Step 3: Settlement
 
-Once TicketApp has sent the proofs for the previously sequenced blobs, Hylé verifies:
+Once TicketApp has sent the proofs for the previously sequenced blobs, Hyli verifies:
 
 - identity proof: verifies that `bob.id` has initiated the transaction.
 - simple-token proof: verifies that `bob.id` paid the correct amount for his ticket.
@@ -58,7 +58,7 @@ If any proof fails, the entire transaction fails. Neither state is updated: Bob'
 ## Run the example
 
 !!! warning
-    Our examples work on Hylé v0.12.1. Later versions introduce breaking changes which have not yet been reflected in our examples.
+    Our examples work on Hyli v0.12.1. Later versions introduce breaking changes which have not yet been reflected in our examples.
 
 ### Prerequisites
 
@@ -193,4 +193,4 @@ cargo run -- --contract-name ticket-app --user bob.id has-ticket
 
 You can also check `bob`'s balance and see he now has 35 tokens.
 
-With proof composition, Hylé empowers you to leverage multiple proving systems in a single transaction, making advanced functionality like the Ticket App easier than ever.
+With proof composition, Hyli empowers you to leverage multiple proving systems in a single transaction, making advanced functionality like the Ticket App easier than ever.

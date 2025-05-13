@@ -1,10 +1,10 @@
 # :bulb: Concepts
 
-Welcome to the developer documentation for Hylé.
+Welcome to the developer documentation for Hyli.
 
 This section includes general documentation topics. You can also refer to [our Getting Started step-by-step guide](../quickstart/index.md).
 
-## Hylé-specific docs on industry concepts
+## Hyli-specific docs on industry concepts
 
 <div class="grid cards" markdown>
 
@@ -28,7 +28,7 @@ This section includes general documentation topics. You can also refer to [our G
 
     ---
 
-    Learn how to prove your blobs for Hylé.
+    Learn how to prove your blobs for Hyli.
 
     [:octicons-arrow-right-24: Read more](./proof-generation.md)
 
@@ -36,13 +36,13 @@ This section includes general documentation topics. You can also refer to [our G
 
     ---
 
-    Any smart contract can be an identity on Hylé.
+    Any smart contract can be an identity on Hyli.
 
     [:octicons-arrow-right-24: Read more](./identity.md)
 
 </div>
 
-## Hylé-specific concepts
+## Hyli-specific concepts
 
 <div class="grid cards" markdown>
 
@@ -68,11 +68,11 @@ This section includes general documentation topics. You can also refer to [our G
 
 <div class="grid cards" markdown>
 
--   :material-lightbulb:{ .lg .middle } __Hylé vs. vintage blockchains__
+-   :material-lightbulb:{ .lg .middle } __Hyli vs. vintage blockchains__
 
     ---
 
-    Learn the main differences between Hylé and traditional blockchains.
+    Learn the main differences between Hyli and traditional blockchains.
 
     [:octicons-arrow-right-24: Read more](./proof-composition.md)
 

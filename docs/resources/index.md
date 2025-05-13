@@ -22,7 +22,7 @@
 
     ---
 
-    Contribute to Hylé through hackathons and grants.
+    Contribute to Hyli through hackathons and grants.
 
     [:octicons-arrow-right-24: Grants](./grants.md)
 

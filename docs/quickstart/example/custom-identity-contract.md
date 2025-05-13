@@ -1,17 +1,17 @@
 # Using a custom identity contract
 
-## When to use identity contracts on Hylé
+## When to use identity contracts on Hyli
 
-On Hylé, **any smart contract can be a proof of identity**. This flexibility enables you to register your preferred identity source as a smart contract for account identification. If you don't want to use a custom identity source, Hylé ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity).
+On Hyli, **any smart contract can be a proof of identity**. This flexibility enables you to register your preferred identity source as a smart contract for account identification. If you don't want to use a custom identity source, Hyli ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity).
 
-This guide walks you through creating and deploying your first simple identity contract using Hylé and RISC Zero. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/main/simple-identity), which mirrors our [simple token transfer example](./first-token-contract.md).
+This guide walks you through creating and deploying your first simple identity contract using Hyli and RISC Zero. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/main/simple-identity), which mirrors our [simple token transfer example](./first-token-contract.md).
 
-If you’re new to identity management on Hylé, read the [identity management concept page](../../concepts/identity.md).
+If you’re new to identity management on Hyli, read the [identity management concept page](../../concepts/identity.md).
 
 ## Run the example
 
 !!! warning
-    Our examples work on Hylé v0.12.1. Later versions may introduce breaking changes which have not yet been reflected in our examples.
+    Our examples work on Hyli v0.12.1. Later versions may introduce breaking changes which have not yet been reflected in our examples.
 
 !!! info
     Jump to [Code Snippets](#code-snippets) for an in-depth look at the contract.
@@ -115,13 +115,13 @@ let blob_tx = BlobTransaction {
 };
 ```
 
-You can compare these to the fields described in the [Transactions on Hylé](../../concepts/transaction.md) page.
+You can compare these to the fields described in the [Transactions on Hyli](../../concepts/transaction.md) page.
 
 #### Prove the registration
 
 ##### On the backend (host) side
 
-Hylé transactions follow a two-step settlement process based on [pipelined proving](../../concepts/pipelined-proving.md) principles:
+Hyli transactions follow a two-step settlement process based on [pipelined proving](../../concepts/pipelined-proving.md) principles:
 
 1. Sending the blob transaction: The transaction is sequenced but not yet settled.
 1. Proving the transaction: The transaction is settled after a proof is generated.
@@ -184,7 +184,7 @@ Finally, the contract commits the updated state:
     sdk::guest::commit(input, next_state, res);
 ```
 
-The `guest::commit` function includes the `HyleOutput`, as explained in [Transactions on Hylé](../../concepts/transaction.md).
+The `guest::commit` function includes the `HyleOutput`, as explained in [Transactions on Hyli](../../concepts/transaction.md).
 
 ### Verify an identity
 

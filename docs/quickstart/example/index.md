@@ -12,12 +12,12 @@ Here's a step-by-step walkthrough of an example.
     },
     {
         "title": "[Create your first smart contract](./first-token-contract.md)",
-        "content": "Understand how smart contracts work on Hylé with our simple-token example.",
+        "content": "Understand how smart contracts work on Hyli with our simple-token example.",
         "icon": ":fontawesome-solid-coins:",
     },
     {
         "title": "[Use an identity contract](./custom-identity-contract.md)",
-        "content": "Every contract can be an identity on Hylé. Try it out with our simple-identity example.",
+        "content": "Every contract can be an identity on Hyli. Try it out with our simple-identity example.",
         "icon": ":octicons-people-16:",
     },
     {

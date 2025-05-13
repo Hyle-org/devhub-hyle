@@ -2,7 +2,7 @@
 
 ## The problem: base state conflicts
 
-The Hylé base layer ensures both privacy and scalability by verifying only the state transitions of smart contracts, rather than re-executing them. This approach reduces computational overhead but introduces a critical issue for provable applications: base state conflicts.
+The Hyli Layer 1 ensures both privacy and scalability by verifying only the state transitions of smart contracts, rather than re-executing them. This approach reduces computational overhead but introduces a critical issue for provable applications: base state conflicts.
 
 An app with a lot of usage will see conflicting operations, where multiple transactions reference the same base state, waiting for the previous state change to be settled.
 
@@ -16,12 +16,12 @@ We solve these issues by splitting sequencing from settlement; an operation incl
 
 Read more on the content of blob and proof transactions on our [transaction page](./transaction.md).
 
-To address base state conflicts, Hylé splits operations into two transactions:
+To address base state conflicts, Hyli splits operations into two transactions:
 
 1. **Blob-transaction**: outlines a state change for sequencing.
 2. **Proof-transaction**: provides a proof of the state change for settlement.
 
-From Hylé’s perspective, the blob-transaction's content does not matter: it simply represents incoming information that your contract will process. For a developer, **sequencing** provides you with a fixed order and timestamp before proving begins. Once the transactions are sequenced, the provers can easily know upon which state they should base their proof. As a developer, you can also decide on how much information is disclosed in your blob-transaction: this is app-specific.
+From Hyli’s perspective, the blob-transaction's content does not matter: it simply represents incoming information that your contract will process. For a developer, **sequencing** provides you with a fixed order and timestamp before proving begins. Once the transactions are sequenced, the provers can easily know upon which state they should base their proof. As a developer, you can also decide on how much information is disclosed in your blob-transaction: this is app-specific.
 
 **Settlement** happens when the corresponding proof transaction is verified and added to a block. During settlement, unproven blob transactions linked to the contract are executed in their sequencing order.
 
@@ -33,7 +33,7 @@ This separation solves all three issues shown above. The blob transaction immedi
 
 Even with pipelined proving, sequenced transactions that never settle can slow down the network.
 
-To remove this risk, Hylé enforces **timeouts** for blob transactions.
+To remove this risk, Hyli enforces **timeouts** for blob transactions.
 
 Each blob transaction is assigned a specific time limit for the associated proof to be submitted and verified. Subsequent transactions can proceed without waiting indefinitely.
 

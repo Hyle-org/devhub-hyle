@@ -19,7 +19,7 @@ For persistent storage, start a standalone PostgreSQL instance:
 docker run -d --rm --name pg_hyle -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
 ```
 
-Then, navigate to the Hylé root and run:
+Then, navigate to the Hyli root and run:
 
 ```bash
 cargo run

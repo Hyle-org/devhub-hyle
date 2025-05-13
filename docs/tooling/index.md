@@ -1,6 +1,6 @@
 # :toolbox: Tooling
 
-Here, you'll find our resources about Hylé's tooling.
+Here, you'll find our resources about Hyli's tooling.
 
 <div class="grid cards" markdown>
 
@@ -24,7 +24,7 @@ Here, you'll find our resources about Hylé's tooling.
 
     ---
 
-    Understand and use the Hylé explorer.
+    Understand and use the Hyli explorer.
 
     [:octicons-arrow-right-24: Read more](./explorer.md)
 

@@ -1,10 +1,10 @@
 ---
-description: Hylé is the new-generation base layer for the era of unchained applications. This is your developer documentation.
+description: Hyli is the new proof-powered L1 to build the next generation of apps onchain. This is your developer documentation.
 ---
 
 # Home
 
-[Hylé](https://hyle.eu/) is the new-generation base layer for the era of unchained applications.
+[Hyli](https://hyli.org/) is the new proof-powered L1 to build the next generation of apps onchain.
 
 ## Navigation
 
@@ -14,7 +14,7 @@ description: Hylé is the new-generation base layer for the era of unchained app
 
     ---
 
-    A quick overview of Hylé, the base layer for unchained apps.
+    A quick overview of Hyli, the new proof-powered L1 to build the next generation of apps onchain.
 
     [:octicons-arrow-right-24: Introduction](./introduction.md)
 
@@ -22,7 +22,7 @@ description: Hylé is the new-generation base layer for the era of unchained app
 
     ---
 
-    Get started with Hylé in just a few minutes with a step-by-step annotated quickstart.
+    Get started with Hyli in just a few minutes with a step-by-step annotated quickstart.
 
     [:octicons-arrow-right-24: Quickstart](./quickstart/index.md)
 
@@ -30,7 +30,7 @@ description: Hylé is the new-generation base layer for the era of unchained app
 
     ---
 
-    Hylé-specific concepts and Hylé's spin on industry classics explained in detail.
+    Hyli-specific concepts and Hyli's spin on industry classics explained in detail.
 
     [:octicons-arrow-right-24: Concepts](./concepts/index.md)
 
@@ -38,7 +38,7 @@ description: Hylé is the new-generation base layer for the era of unchained app
 
     ---
 
-    Hylé tooling to improve your building experience.
+    Hyli tooling to improve your building experience.
 
     [:octicons-arrow-right-24: Tooling](./tooling/index.md)
 
@@ -52,8 +52,8 @@ description: Hylé is the new-generation base layer for the era of unchained app
 
 - :fontawesome-solid-circle-nodes: [Rust node](http://github.com/hyle-org/hyle)
 - :material-hexagon-multiple-outline: [Example contracts](http://github.com/hyle-org/examples)
-- :material-home: [Website](https://hyle.eu)
-- :material-rss: [Hylé blog](https://blog.hyle.eu)
+- :material-home: [Website](https://hyli.org)
+- :material-rss: [Hyli blog](https://blog.hyli.org)
 
 </div>
 
@@ -63,4 +63,4 @@ Reach out to the team for more information:
 
 | :fontawesome-brands-github: Github | :fontawesome-brands-twitter: Twitter | :fontawesome-solid-archway: Farcaster | :fontawesome-brands-linkedin: LinkedIn | :fontawesome-brands-youtube: Youtube |:fontawesome-brands-telegram: Telegram|
 |-------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|--------------------------------------|
-| [Hylé](https://github.com/Hyle-org) | [@hyle_org](https://x.com/hyle_org)  | [@hyle-org](https://warpcast.com/hyle-org) | [Hylé](https://www.linkedin.com/company/hyl-/) | [@Hylé](https://www.youtube.com/@Hyl%C3%A9-org) | [@hyle_org](https://t.me/hyle_org)|
+| [Hyli](https://github.com/Hyle-org) | [@hyli_org](https://x.com/hyle_org)  | [@Hyli](https://warpcast.com/hyle-org) | [Hyli](https://www.linkedin.com/company/hyl-/) | [@Hyli](https://www.youtube.com/@Hyl%C3%A9-org) | [Hyli](https://t.me/hyle_org)|

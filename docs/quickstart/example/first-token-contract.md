@@ -1,15 +1,15 @@
 # Your first token contract
 
-This guide will walk you through creating and deploying your first token transfer contract using Hylé's tools and infrastructure. We'll use [our simple-token transfer example](https://github.com/Hyle-org/examples/tree/main/simple-token) as the basis for this tutorial.
+This guide will walk you through creating and deploying your first token transfer contract using Hyli's tools and infrastructure. We'll use [our simple-token transfer example](https://github.com/Hyle-org/examples/tree/main/simple-token) as the basis for this tutorial.
 
 For an alternative implementation, check out [the same example built with SP1](https://github.com/Hyle-org/examples/tree/main/simple-token-sp1).
 
-If you’re new to smart contracts on Hylé, read the [anatomy of a smart contract](../../concepts/smart-contracts.md).
+If you’re new to smart contracts on Hyli, read the [anatomy of a smart contract](../../concepts/smart-contracts.md).
 
 ## Example
 
 !!! warning
-    Our examples work on Hylé v0.12.1. Later versions may introduce breaking changes that are not yet reflected in our examples.
+    Our examples work on Hyli v0.12.1. Later versions may introduce breaking changes that are not yet reflected in our examples.
 
 ### Prerequisites
 
@@ -32,7 +32,7 @@ The expected output is `📝 Registering new contract simple_token`.
 
 ### Transfer tokens
 
-Transfer 2 tokens from the Hylé `faucet` to `Bob`:
+Transfer 2 tokens from the Hyli `faucet` to `Bob`:
 
 ```bash
 cargo run -- transfer faucet.simple_token bob.simple_token 2
@@ -40,7 +40,7 @@ cargo run -- transfer faucet.simple_token bob.simple_token 2
 
 This command:
 
-1. Sends a blob transaction to transfer 2 tokens from `faucet` to `bob`. To better understand what a blob transaction is, [read more about transactions on Hylé](../../concepts/transaction.md).
+1. Sends a blob transaction to transfer 2 tokens from `faucet` to `bob`. To better understand what a blob transaction is, [read more about transactions on Hyli](../../concepts/transaction.md).
 2. Generates a ZK proof for the transfer.
 3. Sends the proof to the devnet for verification. (Scroll down to see what that looks like in code.)
 
@@ -77,9 +77,9 @@ cargo run -- balance bob.simple_token
 !!! note
     In this example, we do not verify the identity of the person who initiates the transaction. We use `.simple_token` as a suffix for the "from" and "to" transfer fields, but the correct identity scheme should be used in production.
 
-See your contract's state digest at: `https://hyleou.hyle.eu/contract/$CONTRACT_NAME`.
+See your contract's state digest at: `https://hyleou.hyli.org/contract/$CONTRACT_NAME`.
 
-See your transaction on Hylé's explorer: `https://hyleou.hyle.eu/tx/$TX_HASH`.
+See your transaction on Hyli's explorer: `https://hyleou.hyli.org/tx/$TX_HASH`.
 
 ## Development mode
 
@@ -133,7 +133,7 @@ let res = client
 println!("✅ Register contract tx sent. Tx hash: {}", res);
 ```
 
-In [the explorer](https://hyleou.hyle.eu/), this will look like this:
+In [the explorer](https://hyleou.hyli.org/), this will look like this:
 
 ```json
 {
@@ -174,7 +174,7 @@ println!("✅ Blob tx sent. Tx hash: {}", blob_tx_hash);
 
 #### Prove the transaction
 
-Hylé transactions are settled in two steps, following [pipelined proving principles](../../concepts/pipelined-proving.md). After this step, your transaction is sequenced, but not settled.
+Hyli transactions are settled in two steps, following [pipelined proving principles](../../concepts/pipelined-proving.md). After this step, your transaction is sequenced, but not settled.
 
 For the transaction to be settled, it needs to be proven. You'll start with building the contract input, specifying:
 

@@ -2,9 +2,9 @@
 title: Explorer
 ---
 
-**Hyléou** (a French pun for "Il est où" or "Where is it?") is the blockchain explorer for the Hylé ecosystem.
+**Hyléoù** (a French pun for "Il est où" or "Where is it?") is the blockchain explorer for the Hyli ecosystem.
 
-The explorer is live at [hyleou.hyle.eu](https://hyleou.hyle.eu/).  
+The explorer is live at [hyleou.hyli.org](https://hyleou.hyli.org/).  
 
 The source code is available on [GitHub](https://github.com/hyle-org/hyleou). We welcome PRs and issues!
 
