@@ -4,7 +4,7 @@ theme:
   name: material
   custom_dir: 'overrides'
   logo: assets/logo.png
-  favicon: assets/logo.png
+  favicon: assets/favicon.png
   font:
     text: Roboto
   palette:
