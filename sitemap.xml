@@ -1,127 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://docs.hyle.eu/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/introduction/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/introduction/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/concepts/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/concepts/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/concepts/hyle-vs-vintage-blockchains/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/concepts/hyli-vs-vintage-blockchains/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/concepts/identity/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/concepts/identity/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/concepts/pipelined-proving/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/concepts/pipelined-proving/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/concepts/proof-composability/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/concepts/proof-composition/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/concepts/proof-generation/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/concepts/proof-generation/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/concepts/smart-contracts/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/concepts/smart-contracts/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/concepts/transaction/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/concepts/transaction/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/quickstart/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/quickstart/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/quickstart/devnet/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/quickstart/devnet/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/quickstart/your-first-smart-contract/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/quickstart/your-first-smart-contract/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/quickstart/example/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/quickstart/example/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/quickstart/example/custom-identity-contract/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/quickstart/example/custom-identity-contract/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/quickstart/example/first-token-contract/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/quickstart/example/first-token-contract/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/quickstart/example/proof-composition/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/quickstart/example/proof-composition/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/reference/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/reference/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/reference/devnet/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/reference/devnet/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/reference/node/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/reference/node/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/reference/supported-proving-schemes/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/reference/supported-proving-schemes/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/resources/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/resources/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/resources/find-us/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/resources/find-us/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/resources/glossary/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/resources/glossary/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/resources/grants/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/resources/grants/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/resources/release-notes/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/resources/release-notes/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/resources/roadmap/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/resources/roadmap/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/tooling/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/tooling/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/tooling/api/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/tooling/api/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/tooling/explorer/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/tooling/explorer/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
     <url>
-         <loc>https://docs.hyle.eu/tooling/sdk/</loc>
-         <lastmod>2025-03-28</lastmod>
+         <loc>https://docs.hyli.org/tooling/sdk/</loc>
+         <lastmod>2025-05-14</lastmod>
     </url>
 </urlset>
