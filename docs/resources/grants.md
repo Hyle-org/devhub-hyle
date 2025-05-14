@@ -19,7 +19,7 @@ We have a grant program supporting developers who want to work on [trust infrast
 - Our tech team supports you via Telegram and in meetings.
 - Our business team helps you showcase your idea through external speaking opportunities, co-marketing, and other assets.
 
-To read more, see our grant ideas, and apply, please go to [our Grants page on the main Hyli repository](https://github.com/Hyle-org/hyle/blob/main/GRANTS.md). If you represent an organization, we'd love to discuss co-grants ideas.
+To read more, see our grant ideas, and apply, please go to [our Grants page on the main Hyli repository](https://github.com/hyli-org/hyli/blob/main/GRANTS.md). If you represent an organization, we'd love to discuss co-grants ideas.
 
 For questions that aren't answered on the Grants page, reach out [in our Telegram group](https://t.me/hyle_org).
 
@@ -30,4 +30,4 @@ Here are two past grants:
 - [Provable play-by-email games library](https://github.com/MatteoMer/provable-email-game-engine)
 - [Proof of residency app](https://github.com/rutefig/proof-of-residency)
 
-Find the full list on [our Grants page on the main Hyli repository](https://github.com/Hyle-org/hyle/blob/main/GRANTS.md).
+Find the full list on [our Grants page on the main Hyli repository](https://github.com/hyli-org/hyli/blob/main/GRANTS.md).

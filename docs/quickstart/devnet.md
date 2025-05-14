@@ -1,6 +1,6 @@
 # Run your local devnet
 
-For a single-node devnet (consensus disabled) with an indexer, clone the [hyle repository](https://github.com/Hyle-org/hyle) and run:
+For a single-node devnet (consensus disabled) with an indexer, clone the [hyli repository](https://github.com/hyli-org/hyli) and run:
 
 ```sh
 cargo run -- --pg

@@ -2,7 +2,7 @@
 
 ## When to use identity contracts on Hyli
 
-On Hyli, **any smart contract can be a proof of identity**. This flexibility enables you to register your preferred identity source as a smart contract for account identification. If you don't want to use a custom identity source, Hyli ships [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity).
+On Hyli, **any smart contract can be a proof of identity**. This flexibility enables you to register your preferred identity source as a smart contract for account identification. If you don't want to use a custom identity source, Hyli ships [a native `hydentity` contract](https://github.com/hyli-org/hyli/tree/main/crates/contracts/hydentity).
 
 This guide walks you through creating and deploying your first simple identity contract using Hyli and RISC Zero. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/main/simple-identity), which mirrors our [simple token transfer example](./first-token-contract.md).
 

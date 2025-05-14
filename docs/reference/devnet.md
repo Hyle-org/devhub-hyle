@@ -2,7 +2,7 @@
 
 ## Recommended: Run from source
 
-For a single-node devnet (consensus disabled) with an indexer, clone the [hyle repository](https://github.com/Hyle-org/hyle) and run:
+For a single-node devnet (consensus disabled) with an indexer, clone the [hyle repository](https://github.com/hyli-org/hyli) and run:
 
 ```sh
 cargo run -- --pg
@@ -32,19 +32,19 @@ Use Docker to run a local node. Note that the devnet is unstable and may break w
 ### Pull the Docker image
 
 ```bash
-docker pull ghcr.io/hyle-org/hyle:v0.12.1
+docker pull ghcr.io/hyli-org/hyli:v0.12.1
 ```
 
 ### Run the Docker container
 
 ```bash
-docker run -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.12.1
+docker run -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyli-org/hyli:v0.12.1
 ```
 
 If you run into an error, try adding the `--privileged` flag:
 
 ```bash
-docker run --privileged -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyle-org/hyle:v0.12.1
+docker run --privileged -v ./data:/hyle/data -p 4321:4321 ghcr.io/hyli-org/hyli:v0.12.1
 ```
 
 To run with an indexer, add the parameter `-e HYLE_RUN_INDEXER=true` and set up a running PostgreSQL server with Docker:
@@ -61,7 +61,7 @@ docker run -v ./data:/hyle/data \
     -e HYLE_DATABASE_URL=postgres://postgres:postgres@pg_hyle:5432/postgres \
     --link pg_hyle \
     -p 4321:4321 \
-    ghcr.io/hyle-org/hyle:v0.7.2
+    ghcr.io/hyli-org/hyli:v0.7.2
 ```
 
 You can now [create your first smart contract](../quickstart/example/first-token-contract.md).
@@ -74,7 +74,7 @@ To reset your devnet, delete the ./data folder and restart from Step 1. Otherwis
 If you prefer to build the image from source, run:
 
 ```bash
-docker build -t Hyle-org/hyle . && docker run -dit Hyle-org/hyle
+docker build -t hyli-org/hyli . && docker run -dit hyli-org/hyli
 ```
 
 ## Configuration
@@ -87,12 +87,12 @@ You can configure your setup using environment variables or by editing a configu
 
 To load settings from a file, place `config.toml` in your node's working directory. It will be detected automatically at startup.
 
-For documentation, see the defaults at [src/utils/conf_defaults.toml](https://github.com/Hyle-org/hyle/blob/main/src/utils/conf_defaults.ron).
+For documentation, see the defaults at [src/utils/conf_defaults.toml](https://github.com/hyli-org/hyli/blob/main/src/utils/conf_defaults.ron).
 
 For Docker users, mount the config file when running the container:
 
 ```bash
-docker run -v ./data:/hyle/data -v ./config.run:/hyle/config.toml -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyle-org/hyle:v0.12.1
+docker run -v ./data:/hyle/data -v ./config.run:/hyle/config.toml -e HYLE_RUN_INDEXER=false -p 4321:4321 -p 1234:1234 ghcr.io/hyli-org/hyli:v0.12.1
 cp ./src/utils/conf_defaults.toml config.toml
 ```
 

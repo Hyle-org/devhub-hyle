@@ -1,12 +1,12 @@
 # Release notes
 
-Read our [full changelogs on GitHub](https://github.com/Hyle-org/hyle/releases/) or the short versions [in our Telegram group](https://t.me/hyle_org).
+Read our [full changelogs on GitHub](https://github.com/hyli-org/hyli/releases/) or the short versions [in our Telegram group](https://t.me/hyle_org).
 
 ## 2025-02-24 − v0.12.0
 
 🗞️ Our news:
 
-- All examples [have been updated to v0.11.0](https://github.com/Hyle-org/hyle/releases/tag/v0.11.0)
+- All examples [have been updated to v0.11.0](https://github.com/hyli-org/hyli/releases/tag/v0.11.0)
 - We’ve added Metamask authentication to our demo AMM, [Hyleoof](https://blog.hyli.org/introducing-hyleoof/). We’re looking forward to making the demo fully public!
 
 💥 Breaking changes:
@@ -112,7 +112,7 @@ Quick note: release notes will be published on Fridays instead of Mondays from n
 
 - Hyle-contracts: Merged the contracts ‘metadata’ feature into ‘client’
 - There are no more `RegisterContract` transactions: contracts are now registered with `BlobTransactions`, like everything else.
-- Contract registration has been reworked using proof outputs; we introduced UUID contract names ([see uuid-tld](https://github.com/Hyle-org/hyle/tree/88ba05b5da901e13ff2fb3620c23a64f8cc44093/crates/contracts/uuid-tld) for an example).
+- Contract registration has been reworked using proof outputs; we introduced UUID contract names ([see uuid-tld](https://github.com/hyli-org/hyli/tree/88ba05b5da901e13ff2fb3620c23a64f8cc44093/crates/contracts/uuid-tld) for an example).
 - Removed `hyled` and `hyrun`. If you were using them, check out our SDK instead.
 
 ✨New features:
@@ -130,15 +130,15 @@ Quick note: release notes will be published on Fridays instead of Mondays from n
 
 📚 Documentation:
 
-- Our [SDK has a README](https://github.com/Hyle-org/hyle/tree/main/crates/contract-sdk) now!
+- Our [SDK has a README](https://github.com/hyli-org/hyli/tree/main/crates/contract-sdk) now!
 
-Read the [full changelog on GitHub](https://github.com/Hyle-org/hyle/releases/tag/v0.8.0).
+Read the [full changelog on GitHub](https://github.com/hyli-org/hyli/releases/tag/v0.8.0).
 
 ## 2025-01-21 − v0.7.1 & v0.7.2
 
 Small patches for our SDK.
 
-Read release notes [for v0.7.1](https://github.com/Hyle-org/hyle/releases/tag/v0.7.1) and [v0.7.2](https://github.com/Hyle-org/hyle/releases/tag/v0.7.2); see new [SDK readme](https://github.com/Hyle-org/hyle/tree/main/crates/contract-sdk) for more info.
+Read release notes [for v0.7.1](https://github.com/hyli-org/hyli/releases/tag/v0.7.1) and [v0.7.2](https://github.com/hyli-org/hyli/releases/tag/v0.7.2); see new [SDK readme](https://github.com/hyli-org/hyli/tree/main/crates/contract-sdk) for more info.
 
 ## 2025-01-20 − v0.7.0
 
@@ -166,7 +166,7 @@ Read release notes [for v0.7.1](https://github.com/Hyle-org/hyle/releases/tag/v0
 - [Transactions on Hyli](https://docs.hyli.org//concepts/transaction/)
 - [Identity management](https://docs.hyli.org//concepts/identity/)
 
-Read the [full changelog on GitHub](https://github.com/Hyle-org/hyle/releases/tag/v0.7.0) and receive future release notes [in our Telegram group](https://t.me/hyle_org).
+Read the [full changelog on GitHub](https://github.com/hyli-org/hyli/releases/tag/v0.7.0) and receive future release notes [in our Telegram group](https://t.me/hyle_org).
 
 ## 2025-01-13 − v0.6.0
 
@@ -187,4 +187,4 @@ Read the [full changelog on GitHub](https://github.com/Hyle-org/hyle/releases/ta
 
 - Rewrote [our Quickstart guide](https://docs.hyli.org//quickstart/).
 
-Read the [full changelog on GitHub](https://github.com/Hyle-org/hyle/releases/tag/v0.6.0) and receive future release notes [in our Telegram group](https://t.me/hyle_org).
+Read the [full changelog on GitHub](https://github.com/hyli-org/hyli/releases/tag/v0.6.0) and receive future release notes [in our Telegram group](https://t.me/hyle_org).

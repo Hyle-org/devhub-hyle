@@ -26,7 +26,7 @@ When selecting an identity contract, remember:
 
 The identity provider should sign the entire blob transaction to ensure that all the included blobs have been approved by the user. One approach is to make the user sign the blobs they agree to execute. The identity contract then verifies that all blobs in the transaction are properly signed.
 
-If you don't want to create a custom identity source for early development, Hyli provides [a native `hydentity` contract](https://github.com/Hyle-org/hyle/tree/main/crates/contracts/hydentity). This contract is not secure and must not be used in production.
+If you don't want to create a custom identity source for early development, Hyli provides [a native `hydentity` contract](https://github.com/hyli-org/hyli/tree/main/crates/contracts/hydentity). This contract is not secure and must not be used in production.
 
 ## Identity verification methods
 

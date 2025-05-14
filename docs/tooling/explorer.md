@@ -6,7 +6,7 @@ title: Explorer
 
 The explorer is live at [hyleou.hyli.org](https://hyleou.hyli.org/).  
 
-The source code is available on [GitHub](https://github.com/hyle-org/hyleou). We welcome PRs and issues!
+The source code is available on [GitHub](https://github.com/hyli-org/hyliou). We welcome PRs and issues!
 
 ## Features
 
