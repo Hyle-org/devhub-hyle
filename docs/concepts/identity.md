@@ -1,6 +1,6 @@
 # Identity management
 
-Identity [in traditional blockchains](./hyle-vs-vintage-blockchains.md) is typically tied to a single wallet address. This approach limits flexibility and compromises privacy.
+Identity [in traditional blockchains](./hyli-vs-vintage-blockchains.md) is typically tied to a single wallet address. This approach limits flexibility and compromises privacy.
 
 On Hyli, **any smart contract can be a proof of identity**. This enables you to register your preferred identity source as a smart contract for authentication.
 

@@ -2,7 +2,7 @@
 
 Hyli introduces a novel transaction model that separates intent from proof, optimizing for scalability and privacy.
 
-Unlike [traditional blockchains](./hyle-vs-vintage-blockchains.md), where transactions are executed and proven in a single step, Hyli employs a two-step process called [pipelined proving](./pipelined-proving.md):
+Unlike [traditional blockchains](./hyli-vs-vintage-blockchains.md), where transactions are executed and proven in a single step, Hyli employs a two-step process called [pipelined proving](./pipelined-proving.md):
 
 1. **Blob-transaction**: outlines a state change for sequencing.
 2. **Proof-transaction**: provides a proof of the state change for settlement.

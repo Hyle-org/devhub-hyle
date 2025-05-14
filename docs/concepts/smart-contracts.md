@@ -2,7 +2,7 @@
 
 Hyli is a fully programmable blockchain designed for efficient data storage. Hyli only keeps the essential information needed to validate smart contract proofs, ensuring that smart contracts are lightweight and performant.
 
-[Unlike traditional blockchains](./hyle-vs-vintage-blockchains.md), which store all smart contract data onchain, Hyli separates execution data (managed offchain by each application) from onchain data, which can be retrieved via our ABI.
+[Unlike traditional blockchains](./hyli-vs-vintage-blockchains.md), which store all smart contract data onchain, Hyli separates execution data (managed offchain by each application) from onchain data, which can be retrieved via our ABI.
 
 ## Onchain smart contract data
 
