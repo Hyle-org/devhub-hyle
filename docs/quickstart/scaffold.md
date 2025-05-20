@@ -1,4 +1,4 @@
-# Set up your backend with the scaffold
+# Set up your backend
 
 Use the [Hyli scaffold repository](https://github.com/hyli-org/app-scaffold) to set up your backend service. It comes with a built-in autoprover and server implementation, so you can focus on your contracts and frontend.
 
