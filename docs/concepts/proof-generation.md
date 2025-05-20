@@ -16,7 +16,7 @@ Each app developer also defines what the **public and private inputs** of their 
 
 ### Choose how you prove
 
-Proving schemes are the cryptographic protocols that make zero-knowledge proofs usable. We support as many as we can, giving you the flexibility to choose the most suitable protocol for your specific use case.
+We support as many proving schemes we can, giving you the flexibility to choose the most suitable protocol for your specific use case.
 
 We've written templates for some of [our supported programs](../reference/supported-proving-schemes.md). Clone them to [get started](../quickstart/your-first-smart-contract.md) with smart contract writing.
 
@@ -24,6 +24,7 @@ We also verify these natively, without the need for a ZK proof.
 
 - sha3_256
 - BLST signatures
+- Secp256k1 signatures
 
 There are [many ZK languages](https://github.com/microbecode/zk-languages). Hyli aims to verify as many as possible.
 
@@ -47,9 +48,10 @@ Each application can generate its proof in whichever place fits best.
 
 ### Autoproving through our scaffold
 
-[Hyli’s scaffold](https://github.com/hyli-org/app-scaffold) includes a built-in autoprover service so you can focus on writing contracts and frontends, without setting up a custom proving flow.
+[Hyli’s scaffold](https://github.com/hyli-org/app-scaffold) includes a built-in AutoProver service that automatically detects transactions related to your contract. It generates the corresponding proof and submits the associated proof transaction to Hyli.
 
-The scaffold sets up a server to handle transaction creation, proving, and submission. This setup is ideal for projects where you want minimal backend setup and an easier onboarding experience.
+With autoproving in place, you don’t need to manage custom proving flows. Just write your contract and connect a frontend—the scaffold handles everything else.
+This setup is ideal for projects where you want minimal backend setup and an easier onboarding experience.
 
 Visit the [scaffold repository](https://github.com/hyli-org/app-scaffold) or follow [the quickstart instructions](../quickstart/scaffold.md).
 
