@@ -24,7 +24,7 @@ If you haven't written a contract yet, follow [how to write your first smart con
 
 ## Add your frontend
 
-Put your frontend code in the `front/` directory. This can be a new or existing Bun-based project.
+Put your frontend code in the `front/` directory.
 
 Make sure the frontend connects to the backend at the expected route (`/prove`, `/submit`, etc.), or adapt accordingly.
 
