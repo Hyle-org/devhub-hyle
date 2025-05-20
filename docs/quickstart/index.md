@@ -18,6 +18,11 @@ It uses several examples to help you start building as soon as possible.
         "icon": ":material-creation:",
     },
     {
+        "title": "[Set up your backend](./scaffold.md)",
+        "content": "Using our scaffold repository, set up your backend and start proving.",
+        "icon": ":fontawesome-solid-water-ladder:",
+    },
+    {
         "title": "[Walk through a full example](./example/index.md)",
         "content": "Check out a ticket app based on a token and simple identity contract.",
         "icon": ":material-globe-model:",
