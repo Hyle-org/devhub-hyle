@@ -23,7 +23,7 @@ The contract name must be unique.
 
 Apps on Hyli rely on a pairing of a zero-knowledge proof scheme (verifier) and a program identifier. Together, these components validate contract proofs.
 
-Clone a template or write your own program to [get started with app writing](../quickstart/your-first-smart-contract.md).
+Clone a template or write your own program to [get started with app writing](../quickstart/your-first-app.md).
 
 | Proving scheme | Verifier | Program ID | Template |
 |----------------|----------|---------------------------------------------------|---|

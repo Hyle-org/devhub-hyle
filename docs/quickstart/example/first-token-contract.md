@@ -4,7 +4,7 @@ This guide will walk you through creating and deploying your first token transfe
 
 For an alternative implementation, check out [the same example built with SP1](https://github.com/Hyle-org/examples/tree/main/simple-token-sp1).
 
-If you’re new to apps on Hyli, read the [anatomy of an app](../../concepts/smart-contracts.md).
+If you’re new to apps on Hyli, read the [anatomy of an app](../../concepts/apps.md.md).
 
 ## Example
 

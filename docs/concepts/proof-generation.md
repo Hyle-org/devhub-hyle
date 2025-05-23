@@ -18,7 +18,7 @@ Each app developer also defines what the **public and private inputs** of their 
 
 We support as many proving schemes we can, giving you the flexibility to choose the most suitable protocol for your specific use case.
 
-We've written templates for some of [our supported programs](../reference/supported-proving-schemes.md). Clone them to [get started](../quickstart/your-first-smart-contract.md) with app writing.
+We've written templates for some of [our supported programs](../reference/supported-proving-schemes.md). Clone them to [get started](../quickstart/your-first-app.md) with app writing.
 
 We also verify these natively, without the need for a ZK proof.
 

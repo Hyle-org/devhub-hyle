@@ -13,7 +13,7 @@ We support [several proving schemes](../reference/supported-proving-schemes.md):
 | [Risc0](https://risc0.com/docs/)    | risc0    | Image ID without a prefix. ex. 0x123 becomes 123. | Rust | [Template](https://github.com/Hyle-org/template-risc0)|
 | [SP1](https://docs.succinct.xyz/docs/introduction)        | sp1   | Verification key.       | Rust | [Template](https://github.com/Hyle-org/template-sp1)|
 
-Clone the template or, for proving schemes without templates, use the templates as inspiration for writing your contract. You can also check our [app concept page](../concepts/smart-contracts.md) for more information!
+Clone the template or, for proving schemes without templates, use the templates as inspiration for writing your contract. You can also check our [app concept page](../concepts/apps.md.md) for more information!
 
 ## Step 2: Edit your app
 

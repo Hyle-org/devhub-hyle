@@ -13,7 +13,7 @@ It uses several examples to help you start building as soon as possible.
         "icon": ":material-home:",
     },
     {
-        "title": "[Create your first app](./your-first-smart-contract.md)",
+        "title": "[Create your first app](./your-first-app.md)",
         "content": "In just a couple of lines, create and register your first app.",
         "icon": ":material-creation:",
     },

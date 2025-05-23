@@ -20,7 +20,7 @@ From here, you’ll add your contracts and frontend.
 
 Place your `.rs` app files in the `contracts/` directory.
 
-If you haven't written a contract yet, follow [how to write your first app](./your-first-smart-contract.md).
+If you haven't written a contract yet, follow [how to write your first app](./your-first-app.md).
 
 ## Add your frontend
 
