@@ -395,12 +395,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../quickstart/your-first-smart-contract/" class="md-nav__link">
+      <a href="../../quickstart/your-first-app/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Your first smart contract
+    Your first app
     
   </span>
   
@@ -582,12 +582,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../smart-contracts/" class="md-nav__link">
+      <a href="../apps/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Smart contracts
+    Apps on Hyli
     
   </span>
   
@@ -1453,7 +1453,7 @@
 
 <div><h1 id="identity-management">Identity management</h1>
 <p>Identity <a href="../hyli-vs-vintage-blockchains/">in traditional blockchains</a> is typically tied to a single wallet address. This approach limits flexibility and compromises privacy.</p>
-<p>On Hyli, <strong>any smart contract can be a proof of identity</strong>. This enables you to register your preferred identity source as a smart contract for authentication.</p>
+<p>On Hyli, <strong>any app can be a proof of identity</strong>. This enables you to register your preferred identity source as an app for authentication.</p>
 <h2 id="how-hyli-processes-identity-proofs">How Hyli processes identity proofs</h2>
 <p>A blob transaction on Hyli includes multiple blobs. One of these blobs must contain an identity claim. (If this isn't clear, read more on <a href="../transaction/">our transactions concept page</a>.)</p>
 <ul>
@@ -1495,7 +1495,7 @@
 <p>The OpenID provider knows your secret key, so it could be able to generate transactions on  your behalf.</p>
 <p><img alt="A blob transaction where identity is bob@gmail.com.oidc. Blob0 is to verify openID with an OIDC contract; the proof for blob0 has the openID as private input and verify its validity. The other blob is an USDC contract to transfer money. " src="../../assets/img/identity-openid.jpg"></p>
 <h2 id="custom-identity-contracts">Custom identity contracts</h2>
-<p>Applications on Hyli can implement custom identity verification rules through smart contracts. A typical identity contract includes two core functions, as shown in <a href="../../quickstart/example/custom-identity-contract/">our identity quickstart</a>:</p>
+<p>Applications on Hyli can implement custom identity verification rules through apps. A typical identity contract includes two core functions, as shown in <a href="../../quickstart/example/custom-identity-contract/">our identity quickstart</a>:</p>
 <ul>
 <li><strong>Register</strong>: Users submit an initial proof of identity.</li>
 <li><strong>Verify</strong>: The contract validates the proof against predefined rules.</li>

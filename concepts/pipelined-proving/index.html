@@ -395,12 +395,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../quickstart/your-first-smart-contract/" class="md-nav__link">
+      <a href="../../quickstart/your-first-app/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Your first smart contract
+    Your first app
     
   </span>
   
@@ -582,12 +582,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../smart-contracts/" class="md-nav__link">
+      <a href="../apps/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Smart contracts
+    Apps on Hyli
     
   </span>
   
@@ -1387,7 +1387,7 @@
 
 <div><h1 id="pipelined-proving">Pipelined proving</h1>
 <h2 id="the-problem-base-state-conflicts">The problem: base state conflicts</h2>
-<p>The Hyli Layer 1 ensures both privacy and scalability by verifying only the state transitions of smart contracts, rather than re-executing them. This approach reduces computational overhead but introduces a critical issue for provable applications: base state conflicts.</p>
+<p>The Hyli Layer 1 ensures both privacy and scalability by verifying only the state transitions of apps, rather than re-executing them. This approach reduces computational overhead but introduces a critical issue for provable applications: base state conflicts.</p>
 <p>An app with a lot of usage will see conflicting operations, where multiple transactions reference the same base state, waiting for the previous state change to be settled.</p>
 <p>The time spent generating proofs delays transaction finality. Proofs require accurate timestamps, but users can't predict when their transaction will be sequenced.</p>
 <p>This causes parallelization limits: multiple transactions may reference the same base state, creating invalid proofs when one is settled before the other.</p>

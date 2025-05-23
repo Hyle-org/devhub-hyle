@@ -395,12 +395,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../your-first-smart-contract/" class="md-nav__link">
+      <a href="../../your-first-app/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Your first smart contract
+    Your first app
     
   </span>
   
@@ -867,12 +867,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../concepts/smart-contracts/" class="md-nav__link">
+      <a href="../../../concepts/apps/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Smart contracts
+    Apps on Hyli
     
   </span>
   
@@ -1717,7 +1717,7 @@
 
 <div><h1 id="using-a-custom-identity-contract">Using a custom identity contract</h1>
 <h2 id="when-to-use-identity-contracts-on-hyli">When to use identity contracts on Hyli</h2>
-<p>On Hyli, <strong>any smart contract can be a proof of identity</strong>. This flexibility enables you to register your preferred identity source as a smart contract for account identification. If you don't want to use a custom identity source, Hyli ships <a href="https://github.com/hyli-org/hyli/tree/main/crates/contracts/hydentity">a native <code>hydentity</code> contract</a>.</p>
+<p>On Hyli, <strong>any app can be a proof of identity</strong>. This flexibility enables you to register your preferred identity source as an app for account identification. If you don't want to use a custom identity source, Hyli ships <a href="https://github.com/hyli-org/hyli/tree/main/crates/contracts/hydentity">a native <code>hydentity</code> contract</a>.</p>
 <p>This guide walks you through creating and deploying your first simple identity contract using Hyli and RISC Zero. We'll use <a href="https://github.com/Hyle-org/examples/tree/main/simple-identity">our simple identity example</a>, which mirrors our <a href="../first-token-contract/">simple token transfer example</a>.</p>
 <p>If you’re new to identity management on Hyli, read the <a href="../../../concepts/identity/">identity management concept page</a>.</p>
 <h2 id="run-the-example">Run the example</h2>
@@ -1737,7 +1737,7 @@
 <li><a href="../../devnet/">Start a single-node devnet</a>. We recommend using <a href="https://dev.risczero.com/api/generating-proofs/dev-mode">dev-mode</a> with <code>-e RISC0_DEV_MODE=1</code> for faster iterations during development.</li>
 </ul>
 <h3 id="build-and-register-the-identity-contract">Build and register the identity contract</h3>
-<p>To build all methods and register the smart contract on the local node <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs">from the source</a>, navigate to your cloned Examples folder and run:</p>
+<p>To build all methods and register the app on the local node <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs">from the source</a>, navigate to your cloned Examples folder and run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span>run<span class="w"> </span>--<span class="w"> </span>register-contract
 </span></code></pre></div>
 <p>The expected output is <code>📝 Registering new contract simple_identity</code>.</p>
@@ -1778,7 +1778,7 @@
 <h2 id="code-snippets">Code snippets</h2>
 <p>Find the full annotated code in <a href="https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs">our examples repository</a>.</p>
 <h3 id="registering-the-contract">Registering the contract</h3>
-<p>This part is the same as for <a href="../first-token-contract/">Your first smart contract</a>.</p>
+<p>This part is the same as for <a href="../first-token-contract/">Your first app</a>.</p>
 <h3 id="register-an-identity">Register an identity</h3>
 <h4 id="build-the-blob-transaction">Build the blob transaction</h4>
 <p>This is a simplified code snippet:</p>
