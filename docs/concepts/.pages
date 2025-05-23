@@ -1,6 +1,6 @@
 nav:
     - index.md
-    - apps.md.md
+    - apps.md
     - transaction.md
     - proof-generation.md
     - identity.md
