@@ -1,6 +1,6 @@
 # Supported proving schemes
 
-Clone a template or write your own program to [get started with smart contract writing](../quickstart/your-first-smart-contract.md).
+Clone a template or write your own program to [get started with sapp writing](../quickstart/your-first-app.md).
 
 | Proving scheme | Verifier | Program ID | Template |
 |----------------|----------|---------------------------------------------------|---|

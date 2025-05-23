@@ -2,7 +2,7 @@
 
 Identity [in traditional blockchains](./hyli-vs-vintage-blockchains.md) is typically tied to a single wallet address. This approach limits flexibility and compromises privacy.
 
-On Hyli, **any smart contract can be a proof of identity**. This enables you to register your preferred identity source as a smart contract for authentication.
+On Hyli, **any app can be a proof of identity**. This enables you to register your preferred identity source as an app for authentication.
 
 ## How Hyli processes identity proofs
 
@@ -61,7 +61,7 @@ The OpenID provider knows your secret key, so it could be able to generate trans
 
 ## Custom identity contracts
 
-Applications on Hyli can implement custom identity verification rules through smart contracts. A typical identity contract includes two core functions, as shown in [our identity quickstart](../quickstart/example/custom-identity-contract.md):
+Applications on Hyli can implement custom identity verification rules through apps. A typical identity contract includes two core functions, as shown in [our identity quickstart](../quickstart/example/custom-identity-contract.md):
 
 - **Register**: Users submit an initial proof of identity.
 - **Verify**: The contract validates the proof against predefined rules.

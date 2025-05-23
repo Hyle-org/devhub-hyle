@@ -15,7 +15,7 @@ We heard your feedback on our **frequent breaking changes**. Going forward, we�
 
 - Contract input now uses state instead of state digest, which simplifies the API.
 - SP1 verifier is now a separate feature: this drastically shortens build time if you’re not using it.
-- We’ve improved the general structure of smart contracts.
+- We’ve improved the general structure of apps.
 
 ✨ New features:
 
