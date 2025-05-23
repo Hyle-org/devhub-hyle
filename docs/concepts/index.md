@@ -8,11 +8,11 @@ This section includes general documentation topics. You can also refer to [our G
 
 <div class="grid cards" markdown>
 
--   :material-lightbulb:{ .lg .middle } __Smart contracts__
+-   :material-lightbulb:{ .lg .middle } __Apps__
 
     ---
 
-    Most smart contract information stays off-chain.
+    Most app information stays off-chain.
 
     [:octicons-arrow-right-24: Read more](./smart-contracts.md)
 
@@ -36,7 +36,7 @@ This section includes general documentation topics. You can also refer to [our G
 
     ---
 
-    Any smart contract can be an identity on Hyli.
+    Any app can be an identity on Hyli.
 
     [:octicons-arrow-right-24: Read more](./identity.md)
 

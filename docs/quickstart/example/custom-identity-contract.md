@@ -2,7 +2,7 @@
 
 ## When to use identity contracts on Hyli
 
-On Hyli, **any smart contract can be a proof of identity**. This flexibility enables you to register your preferred identity source as a smart contract for account identification. If you don't want to use a custom identity source, Hyli ships [a native `hydentity` contract](https://github.com/hyli-org/hyli/tree/main/crates/contracts/hydentity).
+On Hyli, **any app can be a proof of identity**. This flexibility enables you to register your preferred identity source as an app for account identification. If you don't want to use a custom identity source, Hyli ships [a native `hydentity` contract](https://github.com/hyli-org/hyli/tree/main/crates/contracts/hydentity).
 
 This guide walks you through creating and deploying your first simple identity contract using Hyli and RISC Zero. We'll use [our simple identity example](https://github.com/Hyle-org/examples/tree/main/simple-identity), which mirrors our [simple token transfer example](./first-token-contract.md).
 
@@ -25,7 +25,7 @@ If you’re new to identity management on Hyli, read the [identity management co
 
 ### Build and register the identity contract
 
-To build all methods and register the smart contract on the local node [from the source](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs), navigate to your cloned Examples folder and run:
+To build all methods and register the app on the local node [from the source](https://github.com/Hyle-org/examples/blob/main/simple-identity/host/src/main.rs), navigate to your cloned Examples folder and run:
 
 ```bash
 cargo run -- register-contract
@@ -93,7 +93,7 @@ Find the full annotated code in [our examples repository](https://github.com/Hyl
 
 ### Registering the contract
 
-This part is the same as for [Your first smart contract](./first-token-contract.md).
+This part is the same as for [Your first app](./first-token-contract.md).
 
 ### Register an identity
 

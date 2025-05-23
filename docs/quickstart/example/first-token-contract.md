@@ -4,7 +4,7 @@ This guide will walk you through creating and deploying your first token transfe
 
 For an alternative implementation, check out [the same example built with SP1](https://github.com/Hyle-org/examples/tree/main/simple-token-sp1).
 
-If you’re new to smart contracts on Hyli, read the [anatomy of a smart contract](../../concepts/smart-contracts.md).
+If you’re new to apps on Hyli, read the [anatomy of an app](../../concepts/smart-contracts.md).
 
 ## Example
 
@@ -22,7 +22,7 @@ If you’re new to smart contracts on Hyli, read the [anatomy of a smart contrac
 
 ### Build and register the contract
 
-To build all methods and register the smart contract [from the source](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs), navigate to your cloned Examples folder and run:
+To build all methods and register the app [from the source](https://github.com/Hyle-org/examples/blob/main/simple-token/host/src/main.rs), navigate to your cloned Examples folder and run:
 
 ```bash
 cargo run -- register 1000
